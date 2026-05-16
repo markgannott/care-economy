@@ -28,7 +28,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;
   background:var(--blue-dk);display:flex;flex-direction:column;
   border-right:1px solid rgba(255,255,255,0.08)}
-.sb-logo{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.sb-logo{padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.1)}
 .sb-logo img{display:block;max-width:100%;height:auto;max-height:110px;opacity:.95;margin:0 auto}
 .sb-tag{padding:.55rem 1.5rem;font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.08)}
 .nav{list-style:none;padding:.75rem 0;flex:1}
@@ -57,7 +57,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .hero .eyebrow{color:rgba(255,255,255,.75)}
 .hero h1{font-family:var(--serif);font-size:3.7rem;font-weight:500;color:#fff;line-height:1.15;margin-bottom:1.25rem}
 .hero-lead-box{background:#fff;border-radius:12px;padding:1.4rem 1.75rem;margin-bottom:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,.14)}
-.hero-lead{font-family:var(--sans);font-size:1rem;color:var(--text);line-height:1.75;margin:0}
+.hero-lead{font-family:var(--sans);font-size:1rem;color:var(--text);line-height:1.75;margin:0}.hero-thesis{background:rgba(255,255,255,.12);border-radius:12px;padding:1.5rem 1.75rem;margin-top:1.75rem;border:1px solid rgba(255,255,255,.22)}.hero-thesis h2{color:#fff;font-family:var(--serif);font-size:1.8rem;font-weight:500;line-height:1.2;margin-bottom:.5rem}.hero-thesis p{color:rgba(255,255,255,.92);font-size:1rem;line-height:1.75;margin:0}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 @media(max-width:740px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
 .hs{background:#fff;border:none;border-radius:12px;padding:1.25rem 1.1rem;box-shadow:0 2px 12px rgba(0,0,0,.12)}
@@ -112,10 +112,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .mc-lo{border-radius:12px;padding:1.5rem;background:#fff;border:1px solid #D0DEF7;border-top:4px solid var(--blue-lt)}
 .mc-lo h3{font-family:var(--sans);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:.4rem}
 .mc-lo .mv{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--blue);margin-bottom:.75rem}
-.mc-md{border-radius:12px;padding:1.5rem;background:#fff;border:1px solid var(--border);border-top:4px solid var(--blue)}
+.mc-md{border-radius:12px;padding:1.5rem;background:#FFF8F4;border:1px solid #F5D5C0;border-top:4px solid var(--orange)}
 .mc-md h3{font-family:var(--sans);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:.4rem}
 .mc-md .mv{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--blue);margin-bottom:.75rem}
-.mc-hi{border-radius:12px;padding:1.5rem;background:linear-gradient(150deg,#FFF6F0 0%,#fff 65%);border:1px solid #F5D5C0;border-top:4px solid var(--orange)}
+.mc-hi{border-radius:12px;padding:1.5rem;background:#F0F4FA;border:1px solid #C8D5ED;border-top:4px solid var(--blue-dk)}
 .mc-hi h3{font-family:var(--sans);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:.4rem}
 .mc-hi .mv{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--orange);margin-bottom:.75rem}
 .mc-lo p,.mc-md p,.mc-hi p{font-family:var(--sans);font-size:.86rem;color:#555;line-height:1.68}
@@ -270,7 +270,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .pbadge{font-family:var(--sans);font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:20px}
 .pb1{background:#EEF4FF;color:#3672D7;border:1px solid rgba(54,114,215,.25)}
 .pb2{background:#FFF3EC;color:#E27D39;border:1px solid rgba(226,125,57,.25)}
-.pb3{background:#F9F0FC;color:#BD77C6;border:1px solid rgba(189,119,198,.25)}
+.pb3{background:#EEF2FF;color:#224B90;border:1px solid rgba(34,75,144,.25)}
 .pb13{background:#F4F6FA;color:#555;border:1px solid #ddd}
 .sec.blue .pbadge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25)}
 /* ─ ACT DIVIDERS ─────────────────────────────────────────── */
@@ -290,7 +290,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="sb-tag">The Care Economy &middot; 2026</div>
   <ul class="nav">
     <li><a href="#thesis">Thesis</a></li>
-    <li><a href="#summary">Executive Summary</a></li>
     <li><a href="#papers">The Research</a></li>
     <li class="nav-part"><a href="#part1">Part I   Scale</a></li>
     <li><a href="#method">Valuation</a></li>
@@ -322,13 +321,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="hs hs-p"><div class="hs-n">$353,782</div><div class="hs-l">Lifetime economic penalty   primary caregiver, career exit at 55</div></div>
     <div class="hs hs-g"><div class="hs-n">&lt;1%</div><div class="hs-l">of healthcare venture capital allocated to the care economy</div></div>
   </div>
-</section><section id="summary" class="exec">
-  <div class="exec-hd">
-    <div class="eyebrow">Investment Thesis</div>
+  <div class="hero-thesis">
     <h2>The opportunity in brief.</h2>
     <p>10,000 Americans turn 65 every day. A CMS payer pathway is already open through the GUIDE Model. 30.8% of US healthcare spending. Less than 1% of venture capital follows it. That ratio is the thesis.</p>
   </div>
-
 </section>
 <section id="papers" class="sec blue">
   <div class="sec-ey">The Research</div>
