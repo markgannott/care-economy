@@ -491,25 +491,10 @@ new Chart(document.getElementById('chart-method'),{type:'bar',
     scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${v}B`,color:C.tick},max:2000}}}});
 
 // 2 CONTEXT (white bg)
-new Chart(document.getElementById('chart-context'),{type:'bar',
-  data:{labels:[['Care Economy','(Gannott 2026)'],['Household','Economic Pressure'],['US Pharma','(for scale)']],
-    datasets:[{data:[1620,1125,694],backgroundColor:[C.orange,a(C.orange,.55),a(C.blue,.3)],borderRadius:8,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`$${(v/1000).toFixed(2)}T`,font:{weight:700,size:12},
-    color:(ctx)=>ctx.dataIndex===0?C.orange:C.blue}},
-    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${(v/1000).toFixed(1)}T`,color:C.tick},max:2000}}}});
+
 
 // 3 DEMOGRAPHIC CLIFF (blue bg)
-new Chart(document.getElementById('chart-demo'),{type:'line',
-  data:{labels:['1960','1970','1980','1990','2000','2010','2020','2030'],
-    datasets:[{data:[6,5.5,5.0,4.5,4.3,4.0,3.5,3],
-      borderColor:C.blue,backgroundColor:a(C.blue,.07),fill:true,tension:0.4,pointRadius:5,
-      pointBackgroundColor:[C.blue,C.blue,C.blue,C.blue,C.blue,C.blue,C.blue,C.orange],
-      pointBorderColor:'#fff',pointBorderWidth:2}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:(ctx)=>ctx.dataIndex===0||ctx.dataIndex===7,
-    anchor:'top',align:'top',formatter:v=>`${v}:1`,font:{weight:700,size:12},
-    color:(ctx)=>ctx.dataIndex===7?C.orange:C.blue}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}:1`,color:C.tick},min:2,max:7}}}});
+
 
 // 4 LIFETIME PENALTY (blue bg)
 new Chart(document.getElementById('chart-penalty'),{type:'bar',
@@ -532,12 +517,7 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
     scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}h`,color:C.tick}}}}});
 
 // 6 RECOVERABLE TIME (blue bg)
-new Chart(document.getElementById('chart-recover'),{type:'bar',
-  data:{labels:[['Care','Coordination'],['Respite','Support'],['Navigation','& Planning'],['AI-Assisted','Scheduling']],
-    datasets:[{data:[156,104,72,130],backgroundColor:[C.orange,C.blue,C.purple,C.gold],borderRadius:6,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`${v}h`,font:{weight:700,size:12},color:(ctx)=>[C.orange,C.blue,C.purple,C.gold][ctx.dataIndex]}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}h`,color:C.blTick},max:200}}}});
+
 
 // 7 ROI (blue bg)
 new Chart(document.getElementById('chart-roi'),{type:'bar',
@@ -600,12 +580,7 @@ new Chart(document.getElementById('chart-china'),{type:'bar',
       y:{grid:{display:false},ticks:{color:C.blTick}}}}});
 
 // COORDINATION: hidden cost comparison (Paper II)
-new Chart(document.getElementById('chart-coord'),{type:'bar',
-  data:{labels:[['Labor Gap','354 hrs/yr'],['Cognitive','Occupation']],
-    datasets:[{data:[9902,18374],backgroundColor:[C.orange,a(C.orange,.55)],borderRadius:8,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`$${(v/1000).toFixed(1)}K/yr`,font:{weight:700,size:12},color:C.orange}},
-    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${(v/1000).toFixed(0)}K`,color:C.tick},max:24000}}}});
+
 
 // RECOVERABLE SCALE: national value by hrs/wk (Paper III)
 new Chart(document.getElementById('chart-recover-scale'),{type:'bar',
