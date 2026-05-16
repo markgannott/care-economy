@@ -199,6 +199,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .print-btn{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:.65rem 1.1rem;font-family:var(--sans);font-size:.78rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(54,114,215,.35);z-index:100;display:flex;align-items:center;gap:.45rem}
 .print-btn:hover{background:var(--blue-dk)}
 .print-btn svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* ─ MOBILE NAV ───────────────────────────────────────────── */
+.mob-btn{display:none;position:fixed;bottom:1.5rem;left:1.5rem;width:44px;height:44px;background:var(--blue-dk);border:none;border-radius:50%;cursor:pointer;z-index:200;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(34,75,144,.4)}
+.mob-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(15,20,40,.92);z-index:199;flex-direction:column;justify-content:center;align-items:center;gap:.25rem;padding:2rem}
+.mob-overlay.open{display:flex}
+.mob-overlay a{font-family:var(--sans);font-size:1rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:.7rem 1.5rem;border-radius:8px;width:100%;max-width:320px;text-align:center;transition:background .15s,color .15s}
+.mob-overlay a:hover,.mob-overlay a:active{background:rgba(255,255,255,.1);color:#fff}
+.mob-overlay .mob-close{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:1rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none;border:none;padding:.5rem}
+@media(max-width:960px){.mob-btn{display:flex}}
 @media print{
   .sidebar,.print-btn{display:none!important}
   .page{display:block}
@@ -478,6 +487,23 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 
 </main>
 </div>
+<button class="mob-btn" id="mob-btn" aria-label="Navigation">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<div class="mob-overlay" id="mob-overlay">
+  <a href="#thesis" onclick="closeMob()">Thesis</a>
+  <a href="#summary" onclick="closeMob()">Executive Summary</a>
+  <a href="#papers" onclick="closeMob()">The Research</a>
+  <a href="#method" onclick="closeMob()">Valuation</a>
+  <a href="#burden" onclick="closeMob()">Economic Burden</a>
+  <a href="#coordination" onclick="closeMob()">Coordination Economy</a>
+  <a href="#recoverable" onclick="closeMob()">What's Recoverable</a>
+  <a href="#platform" onclick="closeMob()">Platform Economics</a>
+  <a href="#roi" onclick="closeMob()">ROI Case</a>
+  <a href="#policy" onclick="closeMob()">Policy Flywheel</a>
+  <a href="#global" onclick="closeMob()">Global Extension</a>
+  <button class="mob-close" onclick="closeMob()">Close</button>
+</div>
 <button class="print-btn" onclick="window.print()">
   <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
   Print / Save PDF
@@ -666,6 +692,16 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.3});
 document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+
+// Mobile nav
+const mobBtn=document.getElementById('mob-btn');
+const mobOverlay=document.getElementById('mob-overlay');
+function closeMob(){mobOverlay.classList.remove('open');document.body.style.overflow='';}
+mobBtn.addEventListener('click',()=>{
+  mobOverlay.classList.toggle('open');
+  document.body.style.overflow=mobOverlay.classList.contains('open')?'hidden':'';
+});
+mobOverlay.addEventListener('click',e=>{if(e.target===mobOverlay)closeMob();});
 </script>
 </body>
 </html>
