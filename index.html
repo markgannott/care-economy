@@ -48,7 +48,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
 
 /* ─ HERO (storytelling → brand blue #3672D7) ─────── */
-.hero{background:var(--blue);padding:5rem max(4rem,calc(50% - 460px)) 4rem;position:relative;overflow:hidden}
+.hero{background:var(--blue);padding:5rem 4rem 4rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;
   border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-60px;left:180px;width:300px;height:300px;
@@ -76,7 +76,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .exec-hd .eyebrow{color:rgba(255,255,255,.65)}
 .exec-hd h2{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:#fff;line-height:1.2;max-width:520px}
 .exec-hd p{font-family:var(--sans);font-size:.88rem;color:rgba(255,255,255,.65);max-width:560px;margin-top:.6rem;line-height:1.65}
-.exec-body{padding:2.5rem max(4rem,calc(50% - 460px));background:#fff}
+.exec-body{padding:2.5rem 4rem;background:#fff}
 .exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 @media(max-width:740px){.exec-grid{grid-template-columns:1fr}}
 .ec{background:#fff;border-radius:12px;padding:1.5rem;border-top:3px solid var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.06)}
@@ -93,7 +93,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 
 /* ─ SECTIONS ──────────────────────────────────────── */
 /* data mode: white */
-.sec{padding:3.5rem max(4rem,calc(50% - 460px));border-bottom:1px solid var(--border)}
+.sec{padding:3.5rem 4rem;border-bottom:1px solid var(--border)}
 /* data mode: light grey */
 .sec.grey{background:var(--grey)}
 /* storytelling mode: brand blue */
@@ -272,7 +272,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .pb13{background:#F4F6FA;color:#555;border:1px solid #ddd}
 .sec.blue .pbadge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25)}
 /* ─ ACT DIVIDERS ─────────────────────────────────────────── */
-.act-div{padding:2rem max(4rem,calc(50% - 460px));background:var(--blue-dk);border:none;display:flex;align-items:center;gap:1.25rem}
+.act-div{padding:2rem 4rem;background:var(--blue-dk);border:none;display:flex;align-items:center;gap:1.25rem}
 .act-div-n{font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.5);white-space:nowrap}
 .act-div-t{font-family:var(--serif);font-size:1.35rem;color:#fff;font-weight:500}
 .act-div-line{flex:1;height:1px;background:rgba(255,255,255,.15)}
@@ -561,6 +561,15 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
 // 6 RECOVERABLE TIME (blue bg)
 
 // 7 ROI (blue bg)
+new Chart(document.getElementById('chart-roi'),{type:'bar',
+  data:{labels:['HBS Low','HBS High','Mid-Term Low','Mid-Term High','Gannott 2026'],
+    datasets:[{data:[2.0,3.6,2.8,4.1,5.3],
+      backgroundColor:[a(C.blue,.2),a(C.blue,.2),a(C.blue,.4),a(C.blue,.4),C.orange],borderRadius:6,borderSkipped:false}]},
+  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
+    formatter:v=>`${v}x`,font:{weight:700,size:12},color:(ctx)=>ctx.dataIndex===4?C.orange:C.blue}},
+    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}x`,color:C.blTick},max:7}}}});
+
+// 8 GUIDE TAM (grey bg)
 new Chart(document.getElementById('chart-guide'),{type:'bar',
   data:{labels:[['5%','~$368M'],['10%','$735M'],['20%','$1.47B'],['30%','+Respite']],
     datasets:[{data:[368,735,1470,2205],backgroundColor:[a(C.blue,.3),C.blue,C.orange,C.gold],borderRadius:8,borderSkipped:false}]},
