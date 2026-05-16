@@ -298,7 +298,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <li><a href="#coordination">Coordination Economy</a></li>
     <li><a href="#gap">Infrastructure Gap</a></li>
     <li class="nav-part"><a href="#part3">Part III · Solution</a></li>
-    <li><a href="#roi">ROI Case</a></li>
     <li><a href="#platform">Payer Pathway</a></li>
     <li><a href="#policy">Policy Flywheel</a></li>
     <li class="nav-part"><a href="#part4">Part IV · The Team</a></li>
@@ -424,14 +423,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
 </section>
 <div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Solution — where the capital goes</span></div>
-<section id="roi" class="sec">
-  <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>The employer procurement motion writes itself.</h2>
-  <p class="sec-lead">HBS published the number: caregiver support programs return $2&ndash;$3.60 for every dollar spent. Extend to lifetime penalty prevention and the return is 5.3&times;. The motion writes to CFO and CHRO simultaneously · the rarest position in B2B.</p>
-  <div class="cg">
-    <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support (Gannott 2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
-  </div>
-</section><section id="platform" class="sec blue">
+<section id="platform" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Payment Mechanism</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>Medicare now pays for coordinating care at home. That is new.</h2>
   <p class="sec-lead">CMS is the federal agency that runs Medicare. In 2024, CMS launched the GUIDE Model &ndash; the first Medicare program that pays a provider to coordinate caregiving as a medical service. What it pays: $65&ndash;390 per month for a dedicated care navigator who manages the whole household. $2,500 per year so the caregiver can take a break. 390+ organizations are already enrolled, and a permanent rule conversion is pending that expands that to 1,000+. Before 2024, this work was unpaid and invisible to payers. Now it is a reimbursable Medicare service with $735M&ndash;$1.47B in addressable market and almost no infrastructure built to capture it.</p>
@@ -500,7 +492,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <a href="#coordination" onclick="closeMob()" class="mob-sub">Coordination Economy</a>
   <a href="#gap" onclick="closeMob()" class="mob-sub">Infrastructure Gap</a>
   <span class="mob-part">Part III · Solution</span>
-  <a href="#roi" onclick="closeMob()" class="mob-sub">ROI Case</a>
   <a href="#platform" onclick="closeMob()" class="mob-sub">Payer Pathway</a>
   <a href="#policy" onclick="closeMob()" class="mob-sub">Policy Flywheel</a>
   <span class="mob-part">Part IV · The Team</span>
@@ -570,15 +561,6 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
 // 6 RECOVERABLE TIME (blue bg)
 
 // 7 ROI (blue bg)
-new Chart(document.getElementById('chart-roi'),{type:'bar',
-  data:{labels:['HBS Low','HBS High','Mid-Term Low','Mid-Term High','Gannott 2026'],
-    datasets:[{data:[2.0,3.6,2.8,4.1,5.3],
-      backgroundColor:[a(C.blue,.2),a(C.blue,.2),a(C.blue,.4),a(C.blue,.4),C.orange],borderRadius:6,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`${v}x`,font:{weight:700,size:12},color:(ctx)=>ctx.dataIndex===4?C.orange:C.blue}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}x`,color:C.blTick},max:7}}}});
-
-// 8 GUIDE TAM (grey bg)
 new Chart(document.getElementById('chart-guide'),{type:'bar',
   data:{labels:[['5%','~$368M'],['10%','$735M'],['20%','$1.47B'],['30%','+Respite']],
     datasets:[{data:[368,735,1470,2205],backgroundColor:[a(C.blue,.3),C.blue,C.orange,C.gold],borderRadius:8,borderSkipped:false}]},
