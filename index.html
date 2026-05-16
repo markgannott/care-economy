@@ -39,6 +39,11 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   border-left:2px solid transparent;transition:all .15s}
 .nav li a:hover{color:#fff;background:rgba(255,255,255,.07)}
 .nav li a.active{color:#fff;border-left-color:var(--orange);background:rgba(255,255,255,.1)}
+.nav li.nav-part{border-top:1px solid rgba(255,255,255,.1);margin-top:.6rem;padding-top:.3rem}
+.nav li.nav-part a{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.38);padding:.45rem 1.5rem .2rem;border-left:2px solid transparent}
+.nav li.nav-part a:hover{color:rgba(255,255,255,.65);background:rgba(255,255,255,.04);border-left-color:transparent}
+.nav li.nav-part a.active{color:rgba(255,255,255,.65);border-left-color:transparent;background:transparent}
+.nav li.sub a{padding:.42rem 1.5rem .42rem 2.2rem;font-size:.72rem}
 .sb-foot{padding:1rem 1.5rem;font-family:var(--sans);font-size:.61rem;
   color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
 
@@ -211,6 +216,9 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .mob-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
 .mob-overlay{display:none;position:fixed;inset:0;background:rgba(15,20,40,.92);z-index:199;flex-direction:column;justify-content:center;align-items:center;gap:.25rem;padding:2rem}
 .mob-overlay.open{display:flex}
+.mob-part{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.65rem;padding:.2rem 0 .1rem;width:100%;max-width:320px;text-align:center;border-top:1px solid rgba(255,255,255,.12)}
+.mob-overlay a.mob-sub{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.6);padding:.5rem 1.5rem}
+.mob-overlay a.mob-sub:hover,.mob-overlay a.mob-sub:active{color:#fff;background:rgba(255,255,255,.08)}
 .mob-overlay a{font-family:var(--sans);font-size:1rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:.7rem 1.5rem;border-radius:8px;width:100%;max-width:320px;text-align:center;transition:background .15s,color .15s}
 .mob-overlay a:hover,.mob-overlay a:active{background:rgba(255,255,255,.1);color:#fff}
 .mob-overlay .mob-close{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:1rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none;border:none;padding:.5rem}
@@ -366,7 +374,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
   </div>
 </section>
-<div class="act-div"><span class="act-div-n">Part I</span><div class="act-div-line"></div><span class="act-div-t">Scale — the $1.6 trillion hiding in plain sight</span></div>
+<div id="part1" class="act-div"><span class="act-div-n">Part I</span><div class="act-div-line"></div><span class="act-div-t">Scale — the $1.6 trillion hiding in plain sight</span></div>
 <section id="method" class="sec">
   <div class="pbrow"><div class="sec-ey">Valuation Methodology</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Why the number is $1.6 trillion &mdash; not less.</h2>
@@ -402,7 +410,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb"><h3>Lifetime Penalty Breakdown</h3><p class="csub">$353,782 total &mdash; modal: woman, 55, full exit, 4-yr spell, retires 67</p><div class="cw"><canvas id="chart-penalty"></canvas></div></div>
   </div>
 </section>
-<div class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
+<div id="part2" class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
 <section id="coordination" class="sec">
   <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
   <h2>It&rsquo;s not just the hours. It&rsquo;s what the hours do to everything else.</h2>
@@ -422,7 +430,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <p>The $9,902 annual gap is the visible cost. The <strong>$18,374 cognitive occupation cost</strong> &mdash; leisure hours permanently overlapped with monitoring and administrative load &mdash; is invisible. It doesn&rsquo;t show up in any national account. It shows up in burnout, healthcare utilization, and workforce exit rates.</p>
   </div>
 </section>
-<div class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Solution — what&rsquo;s recoverable, and where capital goes</span></div>
+<div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Solution — what&rsquo;s recoverable, and where capital goes</span></div>
 <section id="recoverable" class="sec">
   <div class="pbrow"><div class="sec-ey">What&rsquo;s Recoverable</div><span class="pbadge pb3">Paper III</span></div>
   <h2>Every hour of coordination restored is a national-scale economic event.</h2>
@@ -513,14 +521,17 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <a href="#thesis" onclick="closeMob()">Thesis</a>
   <a href="#summary" onclick="closeMob()">Executive Summary</a>
   <a href="#papers" onclick="closeMob()">The Research</a>
-  <a href="#method" onclick="closeMob()">Valuation</a>
-  <a href="#burden" onclick="closeMob()">Economic Burden</a>
-  <a href="#coordination" onclick="closeMob()">Coordination Economy</a>
-  <a href="#recoverable" onclick="closeMob()">What's Recoverable</a>
-  <a href="#platform" onclick="closeMob()">Platform Economics</a>
-  <a href="#roi" onclick="closeMob()">ROI Case</a>
-  <a href="#policy" onclick="closeMob()">Policy Flywheel</a>
-  <a href="#global" onclick="closeMob()">Global Extension</a>
+  <span class="mob-part">Part I &mdash; Scale</span>
+  <a href="#method" onclick="closeMob()" class="mob-sub">Valuation</a>
+  <a href="#burden" onclick="closeMob()" class="mob-sub">Economic Burden</a>
+  <span class="mob-part">Part II &mdash; Structure</span>
+  <a href="#coordination" onclick="closeMob()" class="mob-sub">Coordination Economy</a>
+  <span class="mob-part">Part III &mdash; Solution</span>
+  <a href="#recoverable" onclick="closeMob()" class="mob-sub">What&rsquo;s Recoverable</a>
+  <a href="#platform" onclick="closeMob()" class="mob-sub">Platform Economics</a>
+  <a href="#roi" onclick="closeMob()" class="mob-sub">ROI Case</a>
+  <a href="#policy" onclick="closeMob()" class="mob-sub">Policy Flywheel</a>
+  <a href="#global" onclick="closeMob()" class="mob-sub">Global Extension</a>
   <button class="mob-close" onclick="closeMob()">Close</button>
 </div>
 <button class="print-btn" onclick="window.print()">
