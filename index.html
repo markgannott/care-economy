@@ -395,7 +395,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>The cost beyond the 354 hours.</h2>
   <p class="sec-lead">1.8 hours of daily leisure permanently occupied by monitoring. A fragmented hour is worth less than an uninterrupted one   and caregivers live almost entirely in fragmented hours.</p>
   <div class="cg">
-    <div class="cb"><h3>Annual Unpaid Care Hours</h3><p class="csub">Unpaid care hours by category   354-hour structural gap   Gannott 2026</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
+    <div class="cb"><h3>Unpaid Care Hours by Gender</h3><p class="csub">65% of 53B national hours carried by women   Gannott 2026, Paper I</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
 
 </section>
@@ -416,8 +416,8 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="gap" class="sec">
   <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>$1 trillion infrastructure gap with no private solution.</h2>
-  <p class="sec-lead">NFCSP authorized $244.8M in FY2024. The unpaid care value it notionally addresses: $1.01 trillion. That ratio is an infrastructure gap measured in orders of magnitude  and a market signal.</p>
+  <h2>Congress funds 0.024% of what caregiving costs.</h2>
+  <p class="sec-lead">NFCSP authorized $244.8M in FY2024   the federal program for family caregiver support. The unpaid care value it notionally addresses: $1.01 trillion. That ratio is not a policy failure. It is a market signal: near-zero public competition for every dollar of private infrastructure built into this space.</p>
   <div class="cg">
     <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value   Gannott 2026</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
@@ -559,13 +559,11 @@ new Chart(document.getElementById('chart-penalty'),{type:'bar',
 
 // 5 HOURS GAP (blue bg)
 new Chart(document.getElementById('chart-hours'),{type:'bar',
-  data:{labels:['Eldercare','Childcare','Housework','Other Caregiving'],
-    datasets:[
-      {label:'Women',data:[820,1040,780,310],backgroundColor:C.orange,borderRadius:4},
-      {label:'Men',data:[580,680,410,190],backgroundColor:a(C.blue,.3),borderRadius:4}
-    ]},
-  options:{...B,plugins:{...B.plugins,legend:{display:true,labels:{color:'#555',boxWidth:12,font:{size:11}}}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}h`,color:C.tick}}}}});
+  data:{labels:['Women','Men'],
+    datasets:[{data:[34.5,18.5],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
+  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
+    formatter:v=>v+'B hrs',font:{weight:700,size:13},color:C.blueDk}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>v+'B',color:C.tick}}}}});
 
 // 6 RECOVERABLE TIME (blue bg)
 
