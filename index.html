@@ -48,7 +48,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
 
 /* ─ HERO (storytelling → brand blue #3672D7) ─────── */
-.hero{background:var(--blue);padding:5rem 2rem 4rem;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+.hero{background:var(--blue);padding:5rem 2rem 4rem;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start}
 .hero>*{width:100%;max-width:880px;box-sizing:border-box;position:relative;z-index:1}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;
   border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);pointer-events:none}
@@ -73,12 +73,12 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 
 /* ─ EXEC SUMMARY ──────────────────────────────────── */
 .exec{border-bottom:2px solid var(--border);padding:3.5rem 4rem}
-.exec-hd{background:var(--blue);padding:2.5rem 2rem 2.25rem;display:flex;flex-direction:column;align-items:center}
+.exec-hd{background:var(--blue);padding:2.5rem 2rem 2.25rem;display:flex;flex-direction:column;align-items:flex-start}
 .exec-hd .eyebrow{color:rgba(255,255,255,.65)}
 .exec-hd>*{width:100%;max-width:880px;box-sizing:border-box}
 .exec-hd h2{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:#fff;line-height:1.2;max-width:520px}
 .exec-hd p{font-family:var(--sans);font-size:.88rem;color:rgba(255,255,255,.65);max-width:560px;margin-top:.6rem;line-height:1.65}
-.exec-body{padding:2.5rem 2rem;background:#fff;display:flex;flex-direction:column;align-items:center}
+.exec-body{padding:2.5rem 2rem;background:#fff;display:flex;flex-direction:column;align-items:flex-start}
 .exec-body>*{width:100%;max-width:880px;box-sizing:border-box}
 .exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 @media(max-width:740px){.exec-grid{grid-template-columns:1fr}}
@@ -96,7 +96,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 
 /* ─ SECTIONS ──────────────────────────────────────── */
 /* data mode: white */
-.sec{padding:3.5rem 2rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center}
+.sec{padding:3.5rem 2rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:flex-start}
 /* data mode: light grey */
 .sec.grey{background:var(--grey)}
 /* storytelling mode: brand blue */
