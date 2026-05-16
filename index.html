@@ -195,6 +195,24 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 
 @media(max-width:960px){.sidebar{display:none}}
 
+/* ─ PRINT ─────────────────────────────────────────────────────────────── */
+.print-btn{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:.65rem 1.1rem;font-family:var(--sans);font-size:.78rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(54,114,215,.35);z-index:100;display:flex;align-items:center;gap:.45rem}
+.print-btn:hover{background:var(--blue-dk)}
+.print-btn svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media print{
+  .sidebar,.print-btn{display:none!important}
+  .page{display:block}
+  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec.blue{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .exec{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec{page-break-inside:avoid;padding:2rem 2.5rem}
+  .cg.c2{grid-template-columns:repeat(2,1fr)}
+  .cb{page-break-inside:avoid}
+  .method-grid{grid-template-columns:repeat(3,1fr)}
+  .calc-wrap{display:none}
+  body{font-size:10pt}
+}
+
 
 @media(max-width:600px){
   .page{grid-template-columns:1fr}
@@ -381,6 +399,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 
 </main>
 </div>
+<button class="print-btn" onclick="window.print()">
+  <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  Print / Save PDF
+</button>
 <script>
 Chart.register(ChartDataLabels);
 Chart.defaults.font.family="'Helvetica Neue',Helvetica,Arial,sans-serif";
