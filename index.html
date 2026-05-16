@@ -386,7 +386,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <p class="sec-lead">The 4-2-1 problem: one child, responsible for two parents and four grandparents. The formal care workforce is a fraction of projected need in every major aging market. The infrastructure gap is not a single-country story.</p>
   <div class="cg c2">
     <div class="cb cb-w"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
-    <div class="cb"><h3>Long-Term Care Spending by Country</h3><p class="csub">Public LTC spending as % GDP   OECD Health Statistics</p><div class="cw short"><canvas id="chart-china"></canvas></div></div>
+    <div class="cb"><h3>Long-Term Care Spending by Country</h3><p class="csub">Public LTC spending as % GDP   OECD + select markets</p><div class="cw short"><canvas id="chart-china"></canvas></div></div>
   </div>
 </section>
 <div id="part2" class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
@@ -620,8 +620,8 @@ new Chart(document.getElementById('chart-aging'),{type:'bar',
 
 // 12 CHINA GAP (blue bg)
 new Chart(document.getElementById('chart-china'),{type:'bar',
-  data:{labels:['Sweden','Japan','Germany','UK','US','Korea'],
-    datasets:[{label:'LTC Spend % GDP',data:[3.2,2.2,1.9,1.4,0.9,0.7],backgroundColor:[C.blueLt,C.blueLt,C.blueLt,C.blueLt,C.orange,C.blueLt],borderRadius:8,borderSkipped:false}]},
+  data:{labels:['Sweden','Japan','Germany','UK','US','Korea','China'],
+    datasets:[{label:'LTC Spend % GDP',data:[3.2,2.2,1.9,1.4,0.9,0.7,0.3],backgroundColor:[C.blueLt,C.blueLt,C.blueLt,C.blueLt,C.orange,C.blueLt,C.blueLt],borderRadius:8,borderSkipped:false}]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
       formatter:v=>v+'%',font:{weight:700,size:12},
