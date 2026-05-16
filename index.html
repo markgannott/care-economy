@@ -238,7 +238,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   body{font-size:10pt}
 }
 
-
 @media(max-width:600px){
   .page{grid-template-columns:1fr}
   .sidebar{display:none}
@@ -293,14 +292,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <li class="nav-part"><a href="#part1">Part I &mdash; Scale</a></li>
     <li><a href="#method">Valuation</a></li>
     <li><a href="#burden">The Burden</a></li>
+    <li><a href="#global">Global Extension</a></li>
     <li class="nav-part"><a href="#part2">Part II &mdash; Structure</a></li>
     <li><a href="#coordination">Coordination Economy</a></li>
-    <li class="nav-part"><a href="#part3">Part III &mdash; Solution</a></li>
+    <li><a href="#caregiver-health">Caregiver Health</a></li>
     <li><a href="#gap">Infrastructure Gap</a></li>
+    <li class="nav-part"><a href="#part3">Part III &mdash; Solution</a></li>
     <li><a href="#roi">ROI Case</a></li>
     <li><a href="#platform">Payer Pathway</a></li>
     <li><a href="#policy">Policy Flywheel</a></li>
-    <li><a href="#global">Global Extension</a></li>
     <li class="nav-part"><a href="#part4">Part IV &mdash; The Team</a></li>
     <li><a href="#suncoast">Suncoast Ventures</a></li>
     <li><a href="#ohai-co">OHAI</a></li>
@@ -380,6 +380,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb"><h3>Lifetime Penalty Breakdown</h3><p class="csub">$353,782 total &mdash; modal: woman, 55, full exit, 4-yr spell, retires 67 &mdash; Gannott 2026</p><div class="cw"><canvas id="chart-penalty"></canvas></div></div>
   </div>
 </section>
+<section id="global" class="sec">
+  <div class="pbrow"><div class="sec-ey">Global Extension</div><span class="pbadge pb1">Paper I</span></div>
+  <h2>The demographic math is irreversible &mdash; in every market.</h2>
+  <p class="sec-lead">The 4-2-1 problem: one child, responsible for two parents and four grandparents. 293,000 trained formal care workers in China against 10&ndash;11.8 million needed by 2030. The infrastructure doesn&rsquo;t exist in any market.</p>
+  <div class="cg c2">
+    <div class="cb cb-w"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
+    <div class="cb"><h3>China Formal Care Worker Gap</h3><p class="csub">293,000 trained workers vs. 10&ndash;11.8M needed by 2030</p><div class="cw short"><canvas id="chart-china"></canvas></div></div>
+  </div>
+</section>
 <div id="part2" class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
 <section id="coordination" class="sec">
   <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
@@ -390,23 +399,38 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
 
 </section>
-<div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Solution — where the capital goes</span></div>
-
-<section id="gap" class="sec blue">
+<section id="caregiver-health" class="sec blue">
+  <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
+  <h2>The burden doesn&rsquo;t stop at work. Caregivers are economically compromised.</h2>
+  <p class="sec-lead">73% of insured adults carry active administrative burden outside work hours. 1.80 hours of daily leisure remain cognitively occupied by monitoring, interruption readiness, and care coordination. The U.S. cost of insufficient sleep alone is $411 billion annually &mdash; and caregivers are disproportionately affected.</p>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
+    <div class="sc sw"><div class="sc-n">$18,374</div><div class="sc-l">per year in cognitively occupied leisure &mdash; 1.80 hrs/day in households with children under 13</div><div class="sc-s">Gannott 2026, Paper II</div></div>
+    <div class="sc so"><div class="sc-n">73%</div><div class="sc-l">of insured adults carrying active administrative burden outside work hours</div><div class="sc-s">Gannott 2026, Paper II</div></div>
+    <div class="sc sp"><div class="sc-n">$411B</div><div class="sc-l">annual U.S. cost of insufficient sleep &mdash; sleep is productive infrastructure, and caregivers lose it first</div><div class="sc-s">RAND Corporation</div></div>
+  </div>
+  <div class="method-grid">
+    <div class="mc-lo"><h3>Short Sleep Duration</h3><p>Sleep is productive infrastructure. Loss degrades throughput across work, health, and care simultaneously &mdash; caregivers are disproportionately affected.</p></div>
+    <div class="mc-md"><h3>Stress &amp; Burnout</h3><p>Caregiver distress is measurable, persistent, and systematically underpriced in traditional labor economics and every employer benefit design.</p></div>
+    <div class="mc-hi"><h3>Deferred Preventative Care</h3><p>Caregivers defer their own health maintenance &mdash; compounding future costs for themselves and the healthcare system in parallel.</p></div>
+  </div>
+</section>
+<section id="gap" class="sec">
   <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The government funds 0.024% of what caregiving actually costs.</h2>
   <p class="sec-lead">NFCSP authorized $244.8M in FY2024. The unpaid care value it notionally addresses: $1.01 trillion. That ratio isn&rsquo;t underfunding &mdash; it&rsquo;s an infrastructure gap measured in orders of magnitude.</p>
   <div class="cg">
     <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value &mdash; Gannott 2026</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
-</section><section id="roi" class="sec">
+</section>
+<div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Solution — where the capital goes</span></div>
+<section id="roi" class="sec">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The employer procurement motion writes itself.</h2>
   <p class="sec-lead">HBS published the number: caregiver support programs return $2&ndash;$3.60 for every dollar spent. Extend to lifetime penalty prevention and the return is 5.3&times;. The motion writes to CFO and CHRO simultaneously &mdash; the rarest position in B2B.</p>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support (Gannott 2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
   </div>
-</section><section id="platform" class="sec">
+</section><section id="platform" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Payer Pathway</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>CMS just started paying for caregiving.</h2>
   <p class="sec-lead">$65&ndash;390/month per patient. $2,500/year respite. 390+ organizations. The GUIDE Model is the first Medicare payment for caregiver coordination as billable care &mdash; and $735M&ndash;$1.47B in TAM with no infrastructure built to capture it.</p>
@@ -414,20 +438,12 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb co"><h3>GUIDE Model TAM Scenarios</h3><p class="csub">CMS Medicare penetration on 3.5M eligible beneficiaries &mdash; Gannott 2026</p><div class="cw"><canvas id="chart-guide"></canvas></div></div>
   </div>
 </section>
-<section id="policy" class="sec blue">
+<section id="policy" class="sec">
   <div class="pbrow"><div class="sec-ey">Policy Flywheel</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The policy flywheel is already turning.</h2>
   <p class="sec-lead">GUIDE opened the payer pathway. NFCSP authorized $244.8M in FY2024. The RAISE Act established a National Family Caregiving Strategy. Every major aging policy event of the last five years points to the same inflection. The question is not whether the policy window is open &mdash; it&rsquo;s whether the infrastructure exists to capture it.</p>
   <div class="cg">
     <div class="cb"><h3>NFCSP Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value &mdash; Gannott 2026</p><div class="cw"><canvas id="chart-nfcsp"></canvas></div></div>
-  </div>
-</section><section id="global" class="sec">
-  <div class="pbrow"><div class="sec-ey">Global Extension</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>The demographic math is irreversible &mdash; in every market.</h2>
-  <p class="sec-lead">The 4-2-1 problem: one child, responsible for two parents and four grandparents. 293,000 trained formal care workers in China against 10&ndash;11.8 million needed by 2030. The infrastructure doesn&rsquo;t exist in any market.</p>
-  <div class="cg c2">
-    <div class="cb cb-w"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
-    <div class="cb"><h3>China Formal Care Worker Gap</h3><p class="csub">293,000 trained workers vs. 10&ndash;11.8M needed by 2030</p><div class="cw short"><canvas id="chart-china"></canvas></div></div>
   </div>
 </section>
 <div id="part4" class="act-div"><span class="act-div-n">Part IV</span><div class="act-div-line"></div><span class="act-div-t">The team behind the thesis</span></div>
@@ -477,14 +493,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <span class="mob-part">Part I &mdash; Scale</span>
   <a href="#method" onclick="closeMob()" class="mob-sub">Valuation</a>
   <a href="#burden" onclick="closeMob()" class="mob-sub">Economic Burden</a>
+  <a href="#global" onclick="closeMob()" class="mob-sub">Global Extension</a>
   <span class="mob-part">Part II &mdash; Structure</span>
   <a href="#coordination" onclick="closeMob()" class="mob-sub">Coordination Economy</a>
-  <span class="mob-part">Part III &mdash; Solution</span>
+  <a href="#caregiver-health" onclick="closeMob()" class="mob-sub">Caregiver Health</a>
   <a href="#gap" onclick="closeMob()" class="mob-sub">Infrastructure Gap</a>
+  <span class="mob-part">Part III &mdash; Solution</span>
   <a href="#roi" onclick="closeMob()" class="mob-sub">ROI Case</a>
   <a href="#platform" onclick="closeMob()" class="mob-sub">Payer Pathway</a>
   <a href="#policy" onclick="closeMob()" class="mob-sub">Policy Flywheel</a>
-  <a href="#global" onclick="closeMob()" class="mob-sub">Global Extension</a>
   <span class="mob-part">Part IV &mdash; The Team</span>
   <a href="#suncoast" onclick="closeMob()" class="mob-sub">Suncoast Ventures</a>
   <a href="#ohai-co" onclick="closeMob()" class="mob-sub">OHAI</a>
@@ -527,9 +544,7 @@ new Chart(document.getElementById('chart-method'),{type:'bar',
 
 // 2 CONTEXT (white bg)
 
-
 // 3 DEMOGRAPHIC CLIFF (blue bg)
-
 
 // 4 LIFETIME PENALTY (blue bg)
 new Chart(document.getElementById('chart-penalty'),{type:'bar',
@@ -552,7 +567,6 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
     scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}h`,color:C.tick}}}}});
 
 // 6 RECOVERABLE TIME (blue bg)
-
 
 // 7 ROI (blue bg)
 new Chart(document.getElementById('chart-roi'),{type:'bar',
@@ -615,7 +629,6 @@ new Chart(document.getElementById('chart-china'),{type:'bar',
       y:{grid:{display:false},ticks:{color:C.blTick}}}}});
 
 // COORDINATION: hidden cost comparison (Paper II)
-
 
 // Mobile nav
 const mobBtn=document.getElementById('mob-btn');
