@@ -335,7 +335,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
   <div class="cg c2">
     <div class="cb co"><h3>Methodology Comparison</h3><p class="csub">Three approaches, same 53B hour base</p><div class="cw"><canvas id="chart-method"></canvas></div></div>
-    <div class="cb"><h3>Care Economy vs. Other US Sectors</h3><p class="csub">$1.6T vs. healthcare, pharma, and hospitals</p><div class="cw"><canvas id="chart-context"></canvas></div></div>
+    <div class="cb"><h3>Care Economy vs. Other US Sectors</h3><p class="csub">Care economy in context &mdash; Gannott 2026</p><div class="cw"><canvas id="chart-context"></canvas></div></div>
   </div>
 </section><section id="burden" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Who Bears the Burden</div><span class="pbadge pb1">Paper I</span></div>
@@ -414,7 +414,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
         <div class="calc-grid">
           <div class="cf"><label>Employees: <span id="lbl-emp">1,000</span></label><input type="range" id="sl-emp" min="100" max="10000" step="100" value="1000"/></div>
           <div class="cf"><label>% Caregivers: <span id="lbl-pct">20%</span></label><input type="range" id="sl-pct" min="5" max="50" step="5" value="20"/></div>
-          <div class="cf"><label>Avg Salary: <span id="lbl-sal">$72,000</span></label><input type="range" id="sl-sal" min="40000" max="150000" step="5000" value="72000"/></div>
+          <div class="cf"><label>Avg Salary: <span id="lbl-sal">$56,000</span></label><input type="range" id="sl-sal" min="40000" max="150000" step="5000" value="56000"/></div>
           <div class="cf"><label>Program Cost/Caregiver: <span id="lbl-cost">$1,200</span></label><input type="range" id="sl-cost" min="500" max="3000" step="100" value="1200"/></div>
         </div>
         <div class="calc-res">
@@ -430,11 +430,11 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>The payer pathway women&rsquo;s health spent 15 years seeking? It&rsquo;s already here.</h2>
   <p class="sec-lead">CMS GUIDE Model is the first federal program to pay for caregiver support as billable medical care. The infrastructure to capture those payments doesn&rsquo;t exist at scale. That&rsquo;s the build.</p>
   <div class="cg c2">
-    <div class="cb cg2"><h3>NFCSP Funding vs. Unpaid Care Value</h3><p class="csub">Authorized funding vs. economic burden &mdash; diverging trajectories</p><div class="cw"><canvas id="chart-nfcsp"></canvas></div></div>
+    <div class="cb cg2"><h3>NFCSP Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value &mdash; Gannott 2026</p><div class="cw"><canvas id="chart-nfcsp"></canvas></div></div>
     <div class="cb co"><h3>Policy Timeline</h3><p class="csub">Federal milestones shaping the care economy landscape</p>
       <div class="tl">
         <div class="tl-item"><div class="tl-top"><span class="tl-date">2024&ndash;present</span><span class="badge b-active">ACTIVE</span><span class="badge b-p1">P1</span></div><div class="tl-title">CMS GUIDE Model</div><div class="tl-desc">$65&ndash;390/mo DCMP + $2,500/yr respite. 390+ orgs. First Medicare payment for caregiver support as billable care. TAM: $735M&ndash;$1.47B.</div></div>
-        <div class="tl-item"><div class="tl-top"><span class="tl-date">April 2024</span><span class="badge b-enacted">ENACTED</span></div><div class="tl-title">Medicaid HCBS Access Rule</div><div class="tl-desc">80% of Medicaid HCBS payments to direct care workers. $37B annual wage impact.</div></div>
+        <div class="tl-item"><div class="tl-top"><span class="tl-date">April 2024</span><span class="badge b-enacted">ENACTED</span></div><div class="tl-title">Medicaid HCBS Access Rule</div><div class="tl-desc">80% of Medicaid HCBS payments to direct care workers.</div></div>
         <div class="tl-item"><div class="tl-top"><span class="tl-date">2020</span><span class="badge b-enacted">ENACTED</span></div><div class="tl-title">RAISE Family Caregivers Act</div><div class="tl-desc">First federal caregiver recognition law. National Family Caregiving Strategy now in Year 4.</div></div>
         <div class="tl-item"><div class="tl-top"><span class="tl-date">FY2024</span><span class="badge b-watch">WATCH</span></div><div class="tl-title">NFCSP: $244.8M Authorized</div><div class="tl-desc">0.024% of $1.01T unpaid care value. Structural underfunding documented and citable.</div></div>
         <div class="tl-item"><div class="tl-top"><span class="tl-date">2025&ndash;2026</span><span class="badge b-pending">PENDING</span></div><div class="tl-title">GUIDE Permanent Rule Conversion</div><div class="tl-desc">Pathway to 1,000+ orgs and $1.47B&ndash;$2.2B expanded TAM.</div></div>
@@ -488,11 +488,12 @@ new Chart(document.getElementById('chart-method'),{type:'bar',
 
 // 2 CONTEXT (white bg)
 new Chart(document.getElementById('chart-context'),{type:'bar',
-  data:{labels:[['Unpaid','Care Economy'],['US','Healthcare'],['US','Pharma'],['US','Hospitals']],
-    datasets:[{data:[1600,4500,694,1378],backgroundColor:[C.orange,a(C.blue,.25),a(C.blue,.25),a(C.blue,.25)],borderRadius:8,borderSkipped:false}]},
+  data:{labels:[['Care Economy','(Gannott 2026)'],['Household','Economic Pressure'],['US Pharma','(for scale)'],['GUIDE TAM','(bull case)']],
+    datasets:[{data:[1620,1125,694,1.47],backgroundColor:[C.orange,a(C.orange,.55),a(C.blue,.3),a(C.blue,.15)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>v>=1000?`$${(v/1000).toFixed(1)}T`:`$${v}B`,font:{weight:700,size:12},color:(ctx)=>ctx.dataIndex===0?C.orange:C.blue}},
-    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>v>=1000?`$${v/1000}T`:`$${v}B`,color:C.tick},max:5200}}}});
+    formatter:(v,ctx)=>ctx.dataIndex===3?`$${v}B`:`$${(v/1000).toFixed(2)}T`,font:{weight:700,size:12},
+    color:(ctx)=>ctx.dataIndex===0?C.orange:C.blue}},
+    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>v>=1000?`$${(v/1000).toFixed(1)}T`:`$${v}B`,color:C.tick},max:2000}}}});
 
 // 3 DEMOGRAPHIC CLIFF (blue bg)
 new Chart(document.getElementById('chart-demo'),{type:'line',
@@ -545,8 +546,8 @@ new Chart(document.getElementById('chart-roi'),{type:'bar',
 
 // 8 GUIDE TAM (grey bg)
 new Chart(document.getElementById('chart-guide'),{type:'bar',
-  data:{labels:[['5%','Conservative'],['10%','Base'],['20%','Bull'],['30%','+Respite']],
-    datasets:[{data:[220,735,1470,2205],backgroundColor:[a(C.blue,.3),C.blue,C.orange,C.gold],borderRadius:8,borderSkipped:false}]},
+  data:{labels:[['5%','~$368M'],['10%','$735M'],['20%','$1.47B'],['30%','+Respite']],
+    datasets:[{data:[368,735,1470,2205],backgroundColor:[a(C.blue,.3),C.blue,C.orange,C.gold],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:v=>v>=1000?`$${(v/1000).toFixed(2)}B`:`$${v}M`,font:{weight:700,size:11},
     color:(ctx)=>ctx.dataIndex>=2?C.orange:C.blue}},
@@ -563,19 +564,15 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
     scales:{x:{grid:{display:false},ticks:{callback:v=>v>=1000?`$${(v/1000).toFixed(0)}B`:`$${v}M`,color:C.tick},max:1100000},
       y:{grid:{display:false},ticks:{color:C.tick}}}}});
 
-// 10 NFCSP TREND (white bg)
-new Chart(document.getElementById('chart-nfcsp'),{type:'line',
-  data:{labels:['2013','2015','2017','2019','2020','2021','2023','2024'],
-    datasets:[
-      {label:'NFCSP ($M)',data:[153.7,154.7,158.0,180.7,185.0,185.0,212.1,244.8],
-        borderColor:C.gold,backgroundColor:a(C.gold,.1),fill:true,tension:0.4,pointRadius:4,yAxisID:'y'},
-      {label:'Burden Ratio Index',data:[15.2,14.8,12.1,9.6,8.2,7.9,5.1,2.4],
-        borderColor:C.orange,borderDash:[5,4],fill:false,tension:0.4,pointRadius:4,yAxisID:'y2'}
-    ]},
-  options:{...B,plugins:{...B.plugins,legend:{display:true,labels:{color:'#555',boxWidth:12,font:{size:10}}}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`$${v}M`,color:C.tick},position:'left'},
-      y2:{grid:{display:false},ticks:{color:C.tick},position:'right'}}}});
+// 10 NFCSP vs CARE VALUE — two-bar stark comparison (Gannott 2026)
+new Chart(document.getElementById('chart-nfcsp'),{type:'bar',
+  data:{labels:[['NFCSP Authorized','FY2024'],['Total Unpaid','Care Value']],
+    datasets:[{data:[244.8,1010000],backgroundColor:[a(C.gold,.6),C.orange],borderRadius:8,borderSkipped:false}]},
+  options:{...B,indexAxis:'y',
+    plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
+      formatter:(v,ctx)=>ctx.dataIndex===0?'$244.8M — 0.024%':'$1.01T — 100%',
+      font:{weight:700,size:12},color:(ctx)=>ctx.dataIndex===0?C.gold:C.orange}},
+    scales:{x:{display:false},y:{grid:{display:false},ticks:{color:C.tick,font:{size:11}}}}}});
 
 // 11 AGING (blue bg)
 new Chart(document.getElementById('chart-aging'),{type:'bar',
