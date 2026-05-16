@@ -291,8 +291,9 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <li><a href="#papers">The Research</a></li>
     <li><a href="#method">Valuation</a></li>
     <li><a href="#burden">The Burden</a></li>
-    <li><a href="#platform">Platform Economics</a></li>
-    <li><a href="#roi">ROI Case</a></li>
+    <li class="sub"><a href="#platform">Payer Pathway</a></li>
+    <li class="sub"><a href="#gap">Infrastructure Gap</a></li>
+    <li class="sub"><a href="#roi">ROI Case</a></li>
     <li><a href="#policy">Policy Flywheel</a></li>
     <li><a href="#global">Global Extension</a></li>
     
@@ -395,12 +396,19 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
 </section>
 <section id="platform" class="sec">
-  <div class="pbrow"><div class="sec-ey">Platform Economics</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>The infrastructure doesn&rsquo;t exist yet.</h2>
-  <p class="sec-lead">Intake, care plan execution, respite routing, compliance documentation, outcomes tracking &mdash; all currently manual, all fragmented. CMS just started paying for coordination as billable medical care. The infrastructure layer to capture those payments doesn&rsquo;t exist yet.</p>
-  <div class="cg c2">
-    <div class="cb co"><h3>GUIDE Model TAM Scenarios</h3><p class="csub">CMS Medicare penetration on 3.5M eligible beneficiaries</p><div class="cw"><canvas id="chart-guide"></canvas></div></div>
-    <div class="cb cp"><h3>Funding vs. Burden: The Gap</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
+  <div class="pbrow"><div class="sec-ey">The Payer Pathway</div><span class="pbadge pb13">Papers I–III</span></div>
+  <h2>CMS just started paying for caregiving.</h2>
+  <p class="sec-lead">$65&ndash;390/month per patient. $2,500/year respite. 390+ organizations. The GUIDE Model is the first Medicare payment for caregiver coordination as billable care &mdash; and $735M&ndash;$1.47B in TAM with no infrastructure built to capture it.</p>
+  <div class="cg">
+    <div class="cb co"><h3>GUIDE Model TAM Scenarios</h3><p class="csub">CMS Medicare penetration on 3.5M eligible beneficiaries &mdash; Gannott 2026</p><div class="cw"><canvas id="chart-guide"></canvas></div></div>
+  </div>
+</section>
+<section id="gap" class="sec blue">
+  <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
+  <h2>The government funds 0.024% of what caregiving actually costs.</h2>
+  <p class="sec-lead">NFCSP authorized $244.8M in FY2024. The unpaid care value it notionally addresses: $1.01 trillion. That ratio isn&rsquo;t underfunding &mdash; it&rsquo;s an infrastructure gap measured in orders of magnitude.</p>
+  <div class="cg">
+    <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value &mdash; Gannott 2026</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
 </section><section id="roi" class="sec blue">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
@@ -450,7 +458,8 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <a href="#coordination" onclick="closeMob()" class="mob-sub">Coordination Economy</a>
   <span class="mob-part">Part III &mdash; Solution</span>
   <a href="#recoverable" onclick="closeMob()" class="mob-sub">What&rsquo;s Recoverable</a>
-  <a href="#platform" onclick="closeMob()" class="mob-sub">Platform Economics</a>
+  <a href="#platform" onclick="closeMob()" class="mob-sub">Payer Pathway</a>
+  <a href="#gap" onclick="closeMob()" class="mob-sub">Infrastructure Gap</a>
   <a href="#roi" onclick="closeMob()" class="mob-sub">ROI Case</a>
   <a href="#policy" onclick="closeMob()" class="mob-sub">Policy Flywheel</a>
   <a href="#global" onclick="closeMob()" class="mob-sub">Global Extension</a>
