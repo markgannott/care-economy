@@ -238,6 +238,21 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   .tl-row{flex-direction:column}
   .tl-col{min-width:0}
 }
+
+/* ─ PAPER BADGES ─────────────────────────────────────────── */
+.pbrow{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.pbadge{font-family:var(--sans);font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:20px}
+.pb1{background:#EEF4FF;color:#3672D7;border:1px solid rgba(54,114,215,.25)}
+.pb2{background:#FFF3EC;color:#E27D39;border:1px solid rgba(226,125,57,.25)}
+.pb3{background:#F9F0FC;color:#BD77C6;border:1px solid rgba(189,119,198,.25)}
+.pb13{background:#F4F6FA;color:#555;border:1px solid #ddd}
+.sec.blue .pbadge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25)}
+/* ─ ACT DIVIDERS ─────────────────────────────────────────── */
+.act-div{padding:1.1rem 4rem;background:var(--grey);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem}
+.act-div-n{font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#bbb;white-space:nowrap}
+.act-div-t{font-family:var(--serif);font-size:.95rem;color:#888;font-weight:500}
+.act-div-line{flex:1;height:1px;background:var(--border)}
+@media(max-width:600px){.act-div{padding:1rem 1.5rem}}
 </style>
 </head>
 <body>
@@ -300,8 +315,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
       </ul></div>
     </div>
   </div>
-</section><section id="method" class="sec">
-  <div class="sec-ey">Valuation Methodology</div>
+</section>
+<div class="act-div"><span class="act-div-n">Part I</span><div class="act-div-line"></div><span class="act-div-t">Scale — the $1.6 trillion hiding in plain sight</span></div>
+<section id="method" class="sec">
+  <div class="pbrow"><div class="sec-ey">Valuation Methodology</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Why the number is $1.6 trillion &mdash; not less.</h2>
   <p class="sec-lead">Three methodologies produce three very different valuations of the same caregiving economy. The differences aren&rsquo;t rounding errors &mdash; they reflect a fundamental choice about what question you&rsquo;re asking.</p>
   <div class="method-grid">
@@ -321,7 +338,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb"><h3>Care Economy vs. Other US Sectors</h3><p class="csub">$1.6T vs. healthcare, pharma, and hospitals</p><div class="cw"><canvas id="chart-context"></canvas></div></div>
   </div>
 </section><section id="burden" class="sec blue">
-  <div class="sec-ey">Who Bears the Burden</div>
+  <div class="pbrow"><div class="sec-ey">Who Bears the Burden</div><span class="pbadge pb1">Paper I</span></div>
   <h2>The burden is not evenly distributed.</h2>
   <p class="sec-lead">Women perform 354 additional hours of unpaid labor per year. At $27.96/hr, that&rsquo;s $9,902 extracted silently from household balance sheets &mdash; invisible to every national account, absent from every employer benefit design.</p>
   <div class="sc-row">
@@ -334,12 +351,48 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb cb-w"><h3>Demographic Cliff</h3><p class="csub">Family caregivers per person over 80</p><div class="cw"><canvas id="chart-demo"></canvas></div></div>
     <div class="cb"><h3>Lifetime Penalty Breakdown</h3><p class="csub">$353,782 total &mdash; modal: woman, 55, full exit, 4-yr spell, retires 67</p><div class="cw"><canvas id="chart-penalty"></canvas></div></div>
   </div>
-  <div class="cg c2">
-    <div class="cb"><h3>Annual Unpaid Care Hours</h3><p class="csub">Women vs. men by category</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
-    <div class="cb cb-w"><h3>Recoverable Time by Intervention</h3><p class="csub">Hours recovered per caregiver per year with support</p><div class="cw"><canvas id="chart-recover"></canvas></div></div>
+</section>
+<div class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
+<section id="coordination" class="sec">
+  <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
+  <h2>It&rsquo;s not just the hours. It&rsquo;s what the hours do to everything else.</h2>
+  <p class="sec-lead">Women perform 354 additional unpaid hours per year. But the economic damage isn&rsquo;t just the time &mdash; it&rsquo;s what that time does to every other hour. Nominal leisure occupied by secondary monitoring. Administrative fragmentation across broken systems. Chronic sleep disruption. A fragmented hour has lower economic value than an uninterrupted one, and caregivers live in fragmented hours.</p>
+  <div class="sc-row">
+    <div class="sc so"><div class="sc-n">354.1</div><div class="sc-l">additional unpaid hours per woman per year vs. men</div><div class="sc-s">Gannott 2026, BLS ATUS 2022</div></div>
+    <div class="sc sw"><div class="sc-n">$9,902</div><div class="sc-l">annual silent extraction per woman at opportunity-cost wage</div><div class="sc-s">Gannott 2026</div></div>
+    <div class="sc sp"><div class="sc-n">1.80 hrs</div><div class="sc-l">of nominal daily leisure cognitively occupied by secondary childcare monitoring</div><div class="sc-s">Gannott 2026, BLS ATUS</div></div>
+    <div class="sc sg"><div class="sc-n">73%</div><div class="sc-l">of insured adults carry measurable healthcare administrative burden annually</div><div class="sc-s">Gannott 2026</div></div>
   </div>
-</section><section id="platform" class="sec grey">
-  <div class="sec-ey">Platform Economics</div>
+  <div class="cg c2">
+    <div class="cb"><h3>Annual Unpaid Care Hours</h3><p class="csub">Women vs. men by category &mdash; 354-hour structural gap</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
+    <div class="cb co"><h3>The Hidden Cost of the Gap</h3><p class="csub">Labor gap vs. cognitive occupation &mdash; annual value per woman</p><div class="cw"><canvas id="chart-coord"></canvas></div></div>
+  </div>
+  <div class="insight orange">
+    <div class="ins-label">The coordination burden thesis — Paper II</div>
+    <p>The $9,902 annual gap is the visible cost. The <strong>$18,374 cognitive occupation cost</strong> &mdash; leisure hours permanently overlapped with monitoring and administrative load &mdash; is invisible. It doesn&rsquo;t show up in any national account. It shows up in burnout, healthcare utilization, and workforce exit rates.</p>
+  </div>
+</section>
+<div class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Solution — what&rsquo;s recoverable, and where capital goes</span></div>
+<section id="recoverable" class="sec blue">
+  <div class="pbrow"><div class="sec-ey">What&rsquo;s Recoverable</div><span class="pbadge pb3">Paper III</span></div>
+  <h2>Every hour of coordination restored is a national-scale economic event.</h2>
+  <p class="sec-lead">At 63 million caregivers and $30.09/hr blended opportunity cost, the math is unambiguous: 1 hour per week of coordination burden reduced = 3.276 billion national hours = $98.6 billion in recovered economic value annually. The platform that delivers this isn&rsquo;t just improving lives &mdash; it&rsquo;s a measurable economic infrastructure play.</p>
+  <div class="sc-row">
+    <div class="sc so"><div class="sc-n">$98.6B</div><div class="sc-l">national value recovered at 1 hr/wk coordination reduction across 63M caregivers</div><div class="sc-s">Gannott 2026, Paper III</div></div>
+    <div class="sc sw"><div class="sc-n">$493B</div><div class="sc-l">national value at 5 hrs/wk reduction</div><div class="sc-s">Gannott 2026, Paper III</div></div>
+    <div class="sc sp"><div class="sc-n">$986B</div><div class="sc-l">national value at 10 hrs/wk &mdash; approaching $1 trillion annually</div><div class="sc-s">Gannott 2026, Paper III</div></div>
+    <div class="sc sg"><div class="sc-n">3.276B</div><div class="sc-l">national hours recovered per 1 hr/wk reduction</div><div class="sc-s">63M caregivers &times; 52 wks</div></div>
+  </div>
+  <div class="cg c2">
+    <div class="cb"><h3>Recoverable Value at National Scale</h3><p class="csub">Annual economic value of coordination time reduction per caregiver per week</p><div class="cw"><canvas id="chart-recover-scale"></canvas></div></div>
+    <div class="cb cb-w"><h3>Recoverable Time by Intervention Type</h3><p class="csub">Hours recovered per caregiver per year with support</p><div class="cw"><canvas id="chart-recover"></canvas></div></div>
+  </div>
+  <div class="insight">
+    <div class="ins-label">Throughput restoration — not linear time recovery</div>
+    <p>The value mechanism isn&rsquo;t additive. <strong>Restored continuity amplifies the yield of all remaining hours.</strong> A caregiver who recovers uninterrupted blocks doesn&rsquo;t just have more time &mdash; their remaining time becomes more productive. The platform building this is building compounding economic value, not a time-tracking app.</p>
+  </div>
+<section id="platform" class="sec grey">
+  <div class="pbrow"><div class="sec-ey">Platform Economics</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The infrastructure doesn&rsquo;t exist yet.</h2>
   <p class="sec-lead">Coordination overhead consumes 20&ndash;25% of total caregiver time. The companies building coordination, continuity, and compliance infrastructure for 63M caregivers are building picks and shovels before the category has a name on LP decks.</p>
   <div class="insight">
@@ -351,7 +404,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb cp"><h3>Funding vs. Burden: The Gap</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
 </section><section id="roi" class="sec blue">
-  <div class="sec-ey">ROI Case</div>
+  <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The employer procurement motion writes itself.</h2>
   <p class="sec-lead">HBS published the number: caregiver support programs return $2&ndash;$3.60 for every dollar spent. Extend to lifetime penalty prevention and the return is 5.3&times;. The motion writes to CFO and CHRO simultaneously &mdash; the rarest position in B2B.</p>
   <div class="cg c2">
@@ -373,7 +426,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
   </div>
 </section><section id="policy" class="sec">
-  <div class="sec-ey">Policy Flywheel</div>
+  <div class="pbrow"><div class="sec-ey">Policy Flywheel</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The payer pathway women&rsquo;s health spent 15 years seeking? It&rsquo;s already here.</h2>
   <p class="sec-lead">CMS GUIDE Model is the first federal program to pay for caregiver support as billable medical care. The infrastructure to capture those payments doesn&rsquo;t exist at scale. That&rsquo;s the build.</p>
   <div class="cg c2">
@@ -389,7 +442,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
   </div>
 </section><section id="global" class="sec blue">
-  <div class="sec-ey">Global Extension</div>
+  <div class="pbrow"><div class="sec-ey">Global Extension</div><span class="pbadge pb1">Paper I</span></div>
   <h2>The demographic math is irreversible &mdash; in every market.</h2>
   <p class="sec-lead">The 4-2-1 problem: one child, responsible for two parents and four grandparents. 293,000 trained formal care workers in China against 10&ndash;11.8 million needed by 2030. The infrastructure doesn&rsquo;t exist in any market.</p>
   <div class="cg c2">
@@ -544,6 +597,24 @@ new Chart(document.getElementById('chart-china'),{type:'bar',
       color:(ctx)=>ctx.dataIndex===0?C.blueDk:C.gold}},
     scales:{x:{grid:{display:false},ticks:{callback:v=>`${v}M`,color:C.blTick},max:14},
       y:{grid:{display:false},ticks:{color:C.blTick}}}}});
+
+// COORDINATION: hidden cost comparison (Paper II)
+new Chart(document.getElementById('chart-coord'),{type:'bar',
+  data:{labels:[['Labor Gap','(354 hrs × $27.96)'],['Cognitive Occupation','(1.80 hrs/day × 365)']],
+    datasets:[{data:[9902,18374],backgroundColor:[C.orange,a(C.orange,.55)],borderRadius:8,borderSkipped:false}]},
+  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
+    formatter:v=>`$${(v/1000).toFixed(1)}K/yr`,font:{weight:700,size:12},color:C.orange}},
+    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${(v/1000).toFixed(0)}K`,color:C.tick},max:24000}}}});
+
+// RECOVERABLE SCALE: national value by hrs/wk (Paper III)
+new Chart(document.getElementById('chart-recover-scale'),{type:'bar',
+  data:{labels:[['1 hr/wk','(base)'],['3 hrs/wk',''],['5 hrs/wk',''],['10 hrs/wk','']],
+    datasets:[{data:[98.6,295.8,493.0,986.0],
+      backgroundColor:[a(C.purple,.3),a(C.purple,.5),a(C.purple,.7),C.purple],borderRadius:8,borderSkipped:false}]},
+  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
+    formatter:v=>`$${v.toFixed(0)}B`,font:{weight:700,size:12},color:C.purple}},
+    scales:{x:{grid:{display:false}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`$${v}B`,color:C.blTick},max:1100}}}});
+
 
 // CALCULATOR
 function calcROI(){
