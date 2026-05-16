@@ -43,32 +43,34 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
 
 /* ─ HERO (storytelling → brand blue #3672D7) ─────── */
-.hero{background:#fff;padding:5rem 4rem 4rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero{background:var(--blue);padding:5rem 4rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-60px;left:180px;width:300px;height:300px;
-  border-radius:50%;background:radial-gradient(circle,rgba(226,125,57,.08) 0%,transparent 70%);pointer-events:none}
+  border-radius:50%;background:radial-gradient(circle,rgba(226,125,57,.18) 0%,transparent 70%);pointer-events:none}
 .eyebrow{font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
-.hero h1{font-family:var(--serif);font-size:2.75rem;font-weight:500;color:var(--text);
+.hero h1{font-family:var(--serif);font-size:2.75rem;font-weight:500;color:#fff;
   line-height:1.15;margin-bottom:1.25rem;max-width:600px}
-.hero-lead{font-family:var(--sans);font-size:1.05rem;color:#555;
+.hero-lead{font-family:var(--sans);font-size:1.05rem;color:rgba(255,255,255,.68);
   line-height:1.72;max-width:560px;margin-bottom:3rem}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:840px}
 @media(max-width:740px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
-.hs{background:var(--grey);border:1px solid var(--border);
+.hs{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
   border-radius:12px;padding:1.25rem 1.1rem}
 .hs-o{border-top:3px solid var(--orange)}
-.hs-w{border-top:3px solid var(--blue)}
+.hs-w{border-top:3px solid rgba(255,255,255,.6)}
 .hs-p{border-top:3px solid var(--purple)}
 .hs-g{border-top:3px solid var(--gold)}
-.hs-n{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--text);line-height:1;margin-bottom:.4rem}
-.hs-l{font-family:var(--sans);font-size:.71rem;color:#888;line-height:1.45}
+.hs-n{font-family:var(--serif);font-size:2rem;font-weight:600;color:#fff;line-height:1;margin-bottom:.4rem}
+.hs-l{font-family:var(--sans);font-size:.71rem;color:rgba(255,255,255,.6);line-height:1.45}
 
 /* ─ EXEC SUMMARY ──────────────────────────────────── */
 .exec{border-bottom:2px solid var(--border);padding:3.5rem 4rem}
-.exec-hd{background:#fff;padding:2.5rem 4rem 2.25rem;border-bottom:1px solid var(--border)}
-.exec-hd .eyebrow{color:var(--orange)}
-.exec-hd h2{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:var(--text);line-height:1.2;max-width:520px}
-.exec-hd p{font-family:var(--sans);font-size:.88rem;color:#555;max-width:560px;margin-top:.6rem;line-height:1.65}
+.exec-hd{background:var(--blue);padding:2.5rem 4rem 2.25rem}
+.exec-hd .eyebrow{color:rgba(255,255,255,.65)}
+.exec-hd h2{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:#fff;line-height:1.2;max-width:520px}
+.exec-hd p{font-family:var(--sans);font-size:.88rem;color:rgba(255,255,255,.65);max-width:560px;margin-top:.6rem;line-height:1.65}
 .exec-body{padding:2.5rem 4rem;background:#fff}
 .exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 @media(max-width:740px){.exec-grid{grid-template-columns:1fr}}
@@ -324,7 +326,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
   </div>
 </section>
-<section id="papers" class="sec grey">
+<section id="papers" class="sec blue">
   <div class="sec-ey">The Research</div>
   <h2>Three papers. One economic argument.</h2>
   <p class="sec-lead">The care economy thesis is built on three sequential white papers, each extending the prior. Together they establish the valuation, the compounding structure of the burden, and the measurable pathway to economic recovery.</p>
