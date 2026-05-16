@@ -52,8 +52,8 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
 .hero h1{font-family:var(--serif);font-size:2.75rem;font-weight:500;color:#fff;
   line-height:1.15;margin-bottom:1.25rem;max-width:600px}
-.hero-lead{font-family:var(--sans);font-size:1.05rem;color:rgba(255,255,255,.68);
-  line-height:1.72;max-width:560px;margin-bottom:3rem}
+.hero-lead-box{background:#fff;border-radius:12px;padding:1.4rem 1.75rem;max-width:620px;margin-bottom:2.5rem;box-shadow:0 2px 20px rgba(0,0,0,.14)}
+.hero-lead{font-family:var(--sans);font-size:1rem;color:var(--text);line-height:1.75;margin:0}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:840px}
 @media(max-width:740px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
 .hs{background:#fff;border:none;border-radius:12px;padding:1.25rem 1.1rem;box-shadow:0 2px 12px rgba(0,0,0,.12)}
@@ -261,6 +261,14 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .act-div-t{font-family:var(--serif);font-size:1.35rem;color:#fff;font-weight:500}
 .act-div-line{flex:1;height:1px;background:rgba(255,255,255,.15)}
 @media(max-width:600px){.act-div{padding:1.5rem 1.5rem}.act-div-t{font-size:1.1rem}}
+
+.be-grid{display:grid;gap:.5rem;margin-top:.75rem}
+.be-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--grey);border-radius:8px;gap:1rem}
+.be-l{font-family:var(--sans);font-size:.79rem;color:#555}
+.be-v{font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--text);white-space:nowrap}
+.be-hi{color:var(--blue)}
+.be-row.be-orange{background:#FFF3EC}
+.be-v.be-orange{color:var(--orange);font-size:.9rem}
 </style>
 </head>
 <body>
@@ -286,7 +294,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="thesis" class="hero">
   <div class="eyebrow">Suncoast Ventures &middot; Fund II Care Economy Thesis</div>
   <h1>The US care economy is worth $1.6 trillion. Almost none of that is priced into the market.</h1>
-  <p class="hero-lead">53 billion hours of unpaid labor. 63 million caregivers. A $353,782 lifetime penalty per caregiver. The displaced labor methodology prices the work at actual opportunity cost &mdash; not minimum wage, not replacement cost &mdash; and the number is $1.6 trillion. That&rsquo;s 30.8% of total US healthcare expenditure. It&rsquo;s invisible in every investment thesis written to date.</p>
+  <div class="hero-lead-box"><p class="hero-lead">53 billion hours of unpaid labor. 63 million caregivers. A $353,782 lifetime penalty per caregiver. The displaced labor methodology prices the work at actual opportunity cost &mdash; not minimum wage, not replacement cost &mdash; and the number is $1.6 trillion. That&rsquo;s 30.8% of total US healthcare expenditure. It&rsquo;s invisible in every investment thesis written to date.</p></div>
   <div class="hero-stats">
     <div class="hs hs-o"><div class="hs-n">$1.6T</div><div class="hs-l">US care economy &mdash; displaced labor valuation, Gannott 2026</div></div>
     <div class="hs hs-w"><div class="hs-n">63M</div><div class="hs-l">Unpaid caregivers &mdash; largest unpaid workforce in America</div></div>
@@ -449,19 +457,17 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <p class="sec-lead">HBS published the number: caregiver support programs return $2&ndash;$3.60 for every dollar spent. Extend to lifetime penalty prevention and the return is 5.3&times;. The motion writes to CFO and CHRO simultaneously &mdash; the rarest position in B2B.</p>
   <div class="cg c2">
     <div class="cb cb-w"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
-    <div class="cb"><h3>Break-Even Calculator</h3><p class="csub">Model your employer ROI scenario</p>
-      <div class="calc">
-        <div class="calc-grid">
-          <div class="cf"><label>Employees: <span id="lbl-emp">1,000</span></label><input type="range" id="sl-emp" min="100" max="10000" step="100" value="1000"/></div>
-          <div class="cf"><label>% Caregivers: <span id="lbl-pct">20%</span></label><input type="range" id="sl-pct" min="5" max="50" step="5" value="20"/></div>
-          <div class="cf"><label>Avg Salary: <span id="lbl-sal">$56,000</span></label><input type="range" id="sl-sal" min="40000" max="150000" step="5000" value="56000"/></div>
-          <div class="cf"><label>Program Cost/Caregiver: <span id="lbl-cost">$1,200</span></label><input type="range" id="sl-cost" min="500" max="3000" step="100" value="1200"/></div>
-        </div>
-        <div class="calc-res">
-          <div class="cr"><div class="cl">Total Program Cost</div><div class="cv" id="r-prog">-</div></div>
-          <div class="cr"><div class="cl">Turnover Prevention Value</div><div class="cv" id="r-turn">-</div></div>
-          <div class="cr hi"><div class="cl">Net ROI</div><div class="cv" id="r-roi">-</div></div>
-        </div>
+    <div class="cb"><h3>Break-Even Analysis</h3><p class="csub">Modeled scenario: 1,000 employees &middot; 20% caregivers &middot; $1,200/yr program &middot; $56K avg salary</p>
+      <div class="be-grid">
+        <div class="be-row"><div class="be-l">Annual program cost</div><div class="be-v">$240K</div></div>
+        <div class="be-row"><div class="be-l">Break-even threshold</div><div class="be-v">1.0&ndash;1.7% turnover reduction</div></div>
+        <div class="be-row"><div class="be-l">HBS observed reduction (5.5%)</div><div class="be-v be-hi">$616K value &rarr; 2.6&times;</div></div>
+        <div class="be-row"><div class="be-l">ADA/FMLA exposure reduction</div><div class="be-v">Concurrent legal benefit</div></div>
+        <div class="be-row be-orange"><div class="be-l">Lifetime penalty model (Gannott 2026)</div><div class="be-v be-orange">5.3&times; return</div></div>
+      </div>
+      <div style="margin-top:1.25rem;padding:.85rem 1rem;background:#FFF6F0;border-radius:8px;border-left:3px solid var(--orange)">
+        <div style="font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.3rem">The procurement motion</div>
+        <div style="font-family:var(--sans);font-size:.83rem;color:#333;line-height:1.6">Writes to the CFO on ROI. Writes to the CHRO on retention. Reduces ADA/FMLA exposure for legal. Three budget owners, one program. Rare position in B2B.</div>
       </div>
     </div>
   </div>
@@ -670,22 +676,6 @@ new Chart(document.getElementById('chart-recover-scale'),{type:'bar',
     scales:{x:{grid:{display:false}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`$${v}B`,color:C.blTick},max:1100}}}});
 
 
-// CALCULATOR
-function calcROI(){
-  const emp=+document.getElementById('sl-emp').value,pct=+document.getElementById('sl-pct').value/100,
-    sal=+document.getElementById('sl-sal').value,cost=+document.getElementById('sl-cost').value;
-  document.getElementById('lbl-emp').textContent=emp.toLocaleString();
-  document.getElementById('lbl-pct').textContent=(pct*100)+'%';
-  document.getElementById('lbl-sal').textContent='$'+sal.toLocaleString();
-  document.getElementById('lbl-cost').textContent='$'+cost.toLocaleString();
-  const cgs=Math.round(emp*pct),total=cgs*cost,val=cgs*0.055*sal,roi=val/total;
-  const fmt=n=>n>=1e6?`$${(n/1e6).toFixed(1)}M`:`$${Math.round(n/1000)}K`;
-  document.getElementById('r-prog').textContent=fmt(total);
-  document.getElementById('r-turn').textContent=fmt(val);
-  document.getElementById('r-roi').textContent=roi.toFixed(1)+'x';
-}
-['sl-emp','sl-pct','sl-sal','sl-cost'].forEach(id=>document.getElementById(id).addEventListener('input',calcROI));
-calcROI();
 
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
