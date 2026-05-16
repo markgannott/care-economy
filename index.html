@@ -626,8 +626,8 @@ new Chart(document.getElementById('chart-china'),{type:'bar',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
       formatter:v=>v+'%',font:{weight:700,size:12},
       color:C.blueDk}},
-    scales:{x:{grid:{display:false},ticks:{callback:v=>v+'%',color:'#fff'},max:4},
-      y:{grid:{display:false},ticks:{color:'#fff',font:{size:12}}}}}});
+    scales:{x:{grid:{display:false},ticks:{callback:v=>v+'%',color:C.tick},max:4},
+      y:{grid:{display:false},ticks:{color:C.tick,font:{size:12}}}}}});
 
 // COORDINATION: hidden cost comparison (Paper II)
 
