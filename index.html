@@ -278,13 +278,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .act-div-line{flex:1;height:1px;background:rgba(255,255,255,.15)}
 @media(max-width:600px){.act-div{padding:1.5rem 1.5rem}.act-div-t{font-size:1.1rem}}
 
-.be-grid{display:grid;gap:.5rem;margin-top:.75rem}
-.be-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--grey);border-radius:8px;gap:1rem}
-.be-l{font-family:var(--sans);font-size:.79rem;color:#555}
-.be-v{font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--text);white-space:nowrap}
-.be-hi{color:var(--blue)}
-.be-row.be-orange{background:#FFF3EC}
-.be-v.be-orange{color:var(--orange);font-size:.9rem}
 </style>
 </head>
 <body>
@@ -473,17 +466,14 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <p class="sec-lead">HBS published the number: caregiver support programs return $2&ndash;$3.60 for every dollar spent. Extend to lifetime penalty prevention and the return is 5.3&times;. The motion writes to CFO and CHRO simultaneously &mdash; the rarest position in B2B.</p>
   <div class="cg c2">
     <div class="cb cb-w"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
-    <div class="cb"><h3>Break-Even Analysis</h3><p class="csub">Modeled scenario: 1,000 employees &middot; 20% caregivers &middot; $1,200/yr program &middot; $56K avg salary</p>
-      <div class="be-grid">
-        <div class="be-row"><div class="be-l">Annual program cost</div><div class="be-v">$240K</div></div>
-        <div class="be-row"><div class="be-l">Break-even threshold</div><div class="be-v">1.0&ndash;1.7% turnover reduction</div></div>
-        <div class="be-row"><div class="be-l">HBS observed reduction (5.5%)</div><div class="be-v be-hi">$616K value &rarr; 2.6&times;</div></div>
-        <div class="be-row"><div class="be-l">ADA/FMLA exposure reduction</div><div class="be-v">Concurrent legal benefit</div></div>
-        <div class="be-row be-orange"><div class="be-l">Lifetime penalty model (Gannott 2026)</div><div class="be-v be-orange">5.3&times; return</div></div>
+    <div class="cb" style="display:flex;flex-direction:column;justify-content:center;gap:1.25rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+        <div class="sc"><div class="sc-n">5.3&times;</div><div class="sc-l">ROI on employer caregiver support (Gannott 2026)</div></div>
+        <div class="sc"><div class="sc-n">1&ndash;1.7%</div><div class="sc-l">Turnover reduction needed to break even</div></div>
       </div>
-      <div style="margin-top:1.25rem;padding:.85rem 1rem;background:#FFF6F0;border-radius:8px;border-left:3px solid var(--orange)">
-        <div style="font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.3rem">The procurement motion</div>
-        <div style="font-family:var(--sans);font-size:.83rem;color:#333;line-height:1.6">Writes to the CFO on ROI. Writes to the CHRO on retention. Reduces ADA/FMLA exposure for legal. Three budget owners, one program. Rare position in B2B.</div>
+      <div style="padding:1rem 1.1rem;background:rgba(255,255,255,.12);border-radius:8px;border-left:3px solid var(--orange)">
+        <div style="font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem">The procurement motion</div>
+        <div style="font-family:var(--sans);font-size:.83rem;color:rgba(255,255,255,.85);line-height:1.65">Writes to the CFO on ROI. Writes to the CHRO on retention. Reduces ADA/FMLA exposure for legal. Three budget owners, one program. Rare position in B2B.</div>
       </div>
     </div>
   </div>
