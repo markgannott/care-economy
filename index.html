@@ -488,44 +488,44 @@ new Chart(document.getElementById('chart-method'),{type:'bar',
 
 // 2 CONTEXT (white bg)
 new Chart(document.getElementById('chart-context'),{type:'bar',
-  data:{labels:[['Care Economy','(Gannott 2026)'],['Household','Economic Pressure'],['US Pharma','(for scale)'],['GUIDE TAM','(bull case)']],
-    datasets:[{data:[1620,1125,694,1.47],backgroundColor:[C.orange,a(C.orange,.55),a(C.blue,.3),a(C.blue,.15)],borderRadius:8,borderSkipped:false}]},
+  data:{labels:[['Care Economy','(Gannott 2026)'],['Household','Economic Pressure'],['US Pharma','(for scale)']],
+    datasets:[{data:[1620,1125,694],backgroundColor:[C.orange,a(C.orange,.55),a(C.blue,.3)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:(v,ctx)=>ctx.dataIndex===3?`$${v}B`:`$${(v/1000).toFixed(2)}T`,font:{weight:700,size:12},
+    formatter:v=>`$${(v/1000).toFixed(2)}T`,font:{weight:700,size:12},
     color:(ctx)=>ctx.dataIndex===0?C.orange:C.blue}},
-    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>v>=1000?`$${(v/1000).toFixed(1)}T`:`$${v}B`,color:C.tick},max:2000}}}});
+    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${(v/1000).toFixed(1)}T`,color:C.tick},max:2000}}}});
 
 // 3 DEMOGRAPHIC CLIFF (blue bg)
 new Chart(document.getElementById('chart-demo'),{type:'line',
   data:{labels:['1960','1970','1980','1990','2000','2010','2020','2030'],
     datasets:[{data:[6,5.5,5.0,4.5,4.3,4.0,3.5,3],
-      borderColor:'rgba(255,255,255,.9)',backgroundColor:a('#ffffff',.1),fill:true,tension:0.4,pointRadius:5,
-      pointBackgroundColor:['#fff','#fff','#fff','#fff','#fff','#fff','#fff',C.orange],
-      pointBorderColor:C.blue,pointBorderWidth:2}]},
+      borderColor:C.blue,backgroundColor:a(C.blue,.07),fill:true,tension:0.4,pointRadius:5,
+      pointBackgroundColor:[C.blue,C.blue,C.blue,C.blue,C.blue,C.blue,C.blue,C.orange],
+      pointBorderColor:'#fff',pointBorderWidth:2}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:(ctx)=>ctx.dataIndex===0||ctx.dataIndex===7,
     anchor:'top',align:'top',formatter:v=>`${v}:1`,font:{weight:700,size:12},
-    color:(ctx)=>ctx.dataIndex===7?C.orange:'#fff'}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}:1`,color:C.blTick},min:2,max:7}}}});
+    color:(ctx)=>ctx.dataIndex===7?C.orange:C.blue}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}:1`,color:C.tick},min:2,max:7}}}});
 
 // 4 LIFETIME PENALTY (blue bg)
 new Chart(document.getElementById('chart-penalty'),{type:'bar',
   data:{labels:[['Direct','Earnings'],['401(k)','Shortfall'],['Social Security','Reduction'],['Re-Entry','Wage Penalty'],['Healthcare','Differential']],
     datasets:[{data:[160000,85000,52000,38500,18282],
-      backgroundColor:[C.orange,'rgba(255,255,255,.75)',C.purple,C.gold,C.blueLt],borderRadius:6,borderSkipped:false}]},
+      backgroundColor:[C.orange,a(C.blue,.35),C.purple,C.gold,C.blueLt],borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:v=>`$${(v/1000).toFixed(0)}K`,font:{weight:700,size:11},
-    color:(ctx)=>[C.orange,'#fff',C.purple,C.gold,C.blueLt][ctx.dataIndex]}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`$${v/1000}K`,color:C.blTick},max:200000}}}});
+    color:(ctx)=>[C.orange,C.blueDk,C.purple,C.gold,C.blueDk][ctx.dataIndex]}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${v/1000}K`,color:C.tick},max:200000}}}});
 
 // 5 HOURS GAP (blue bg)
 new Chart(document.getElementById('chart-hours'),{type:'bar',
   data:{labels:['Eldercare','Childcare','Housework','Other Caregiving'],
     datasets:[
       {label:'Women',data:[820,1040,780,310],backgroundColor:C.orange,borderRadius:4},
-      {label:'Men',data:[580,680,410,190],backgroundColor:'rgba(255,255,255,.35)',borderRadius:4}
+      {label:'Men',data:[580,680,410,190],backgroundColor:a(C.blue,.3),borderRadius:4}
     ]},
-  options:{...B,plugins:{...B.plugins,legend:{display:true,labels:{color:'rgba(255,255,255,.7)',boxWidth:12,font:{size:11}}}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}h`,color:C.blTick}}}}});
+  options:{...B,plugins:{...B.plugins,legend:{display:true,labels:{color:'#555',boxWidth:12,font:{size:11}}}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}h`,color:C.tick}}}}});
 
 // 6 RECOVERABLE TIME (blue bg)
 new Chart(document.getElementById('chart-recover'),{type:'bar',
