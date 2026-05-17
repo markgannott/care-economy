@@ -347,8 +347,8 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="mc-hi">
       <span class="pbadge pb3" style="margin-bottom:.75rem;display:inline-block">Paper III</span>
       <h3>Recoverable Time &amp; Economic Capacity</h3>
-      <div class="mv">$98.6B/hr</div>
-      <p>Every hour of reduced coordination burden across 63M caregivers recovers $98.6B in national economic capacity. Restoring continuity amplifies the yield of every remaining hour.</p>
+      <div class="mv">$98.6B</div>
+      <p>Annual economic value recovered if every caregiver saves just one hour per week — 63M caregivers &times; 52 weeks &times; $30.09 blended opportunity-cost wage. One hour. Every week. National scale.</p>
     </div>
   </div>
 </section>
@@ -442,8 +442,19 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="pbrow"><div class="sec-ey">Federal Momentum</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>Three federal instruments pointing at the same market.</h2>
   <p class="sec-lead">The RAISE Act created a National Family Caregiving Strategy. The Older Americans Act funds state-level support infrastructure. CMS opened a Medicare billing pathway for caregiver coordination. Three instruments converging on the same market. Private capital allocation has not caught up.</p>
-  <div class="cg">
-    <div class="cb"><h3>NFCSP Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value   Gannott 2026</p><div class="cw"><canvas id="chart-nfcsp"></canvas></div></div>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.5rem">
+    <div class="sc sw">
+      <div class="sc-n" style="font-size:1.1rem;line-height:1.3">RAISE Act</div>
+      <div class="sc-l" style="margin-top:.5rem">National Family Caregiving Strategy &mdash; federal mandate for a coordinated infrastructure plan. Policy legitimacy before the capital arrives.</div>
+    </div>
+    <div class="sc so">
+      <div class="sc-n" style="font-size:1.1rem;line-height:1.3">Older Americans Act</div>
+      <div class="sc-l" style="margin-top:.5rem">NFCSP + Title III state delivery network. 390+ GUIDE-eligible organizations. The public infrastructure layer is already built &mdash; it just needs private capital alongside it.</div>
+    </div>
+    <div class="sc sp">
+      <div class="sc-n" style="font-size:1.1rem;line-height:1.3">CMS GUIDE Model</div>
+      <div class="sc-l" style="margin-top:.5rem">First Medicare billing pathway for dementia caregiver coordination. $735M&ndash;$1.47B TAM at full penetration. The revenue model just opened.</div>
+    </div>
   </div>
 </section>
 <div id="part4" class="act-div"><span class="act-div-n">Part IV</span><div class="act-div-line"></div><span class="act-div-t">The team behind the thesis</span></div>
@@ -467,7 +478,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
     <div class="sc so"><div class="sc-n">Care.com</div><div class="sc-l">Marketplace generation   NYSE IPO 2014. Proved the category. Built the market.</div></div>
     <div class="sc sg"><div class="sc-n">OHAI</div><div class="sc-l">Coordination generation   AI continuity platform that manages the full caregiving household, not just the search for help</div></div>
-    <div class="sc sp"><div class="sc-n">OHAI CEO</div><div class="sc-l">Co-founder and CEO   building the AI coordination layer for 63 million caregivers</div></div>
+    <div class="sc sp"><div class="sc-n">Built It Twice</div><div class="sc-l">The only founder who scaled a caregiving marketplace to public markets &mdash; and chose to build again because the infrastructure problem wasn&rsquo;t solved.</div></div>
   </div>
 </section>
 <section id="thalassea" class="sec">
@@ -477,7 +488,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <p class="sec-lead">Thalassea Partners is the consulting arm of Suncoast Ventures. Evidence &middot; Access &middot; Growth. The firm builds the economic evidence stack that connects clinical innovation to payer decisions   cost-of-illness models, budget impact models, reimbursement strategy, and value dossiers. The flagship product is the Value Pyramid: the complete economic backbone of a commercial strategy: science to healthcare to HEOR to finance, built before the market prices the opportunity in. The displaced labor methodology and the full economic infrastructure underlying this care economy thesis are Thalassea&rsquo;s work.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
     <div class="sc so"><div class="sc-n">Evidence First</div><div class="sc-l">Health economic infrastructure built before market pricing   COI through commercial launch at every Suncoast portco</div></div>
-    <div class="sc sg"><div class="sc-n">$530B</div><div class="sc-l">Burden quantified across published engagements &middot; 4 peer-reviewed publications</div></div>
+    <div class="sc sg"><div class="sc-n">Value Pyramid</div><div class="sc-l">COI &rarr; burden &rarr; clinical &rarr; pricing &mdash; applied to undercounted conditions where the true cost has never been priced. Peer-reviewed methodology, commercial execution.</div></div>
     <div class="sc sp"><div class="sc-n">Value Pyramid</div><div class="sc-l">PJ + COI + BIM + pricing logic   the backbone of commercial strategy for every portco</div></div>
   </div>
 </section>
@@ -596,15 +607,6 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
     scales:{x:{grid:{display:false},ticks:{callback:v=>v>=1000?`$${(v/1000).toFixed(0)}B`:`$${v}M`,color:C.tick},max:1100000},
       y:{grid:{display:false},ticks:{color:C.tick}}}}});
 
-// 10 NFCSP vs CARE VALUE — two-bar stark comparison (Gannott 2026)
-new Chart(document.getElementById('chart-nfcsp'),{type:'bar',
-  data:{labels:[['NFCSP Authorized','FY2024'],['Total Unpaid','Care Value']],
-    datasets:[{data:[244.8,1010000],backgroundColor:[a(C.gold,.6),C.orange],borderRadius:8,borderSkipped:false}]},
-  options:{...B,indexAxis:'y',
-    plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
-      formatter:(v,ctx)=>ctx.dataIndex===0?'$244.8M — 0.024%':'$1.01T — 100%',
-      font:{weight:700,size:12},color:(ctx)=>ctx.dataIndex===0?C.gold:C.orange}},
-    scales:{x:{display:false},y:{grid:{display:false},ticks:{color:C.tick,font:{size:11}}}}}});
 
 // 11 AGING (blue bg)
 new Chart(document.getElementById('chart-aging'),{type:'bar',
