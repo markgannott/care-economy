@@ -854,8 +854,8 @@ new Chart(document.getElementById('chart-aging'),{type:'bar',
       backgroundColor:[C.orange,a(C.blue,.35),a(C.blue,.55),a(C.blue,.45)],
       borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:function(v){return v+'%';},font:{weight:700,size:16},color:'#555'}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick,font:{size:14}}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}%`,color:C.blTick},max:35}}}});
+    formatter:function(v){return v+'%';},font:{weight:700,size:16},color:(ctx)=>ctx.dataIndex===0?C.orange:C.blue}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick},max:35}}}});
 
 
 // COORDINATION: hidden cost comparison (Paper II)
