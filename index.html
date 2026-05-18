@@ -322,7 +322,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="hero-stats">
     <div class="hs hs-o"><div class="hs-n">$1.6T</div><div class="hs-l">Annual U.S. care economy using opportunity-cost methodology.</div></div>
     <div class="hs hs-w"><div class="hs-n">53.0B</div><div class="hs-l">Unpaid caregiving hours performed annually.</div></div>
-    <div class="hs hs-p"><div class="hs-n">$353,782</div><div class="hs-l">Lifetime economic impact, 4-year workforce exit at age 55.</div></div>
+    <div class="hs hs-p"><div class="hs-n">$17,857/yr</div><div class="hs-l">Annual cost per caregiver: income loss plus out-of-pocket spending.</div></div>
     <div class="hs hs-g"><div class="hs-n">63.0M</div><div class="hs-l">Americans providing unpaid care.</div></div>
   </div>
   <div class="hero-thesis" id="summary">
@@ -336,7 +336,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </ul>
   </div>
 </section>
-<section id="papers" class="sec">
+<section id="papers" class="sec blue">
   <div class="sec-ey">The Research</div>
   <h2>Three papers. One economic argument.</h2>
   <p class="sec-lead">Three connected papers, each extending the last.</p>
@@ -365,7 +365,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
 </section>
 <div id="part1" class="act-div"><span class="act-div-n">Part I</span><div class="act-div-line"></div><span class="act-div-t">Scale: the $1.6 trillion hiding in plain sight</span></div>
-<section id="method" class="sec blue">
+<section id="method" class="sec">
   <div class="pbrow"><div class="sec-ey">Market Scale</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Unpaid caregiving is worth $1.6 trillion.</h2>
   <p class="sec-lead">How caregiving is measured determines how large the market appears.</p>
@@ -389,7 +389,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="cg" style="margin-top:1.5rem">
     <div class="cb"><h3>Caregiving Value by Methodology</h3><p class="csub">Three measurement approaches applied to 53.0B hours &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-methodology"></canvas></div></div>
   </div>
-<section id="caregiver-workforce" class="sec">
+<section id="caregiver-workforce" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Caregiver Workforce</div><span class="pbadge pb1">Paper I</span></div>
   <h2>63 million caregivers. Most are also employed.</h2>
   <p class="sec-lead">The U.S. care workforce is not a fringe population. It spans employed workers, household earners, and people mid-career.</p>
@@ -397,7 +397,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="cb"><h3>The Caregiver Funnel</h3><p class="csub">63.0M total &rarr; 38.4M employed &rarr; 19.2M facing work disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-funnel"></canvas></div></div>
   </div>
 </section>
-<section id="burden" class="sec blue">
+<section id="burden" class="sec">
   <div class="pbrow"><div class="sec-ey">Who Bears the Burden</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Caregiving reshapes household economics directly.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
@@ -406,15 +406,14 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="sc sw"><div class="sc-n">$8,328/yr</div><div class="sc-l">out-of-pocket spend per caregiver on medications, transportation, and services</div><div class="sc-s">AARP 2021</div></div>
   </div>
 </section>
-<section id="lifetime" class="sec">
+<section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>Caregiving costs $353,782 over a lifetime.</h2>
+  <h2>$1.1 trillion in annual household burden. $17,857 per caregiver.</h2>
   <ul class="sec-bullets">
-    <li>$17,857/year is the annual micro burden: $9,529 in income loss plus $8,328 in out-of-pocket spending. Multiply across 38.4M employed caregivers and that becomes $600.3B in lost income plus $524.7B in household spending annually.</li>
-    <li>Paper I defines a modal scenario: a woman who exits the workforce at 55 for four years retires at 67 with a $353,782 hole. That total accumulates across five channels: earnings ($160K), 401(k) erosion ($85K), Social Security reduction ($52K), re-entry wage penalty ($38.5K), and healthcare cost differential ($18K).</li>
+    <li>$600.3B in income loss across 38.4M employed caregivers. $524.7B in out-of-pocket household expenditure. $1.1T in combined annual household burden.</li>
   </ul>
   <div class="cg">
-    <div class="cb"><h3>Lifetime Penalty Breakdown</h3><p class="csub">$353,782 total &middot; Paper I modal scenario: woman, age 55, full workforce exit, 4-yr spell, retires at 67 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-penalty"></canvas></div></div>
+    <div class="cb"><h3>Annual Cost Per Caregiver</h3><p class="csub">$17,857 total &middot; income loss $9,529 + out-of-pocket $8,328 &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
 </section>
 <section id="global" class="sec">
@@ -439,13 +438,13 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="sc so"><div class="sc-n">13 more workdays</div><div class="sc-l">women carry 13 more workdays of care per year than men</div><div class="sc-s">BLS ATUS 2023</div></div>
   </div>
   <div class="cg">
-    <div class="cb"><h3>Annual Caregiving Hours by Gender</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) · 13 extra workdays annually &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
+    <div class="cb"><h3>Women Carry 102 More Hours of Care Per Year Than Men</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) · 13 extra workdays annually &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
 </section>
 <section id="caregiver-health" class="sec">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
-  <h2>The caregiver becomes a patient.</h2>
-  <p class="sec-lead">Caregiving strain produces clinical outcomes — not just economic ones.</p>
+  <h2>Care burden creates a clinical and economic flywheel.</h2>
+  <p class="sec-lead">Clinical outcomes from unaddressed care burden cycle back into economic loss. The flywheel compounds: worse health reduces workforce capacity, which deepens the care deficit.</p>
   <div class="cg" style="margin-top:1rem">
     <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">High-burden caregivers vs. non-caregivers &middot; Schulz &amp; Beach (1999, JAMA) &middot; AARP/NAC (2020)</p><div class="cw" style="height:240px"><canvas id="chart-health"></canvas></div></div>
   </div>
@@ -463,14 +462,14 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>Every dollar invested in caregiver support returns $5.3.</h2>
   <ul class="sec-bullets">
     <li>Harvard Business School (2019) puts employer caregiver ROI at 2.0&ndash;3.6x. Mid-term research consensus extends that to 2.8&ndash;4.1x.</li>
-    <li>Gannott (2026) applies full opportunity-cost methodology and finds 5.3x &mdash; the most defensible upper bound using complete household impact accounting.</li>
+    <li>Repricing the Caregiver Economy applies full opportunity-cost methodology and finds 5.3x &mdash; the most defensible upper bound using complete household impact accounting.</li>
   </ul>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Gannott, Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
   </div>
 </section><section id="platform" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Payer Pathway</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Medicare now reimburses caregiver coordination.</h2>
+  <h2>Federal reimbursement has arrived for caregiver coordination.</h2>
   <ul class="sec-bullets">
     <li>Caregiver coordination is increasingly being treated as part of healthcare delivery itself.</li>
     <li>The CMS GUIDE Model is one of the first large-scale Medicare reimbursement pathways for caregiver support.</li>
@@ -639,40 +638,27 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
           font:{weight:700,size:17},color:'#fff'}},
       scales:{
         x:{display:false,min:0,max:64},
-        y:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:8}}}}});
+        y:{grid:{display:false},ticks:{color:C.blTick,font:{size:15},padding:8}}}}});
 })();
-
-new Chart(document.getElementById('chart-burden-split'),{type:'bar',
-  data:{labels:['Income loss\n(work disruptions)','Out-of-pocket\n(direct spend)'],
-    datasets:[{data:[9529,8328],
-      backgroundColor:[a(C.purple,.55),a(C.orange,.6)],borderRadius:8,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`$${v.toLocaleString()}`,font:{weight:700,size:15},
-    color:(ctx)=>ctx.dataIndex===1?C.orange:C.purple}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`$${(v/1000).toFixed(0)}K`,color:C.tick,font:{size:13}},max:12000}}}});
 
 // 3 DEMOGRAPHIC CLIFF (blue bg)
 
 // 4 LIFETIME PENALTY (blue bg)
-new Chart(document.getElementById('chart-penalty'),{type:'bar',
-  data:{labels:['$353,782 Lifetime Penalty'],
-    datasets:[
-      {label:'Direct Earnings Loss',data:[160000],backgroundColor:C.orange,borderRadius:0,borderSkipped:false},
-      {label:'401(k) Shortfall',data:[85000],backgroundColor:a(C.blue,.75),borderRadius:0,borderSkipped:false},
-      {label:'Social Security',data:[52000],backgroundColor:C.purple,borderRadius:0,borderSkipped:false},
-      {label:'Re-Entry Wage Penalty',data:[38500],backgroundColor:C.gold,borderRadius:0,borderSkipped:false},
-      {label:'Healthcare Differential',data:[18282],backgroundColor:C.blueLt,borderRadius:0,borderSkipped:false}
-    ]},
-  options:{...B,indexAxis:'y',
+new Chart(document.getElementById('chart-micro'),{type:'bar',
+  data:{
+    labels:['Income Loss','Out-of-Pocket','Total Annual Cost'],
+    datasets:[{
+      data:[9529,8328,17857],
+      backgroundColor:[a(C.blue,.55),a(C.orange,.75),C.orange],
+      borderRadius:8,borderSkipped:false}]},
+  options:{...B,
     plugins:{...B.plugins,
-      legend:{display:true,position:'bottom',labels:{color:C.tick,font:{size:16},boxWidth:16,padding:14}},
-      datalabels:{display:(ctx)=>ctx.dataset.data[0]>=38000,anchor:'center',align:'center',
-        formatter:v=>`$${(v/1000).toFixed(0)}K`,font:{weight:700,size:15},
-        color:'#fff'}},
+      datalabels:{display:true,anchor:'end',align:'top',
+        formatter:v=>'$'+v.toLocaleString(),font:{weight:700,size:15},
+        color:(ctx)=>ctx.dataIndex===2?C.orange:C.blue}},
     scales:{
-      x:{stacked:true,grid:{color:C.grid},ticks:{callback:v=>`$${v/1000}K`,color:C.tick,font:{size:14}}},
-      y:{stacked:true,grid:{display:false},ticks:{color:C.tick,font:{size:16}}}}}});
+      x:{grid:{display:false},ticks:{color:C.blTick,font:{size:15}}},
+      y:{grid:{color:C.blGrid},ticks:{callback:v=>'$'+v.toLocaleString(),color:C.blTick,font:{size:13}},max:20000}}}})
 
 // METHODOLOGY COMPARISON (blue bg)
 new Chart(document.getElementById('chart-methodology'),{type:'bar',
@@ -692,7 +678,8 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
   data:{labels:['Women\n296 hrs / 37 workdays','Men\n194 hrs / 24 workdays'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:(v,ctx)=>ctx.dataIndex===0?'↑ 102 hrs more\nthan men':'',font:{weight:700,size:16},color:C.orange}},
+    formatter:(v,ctx)=>ctx.dataIndex===1?'+102 hrs more
+for women':'',font:{weight:700,size:16},color:C.orange}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},max:315}}}});
 
 // 6 CAREGIVER HEALTH OUTCOMES (white bg)
@@ -711,12 +698,12 @@ new Chart(document.getElementById('chart-health'),{type:'bar',
         color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
     scales:{
       x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:52}}}});
+      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:48}}}});
 
 // 7 ROI (white bg) — floating range bars, story builds to Gannott 5.3x
 new Chart(document.getElementById('chart-roi'),{type:'bar',
   data:{
-    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Gannott (2026)'],
+    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Repricing the Caregiver Economy'],
     datasets:[{
       data:[[2.0,3.6],[2.8,4.1],[0,5.3]],
       backgroundColor:[a(C.blue,.3),a(C.blue,.55),C.orange],
