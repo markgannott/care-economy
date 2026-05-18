@@ -812,7 +812,7 @@ new Chart(document.getElementById('chart-roi'),{type:'bar',
 // 8 GUIDE TAM (grey bg)
 new Chart(document.getElementById('chart-guide'),{type:'bar',
   data:{labels:[['5%','~$368M'],['10%','$735M'],['20%','$1.47B'],['30%','+Respite']],
-    datasets:[{data:[368,735,1470,2205],backgroundColor:[a(C.blue,.3),C.blue,C.orange,C.gold],borderRadius:8,borderSkipped:false}]},
+    datasets:[{data:[368,735,1470,2205],backgroundColor:[a(C.blue,.3),C.blue,a(C.orange,.6),C.orange],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:v=>v>=1000?`$${(v/1000).toFixed(2)}B`:`$${v}M`,font:{weight:700,size:11},
     color:(ctx)=>ctx.dataIndex>=2?C.orange:C.blue}},
