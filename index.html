@@ -646,7 +646,7 @@ new Chart(document.getElementById('chart-penalty'),{type:'bar',
 
 // 5 HOURS GAP (blue bg)
 new Chart(document.getElementById('chart-hours'),{type:'bar',
-  data:{labels:['Women\n296 hrs / 37 days','Men\n194 hrs / 24 days'],
+  data:{labels:['Women\n296 hrs / 37 workdays','Men\n194 hrs / 24 workdays'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:(v,ctx)=>ctx.dataIndex===0?'↑ 102 hrs more\nthan men':'',font:{weight:700,size:16},color:C.orange}},
