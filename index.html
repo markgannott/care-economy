@@ -708,8 +708,7 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
   data:{labels:['Women\n296 hrs / 37 workdays','Men\n194 hrs / 24 workdays'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:(v,ctx)=>ctx.dataIndex===1?'+102 hrs more
-for women':'',font:{weight:700,size:16},color:C.orange}},
+    formatter:(v,ctx)=>ctx.dataIndex===1?'+102 hrs more (women)':'',font:{weight:700,size:16},color:C.orange}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},max:315}}}});
 
 // 6 CAREGIVER HEALTH OUTCOMES (white bg)
