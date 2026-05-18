@@ -408,21 +408,20 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>$1.1 trillion in annual household burden. $17,857 per caregiver.</h2>
+  <h2>$17,857 per caregiver &times; 38.4M caregivers&nbsp;=&nbsp;$1.1T in annual burden.</h2>
   <ul class="sec-bullets">
-    <li>$600.3B in income loss across 38.4M employed caregivers. $524.7B in out-of-pocket household expenditure. $1.1T in combined annual household burden.</li>
+    <li>$600.3B in income loss across 38.4M employed caregivers, plus $524.7B in out-of-pocket household spending.</li>
   </ul>
   <div class="cg">
-    <div class="cb"><h3>Annual Cost Per Caregiver</h3><p class="csub">$17,857 total &middot; income loss $9,529 + out-of-pocket $8,328 &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
+    <div class="cb"><h3>Annual Cost Per Caregiver: $17,857</h3><p class="csub">Income loss $9,529 + out-of-pocket $8,328 &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
 </section>
 <section id="global" class="sec">
   <div class="pbrow"><div class="sec-ey">Demographic Expansion</div><span class="pbadge pb1">Paper I</span></div>
   <h2>The market continues to expand.</h2>
   <ul class="sec-bullets">
-    <li>1 in 5 Americans will be over 65 by 2030.</li>
-    <li>The caregiver-to-elderly ratio drops from 7.2:1 in 2010 to 4:1 by 2030.</li>
-    <li>Chronic disease prevalence is rising as the population ages; demand expands as supply contracts.</li>
+    <li>Chronic disease prevalence is rising as the population ages. Demand expands as supply contracts.</li>
+    <li>The caregiver-to-elderly ratio drops from 7.2:1 in 2010 to 4:1 by 2030, meaning each available caregiver will support 75% more elderly than in 2010.</li>
   </ul>
   <div class="cg">
     <div class="cb co"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point — OECD Health Statistics 2023</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
@@ -434,7 +433,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>Coordination failure is the hidden multiplier.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sp"><div class="sc-n">$9,901/year</div><div class="sc-l">annual opportunity cost per caregiver: the economic value of caregiving hours forfeited</div><div class="sc-s">The Coordination Economy</div></div>
-    <div class="sc sw"><div class="sc-n">354 hrs / 44 days</div><div class="sc-l">44 workdays of overhead per year accumulates into stress, sleep disruption, deferred care, and clinical depression</div><div class="sc-s">BLS ATUS 2023</div></div>
+    <div class="sc sw"><div class="sc-n">354 hrs / 44 days</div><div class="sc-l">This loss accumulates into stress, sleep disruption, and deferred care</div><div class="sc-s">BLS ATUS 2023</div></div>
     <div class="sc so"><div class="sc-n">13 more workdays</div><div class="sc-l">women carry 13 more workdays of care per year than men</div><div class="sc-s">BLS ATUS 2023</div></div>
   </div>
   <div class="cg">
@@ -481,25 +480,26 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="policy" class="sec">
   <div class="pbrow"><div class="sec-ey">Federal Momentum</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The government is starting to pay for this.</h2>
-  <p class="sec-lead">Three federal programs now fund caregiver coordination, state support, and Medicare reimbursement.</p>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.5rem">
-    <div class="sc sp">
-      <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem">CMS GUIDE Model &middot; 2024</div>
-      <div class="sc-n">$1.1B</div>
-      <div class="sc-l" style="margin-top:.35rem">Median TAM at 15% Medicare penetration on 3.5M eligible beneficiaries. $65&ndash;390/mo per care plan + $2,500/yr respite. 390+ organizations enrolled.</div>
-      <div class="sc-s">CMS Innovation Center; Repricing the Caregiver Economy</div>
+  <p class="sec-lead">Three federal programs now fund caregiver coordination, state support, and direct Medicare reimbursement &mdash; each at a different scale and mandate.</p>
+  <div class="cg" style="margin-top:1.5rem">
+    <div class="cb"><h3>Federal Program Comparison</h3><p class="csub">Annual appropriation / median market size ($ billions) &middot; CMS; HHS ACL; Repricing the Caregiver Economy</p>
+    <div class="cw" style="height:200px"><canvas id="chart-policy"></canvas></div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--orange);border-radius:8px;padding:1.25rem">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">CMS GUIDE Model</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">$735M &ndash; $1.47B TAM &middot; 2024</div>
+      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">Medicare pays $65&ndash;390/mo per care plan + $2,500/yr respite. 390+ organizations enrolled. First time Medicare directly reimburses care coordination.</div>
     </div>
-    <div class="sc sw">
-      <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem">NFCSP / OAA Title III-E &middot; FY2024</div>
-      <div class="sc-n">$244.8M</div>
-      <div class="sc-l" style="margin-top:.35rem">National Family Caregiver Support Program authorized funding. 0.015% of the $1.6T care economy it depends on. The gap between what&rsquo;s funded and what&rsquo;s needed is the market.</div>
-      <div class="sc-s">Repricing the Caregiver Economy</div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:8px;padding:1.25rem">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">NFCSP &middot; OAA Title III-E</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">$244.8M authorized &middot; FY2024</div>
+      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">National Family Caregiver Support Program. 0.015% of the $1.6T economy it depends on. The gap between what&rsquo;s funded and what&rsquo;s needed is the addressable market.</div>
     </div>
-    <div class="sc so">
-      <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem">RAISE Act + OAA &middot; 2018&ndash;present</div>
-      <div class="sc-n">$2.5B+</div>
-      <div class="sc-l" style="margin-top:.35rem">Total Older Americans Act annual appropriation, the largest federal care infrastructure budget. Establishes delivery networks and mandates a national caregiving strategy.</div>
-      <div class="sc-s">HHS Administration for Community Living FY2024</div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--blue-dk);border-radius:8px;padding:1.25rem">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">RAISE Act + OAA &middot; 2018&ndash;present</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">$2.5B+ annual &middot; largest care budget</div>
+      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">Older Americans Act total appropriation. Funds delivery networks, mandates a national caregiving strategy, and finances state-level support infrastructure.</div>
     </div>
   </div>
 </section>
@@ -676,19 +676,20 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
 // 4 LIFETIME PENALTY (blue bg)
 new Chart(document.getElementById('chart-micro'),{type:'bar',
   data:{
-    labels:['Income Loss','Out-of-Pocket','Total Annual Cost'],
-    datasets:[{
-      data:[9529,8328,17857],
-      backgroundColor:[a(C.blue,.55),a(C.orange,.75),C.orange],
-      borderRadius:8,borderSkipped:false}]},
-  options:{...B,
+    labels:['Annual Cost per Caregiver'],
+    datasets:[
+      {label:'Income Loss',data:[9529],backgroundColor:a(C.blue,.65),borderRadius:0,borderSkipped:false},
+      {label:'Out-of-Pocket',data:[8328],backgroundColor:C.orange,borderRadius:0,borderSkipped:false}
+    ]},
+  options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
-      datalabels:{display:true,anchor:'end',align:'top',
-        formatter:v=>'$'+v.toLocaleString(),font:{weight:700,size:15},
-        color:(ctx)=>ctx.dataIndex===2?C.orange:C.blue}},
+      legend:{display:true,position:'bottom',labels:{color:C.blTick,font:{size:15},boxWidth:14,padding:16}},
+      datalabels:{display:true,anchor:'center',align:'center',
+        formatter:function(v){return '$'+v.toLocaleString();},
+        font:{weight:700,size:16},color:'#fff'}},
     scales:{
-      x:{grid:{display:false},ticks:{color:C.blTick,font:{size:15}}},
-      y:{grid:{color:C.blGrid},ticks:{callback:v=>'$'+v.toLocaleString(),color:C.blTick,font:{size:13}},max:20000}}}})
+      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return '$'+(v/1000)+'K';},color:C.blTick,font:{size:13}},max:20000},
+      y:{stacked:true,display:false}}}})
 
 // METHODOLOGY COMPARISON (blue bg)
 new Chart(document.getElementById('chart-methodology'),{type:'bar',
@@ -708,7 +709,7 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
   data:{labels:['Women\n296 hrs / 37 workdays','Men\n194 hrs / 24 workdays'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:(v,ctx)=>ctx.dataIndex===1?'+102 hrs more (women)':'',font:{weight:700,size:16},color:C.orange}},
+    formatter:(v,ctx)=>ctx.dataIndex===1?'WOMEN CARRY 13 EXTRA DAYS':'',font:{weight:700,size:16},color:C.orange}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},max:315}}}});
 
 // 6 CAREGIVER HEALTH OUTCOMES (white bg)
@@ -774,9 +775,9 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
 
 // 11 AGING (blue bg)
 new Chart(document.getElementById('chart-aging'),{type:'bar',
-  data:{labels:['Japan','Germany','S. Korea','Italy','UK','US','China','OECD Avg'],
-    datasets:[{data:[29.1,22.4,20.0,24.1,19.2,17.4,15.4,18.1],
-      backgroundColor:[C.orange,a(C.blue,.55),a(C.orange,.65),a(C.blue,.45),a(C.blue,.35),a(C.blue,.45),a(C.orange,.45),a(C.blue,.25)],
+  data:{labels:['Japan','OECD Avg','US','China'],
+    datasets:[{data:[29.1,18.1,17.4,15.4],
+      backgroundColor:[C.orange,a(C.blue,.35),a(C.blue,.55),a(C.blue,.45)],
       borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:v=>`${v}%`,font:{weight:700,size:11},color:'#555'}},
@@ -794,6 +795,21 @@ mobBtn.addEventListener('click',()=>{
   document.body.style.overflow=mobOverlay.classList.contains('open')?'hidden':'';
 });
 mobOverlay.addEventListener('click',e=>{if(e.target===mobOverlay)closeMob();});
+
+// FEDERAL PROGRAMS COMPARISON (white bg)
+new Chart(document.getElementById('chart-policy'),{type:'bar',
+  data:{labels:['NFCSP (FY2024)','GUIDE Model TAM','OAA Annual'],
+    datasets:[{data:[0.245,1.1,2.5],
+      backgroundColor:[a(C.blue,.45),C.orange,a(C.blue,.65)],
+      borderRadius:6,borderSkipped:false}]},
+  options:{...B,indexAxis:'y',
+    plugins:{...B.plugins,
+      datalabels:{display:true,anchor:'end',align:'right',
+        formatter:function(v){return v>=1?'$'+v+'B':'$'+Math.round(v*1000)+'M';},
+        font:{weight:700,size:15},color:C.blue}},
+    scales:{
+      x:{grid:{color:C.grid},ticks:{callback:function(v){return v>=1?'$'+v+'B':'$'+Math.round(v*1000)+'M';},color:C.tick,font:{size:12}},min:0,max:3.2},
+      y:{grid:{display:false},ticks:{color:C.tick,font:{size:14},padding:8}}}}});
 </script>
 </body>
 </html>
