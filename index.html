@@ -147,21 +147,19 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 .cw.short{height:160px}
 
 /* ─ STAT CARDS (paper-card aesthetic, consistent everywhere) ─ */
-.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0;align-items:start}
+.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0;align-items:stretch}
 @media(max-width:740px){.sc-row{grid-template-columns:repeat(2,1fr)}}
 .sc{background:var(--grey);border:1px solid var(--border);border-top:4px solid var(--blue-lt);border-radius:12px;padding:1.25rem}
 .sc.so{background:#FFF8F4;border-color:#F5D5C0;border-top-color:var(--orange)}
 .sc.sw{background:#F0F4FA;border-color:#C8D5ED;border-top-color:var(--blue)}
 .sc.sg{background:#FFFAED;border-color:#EBD98F;border-top-color:var(--gold)}
-.sc.sp{border-top-color:var(--purple)}
+.sc.sp{border-top-color:var(--blue-dk)}
 .sc-n{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.3rem}
-.sc.so .sc-n{color:var(--orange)}
 .sc-l{font-family:var(--sans);font-size:1.15rem;color:#555;line-height:1.45}
 .sc-s{font-family:var(--sans);font-size:.8rem;color:#777;margin-top:.3rem}
 .sec.blue .sc{background:#fff;border-color:var(--border)}
 .sec.blue .sc.sw{border-top-color:var(--blue)}
 .sec.blue .sc .sc-n{color:var(--blue-dk)}
-.sec.blue .sc.so .sc-n{color:var(--orange)}
 .sec.blue .sc .sc-l{color:#444}
 .sec.blue .sc .sc-s{color:#666}
 
@@ -326,13 +324,24 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   </div>
   <div class="hero-thesis" id="summary">
     <div style="font-family:var(--sans);font-size:.9rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem">Executive Summary</div>
-    <h2 style="margin-bottom:.75rem;padding:.75rem 1.25rem;border-left:5px solid var(--orange);background:rgba(232,119,34,.07);border-radius:0 8px 8px 0;display:inline-block;width:100%;box-sizing:border-box">The Ratio is the Thesis</h2>
-    <ul>
-      <li>At 53.0B hours annually &mdash; equivalent to 6.05M person-years &mdash; unpaid caregiving is the largest unpriced labor system in the country.</li>
-      <li>Traditional replacement-cost models price caregiving at a worker's wage. Opportunity-cost methodology measures what caregivers actually forgo: income, labor participation, retirement accumulation, and long-term economic capacity.</li>
-      <li>That shift moves the market from a $642B estimate to $1.6T.</li>
-      <li>The ratio is the thesis: enormous economic value, limited dedicated infrastructure, and a market now moving toward coordination, reimbursement, employer support, and AI-enabled continuity.</li>
-    </ul>
+    <div style="font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--orange);letter-spacing:.05em;margin-bottom:.9rem">The Ratio is the Thesis</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch">
+      <div style="background:var(--grey);border:1px solid var(--border);border-top:4px solid var(--blue-lt);border-radius:10px;padding:1rem">
+        <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem">Paper I &mdash; Scale</div>
+        <div style="font-family:var(--serif);font-size:1.9rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.25rem">$1.6T</div>
+        <div style="font-family:var(--sans);font-size:.88rem;color:#555;line-height:1.55">53.0B hours of unpaid labor priced at what caregivers actually forgo &mdash; income, labor participation, retirement. That shift from replacement cost adds $600B to the market.</div>
+      </div>
+      <div style="background:#FFF8F4;border:1px solid #F5D5C0;border-top:4px solid var(--orange);border-radius:10px;padding:1rem">
+        <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.3rem">Paper II &mdash; Structure</div>
+        <div style="font-family:var(--serif);font-size:1.9rem;font-weight:600;color:var(--orange);line-height:1;margin-bottom:.25rem">$9,901/yr</div>
+        <div style="font-family:var(--sans);font-size:.88rem;color:#555;line-height:1.55">Coordination failure is unmeasured overhead compounding the direct burden. 354 hours. 44 workdays. Zero reimbursement.</div>
+      </div>
+      <div style="background:#F0F4FA;border:1px solid #C8D5ED;border-top:4px solid var(--blue-dk);border-radius:10px;padding:1rem">
+        <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:.3rem">Paper III &mdash; Opportunity</div>
+        <div style="font-family:var(--serif);font-size:1.9rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.25rem">$98.6B</div>
+        <div style="font-family:var(--sans);font-size:.88rem;color:#555;line-height:1.55">354.1M recoverable hours sitting idle &mdash; not for lack of capacity, but lack of infrastructure. Build the coordination layer and you recover the value.</div>
+      </div>
+    </div>
   </div>
 </section>
 <section id="papers" class="sec blue">
@@ -368,6 +377,18 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   <div class="pbrow"><div class="sec-ey">Market Scale</div><span class="pbadge pb1">Paper I</span></div>
   <h2>$1.6T for 53.0B Hours of unpaid care.</h2>
   <p class="sec-lead">How caregiving is measured determines how large the market appears.</p>
+  <div class="sc-row" style="grid-template-columns:repeat(2,1fr);margin-bottom:1rem">
+    <div class="sc sw">
+      <div class="sc-s" style="margin-bottom:.4rem">AARP Replacement-Cost Floor</div>
+      <div class="sc-n">$1.01T</div>
+      <div class="sc-l">53.0B hours priced at caregiver wage rates &mdash; the widely cited baseline. AARP/NAC 2020.</div>
+    </div>
+    <div class="sc so">
+      <div class="sc-s" style="margin-bottom:.4rem">Opportunity-Cost Methodology (This Thesis)</div>
+      <div class="sc-n">$1.6T</div>
+      <div class="sc-l">Prices what caregivers actually forgo: income, labor participation, and retirement accumulation. +$599B above the AARP floor.</div>
+    </div>
+  </div>
   <div class="cg" style="margin-top:1.5rem">
     <div class="cb"><h3>Caregiving Value by Methodology</h3><p class="csub">Three measurement approaches applied to 53.0B hours &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-methodology"></canvas></div></div>
   </div>
@@ -387,7 +408,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 </section>
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>$21,642 per caregiver &times; 38.4M caregivers&nbsp;=&nbsp;$1.4T in annual burden.</h2>
+  <h2>$21,642 per caregiver &times; 38.4M caregivers&nbsp;=&nbsp;$1.4T.</h2>
   <div class="cg">
     <div class="cb"><h3>Household Burden: $1.4T</h3><p class="csub">$727B income loss + $636B out-of-pocket &middot; per caregiver: $11,549 + $10,093 = $21,642 (2024$, CPI-adj.) &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
@@ -464,7 +485,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     <div class="sc so">
       <div class="sc-s" style="margin-bottom:.4rem">CMS GUIDE Model &middot; 2024</div>
       <div class="sc-n">$735M&ndash;$1.47B</div>
-      <div class="sc-l">CMS&rsquo;s first model paying providers to coordinate dementia care at home. A dedicated navigator manages the care plan across providers. 390+ organizations enrolled.</div>
+      <div class="sc-l">CMS&rsquo;s first model paying providers to coordinate dementia care at home, across ~400 organizations.</div>
     </div>
     <div class="sc sw">
       <div class="sc-s" style="margin-bottom:.4rem">NFCSP &middot; OAA Title III-E &middot; Est. 2000</div>
