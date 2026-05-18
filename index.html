@@ -630,27 +630,47 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
 // 1 METHODOLOGY (white bg) — chart removed; row cards carry the comparison
 
 // 2 CONTEXT — workforce burden (white bg)
-// CAREGIVER FUNNEL (white bg) — centered horizontal bars create funnel shape
+// CAREGIVER FUNNEL (blue bg) - centered horizontal bars create funnel shape
 (function(){
-  const cx=32, vals=[63.0,38.4,19.2];
-  const fdata=vals.map(v=>[+(cx-v/2).toFixed(1),+(cx+v/2).toFixed(1)]);
-  new Chart(document.getElementById('chart-funnel'),{type:'bar',
+  var cx=32, vals=[63.0,38.4,19.2];
+  var fdata=vals.map(function(v){return [+(cx-v/2).toFixed(1),+(cx+v/2).toFixed(1)];});
+  new Chart(document.getElementById('chart-funnel'),{
+    type:'bar',
     data:{
       labels:['All caregivers','Employed caregivers','Face work disruptions'],
       datasets:[{
         data:fdata,
         backgroundColor:[a(C.blue,.35),a(C.blue,.6),C.orange],
-        borderRadius:8,borderSkipped:false}]},
-    options:{...B,indexAxis:'y',
-      plugins:{...B.plugins,
-        datalabels:{display:true,anchor:'center',align:'center',
-          formatter:(v,ctx)=>{const raw=[63.0,38.4,19.2];return raw[ctx.dataIndex]+'M';},
-          font:{weight:700,size:17},color:'#fff'}},
+        borderRadius:8,
+        borderSkipped:false
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:true,
+      indexAxis:'y',
+      plugins:{
+        legend:{display:false},
+        tooltip:{enabled:false},
+        datalabels:{
+          display:true,
+          anchor:'center',
+          align:'center',
+          formatter:function(v,ctx){var raw=[63.0,38.4,19.2];return raw[ctx.dataIndex]+'M';},
+          font:{weight:700,size:17},
+          color:'#fff'
+        }
+      },
       scales:{
         x:{display:false,min:0,max:64},
-        y:{grid:{display:false},ticks:{color:C.blTick,font:{size:15},padding:8}}}}});
+        y:{
+          grid:{display:false},
+          ticks:{color:C.blTick,font:{size:15},padding:8}
+        }
+      }
+    }
+  });
 })();
-
 // 3 DEMOGRAPHIC CLIFF (blue bg)
 
 // 4 LIFETIME PENALTY (blue bg)
