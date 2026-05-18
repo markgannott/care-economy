@@ -294,6 +294,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <li><a href="#papers">The Research</a></li>
     <li class="nav-part"><a href="#part1">Part I   Scale</a></li>
     <li><a href="#method">Valuation</a></li>
+    <li><a href="#caregiver-workforce">Caregiver Workforce</a></li>
     <li><a href="#burden">The Burden</a></li>
     <li><a href="#global">Global Extension</a></li>
     <li class="nav-part"><a href="#part2">Part II   Structure</a></li>
@@ -388,7 +389,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="cg" style="margin-top:1.5rem">
     <div class="cb"><h3>Caregiving Value by Methodology</h3><p class="csub">Three measurement approaches applied to 53.0B hours &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-methodology"></canvas></div></div>
   </div>
-</section><section id="burden" class="sec">
+<section id="caregiver-workforce" class="sec">
+  <div class="pbrow"><div class="sec-ey">Caregiver Workforce</div><span class="pbadge pb1">Paper I</span></div>
+  <h2>63 million caregivers. Most are also employed.</h2>
+  <p class="sec-lead">The U.S. care workforce is not a fringe population. It spans employed workers, household earners, and people mid-career.</p>
+  <div class="cg" style="margin-top:1.25rem">
+    <div class="cb"><h3>The Caregiver Funnel</h3><p class="csub">63.0M total &rarr; 38.4M employed &rarr; 19.2M facing work disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-funnel"></canvas></div></div>
+  </div>
+</section>
+<section id="burden" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Who Bears the Burden</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Caregiving reshapes household economics directly.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
@@ -396,11 +405,8 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="sc so"><div class="sc-n">$524.7B</div><div class="sc-l">annual out-of-pocket household expenditure</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
     <div class="sc sw"><div class="sc-n">$8,328/yr</div><div class="sc-l">out-of-pocket spend per caregiver on medications, transportation, and services</div><div class="sc-s">AARP 2021</div></div>
   </div>
-  <div class="cg" style="margin-top:1.25rem">
-    <div class="cb"><h3>Caregivers Cost the Workforce $600.3B</h3><p class="csub">63.0M total &rarr; 38.4M employed &rarr; 19.2M facing disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-workforce"></canvas></div></div>
-  </div>
 </section>
-<section id="lifetime" class="sec blue">
+<section id="lifetime" class="sec">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Caregiving costs $353,782 over a lifetime.</h2>
   <ul class="sec-bullets">
@@ -454,10 +460,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Why Infrastructure Forms Now</span></div>
 <section id="roi" class="sec">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Caregiving affects workforce stability directly.</h2>
+  <h2>Every dollar invested in caregiver support returns $5.3.</h2>
   <ul class="sec-bullets">
-    <li>Caregiving burden drives downstream employer effects: attendance, retention, productivity, and scheduling instability.</li>
-    <li>Returns to employer caregiver support: $2.0–5.3x per $1 invested.</li>
+    <li>Harvard Business School (2019) puts employer caregiver ROI at 2.0&ndash;3.6x. Mid-term research consensus extends that to 2.8&ndash;4.1x.</li>
+    <li>Gannott (2026) applies full opportunity-cost methodology and finds 5.3x &mdash; the most defensible upper bound using complete household impact accounting.</li>
   </ul>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Gannott, Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
@@ -566,6 +572,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <a href="#papers" onclick="closeMob()">The Research</a>
   <span class="mob-part">Part I   Scale</span>
   <a href="#method" onclick="closeMob()" class="mob-sub">Valuation</a>
+  <a href="#caregiver-workforce" onclick="closeMob()" class="mob-sub">Caregiver Workforce</a>
   <a href="#burden" onclick="closeMob()" class="mob-sub">Economic Burden</a>
   <a href="#lifetime" onclick="closeMob()" class="mob-sub">Lifetime Impact</a>
   <a href="#global" onclick="closeMob()" class="mob-sub">Global Extension</a>
@@ -614,14 +621,26 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
 // 1 METHODOLOGY (white bg) — chart removed; row cards carry the comparison
 
 // 2 CONTEXT — workforce burden (white bg)
-new Chart(document.getElementById('chart-workforce'),{type:'bar',
-  data:{labels:['All caregivers','Employed caregivers','Face work disruptions'],
-    datasets:[{data:[63.0,38.4,19.2],
-      backgroundColor:[a(C.blue,.35),a(C.blue,.6),C.orange],borderRadius:8,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`${v}M`,font:{weight:700,size:15},color:(ctx)=>ctx.dataIndex===2?C.orange:C.blue}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}M`,color:C.tick,font:{size:13}},max:72}}}});
+// CAREGIVER FUNNEL (white bg) — centered horizontal bars create funnel shape
+(function(){
+  const cx=32, vals=[63.0,38.4,19.2];
+  const fdata=vals.map(v=>[+(cx-v/2).toFixed(1),+(cx+v/2).toFixed(1)]);
+  new Chart(document.getElementById('chart-funnel'),{type:'bar',
+    data:{
+      labels:['All caregivers','Employed caregivers','Face work disruptions'],
+      datasets:[{
+        data:fdata,
+        backgroundColor:[a(C.blue,.35),a(C.blue,.6),C.orange],
+        borderRadius:8,borderSkipped:false}]},
+    options:{...B,indexAxis:'y',
+      plugins:{...B.plugins,
+        datalabels:{display:true,anchor:'center',align:'center',
+          formatter:(v,ctx)=>{const raw=[63.0,38.4,19.2];return raw[ctx.dataIndex]+'M';},
+          font:{weight:700,size:17},color:'#fff'}},
+      scales:{
+        x:{display:false,min:0,max:64},
+        y:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:8}}}}});
+})();
 
 new Chart(document.getElementById('chart-burden-split'),{type:'bar',
   data:{labels:['Income loss\n(work disruptions)','Out-of-pocket\n(direct spend)'],
@@ -694,14 +713,27 @@ new Chart(document.getElementById('chart-health'),{type:'bar',
       x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
       y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:52}}}});
 
-// 7 ROI (blue bg)
+// 7 ROI (white bg) — floating range bars, story builds to Gannott 5.3x
 new Chart(document.getElementById('chart-roi'),{type:'bar',
-  data:{labels:['HBS Low','HBS High','Mid-Term Low','Mid-Term High','This Analysis'],
-    datasets:[{data:[2.0,3.6,2.8,4.1,5.3],
-      backgroundColor:[a(C.blue,.2),a(C.blue,.2),a(C.blue,.4),a(C.blue,.4),C.orange],borderRadius:6,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`${v}x`,font:{weight:700,size:12},color:(ctx)=>ctx.dataIndex===4?C.orange:C.blue}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}x`,color:C.blTick},max:7}}}});
+  data:{
+    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Gannott (2026)'],
+    datasets:[{
+      data:[[2.0,3.6],[2.8,4.1],[0,5.3]],
+      backgroundColor:[a(C.blue,.3),a(C.blue,.55),C.orange],
+      borderRadius:6,borderSkipped:false}]},
+  options:{...B,indexAxis:'y',
+    plugins:{...B.plugins,
+      datalabels:{display:true,anchor:'center',align:'center',
+        formatter:(v,ctx)=>{
+          const d=ctx.dataset.data[ctx.dataIndex];
+          if(Array.isArray(d)){return d[0]===0?d[1]+'x':d[0]+'\u2013'+d[1]+'x';}
+          return v+'x';
+        },
+        font:{weight:700,size:15},
+        color:(ctx)=>ctx.dataIndex===2?'#fff':C.blue}},
+    scales:{
+      x:{grid:{color:C.grid},ticks:{callback:v=>v+'x',color:C.tick,font:{size:13}},min:0,max:7},
+      y:{grid:{display:false},ticks:{color:C.tick,font:{size:14},padding:8}}}}});
 
 // 8 GUIDE TAM (grey bg)
 new Chart(document.getElementById('chart-guide'),{type:'bar',
