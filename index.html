@@ -45,17 +45,12 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 .sb-foot{padding:1rem 1.5rem;font-family:var(--sans);font-size:.61rem;
   color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
 
-/* ─ HERO (storytelling → brand blue #3672D7) ─────── */
-.hero{background:var(--blue);padding:2.5rem 4rem 2.5rem;position:relative;overflow:hidden}
-
-.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;
-  border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-60px;left:180px;width:300px;height:300px;
-  border-radius:50%;background:radial-gradient(circle,rgba(226,125,57,.18) 0%,transparent 70%);pointer-events:none}
+/* ─ HERO ─────────────────────────────────────────── */
+.hero{background:#fff;padding:2.5rem 4rem 2rem;border-bottom:1px solid var(--border)}
 .eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
-.hero .eyebrow{color:#fff}
-.hero h1{font-family:var(--serif);font-size:3.0rem;font-weight:500;color:#fff;line-height:1.15;margin-bottom:.9rem}
+.hero h1{font-family:var(--serif);font-size:3.2rem;font-weight:600;color:var(--blue-dk);line-height:1.1;margin-bottom:.5rem}
+.hero-sub{font-family:var(--sans);font-size:1.25rem;color:#555;line-height:1.5;margin-bottom:0}
 .hero-lead-box{background:#fff;border-radius:12px;padding:.9rem 1.4rem;margin-bottom:1rem;box-shadow:0 2px 20px rgba(0,0,0,.14)}
 .hero-lead{font-family:var(--sans);font-size:1.1rem;color:var(--text);line-height:1.68;margin:0}.hero-thesis{background:#fff;border-radius:12px;padding:1.25rem 1.75rem;margin-top:1.25rem;border:1px solid rgba(255,255,255,.15);box-shadow:0 4px 24px rgba(0,0,0,.18)}.hero-thesis h2{color:#0a1628;font-family:var(--serif);font-size:2.6rem;font-weight:500;line-height:1.2;margin-bottom:.75rem}.hero-thesis p{color:#2d3748;font-size:1.2rem;line-height:1.75;margin:0}.hero-thesis ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.65rem}.hero-thesis li{color:#2d3748;font-family:var(--sans);font-size:1.25rem;line-height:1.65;padding-left:1.4rem;position:relative}.hero-thesis li::before{content:'-';position:absolute;left:0;color:var(--orange)}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
@@ -310,13 +305,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <main>
 <section id="thesis" class="hero">
   <div class="eyebrow">Suncoast Ventures &middot; Fund II Care Economy Thesis</div>
-  <h1>Bigger than Medicaid. Funded like a side project.</h1>
-  <div class="hero-stats">
-    <div class="hs hs-o"><div class="hs-n">$1.6T</div><div class="hs-l">U.S. care economy, opportunity-cost methodology.</div></div>
-    <div class="hs hs-w"><div class="hs-n">53.0B</div><div class="hs-l">Unpaid caregiving hours performed.</div></div>
-    <div class="hs hs-p"><div class="hs-n">$21,642/yr</div><div class="hs-l">Per-caregiver cost: income loss plus out-of-pocket.</div></div>
-    <div class="hs hs-g"><div class="hs-n">63.0M</div><div class="hs-l">Americans providing unpaid care.</div></div>
-  </div>
+  <h1>The Caregiver Economy.</h1>
+  <p class="hero-sub">Bigger than Medicaid. Funded like a side project.</p>
 </section>
 <section id="papers" class="sec blue">
   <div class="sec-ey">Executive Summary</div>
