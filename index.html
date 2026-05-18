@@ -394,7 +394,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>63 million caregivers. Most are also employed.</h2>
   <p class="sec-lead">The U.S. care workforce is not a fringe population. It spans employed workers, household earners, and people mid-career.</p>
   <div class="cg" style="margin-top:1.25rem">
-    <div class="cb"><h3>The Caregiver Funnel</h3><p class="csub">63.0M total &rarr; 38.4M employed &rarr; 19.2M facing work disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-funnel"></canvas></div></div>
+    <div class="cb"><h3>The Caregiver Funnel</h3><p class="csub">63.0M total &rarr; 38.4M employed &rarr; 19.2M facing work disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw" style="height:220px"><canvas id="chart-funnel"></canvas></div></div>
   </div>
 </section>
 <section id="burden" class="sec">
@@ -647,7 +647,7 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
     },
     options:{
       responsive:true,
-      maintainAspectRatio:true,
+      maintainAspectRatio:false,
       indexAxis:'y',
       plugins:{
         legend:{display:false},
