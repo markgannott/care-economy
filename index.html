@@ -436,7 +436,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="sc so"><div class="sc-n">$5,837/yr</div><div class="sc-l">men's annual care burden at opportunity cost (194 hrs &times; $30.09/hr)</div><div class="sc-s">BLS ATUS 2023; Repricing the Caregiver Economy</div></div>
   </div>
   <div class="cg">
-    <div class="cb"><h3>102 Hours (13 Workdays) More Per Year: Women vs. Men</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) · 13 extra workdays annually &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
+    <div class="cb"><h3>The Uneven Hidden Multiplier</h3><p class="csub">Women $8,907/yr vs. men $5,837/yr &middot; gap: 102 hrs (13 workdays) = $3,070/yr &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended $30.09/hr</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
 </section>
 <section id="caregiver-health" class="sec">
@@ -457,11 +457,11 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Why Infrastructure Forms Now</span></div>
 <section id="roi" class="sec">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Every dollar invested in caregiver support returns $5.3.</h2>
+  <h2>Caregiver support&rsquo;s ROI is 5.3x.</h2>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Gannott, Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
   </div>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.5rem">
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.5rem;align-items:stretch">
     <div class="sc sp"><div class="sc-n">$33B/yr</div><div class="sc-l">annual employer cost: caregiving-related productivity loss and turnover</div><div class="sc-s">AARP/NAC 2020; SHRM 2025</div></div>
     <div class="sc sw"><div class="sc-n">$6.2B</div><div class="sc-l">investment required to break even &mdash; what it costs employers to fully recover the $33B loss at 5.3&times;</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
     <div class="sc so"><div class="sc-n">13%</div><div class="sc-l">share of US employers currently offering any dedicated caregiver benefit &mdash; the gap is the opportunity</div><div class="sc-s">SHRM 2025</div></div>
@@ -706,11 +706,16 @@ new Chart(document.getElementById('chart-methodology'),{type:'bar',
 
 // 5 HOURS GAP (blue bg)
 new Chart(document.getElementById('chart-hours'),{type:'bar',
-  data:{labels:['Women\n296 hrs / 37 workdays','Men\n194 hrs / 24 workdays'],
+  data:{labels:['Women','Men'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:(v,ctx)=>{var a=['$8,907/yr','$5,837/yr'];return a[ctx.dataIndex];},font:{weight:700,size:15},color:(ctx)=>ctx.dataIndex===0?C.orange:a(C.blue,.8)}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},max:315}}}});
+  options:{...B,indexAxis:'y',
+    plugins:{...B.plugins,
+      datalabels:{display:true,anchor:'center',align:'center',
+        formatter:function(v,ctx){return [296,194][ctx.dataIndex]+' hrs';},
+        font:{weight:800,size:20},color:'#fff'}},
+    scales:{
+      x:{grid:{color:C.grid},ticks:{callback:function(v){return v+' hrs';},color:C.tick,font:{size:13}},min:0,max:340},
+      y:{grid:{display:false},ticks:{color:C.tick,font:{size:17},padding:8}}}}});
 
 // 6 CAREGIVER HEALTH OUTCOMES (white bg)
 new Chart(document.getElementById('chart-health'),{type:'bar',
@@ -733,7 +738,7 @@ new Chart(document.getElementById('chart-health'),{type:'bar',
 // 7 ROI (white bg) — floating range bars, story builds to Gannott 5.3x
 new Chart(document.getElementById('chart-roi'),{type:'bar',
   data:{
-    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Caregiver Support: 5.3× ROI'],
+    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Caregiver Support'],
     datasets:[{
       data:[[2.0,3.6],[2.8,4.1],[0,5.3]],
       backgroundColor:[a(C.blue,.3),a(C.blue,.55),C.orange],
