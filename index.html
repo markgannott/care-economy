@@ -141,7 +141,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .sec.blue .cb h3{color:var(--text)}
 .sec.blue .cb.co h3{color:var(--gold)}
 .csub{font-family:var(--sans);font-size:.75rem;color:#888;margin-bottom:1rem}
-.sec.blue .csub{color:#fff}
+.sec.blue .csub{color:#fff}.sec.blue .cb .csub{color:#888}
 .cw{position:relative;height:220px}
 .cw.tall{height:300px}
 .cw.short{height:160px}
@@ -161,7 +161,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .sec:not(.blue) .sc-n{color:var(--text)}
 .sec:not(.blue) .sc-l{color:#555}
 .sec:not(.blue) .sc-s{color:#aaa}
-.sec.blue .sc{background:#fff;border-color:var(--border)}.sec.blue .sc .sc-n{color:var(--blue-dk)}.sec.blue .sc .sc-l{color:#444}.sec.blue .sc .sc-s{color:#999}
+.sec.blue .sc{background:#fff;border-color:var(--border)}.sec.blue .sc.sw{border-top-color:var(--blue)}.sec.blue .sc .sc-n{color:var(--blue-dk)}.sec.blue .sc .sc-l{color:#444}.sec.blue .sc .sc-s{color:#999}
 .sec.blue .sc-n{color:var(--text)}
 .sec.blue .sc-l{color:#555}
 .sec.blue .sc-s{color:#aaa}
@@ -339,37 +339,34 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="sec-ey">The Research</div>
   <h2>Three papers. One economic argument.</h2>
   <p class="sec-lead">Three connected papers, each extending the last.</p>
-  <div style="display:flex;flex-direction:column;gap:.75rem;margin-top:1.25rem">
-    <div style="display:flex;align-items:center;gap:1.5rem;background:#fff;border:1px solid #D0DEF7;border-left:4px solid var(--blue-lt);border-radius:12px;padding:1.1rem 1.5rem">
-      <div style="font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--blue);white-space:nowrap;flex-shrink:0;min-width:7rem">$1.6T</div>
-      <span class="pbadge pb1" style="white-space:nowrap;flex-shrink:0">Paper I</span>
-      <div style="flex:1">
-        <div style="font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.2rem">Repricing the Caregiver Economy</div>
-        <div style="font-family:var(--sans);font-size:1rem;color:#333">The market is dramatically underpriced.</div>
-      </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.25rem">
+    <div style="background:var(--grey);border:1px solid var(--border);border-top:4px solid var(--blue-lt);border-radius:12px;padding:1.25rem">
+      <span class="pbadge pb1" style="margin-bottom:.75rem;display:inline-block">Paper I</span>
+      <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--blue);line-height:1;margin-bottom:.2rem">$1.6T</div>
+      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--blue-dk);margin-bottom:.75rem">63.0M caregivers</div>
+      <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.2rem">Repricing the Caregiver Economy</div>
+      <div style="font-family:var(--sans);font-size:.92rem;color:#555">The market is dramatically underpriced.</div>
     </div>
-    <div style="display:flex;align-items:center;gap:1.5rem;background:#FFF8F4;border:1px solid #F5D5C0;border-left:4px solid var(--orange);border-radius:12px;padding:1.1rem 1.5rem">
-      <div style="font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--orange);white-space:nowrap;flex-shrink:0;min-width:7rem">354 hrs/yr</div>
-      <span class="pbadge pb2" style="white-space:nowrap;flex-shrink:0">Paper II</span>
-      <div style="flex:1">
-        <div style="font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem">The Coordination Economy</div>
-        <div style="font-family:var(--sans);font-size:1rem;color:#333">The burden compounds through coordination failure.</div>
-      </div>
+    <div style="background:#FFF8F4;border:1px solid #F5D5C0;border-top:4px solid var(--orange);border-radius:12px;padding:1.25rem">
+      <span class="pbadge pb2" style="margin-bottom:.75rem;display:inline-block">Paper II</span>
+      <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--orange);line-height:1;margin-bottom:.2rem">354 hrs/yr</div>
+      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--orange);margin-bottom:.75rem">$9,901/yr per caregiver</div>
+      <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem">The Coordination Economy</div>
+      <div style="font-family:var(--sans);font-size:.92rem;color:#555">The burden compounds through coordination failure.</div>
     </div>
-    <div style="display:flex;align-items:center;gap:1.5rem;background:#F0F4FA;border:1px solid #C8D5ED;border-left:4px solid var(--blue-dk);border-radius:12px;padding:1.1rem 1.5rem">
-      <div style="font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--blue-dk);white-space:nowrap;flex-shrink:0;min-width:7rem">$98.6B</div>
-      <span class="pbadge pb3" style="white-space:nowrap;flex-shrink:0">Paper III</span>
-      <div style="flex:1">
-        <div style="font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:.2rem">Recoverable Time &amp; Economic Capacity</div>
-        <div style="font-family:var(--sans);font-size:1rem;color:#333">Infrastructure can recover measurable economic value.</div>
-      </div>
+    <div style="background:#F0F4FA;border:1px solid #C8D5ED;border-top:4px solid var(--blue-dk);border-radius:12px;padding:1.25rem">
+      <span class="pbadge pb3" style="margin-bottom:.75rem;display:inline-block">Paper III</span>
+      <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.2rem">$98.6B</div>
+      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--blue-dk);margin-bottom:.75rem">354.1M recoverable hrs</div>
+      <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:.2rem">Recoverable Time &amp; Economic Capacity</div>
+      <div style="font-family:var(--sans);font-size:.92rem;color:#555">Infrastructure can recover measurable economic value.</div>
     </div>
   </div>
 </section>
 <div id="part1" class="act-div"><span class="act-div-n">Part I</span><div class="act-div-line"></div><span class="act-div-t">Scale — the $1.6 trillion hiding in plain sight</span></div>
 <section id="method" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Market Scale</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>Unpaid caregiving is worth $1.6 trillion. It depends on how you count.</h2>
+  <h2>Unpaid caregiving is worth $1.6 trillion.</h2>
   <p class="sec-lead">How caregiving is measured determines how large the market appears.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc" style="border-top:4px solid var(--blue-lt)">
@@ -382,7 +379,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
       <div class="sc-n">~$642B</div>
       <div class="sc-l">Applies professional caregiver wage rates. Prices the replacement worker, not the caregiver&rsquo;s actual loss.</div>
     </div>
-    <div class="sc" style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-top:4px solid #fff">
+    <div class="sc" style="border-top:4px solid var(--blue-dk)">
       <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">Opportunity Cost &mdash; This Thesis</div>
       <div class="sc-n">$1.62T</div>
       <div class="sc-l">Measures displaced income, labor participation, and retirement accumulation. The methodology used here.</div>
@@ -502,7 +499,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
   </div>
 </section>
-<section id="policy" class="sec blue">
+<section id="policy" class="sec">
   <div class="pbrow"><div class="sec-ey">Federal Momentum</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The government is starting to pay for this.</h2>
   <p class="sec-lead">Three federal programs now fund caregiver coordination, state support, and Medicare reimbursement.</p>
@@ -522,7 +519,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
 </section>
 <div id="part4" class="act-div"><span class="act-div-n">Part IV</span><div class="act-div-line"></div><span class="act-div-t">What gets built</span></div>
-<section id="what-gets-built" class="sec">
+<section id="what-gets-built" class="sec blue">
   <div class="sec-ey">Venture Categories</div>
   <h2>Here is what the market needs.</h2>
   <p class="sec-lead">These are the categories that emerge as caregiving moves from informal household labor toward managed infrastructure.</p>
@@ -617,7 +614,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </button>
 <script>
 Chart.register(ChartDataLabels);
-Chart.defaults.font.family="'Helvetica Neue',Helvetica,Arial,sans-serif";
+Chart.defaults.font.family="'Helvetica Neue',Helvetica,Arial,sans-serif";Chart.defaults.font.size=13;
 Chart.defaults.color='#888';
 Chart.defaults.plugins.legend.display=false;
 Chart.defaults.plugins.datalabels.display=false;
@@ -655,7 +652,7 @@ new Chart(document.getElementById('chart-penalty'),{type:'bar',
     ]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
-      legend:{display:true,position:'bottom',labels:{color:C.tick,font:{size:11},boxWidth:14,padding:12}},
+      legend:{display:true,position:'bottom',labels:{color:C.tick,font:{size:13},boxWidth:14,padding:12}},
       datalabels:{display:(ctx)=>ctx.dataset.data[0]>=38000,anchor:'center',align:'center',
         formatter:v=>`$${(v/1000).toFixed(0)}K`,font:{weight:700,size:11},
         color:'#fff'}},
@@ -711,7 +708,7 @@ new Chart(document.getElementById('chart-aging'),{type:'bar',
       borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:v=>`${v}%`,font:{weight:700,size:11},color:'#555'}},
-    scales:{x:{grid:{display:false},ticks:{color:C.blTick,font:{size:10}}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}%`,color:C.blTick},max:35}}}});
+    scales:{x:{grid:{display:false},ticks:{color:C.blTick,font:{size:12}}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}%`,color:C.blTick},max:35}}}});
 
 
 // COORDINATION: hidden cost comparison (Paper II)
