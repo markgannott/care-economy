@@ -349,15 +349,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
     <div style="background:#FFF8F4;border:1px solid #F5D5C0;border-top:4px solid var(--orange);border-radius:12px;padding:1.25rem">
       <span class="pbadge pb2" style="margin-bottom:.75rem;display:inline-block">Paper II</span>
-      <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--orange);line-height:1;margin-bottom:.2rem">354 hrs/yr</div>
-      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--orange);margin-bottom:.75rem">$9,901/yr per caregiver</div>
+      <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--orange);line-height:1;margin-bottom:.2rem">354 hours/year</div>
+      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--orange);margin-bottom:.75rem">$9,901/year per caregiver</div>
       <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem">The Coordination Economy</div>
       <div style="font-family:var(--sans);font-size:.92rem;color:#555">The burden compounds through coordination failure.</div>
     </div>
     <div style="background:#F0F4FA;border:1px solid #C8D5ED;border-top:4px solid var(--blue-dk);border-radius:12px;padding:1.25rem">
       <span class="pbadge pb3" style="margin-bottom:.75rem;display:inline-block">Paper III</span>
       <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.2rem">$98.6B</div>
-      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--blue-dk);margin-bottom:.75rem">354.1M recoverable hrs</div>
+      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--blue-dk);margin-bottom:.75rem">354.1M recoverable hours</div>
       <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:.2rem">Recoverable Time &amp; Economic Capacity</div>
       <div style="font-family:var(--sans);font-size:.92rem;color:#555">Infrastructure can recover measurable economic value.</div>
     </div>
@@ -418,7 +418,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>The burden is coordination.</h2>
   <p class="sec-lead">Caregivers manage scheduling, transportation, provider communication, medication management, insurance navigation, and follow-up across fragmented systems. Most households still coordinate this manually across phone calls, portals, calendars, spreadsheets, and memory.</p>
   <div class="cg">
-    <div class="cb"><h3>Annual Caregiving Hours by Gender</h3><p class="csub">Women average 296 hrs/yr vs. men 194 hrs/yr &mdash; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hr</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
+    <div class="cb"><h3>Annual Caregiving Hours by Gender</h3><p class="csub">Women average 296 hours/year vs. men 194 hours/year &mdash; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
   <div class="insight" style="margin-top:2rem">
     <div class="ins-label">Operational Impact</div>
@@ -665,7 +665,7 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
   data:{labels:['Women','Men'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>v+' hrs/yr',font:{weight:700,size:13},color:C.blueDk}},
+    formatter:v=>v+' hours/year',font:{weight:700,size:13},color:C.blueDk}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>v,color:C.tick},suggestedMax:340}}}}); 
 
 // 6 RECOVERABLE TIME (blue bg)
