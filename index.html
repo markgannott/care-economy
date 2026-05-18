@@ -842,7 +842,7 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
       formatter:v=>v>=1e6?`$${(v/1e6).toFixed(2)}T`:v>=1000?`$${(v/1000).toFixed(1)}B`:`$${v}M`,
-      font:{weight:700,size:11},color:C.blue}},
+      font:{weight:700,size:11},color:(ctx)=>ctx.dataIndex===3?C.orange:C.blue}},
     scales:{x:{grid:{display:false},ticks:{callback:v=>v>=1000?`$${(v/1000).toFixed(0)}B`:`$${v}M`,color:C.tick},max:1700000},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}}}}});
 
