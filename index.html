@@ -337,8 +337,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <div id="part1" class="act-div"><span class="act-div-t">Scale: the $1.6 trillion hiding in plain sight</span><div class="act-div-line"></div><span class="act-div-n">Part I</span></div>
 <section id="method" class="sec">
   <div class="pbrow"><div class="sec-ey">Market Scale</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>$1.6T for 53.0B Hours of unpaid care.</h2>
-  <p class="sec-lead">How caregiving is measured determines how large the market appears.</p>
+  <h2>$1.6T for 53.0B hours of unpaid care.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Minimum Wage</div>
@@ -372,7 +371,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   </div>
 </section>
 <section id="burden" class="sec">
-  <div class="pbrow"><div class="sec-ey">Per-Caregiver Cost</div><span class="pbadge pb1">Paper I</span></div>
+  <div class="pbrow"><div class="sec-ey">Caregiver Statistics</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Income loss plus out-of-pocket, every year.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc sw">
@@ -390,7 +389,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     <div class="sc sp">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Total Burden</div>
       <div class="sc-n">$21,642/yr</div>
-      <div class="sc-l">Combined per-caregiver cost. Across all 63.0M caregivers, the aggregate household burden reaches $1.4T — distinct from the $1.6T labor-value figure.</div>
+      <div class="sc-l">Combined per-caregiver cost. Across all 63.0M caregivers, the aggregate household burden reaches $1.4T, distinct from the $1.6T labor-value figure.</div>
       <div class="sc-s">Repricing the Caregiver Economy (2026)</div>
     </div>
   </div>
@@ -398,7 +397,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Aggregate Impact</div><span class="pbadge pb1">Paper I</span></div>
   <h2>$21,642 per caregiver &times; 63.0M caregivers&nbsp;=&nbsp;$1.4T annually.</h2>
-  <p class="sec-lead" style="color:rgba(255,255,255,.8);margin-top:.5rem;margin-bottom:1.25rem">Direct household cash burden: income lost plus out-of-pocket spending. Not the same as the $1.6T labor-value figure — that measures what the economy foregoes. This measures what families pay.</p>
+  <p class="sec-lead" style="color:rgba(255,255,255,.8);margin-top:.5rem;margin-bottom:1.25rem">Direct household cash burden: income lost plus out-of-pocket spending. Not the same as the $1.6T labor-value figure. That measures what the economy foregoes. This measures what families pay.</p>
   <div class="cg">
     <div class="cb"><h3>Household Burden: $1.4T</h3><p class="csub">$727B income loss + $636B out-of-pocket &middot; per caregiver: $11,549 + $10,093 = $21,642 (2024$, CPI-adj.) &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
@@ -507,7 +506,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 </section>
 <section id="roi" class="sec">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Caregiver support&rsquo;s ROI is 5.3x.</h2>
+  <h2>Investing in caregiver support yields a 5.3x ROI.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Employer Loss</div>
@@ -526,7 +525,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     </div>
   </div>
   <div class="cg">
-    <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Gannott, Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
+    <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
   </div>
 </section>
 <div id="part4" class="act-div"><span class="act-div-t">What gets built</span><div class="act-div-line"></div><span class="act-div-n">Part IV</span></div>
@@ -768,24 +767,6 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
     scales:{
       x:{grid:{color:C.grid},ticks:{callback:function(v){return v+' hrs';},color:C.tick,font:{size:13}},min:0,max:340},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:17},padding:8}}}}});
-
-// 6 CAREGIVER HEALTH OUTCOMES (white bg)
-new Chart(document.getElementById('chart-health'),{type:'bar',
-  data:{
-    labels:['3-yr Mortality\n(high-burden)','Fair/Poor Health','Sleep Disruption'],
-    datasets:[
-      {label:'Caregivers (high-burden)',data:[20.5,23,40],backgroundColor:a(C.orange,.8),borderRadius:6,borderSkipped:false},
-      {label:'Non-Caregivers',data:[12.6,17,20],backgroundColor:a(C.blue,.3),borderRadius:6,borderSkipped:false}
-    ]},
-  options:{...B,
-    plugins:{...B.plugins,
-      legend:{display:true,position:'top',labels:{color:C.tick,font:{size:12},boxWidth:14,padding:16}},
-      datalabels:{display:true,anchor:'end',align:'top',
-        formatter:v=>`${v}%`,font:{weight:600,size:13},
-        color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
-    scales:{
-      x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:48}}}});
 
 // 7 ROI (white bg) — floating range bars, story builds to Gannott 5.3x
 new Chart(document.getElementById('chart-roi'),{type:'bar',
