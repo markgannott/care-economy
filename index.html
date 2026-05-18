@@ -398,6 +398,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="sc so"><div class="sc-n">$524.7B</div><div class="sc-l">estimated total annual household out-of-pocket expenditure across 63.0M caregivers</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
     <div class="sc sw"><div class="sc-n">$8,328</div><div class="sc-l">average annual out-of-pocket spending per caregiver on medications, transportation, supplies, and services</div><div class="sc-s">AARP 2021</div></div>
   </div>
+  <div class="cg c2" style="margin-top:1.25rem">
+    <div class="cb"><h3>Caregivers in the Workforce</h3><p class="csub">63.0M total → 38.4M employed → 19.2M facing disruptions &mdash; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-workforce"></canvas></div></div>
+    <div class="cb"><h3>Annual Household Burden: $1.125T</h3><p class="csub">Income loss + out-of-pocket expenditure across 63.0M caregivers &mdash; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-burden-split"></canvas></div></div>
+  </div>
 </section>
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
@@ -426,7 +430,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="coordination" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
   <h2>Coordination failure turns unpaid hours into measurable economic drag.</h2>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem">
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sp"><div class="sc-n">$9,901/year</div><div class="sc-l">annual opportunity cost per caregiver — the economic value of caregiving hours forfeited</div><div class="sc-s">The Coordination Economy</div></div>
     <div class="sc sw"><div class="sc-n">354 hrs / 44 days</div><div class="sc-l">average annual caregiving burden — equivalent to 44 full workdays every year</div><div class="sc-s">BLS ATUS 2023</div></div>
     <div class="sc so"><div class="sc-n">13 more workdays</div><div class="sc-l">women carry 13 more workdays than men annually — at $27.96/hr vs. men's $34.05/hr, compounding into elevated depression and burnout risk</div><div class="sc-s">BLS ATUS 2023 · The Coordination Economy</div></div>
@@ -497,7 +501,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="what-gets-built" class="sec blue">
   <div class="sec-ey">Venture Categories</div>
   <h2>Here is what the market needs.</h2>
-  <div class="sc-row" style="grid-template-columns:repeat(4,1fr);margin-top:.75rem">
+  <div class="sc-row" style="grid-template-columns:repeat(4,1fr);margin-top:.75rem;align-items:stretch">
     <div class="sc sw">
       <div class="sc-n" style="font-size:1.3rem;line-height:1.3">Care Coordination</div>
       <div class="sc-l" style="margin-top:.5rem">Scheduling, continuity, provider communication, and shared workflows &mdash; the operational backbone of managed caregiving.</div>
@@ -610,7 +614,25 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
 
 // 1 METHODOLOGY (white bg) — chart removed; row cards carry the comparison
 
-// 2 CONTEXT (white bg)
+// 2 CONTEXT — workforce burden (white bg)
+new Chart(document.getElementById('chart-workforce'),{type:'bar',
+  data:{labels:['All caregivers','Employed caregivers','Face work disruptions'],
+    datasets:[{data:[63.0,38.4,19.2],
+      backgroundColor:[a(C.blue,.35),a(C.blue,.6),C.orange],borderRadius:8,borderSkipped:false}]},
+  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
+    formatter:v=>`${v}M`,font:{weight:700,size:15},color:(ctx)=>ctx.dataIndex===2?C.orange:C.blue}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},
+      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}M`,color:C.tick,font:{size:13}},max:72}}}});
+
+new Chart(document.getElementById('chart-burden-split'),{type:'bar',
+  data:{labels:['Income loss\n(work disruptions)','Out-of-pocket\n(direct spend)','Total\nhousehold burden'],
+    datasets:[{data:[600.3,524.7,1125],
+      backgroundColor:[a(C.purple,.5),a(C.orange,.5),C.orange],borderRadius:8,borderSkipped:false}]},
+  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
+    formatter:v=>v>=1000?`$${(v/1000).toFixed(2)}T`:`$${v}B`,font:{weight:700,size:14},
+    color:(ctx)=>ctx.dataIndex===2?C.orange:C.purple}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
+      y:{grid:{color:C.grid},ticks:{callback:v=>`$${v}B`,color:C.tick,font:{size:12}},max:1300}}}});
 
 // 3 DEMOGRAPHIC CLIFF (blue bg)
 
