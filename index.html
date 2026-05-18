@@ -327,9 +327,9 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
   <div class="hero-thesis" id="summary">
     <div style="font-family:var(--sans);font-size:.9rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:.4rem">Executive Summary</div>
-    <h2 style="margin-bottom:.75rem">The Ratio is the Thesis</h2>
+    <h2 style="margin-bottom:.75rem;padding:.75rem 1.25rem;border-left:5px solid var(--orange);background:rgba(232,119,34,.07);border-radius:0 8px 8px 0;display:inline-block;width:100%;box-sizing:border-box">The Ratio is the Thesis</h2>
     <ul>
-      <li>The U.S. care economy is one of the largest labor systems in the country: 63.0M caregivers, 53.0B hours annually.</li>
+      <li>At 53.0B hours annually &mdash; equivalent to 6.05M person-years &mdash; unpaid caregiving is the largest unpriced labor system in the country.</li>
       <li>Traditional replacement-cost models price caregiving at a worker's wage. Opportunity-cost methodology measures what caregivers actually forgo: income, labor participation, retirement accumulation, and long-term economic capacity.</li>
       <li>That shift moves the market from a $642B estimate to $1.6T.</li>
       <li>The ratio is the thesis: enormous economic value, limited dedicated infrastructure, and a market now moving toward coordination, reimbursement, employer support, and AI-enabled continuity.</li>
@@ -403,7 +403,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc sp"><div class="sc-n">$600.3B</div><div class="sc-l">annual income impact across employed caregivers</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
     <div class="sc so"><div class="sc-n">$524.7B</div><div class="sc-l">annual out-of-pocket household expenditure</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
-    <div class="sc sw"><div class="sc-n">$8,328/yr</div><div class="sc-l">out-of-pocket spend per caregiver on medications, transportation, and services</div><div class="sc-s">AARP 2021</div></div>
+    <div class="sc sw"><div class="sc-n">$1.1T</div><div class="sc-l">combined annual household burden: income loss + out-of-pocket expenditure</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
   </div>
 </section>
 <section id="lifetime" class="sec blue">
@@ -420,8 +420,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="pbrow"><div class="sec-ey">Demographic Expansion</div><span class="pbadge pb1">Paper I</span></div>
   <h2>The market continues to expand.</h2>
   <ul class="sec-bullets">
-    <li>Chronic disease prevalence is rising as the population ages. Demand expands as supply contracts.</li>
-    <li>The caregiver-to-elderly ratio drops from 7.2:1 in 2010 to 4:1 by 2030, meaning each available caregiver will support 75% more elderly than in 2010.</li>
+    <li>The caregiver-to-elderly ratio drops from 7.2:1 in 2010 to 4:1 by 2030 &mdash; each available caregiver will support 75% more elderly than in 2010.</li>
   </ul>
   <div class="cg">
     <div class="cb co"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point — OECD Health Statistics 2023</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
@@ -434,7 +433,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sp"><div class="sc-n">$9,901/year</div><div class="sc-l">annual opportunity cost per caregiver: the economic value of caregiving hours forfeited</div><div class="sc-s">The Coordination Economy</div></div>
     <div class="sc sw"><div class="sc-n">354 hrs / 44 days</div><div class="sc-l">This loss accumulates into stress, sleep disruption, and deferred care</div><div class="sc-s">BLS ATUS 2023</div></div>
-    <div class="sc so"><div class="sc-n">13 more workdays</div><div class="sc-l">women carry 13 more workdays of care per year than men</div><div class="sc-s">BLS ATUS 2023</div></div>
+    <div class="sc so"><div class="sc-n">$2,908/yr</div><div class="sc-l">value of 13 extra workdays women carry vs. men (104 hrs &times; $27.96/hr opportunity cost)</div><div class="sc-s">BLS ATUS 2023; Repricing the Caregiver Economy</div></div>
   </div>
   <div class="cg">
     <div class="cb"><h3>Women Carry 102 More Hours of Care Per Year Than Men</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) · 13 extra workdays annually &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
@@ -442,7 +441,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="caregiver-health" class="sec">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
-  <h2>Care burden creates a clinical and economic flywheel.</h2>
+  <h2>Care burden creates a clinical and economic vicious cycle.</h2>
   <p class="sec-lead">Clinical outcomes from unaddressed care burden cycle back into economic loss. The flywheel compounds: worse health reduces workforce capacity, which deepens the care deficit.</p>
   <div class="cg" style="margin-top:1rem">
     <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">High-burden caregivers vs. non-caregivers &middot; Schulz &amp; Beach (1999, JAMA) &middot; AARP/NAC (2020)</p><div class="cw" style="height:240px"><canvas id="chart-health"></canvas></div></div>
@@ -450,7 +449,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="gap" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Federal funding covers 0.015% of the care economy it depends on.</h2>
+  <h2>Federal funding covers 0.015% of the care economy it funds.</h2>
   <div class="cg">
     <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.015% of $1.6T opportunity-cost value &middot; Repricing the Caregiver Economy</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
@@ -462,6 +461,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <ul class="sec-bullets">
     <li>Harvard Business School (2019) puts employer caregiver ROI at 2.0&ndash;3.6x. Mid-term research consensus extends that to 2.8&ndash;4.1x.</li>
     <li>Repricing the Caregiver Economy applies full opportunity-cost methodology and finds 5.3x &mdash; the most defensible upper bound using complete household impact accounting.</li>
+    <li>US employers absorb ~$33B annually in caregiving-related productivity loss and turnover. At 5.3x, redirecting 10% of that loss into structured caregiver support would return $17.5B &mdash; from a benefit category where only 13% of employers currently offer any dedicated program. (AARP/NAC 2020; SHRM 2025)</li>
   </ul>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Gannott, Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
@@ -487,14 +487,14 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   </div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem">
     <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--orange);border-radius:8px;padding:1.25rem">
-      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">CMS GUIDE Model</div>
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">CMS GUIDE Model &middot; 2024</div>
       <div style="font-size:1.1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">$735M &ndash; $1.47B TAM &middot; 2024</div>
-      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">Medicare pays $65&ndash;390/mo per care plan + $2,500/yr respite. 390+ organizations enrolled. First time Medicare directly reimburses care coordination.</div>
+      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">CMS&rsquo;s first model paying providers to coordinate dementia care at home. A dedicated navigator manages the care plan, connects the patient and family to services, and coordinates across providers. 390+ organizations enrolled nationwide.</div>
     </div>
     <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:8px;padding:1.25rem">
-      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">NFCSP &middot; OAA Title III-E</div>
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">NFCSP &middot; OAA Title III-E &middot; Est. 2000</div>
       <div style="font-size:1.1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">$244.8M authorized &middot; FY2024</div>
-      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">National Family Caregiver Support Program. 0.015% of the $1.6T economy it depends on. The gap between what&rsquo;s funded and what&rsquo;s needed is the addressable market.</div>
+      <div style="font-size:.9rem;line-height:1.5;color:var(--body)">The federal government&rsquo;s primary caregiver grant, channeled through state aging agencies to local respite, training, and counseling programs. The gap between what&rsquo;s funded and what&rsquo;s needed is the addressable market.</div>
     </div>
     <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--blue-dk);border-radius:8px;padding:1.25rem">
       <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">RAISE Act + OAA &middot; 2018&ndash;present</div>
@@ -733,7 +733,7 @@ new Chart(document.getElementById('chart-health'),{type:'bar',
 // 7 ROI (white bg) — floating range bars, story builds to Gannott 5.3x
 new Chart(document.getElementById('chart-roi'),{type:'bar',
   data:{
-    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Repricing the Caregiver Economy'],
+    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Caregiver Support: 5.3× ROI'],
     datasets:[{
       data:[[2.0,3.6],[2.8,4.1],[0,5.3]],
       backgroundColor:[a(C.blue,.3),a(C.blue,.55),C.orange],
@@ -780,7 +780,7 @@ new Chart(document.getElementById('chart-aging'),{type:'bar',
       backgroundColor:[C.orange,a(C.blue,.35),a(C.blue,.55),a(C.blue,.45)],
       borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`${v}%`,font:{weight:700,size:11},color:'#555'}},
+    formatter:function(v){return v+'%';},font:{weight:700,size:16},color:'#555'}},
     scales:{x:{grid:{display:false},ticks:{color:C.blTick,font:{size:14}}},y:{grid:{color:C.blGrid},ticks:{callback:v=>`${v}%`,color:C.blTick},max:35}}}});
 
 
