@@ -434,7 +434,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
   <h2>The caregiver becomes a patient.</h2>
   <div class="cg" style="margin-top:1rem">
-    <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">Fair/poor health, emotional stress, sleep disruption, 3-yr mortality (strained, age 66–96) &middot; AARP/NAC (2020) &middot; Schulz &amp; Beach (1999, JAMA)</p><div class="cw" style="height:260px"><canvas id="chart-health"></canvas></div></div>
+    <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">High-burden caregivers vs. non-caregivers &middot; Schulz &amp; Beach (1999, JAMA) &middot; AARP/NAC (2020)</p><div class="cw" style="height:240px"><canvas id="chart-health"></canvas></div></div>
   </div>
 </section>
 <section id="gap" class="sec blue">
@@ -655,20 +655,20 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
 // 6 CAREGIVER HEALTH OUTCOMES (white bg)
 new Chart(document.getElementById('chart-health'),{type:'bar',
   data:{
-    labels:['Fair/Poor Health','High Emotional Stress','Sleep Disruption','3-yr Mortality\n(strained)'],
+    labels:['3-yr Mortality\n(high-burden)','Fair/Poor Health','Sleep Disruption'],
     datasets:[
-      {label:'Caregivers',data:[23,36,40,20.5],backgroundColor:a(C.orange,.75),borderRadius:6,borderSkipped:false},
-      {label:'Non-Caregivers',data:[17,14,20,12.6],backgroundColor:a(C.blue,.35),borderRadius:6,borderSkipped:false}
+      {label:'Caregivers',data:[20.5,23,40],backgroundColor:a(C.orange,.8),borderRadius:6,borderSkipped:false},
+      {label:'Non-Caregivers',data:[12.6,17,20],backgroundColor:a(C.blue,.3),borderRadius:6,borderSkipped:false}
     ]},
-  options:{...B,
+  options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
       legend:{display:true,position:'top',labels:{color:C.tick,font:{size:14},boxWidth:14,padding:16}},
-      datalabels:{display:true,anchor:'end',align:'top',
-        formatter:v=>`${v}%`,font:{weight:700,size:13},
+      datalabels:{display:true,anchor:'end',align:'right',
+        formatter:v=>`${v}%`,font:{weight:600,size:13},
         color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
     scales:{
-      x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:50}}}});
+      x:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:52},
+      y:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}}}}});
 
 // 7 ROI (blue bg)
 new Chart(document.getElementById('chart-roi'),{type:'bar',
