@@ -433,6 +433,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="caregiver-health" class="sec">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
   <h2>The caregiver becomes a patient.</h2>
+  <p class="sec-lead">Caregiving strain produces clinical outcomes — not just economic ones.</p>
   <div class="cg" style="margin-top:1rem">
     <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">High-burden caregivers vs. non-caregivers &middot; Schulz &amp; Beach (1999, JAMA) &middot; AARP/NAC (2020)</p><div class="cw" style="height:240px"><canvas id="chart-health"></canvas></div></div>
   </div>
@@ -660,15 +661,15 @@ new Chart(document.getElementById('chart-health'),{type:'bar',
       {label:'Caregivers',data:[20.5,23,40],backgroundColor:a(C.orange,.8),borderRadius:6,borderSkipped:false},
       {label:'Non-Caregivers',data:[12.6,17,20],backgroundColor:a(C.blue,.3),borderRadius:6,borderSkipped:false}
     ]},
-  options:{...B,indexAxis:'y',
+  options:{...B,
     plugins:{...B.plugins,
       legend:{display:true,position:'top',labels:{color:C.tick,font:{size:14},boxWidth:14,padding:16}},
-      datalabels:{display:true,anchor:'end',align:'right',
+      datalabels:{display:true,anchor:'end',align:'top',
         formatter:v=>`${v}%`,font:{weight:600,size:13},
         color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
     scales:{
-      x:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:52},
-      y:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}}}}});
+      x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
+      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:52}}}});
 
 // 7 ROI (blue bg)
 new Chart(document.getElementById('chart-roi'),{type:'bar',
