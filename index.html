@@ -425,11 +425,11 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <div id="part2" class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
 <section id="coordination" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
-  <h2>Women carry a disproportionate share of the burden.</h2>
+  <h2>Women absorb 13 more workdays of care per year than men.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem">
-    <div class="sc sw"><div class="sc-n">296 hrs — 37 days</div><div class="sc-l">Women's average annual caregiving burden (8-hr day equivalent)</div><div class="sc-s">BLS ATUS 2023</div></div>
-    <div class="sc so"><div class="sc-n">194 hrs — 24 days</div><div class="sc-l">Men's average — women carry 13 extra workdays per year</div><div class="sc-s">BLS ATUS 2023</div></div>
-    <div class="sc sp"><div class="sc-n">$9,901/year</div><div class="sc-l">Annual opportunity cost per caregiver at blended wage</div><div class="sc-s">The Coordination Economy</div></div>
+    <div class="sc sw"><div class="sc-n">13 workdays</div><div class="sc-l">extra caregiving women absorb annually relative to men — the gender gap</div><div class="sc-s">BLS ATUS 2023</div></div>
+    <div class="sc sp"><div class="sc-n">$9,901/year</div><div class="sc-l">downstream opportunity cost per caregiver at blended wage ($30.09/hr)</div><div class="sc-s">The Coordination Economy</div></div>
+    <div class="sc so"><div class="sc-n">52% more</div><div class="sc-l">women's burden relative to men's — 296 hours vs. 194 hours annually</div><div class="sc-s">BLS ATUS 2023</div></div>
   </div>
   <div class="cg">
     <div class="cb"><h3>Annual Caregiving Hours by Gender</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) — 13 extra workdays annually &mdash; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
@@ -479,6 +479,10 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>The government is starting to pay for this.</h2>
   <p class="sec-lead">Three federal programs now fund caregiver coordination, state support, and Medicare reimbursement.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.5rem">
+    <div class="sc sp">
+      <div class="sc-n" style="font-size:1.1rem;line-height:1.3">CMS GUIDE Model</div>
+      <div class="sc-l" style="margin-top:.5rem">Created a Medicare reimbursement pathway for caregiver coordination. The first large-scale public payment mechanism for this category.</div>
+    </div>
     <div class="sc sw">
       <div class="sc-n" style="font-size:1.1rem;line-height:1.3">RAISE Act</div>
       <div class="sc-l" style="margin-top:.5rem">Established a national caregiving strategy framework. Federal recognition that caregiver coordination is a policy priority.</div>
@@ -486,10 +490,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="sc so">
       <div class="sc-n" style="font-size:1.1rem;line-height:1.3">Older Americans Act</div>
       <div class="sc-l" style="margin-top:.5rem">Supports state-level caregiver infrastructure and delivery networks. The public delivery layer is already in place.</div>
-    </div>
-    <div class="sc sp">
-      <div class="sc-n" style="font-size:1.1rem;line-height:1.3">CMS GUIDE Model</div>
-      <div class="sc-l" style="margin-top:.5rem">Created a Medicare reimbursement pathway for caregiver coordination. The first large-scale public payment mechanism for this category.</div>
     </div>
   </div>
 </section>
@@ -636,11 +636,11 @@ new Chart(document.getElementById('chart-penalty'),{type:'bar',
 
 // 5 HOURS GAP (blue bg)
 new Chart(document.getElementById('chart-hours'),{type:'bar',
-  data:{labels:['Women','Men'],
+  data:{labels:['Women\n296 hrs / 37 days','Men\n194 hrs / 24 days'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>v+' hours/year',font:{weight:700,size:13},color:C.blueDk}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick}},y:{grid:{color:C.grid},ticks:{callback:v=>v,color:C.tick},suggestedMax:340}}}}); 
+    formatter:(v,ctx)=>ctx.dataIndex===0?'↑ 102 hrs more\nthan men':'',font:{weight:700,size:16},color:C.orange}},
+    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},suggestedMax:360}}}});
 
 // 6 RECOVERABLE TIME (blue bg)
 
