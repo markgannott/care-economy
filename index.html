@@ -432,11 +432,11 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>Coordination failure is the hidden multiplier.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sp"><div class="sc-n">$9,901/year</div><div class="sc-l">annual opportunity cost per caregiver: the economic value of caregiving hours forfeited</div><div class="sc-s">The Coordination Economy</div></div>
-    <div class="sc sw"><div class="sc-n">354 hrs / 44 days</div><div class="sc-l">This loss accumulates into stress, sleep disruption, and deferred care</div><div class="sc-s">BLS ATUS 2023</div></div>
-    <div class="sc so"><div class="sc-n">$2,908/yr</div><div class="sc-l">value of 13 extra workdays women carry vs. men (104 hrs &times; $27.96/hr opportunity cost)</div><div class="sc-s">BLS ATUS 2023; Repricing the Caregiver Economy</div></div>
+    <div class="sc sw"><div class="sc-n">$8,907/yr</div><div class="sc-l">women's annual care burden at opportunity cost (296 hrs &times; $30.09/hr)</div><div class="sc-s">BLS ATUS 2023; Repricing the Caregiver Economy</div></div>
+    <div class="sc so"><div class="sc-n">$5,837/yr</div><div class="sc-l">men's annual care burden at opportunity cost (194 hrs &times; $30.09/hr)</div><div class="sc-s">BLS ATUS 2023; Repricing the Caregiver Economy</div></div>
   </div>
   <div class="cg">
-    <div class="cb"><h3>Women Carry 102 More Hours of Care Per Year Than Men</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) · 13 extra workdays annually &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
+    <div class="cb"><h3>102 Hours (13 Workdays) More Per Year: Women vs. Men</h3><p class="csub">Women: 296 hours (37 workdays) vs. men: 194 hours (24 workdays) · 13 extra workdays annually &middot; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
 </section>
 <section id="caregiver-health" class="sec">
@@ -449,7 +449,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="gap" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Federal funding covers 0.015% of the care economy it funds.</h2>
+  <h2>Federal funding covers 0.015% of the care economy.</h2>
   <div class="cg">
     <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.015% of $1.6T opportunity-cost value &middot; Repricing the Caregiver Economy</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
@@ -458,11 +458,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="roi" class="sec">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>Every dollar invested in caregiver support returns $5.3.</h2>
-  <ul class="sec-bullets">
-    <li>Harvard Business School (2019) puts employer caregiver ROI at 2.0&ndash;3.6x. Mid-term research consensus extends that to 2.8&ndash;4.1x.</li>
-    <li>Repricing the Caregiver Economy applies full opportunity-cost methodology and finds 5.3x &mdash; the most defensible upper bound using complete household impact accounting.</li>
-    <li>US employers absorb ~$33B annually in caregiving-related productivity loss and turnover. At 5.3x, the investment required to recover that entire loss is $6.2B &mdash; a benefit category where only 13% of employers currently offer any dedicated program. (AARP/NAC 2020; SHRM 2025)</li>
-  </ul>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Gannott, Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
   </div>
@@ -714,7 +709,7 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
   data:{labels:['Women\n296 hrs / 37 workdays','Men\n194 hrs / 24 workdays'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:(v,ctx)=>ctx.dataIndex===1?'WOMEN CARRY 13 EXTRA DAYS':'',font:{weight:700,size:16},color:C.orange}},
+    formatter:(v,ctx)=>{var a=['$8,907/yr','$5,837/yr'];return a[ctx.dataIndex];},font:{weight:700,size:15},color:(ctx)=>ctx.dataIndex===0?C.orange:a(C.blue,.8)}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},max:315}}}});
 
 // 6 CAREGIVER HEALTH OUTCOMES (white bg)
