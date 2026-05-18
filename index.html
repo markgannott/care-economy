@@ -834,10 +834,11 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
 new Chart(document.getElementById('chart-aging'),{type:'bar',
   data:{labels:['Japan','OECD Avg','US','China'],
     datasets:[{data:[29.1,18.1,17.4,15.4],
-      backgroundColor:[C.orange,a(C.blue,.35),a(C.blue,.55),a(C.blue,.45)],
+      backgroundColor:[C.blueDk,a(C.blue,.3),C.orange,a(C.orange,.45)],
       borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:function(v){return v+'%';},font:{weight:700,size:16},color:(ctx)=>ctx.dataIndex===0?C.orange:C.blue}},
+    formatter:function(v){return v+'%';},font:{weight:700,size:16},
+    color:(ctx)=>[C.blueDk,C.blue,C.orange,C.orange][ctx.dataIndex]}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick},max:35}}}});
 
 
