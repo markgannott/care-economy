@@ -807,9 +807,9 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
       formatter:v=>v>=1e6?`$${(v/1e6).toFixed(2)}T`:v>=1000?`$${(v/1000).toFixed(1)}B`:`$${v}M`,
-      font:{weight:700,size:11},color:(ctx)=>ctx.dataIndex===3?C.orange:C.blue}},
+      font:{weight:700,size:14},color:(ctx)=>ctx.dataIndex===3?C.orange:C.blue}},
     scales:{x:{grid:{display:false},ticks:{callback:v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'T':v>=1000?'$'+(v/1000).toFixed(1)+'B':'$'+v+'M',color:C.tick},max:1700000},
-      y:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}}}}});
+      y:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}}}}});
 
 
 // 11 AGING (blue bg)
@@ -848,7 +848,7 @@ new Chart(document.getElementById('chart-policy'),{type:'bar',
         formatter:function(v){return v>=1?'$'+v+'B':'$'+Math.round(v*1000)+'M';},
         font:{weight:700,size:15},color:(ctx)=>ctx.dataIndex===1?C.orange:C.blue}},
     scales:{
-      x:{grid:{color:C.grid},ticks:{callback:function(v){return v>=1?'$'+v+'B':'$'+Math.round(v*1000)+'M';},color:C.tick,font:{size:12}},min:0,max:3.2},
+      x:{grid:{color:C.grid},ticks:{callback:v=>'$'+v.toFixed(1)+'B',color:C.tick,font:{size:12}},min:0,max:3},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:14},padding:8}}}}});
 </script>
 </body>
