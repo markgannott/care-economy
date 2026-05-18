@@ -350,8 +350,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     </div>
     <div class="sc so">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">Replacement Cost</div>
-      <div class="sc-n">~$642B</div>
-      <div class="sc-l">Professional caregiver wage rates applied to each hour. Values the replacement worker &mdash; not the caregiver&rsquo;s economic loss.</div>
+      <div class="sc-n">$1.01T</div>
+      <div class="sc-l">AARP&rsquo;s published figure: 53.0B hours priced at professional caregiver wage rates. Values the replacement worker &mdash; not the caregiver&rsquo;s economic loss.</div>
       <div class="sc-s">AARP/NAC 2020</div>
     </div>
     <div class="sc sp">
@@ -362,7 +362,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     </div>
   </div>
   <div class="cg" style="margin-top:1.5rem">
-    <div class="cb"><h3>Caregiving Value by Methodology</h3><p class="csub">Four valuation approaches applied to 53.0B unpaid hours &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-methodology"></canvas></div></div>
+    <div class="cb"><h3>Caregiving Value by Methodology</h3><p class="csub">Three valuation approaches applied to 53.0B unpaid hours &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-methodology"></canvas></div></div>
   </div>
 </section>
 <section id="caregiver-workforce" class="sec blue">
@@ -753,13 +753,13 @@ new Chart(document.getElementById('chart-micro'),{type:'bar',
 
 // METHODOLOGY COMPARISON (blue bg)
 new Chart(document.getElementById('chart-methodology'),{type:'bar',
-  data:{labels:['Minimum Wage Floor','Replacement Cost (Method)','AARP Published Floor','Opportunity Cost (This Thesis)'],
-    datasets:[{data:[384,642,1010,1600],
-      backgroundColor:[a(C.blue,.2),a(C.blue,.45),a(C.orange,.35),C.orange],borderRadius:8,borderSkipped:false}]},
+  data:{labels:['Minimum Wage Floor','Replacement Cost (AARP)','Opportunity Cost (This Thesis)'],
+    datasets:[{data:[384,1010,1600],
+      backgroundColor:[a(C.blue,.25),a(C.orange,.35),C.orange],borderRadius:8,borderSkipped:false}]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
       formatter:v=>v>=1000?`$${(v/1000).toFixed(2)}T`:`$${v}B`,font:{weight:700,size:15},
-      color:(ctx)=>ctx.dataIndex>=2?C.orange:C.blue}},
+      color:(ctx)=>ctx.dataIndex>=1?C.orange:C.blue}},
     scales:{
       x:{grid:{color:C.grid},ticks:{callback:v=>v>=1000?`$${v/1000}T`:`$${v}B`,color:C.tick,font:{size:13}},max:2000},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:14},padding:8}}}}});
