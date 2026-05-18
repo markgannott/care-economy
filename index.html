@@ -46,7 +46,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
 
 /* ─ HERO (storytelling → brand blue #3672D7) ─────── */
-.hero{background:var(--blue);padding:2.5rem 4rem 2rem;position:relative;overflow:hidden}
+.hero{background:var(--blue);padding:2.5rem 4rem 1rem;position:relative;overflow:hidden}
 
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;
   border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);pointer-events:none}
@@ -147,9 +147,9 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 .cw.short{height:160px}
 
 /* ─ STAT CARDS (on blue sections) ────────────────── */
-.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0}
+.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0;align-items:start}
 @media(max-width:740px){.sc-row{grid-template-columns:repeat(2,1fr)}}
-.sc{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:1.25rem}
+.sc{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:.9rem}
 .sc.so{border-top:3px solid var(--orange)}
 .sc.sw{border-top:3px solid rgba(255,255,255,.55)}
 .sc.sp{border-top:3px solid var(--purple)}
@@ -325,7 +325,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div class="hs hs-g"><div class="hs-n">63.0M</div><div class="hs-l">Americans providing unpaid care.</div></div>
   </div>
   <div class="hero-thesis" id="summary">
-    <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.4rem">Executive Summary</div>
+    <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:.4rem">Executive Summary</div>
     <h2 style="margin-bottom:.75rem">The Ratio is the Thesis</h2>
     <ul>
       <li>The U.S. care economy is one of the largest labor systems in the country — 63.0M caregivers, 53.0B hours annually.</li>
@@ -350,7 +350,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <div style="background:#FFF8F4;border:1px solid #F5D5C0;border-top:4px solid var(--orange);border-radius:12px;padding:1.25rem">
       <span class="pbadge pb2" style="margin-bottom:.75rem;display:inline-block">Paper II</span>
       <div style="font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--orange);line-height:1;margin-bottom:.2rem">$9,901/year</div>
-      <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--orange);margin-bottom:.75rem">354 hours/year per caregiver</div>
+      <div style="font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--orange);margin-bottom:.75rem">354 hours/year per caregiver</div>
       <div style="font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:.2rem"><em>The Coordination Economy</em></div>
       <div style="font-family:var(--sans);font-size:1rem;color:#555">The burden compounds through coordination failure.</div>
     </div>
