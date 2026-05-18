@@ -311,7 +311,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     <li><a href="#ohai-co">OHAI</a></li>
     <li><a href="#thalassea">Thalassea Partners</a></li>
   </ul>
-  <div class="sb-foot">Suncoast Ventures &middot; Fund II<br/>Gannott (2026) &middot; Thalassea Partners<br/>All methodologies documented</div>
+  <div class="sb-foot">Suncoast Ventures &middot; Fund II<br/>Thalassea Partners<br/>All methodologies documented</div>
 </nav>
 <main>
 <section id="thesis" class="hero">
@@ -420,10 +420,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="cg">
     <div class="cb"><h3>Annual Caregiving Hours by Gender</h3><p class="csub">Women average 296 hours/year vs. men 194 hours/year &mdash; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hour</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
-  <div class="insight" style="margin-top:2rem">
-    <div class="ins-label">Operational Impact</div>
-    <p>Scheduling conflicts, repeated follow-up, transportation friction, and fragmented communication consume usable time across both work and household settings. As healthcare systems become more specialized, households absorb a growing share of continuity management.</p>
-  </div>
 </section>
 <section id="caregiver-health" class="sec">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
@@ -452,16 +448,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <div class="cg">
     <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value &mdash; Repricing the Caregiver Economy</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
-  <div class="ins-row" style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
-    <div class="insight">
-      <div class="ins-label">Operational Fragmentation</div>
-      <p>Caregivers routinely manage scheduling, provider communication, transportation, insurance navigation, medication tracking, and follow-up. Most of this activity occurs outside centralized infrastructure.</p>
-    </div>
-    <div class="insight">
-      <div class="ins-label">Market Shift</div>
-      <p>As coordination complexity increases, infrastructure supporting continuity and navigation becomes increasingly valuable.</p>
-    </div>
-  </div>
 </section>
 <div id="part3" class="act-div"><span class="act-div-n">Part III</span><div class="act-div-line"></div><span class="act-div-t">Why Infrastructure Forms Now</span></div>
 <section id="roi" class="sec">
@@ -470,16 +456,6 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <p class="sec-lead">Millions of employees simultaneously manage work responsibilities and unpaid caregiving activity. As coordination burden increases, employers experience downstream effects across attendance, retention, productivity, scheduling stability, and workforce participation.</p>
   <div class="cg">
     <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &mdash; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
-  </div>
-  <div class="ins-row" style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
-    <div class="insight">
-      <div class="ins-label">Employer Impact</div>
-      <p>50% of employed caregivers report work disruptions tied to caregiving responsibilities. These disruptions include missed work, schedule changes, interruptions during work hours, and workforce exits. Applied nationally, caregiving-related workforce disruption corresponds to an estimated $600.3B annual income impact.</p>
-    </div>
-    <div class="insight">
-      <div class="ins-label">Economic Alignment</div>
-      <p>Reducing coordination burden improves workforce continuity. Fewer scheduling conflicts, interruptions, and administrative burdens create measurable improvements across retention, attendance, and productivity. Caregiver infrastructure increasingly functions as workforce infrastructure.</p>
-    </div>
   </div>
 </section><section id="platform" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Payer Pathway</div><span class="pbadge pb13">Papers I–III</span></div>
@@ -671,7 +647,7 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
 
 // 7 ROI (blue bg)
 new Chart(document.getElementById('chart-roi'),{type:'bar',
-  data:{labels:['HBS Low','HBS High','Mid-Term Low','Mid-Term High','Gannott 2026'],
+  data:{labels:['HBS Low','HBS High','Mid-Term Low','Mid-Term High','This Analysis'],
     datasets:[{data:[2.0,3.6,2.8,4.1,5.3],
       backgroundColor:[a(C.blue,.2),a(C.blue,.2),a(C.blue,.4),a(C.blue,.4),C.orange],borderRadius:6,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
