@@ -20,7 +20,7 @@
   --serif:'Gelasio',Georgia,serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
+body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden}
 .page{display:grid;grid-template-columns:240px 1fr;min-height:100vh;max-width:1600px;margin:0 auto}
 @media(max-width:960px){.page{grid-template-columns:1fr}.sec{padding:1.1rem 1.5rem!important;align-items:center;text-align:center!important}.hero{padding:3rem 1.5rem 2.5rem}.exec-body{padding:1.1rem 4rem;background:#fff}.exec-hd{background:var(--blue);padding:1.1rem 4rem 1rem}}
 
@@ -408,17 +408,15 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>$1.1 trillion in annual household burden.</h2>
+  <h2>$17,857 per caregiver &times; 38.4M caregivers&nbsp;=&nbsp;$1.1T in annual burden.</h2>
   <div class="cg">
-    <div class="cb"><h3>Annual Cost Per Caregiver: $17,857</h3><p class="csub">Income loss $9,529 + out-of-pocket $8,328 &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
+    <div class="cb"><h3>Annual Household Burden: $1.1T</h3><p class="csub">$600.3B income loss + $524.7B out-of-pocket &middot; per caregiver: $9,529 + $8,328 = $17,857 &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
 </section>
 <section id="global" class="sec">
   <div class="pbrow"><div class="sec-ey">Demographic Expansion</div><span class="pbadge pb1">Paper I</span></div>
   <h2>The market continues to expand.</h2>
-  <ul class="sec-bullets">
-    <li>The caregiver-to-elderly ratio drops from 7.2:1 in 2010 to 4:1 by 2030 &mdash; each available caregiver will support 75% more elderly than in 2010.</li>
-  </ul>
+  <p class="sec-lead">The caregiver-to-elderly ratio drops from 7.2:1 in 2010 to 4:1 by 2030 &mdash; each available caregiver will support 75% more elderly than in 2010.</p>
   <div class="cg">
     <div class="cb co"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point — OECD Health Statistics 2023</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
   </div>
@@ -439,7 +437,26 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <section id="caregiver-health" class="sec">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
   <h2>Care burden's clinical and economic vicious cycle.</h2>
-  <p class="sec-lead">Clinical outcomes from unaddressed care burden cycle back into economic loss. The flywheel compounds: worse health reduces workforce capacity, which deepens the care deficit.</p>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem;align-items:stretch">
+    <div class="sc sp">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem">Step 1 &mdash; Clinical Toll</div>
+      <div class="sc-n" style="font-size:1.5rem">2.2&times; depression</div>
+      <div class="sc-l">High-burden caregivers face 2.2&times; higher depression risk, 63% higher mortality, and 2&times; the chronic disease exposure of non-caregivers.</div>
+      <div class="sc-s">Schulz &amp; Beach 1999 (JAMA); AARP/NAC 2020</div>
+    </div>
+    <div class="sc sw">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem">Step 2 &mdash; Economic Spillover</div>
+      <div class="sc-n" style="font-size:1.5rem">$5,600/yr loss</div>
+      <div class="sc-l">Employer productivity loss per caregiver employee: absenteeism, presenteeism, and unplanned turnover. The health decline is employer-borne.</div>
+      <div class="sc-s">AARP/NAC 2020; Repricing the Caregiver Economy</div>
+    </div>
+    <div class="sc so">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem">Step 3 &mdash; Supply Contraction</div>
+      <div class="sc-n" style="font-size:1.5rem">Cycle repeats</div>
+      <div class="sc-l">Each caregiver health exit deepens the deficit. Fewer available caregivers means greater burden per remaining caregiver &mdash; and the cycle accelerates.</div>
+      <div class="sc-s">Repricing the Caregiver Economy</div>
+    </div>
+  </div>
   <div class="cg" style="margin-top:1rem">
     <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">High-burden caregivers vs. non-caregivers &middot; Schulz &amp; Beach (1999, JAMA) &middot; AARP/NAC (2020)</p><div class="cw" style="height:240px"><canvas id="chart-health"></canvas></div></div>
   </div>
@@ -669,19 +686,19 @@ const B={responsive:true,maintainAspectRatio:false,layout:{padding:{top:14}},
 // 4 LIFETIME PENALTY (blue bg)
 new Chart(document.getElementById('chart-micro'),{type:'bar',
   data:{
-    labels:['Annual Cost per Caregiver'],
+    labels:['Annual Household Burden'],
     datasets:[
-      {label:'Income Loss',data:[9529],backgroundColor:a(C.blue,.65),borderRadius:0,borderSkipped:false},
-      {label:'Out-of-Pocket',data:[8328],backgroundColor:C.orange,borderRadius:0,borderSkipped:false}
+      {label:'Income Loss',data:[600.3],backgroundColor:a(C.blue,.65),borderRadius:0,borderSkipped:false},
+      {label:'Out-of-Pocket',data:[524.7],backgroundColor:C.orange,borderRadius:0,borderSkipped:false}
     ]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
       legend:{display:true,position:'bottom',labels:{color:C.blTick,font:{size:15},boxWidth:14,padding:16}},
       datalabels:{display:true,anchor:'center',align:'center',
-        formatter:function(v){return '$'+v.toLocaleString();},
+        formatter:function(v){return '$'+v+'B';},
         font:{weight:700,size:16},color:'#fff'}},
     scales:{
-      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return '$'+(v/1000)+'K';},color:C.blTick,font:{size:13}},max:20000},
+      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return '$'+v+'B';},color:C.blTick,font:{size:13}},max:1200},
       y:{stacked:true,display:false}}}})
 
 // METHODOLOGY COMPARISON (blue bg)
