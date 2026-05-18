@@ -391,7 +391,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <h2>Caregiving reshapes household economics directly.</h2>
   <div class="cg c2" style="margin-top:1rem">
     <div class="cb"><h3>Caregivers in the Workforce</h3><p class="csub">63.0M total → 38.4M employed → 19.2M facing disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-workforce"></canvas></div></div>
-    <div class="cb"><h3>Annual Household Burden: $1.125T</h3><p class="csub">Income loss + out-of-pocket expenditure across 63.0M caregivers &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-burden-split"></canvas></div></div>
+    <div class="cb"><h3>Annual Cost Per Caregiver</h3><p class="csub">Income loss + out-of-pocket spend per caregiver, per year &middot; Repricing the Caregiver Economy &middot; AARP (2021)</p><div class="cw"><canvas id="chart-burden-split"></canvas></div></div>
   </div>
 </section>
 <section id="lifetime" class="sec blue">
@@ -432,12 +432,9 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 </section>
 <section id="caregiver-health" class="sec">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
-  <h2>Caregiving creates measurable health impact.</h2>
-  <p class="sec-lead">Caregivers experience higher rates of sleep disruption, stress, burnout, and deferred preventive care as coordination demands accumulate over time. These effects propagate across both workforce participation and long-term health outcomes.</p>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
-    <div class="sc sw"><div class="sc-n">63% higher</div><div class="sc-l">mortality risk for caregivers experiencing high strain, relative to non-caregivers</div><div class="sc-s">Schulz &amp; Beach (1999)</div></div>
-    <div class="sc so"><div class="sc-n">73%</div><div class="sc-l">of insured adults carry active administrative burden outside of work hours</div><div class="sc-s">The Coordination Economy</div></div>
-    <div class="sc sp"><div class="sc-n">$411B</div><div class="sc-l">estimated annual U.S. economic cost of insufficient sleep (RAND Corporation)</div><div class="sc-s">RAND Corporation</div></div>
+  <h2>The caregiver becomes a patient.</h2>
+  <div class="cg" style="margin-top:1rem">
+    <div class="cb"><h3>Caregiver vs. Non-Caregiver Health Outcomes</h3><p class="csub">Fair/poor health, emotional stress, sleep disruption, 3-yr mortality (strained, age 66–96) &middot; AARP/NAC (2020) &middot; Schulz &amp; Beach (1999, JAMA)</p><div class="cw" style="height:260px"><canvas id="chart-health"></canvas></div></div>
   </div>
 </section>
 <section id="gap" class="sec blue">
@@ -617,13 +614,13 @@ new Chart(document.getElementById('chart-workforce'),{type:'bar',
 
 new Chart(document.getElementById('chart-burden-split'),{type:'bar',
   data:{labels:['Income loss\n(work disruptions)','Out-of-pocket\n(direct spend)'],
-    datasets:[{data:[600.3,524.7],
+    datasets:[{data:[9529,8328],
       backgroundColor:[a(C.purple,.55),a(C.orange,.6)],borderRadius:8,borderSkipped:false}]},
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:v=>`$${v}B`,font:{weight:700,size:15},
+    formatter:v=>`$${v.toLocaleString()}`,font:{weight:700,size:15},
     color:(ctx)=>ctx.dataIndex===1?C.orange:C.purple}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},
-      y:{grid:{color:C.grid},ticks:{callback:v=>`$${v}B`,color:C.tick,font:{size:13}},max:750}}}});
+      y:{grid:{color:C.grid},ticks:{callback:v=>`$${(v/1000).toFixed(0)}K`,color:C.tick,font:{size:13}},max:12000}}}});
 
 // 3 DEMOGRAPHIC CLIFF (blue bg)
 
@@ -655,7 +652,23 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
     formatter:(v,ctx)=>ctx.dataIndex===0?'↑ 102 hrs more\nthan men':'',font:{weight:700,size:16},color:C.orange}},
     scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:15},padding:4}},y:{grid:{color:C.grid},ticks:{callback:v=>v+' hrs',color:C.tick,font:{size:13}},suggestedMax:360}}}});
 
-// 6 RECOVERABLE TIME (blue bg)
+// 6 CAREGIVER HEALTH OUTCOMES (white bg)
+new Chart(document.getElementById('chart-health'),{type:'bar',
+  data:{
+    labels:['Fair/Poor Health','High Emotional Stress','Sleep Disruption','3-yr Mortality\n(strained)'],
+    datasets:[
+      {label:'Caregivers',data:[23,36,40,20.5],backgroundColor:a(C.orange,.75),borderRadius:6,borderSkipped:false},
+      {label:'Non-Caregivers',data:[17,14,20,12.6],backgroundColor:a(C.blue,.35),borderRadius:6,borderSkipped:false}
+    ]},
+  options:{...B,
+    plugins:{...B.plugins,
+      legend:{display:true,position:'top',labels:{color:C.tick,font:{size:14},boxWidth:14,padding:16}},
+      datalabels:{display:true,anchor:'end',align:'top',
+        formatter:v=>`${v}%`,font:{weight:700,size:13},
+        color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
+    scales:{
+      x:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}},
+      y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick,font:{size:13}},max:50}}}});
 
 // 7 ROI (blue bg)
 new Chart(document.getElementById('chart-roi'),{type:'bar',
