@@ -398,7 +398,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Aggregate Impact</div><span class="pbadge pb1">Paper I</span></div>
   <h2>$21,642 per caregiver &times; 63.0M caregivers&nbsp;=&nbsp;$1.4T annually.</h2>
-  <p class="sec-lead" style="color:rgba(255,255,255,.8);margin-top:.5rem;margin-bottom:1.25rem">31% of total U.S. healthcare expenditure, borne entirely by households.</p>
+  <p class="sec-lead" style="color:rgba(255,255,255,.8);margin-top:.5rem;margin-bottom:1.25rem">Equivalent to 31% of total U.S. healthcare expenditure, borne entirely by households.</p>
   <div class="cg">
     <div class="cb"><h3>Household Burden: $1.4T</h3><p class="csub">$727B income loss + $636B out-of-pocket &middot; per caregiver: $11,549 + $10,093 = $21,642 (2024$, CPI-adj.) &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
@@ -740,7 +740,7 @@ new Chart(document.getElementById('chart-micro'),{type:'bar',
         formatter:function(v){return '$'+v.toFixed(0)+'B';},
         font:{weight:700,size:16},color:'#fff'}},
     scales:{
-      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return '$'+v+'B';},color:C.blTick,font:{size:13}},max:1500},
+      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return v>=1000?'$'+(v/1000).toFixed(1)+'T':'$'+v+'B';},color:C.blTick,font:{size:13}},max:1500},
       y:{stacked:true,display:false}}}})
 
 // METHODOLOGY COMPARISON (blue bg)
@@ -753,7 +753,7 @@ new Chart(document.getElementById('chart-methodology'),{type:'bar',
       formatter:v=>v>=1000?`$${(v/1000).toFixed(2)}T`:`$${v}B`,font:{weight:700,size:15},
       color:(ctx)=>ctx.dataIndex>=1?C.orange:C.blue}},
     scales:{
-      x:{grid:{color:C.grid},ticks:{callback:v=>v>=1000?`$${v/1000}T`:`$${v}B`,color:C.tick,font:{size:13}},max:2000},
+      x:{grid:{color:C.grid},ticks:{callback:v=>v===0?'$0':'$'+(v/1000).toFixed(1)+'T',color:C.tick,font:{size:13}},max:2000},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:14},padding:8}}}}});
 
 // 5 HOURS GAP (blue bg)
@@ -816,7 +816,7 @@ new Chart(document.getElementById('chart-guide'),{type:'bar',
   options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
     formatter:v=>v>=1000?`$${(v/1000).toFixed(2)}B`:`$${v}M`,font:{weight:700,size:11},
     color:(ctx)=>ctx.dataIndex>=2?C.orange:C.blue}},
-    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>`$${v}M`,color:C.tick},max:2600}}}});
+    scales:{x:{grid:{display:false}},y:{grid:{color:C.grid},ticks:{callback:v=>v>=1000?'$'+(v/1000).toFixed(1)+'B':'$'+v+'M',color:C.tick},max:2600}}}});
 
 // 9 FUNDING GAP (grey bg)
 new Chart(document.getElementById('chart-funding'),{type:'bar',
@@ -826,7 +826,7 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
       formatter:v=>v>=1e6?`$${(v/1e6).toFixed(2)}T`:v>=1000?`$${(v/1000).toFixed(1)}B`:`$${v}M`,
       font:{weight:700,size:11},color:(ctx)=>ctx.dataIndex===3?C.orange:C.blue}},
-    scales:{x:{grid:{display:false},ticks:{callback:v=>v>=1000?`$${(v/1000).toFixed(0)}B`:`$${v}M`,color:C.tick},max:1700000},
+    scales:{x:{grid:{display:false},ticks:{callback:v=>v>=1e6?'$'+(v/1e6).toFixed(1)+'T':v>=1000?'$'+(v/1000).toFixed(1)+'B':'$'+v+'M',color:C.tick},max:1700000},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:13}}}}}});
 
 
