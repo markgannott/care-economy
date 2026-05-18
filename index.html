@@ -283,6 +283,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     <li><a href="#method">Market Scale</a></li>
     <li><a href="#caregiver-workforce">Caregiver Workforce</a></li>
     <li><a href="#burden">The Caregiver Toll</a></li>
+    <li><a href="#micro">Per-Caregiver Cost</a></li>
+    <li><a href="#macro">Aggregate Impact</a></li>
     <li class="nav-part"><a href="#part2">Part II   Structure</a></li>
     <li><a href="#coordination">Coordination Economy</a></li>
     <li><a href="#gap">Infrastructure Gap</a></li>
@@ -372,8 +374,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <section id="burden" class="sec">
   <div class="pbrow"><div class="sec-ey">The Caregiver Toll</div><span class="pbadge pb1">Papers I–II</span></div>
   <h2>What caregiving does to the people doing it.</h2>
-  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-top:1.25rem;margin-bottom:.6rem">Toll</div>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem">
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Mortality Risk</div>
       <div class="sc-n">63% higher</div>
@@ -393,8 +394,11 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
       <div class="sc-s">AARP/NAC 2020</div>
     </div>
   </div>
-  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem">Micro</div>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem">
+</section>
+<section id="micro" class="sec grey">
+  <div class="pbrow"><div class="sec-ey">Per-Caregiver Cost</div><span class="pbadge pb1">Paper I</span></div>
+  <h2>Income loss plus out-of-pocket, every year.</h2>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Income Loss</div>
       <div class="sc-n">$11,549/yr</div>
@@ -414,16 +418,19 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
       <div class="sc-s">AARP/NAC 2020; Repricing the Caregiver Economy</div>
     </div>
   </div>
-  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:.6rem">Macro</div>
-  <div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--blue-dk);margin-bottom:.3rem">$21,642 per caregiver &times; 63.0M&nbsp;=&nbsp;$1.4T annually.</div>
-  <p style="font-family:var(--sans);font-size:.9rem;color:#555;margin-bottom:1rem">Direct household cash burden: income lost plus out-of-pocket. Not the same as the $1.6T labor-value figure. That measures what the economy foregoes. This measures what families pay.</p>
+</section>
+<section id="macro" class="sec blue">
+  <div class="pbrow"><div class="sec-ey">Aggregate Impact</div><span class="pbadge pb1">Paper I</span></div>
+  <h2>$21,642 per caregiver &times; 63.0M caregivers&nbsp;=&nbsp;$1.4T annually.</h2>
+  <p class="sec-lead" style="color:#fff;margin-top:.5rem;margin-bottom:1.25rem">Direct household cash burden: income lost plus out-of-pocket. Not the same as the $1.6T labor-value figure. That measures what the economy foregoes. This measures what families pay.</p>
   <div class="cg">
     <div class="cb"><h3>Household Burden: $1.4T</h3><p class="csub">$727B income loss + $636B out-of-pocket &middot; per caregiver: $11,549 + $10,093 = $21,642 (2024$, CPI-adj.) &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
 </section>
 <section id="global" class="sec">
   <div class="pbrow"><div class="sec-ey">Demographic Expansion</div><span class="pbadge pb1">Paper I</span></div>
-  <div class="cg">
+  <h2>The U.S. is early. The aging surge is just starting.</h2>
+  <div class="cg" style="margin-top:1.25rem">
     <div class="cb co"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point &middot; OECD Health Statistics 2023</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
   </div>
 </section>
@@ -629,6 +636,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   <a href="#method" onclick="closeMob()" class="mob-sub">Market Scale</a>
   <a href="#caregiver-workforce" onclick="closeMob()" class="mob-sub">Caregiver Workforce</a>
   <a href="#burden" onclick="closeMob()" class="mob-sub">The Caregiver Toll</a>
+  <a href="#micro" onclick="closeMob()" class="mob-sub">Per-Caregiver Cost</a>
+  <a href="#macro" onclick="closeMob()" class="mob-sub">Aggregate Impact</a>
   <span class="mob-part">Part II   Structure</span>
   <a href="#coordination" onclick="closeMob()" class="mob-sub">Coordination Economy</a>
   <a href="#gap" onclick="closeMob()" class="mob-sub">Infrastructure Gap</a>
