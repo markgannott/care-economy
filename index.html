@@ -380,22 +380,12 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
   <p style="font-family:var(--sans);font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.72;margin-top:2rem;border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem">The market does not become larger because caregiving changed. The market becomes larger because the measurement framework captures more of the economic activity already taking place.</p>
 </section><section id="burden" class="sec">
   <div class="pbrow"><div class="sec-ey">Who Bears the Burden</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>Caregiving changes how households allocate time, labor, and income.</h2>
-  <p class="sec-lead">Primary caregivers perform an estimated 354 additional unpaid labor hours annually. That time extends across transportation, scheduling, medication management, provider communication, recovery support, and continuity between healthcare encounters. Much of this work occurs alongside formal employment and household responsibilities rather than instead of them.</p>
-  <div class="sec-ey" style="margin:1.75rem 0 .5rem">Workforce Impact</div>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
-    <div class="sc sw"><div class="sc-n">60%</div><div class="sc-l">of caregivers remain employed while providing support</div><div class="sc-s">NAC / AARP 2020</div></div>
-    <div class="sc so"><div class="sc-n">50%</div><div class="sc-l">of employed caregivers report work disruptions tied to caregiving responsibilities</div><div class="sc-s">NAC / AARP 2020</div></div>
-    <div class="sc sp"><div class="sc-n">$600.3B</div><div class="sc-l">estimated annual income impact applied across the caregiving population, 2026 USD</div><div class="sc-s">Gannott 2026</div></div>
-  </div>
-  <div class="sec-ey" style="margin:1.75rem 0 .5rem">Household Spending</div>
-  <div class="sc-row" style="grid-template-columns:repeat(2,1fr)">
-    <div class="sc sw"><div class="sc-n">$8,328</div><div class="sc-l">average annual caregiver out-of-pocket spending on medications, transportation, supplies, home modifications, and services</div><div class="sc-s">AARP 2021</div></div>
-    <div class="sc sp"><div class="sc-n">$524.7B</div><div class="sc-l">estimated total annual household spending across 63.0M caregivers</div><div class="sc-s">Gannott 2026</div></div>
-  </div>
-  <div class="sec-ey" style="margin:1.75rem 0 .5rem">Lifetime Impact</div>
-  <div class="sc-row" style="grid-template-columns:repeat(1,1fr)">
-    <div class="sc sw"><div class="sc-n">$353,782</div><div class="sc-l">estimated lifetime economic impact from a four-year caregiving-related workforce exit beginning at age 55. The burden extends beyond wages alone into retirement accumulation, labor participation, recovery time, and long-term financial stability.</div><div class="sc-s">Gannott 2026</div></div>
+  <h2>Caregiving reshapes household economics directly.</h2>
+  <p class="sec-lead">50% of employed caregivers report work disruptions tied to caregiving responsibilities. Applied nationally, those disruptions correspond to an estimated $600.3B annual income impact.</p>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.5rem">
+    <div class="sc sw"><div class="sc-n">$8,328</div><div class="sc-l">average annual out-of-pocket spending on medications, transportation, supplies, home modifications, and services</div><div class="sc-s">AARP 2021</div></div>
+    <div class="sc sp"><div class="sc-n">$524.7B</div><div class="sc-l">estimated total annual household expenditure across 63.0M caregivers</div><div class="sc-s">Gannott 2026</div></div>
+    <div class="sc so"><div class="sc-n">$353,782</div><div class="sc-l">estimated lifetime economic impact from a four-year workforce exit beginning at age 55</div><div class="sc-s">Gannott 2026</div></div>
   </div>
   <div class="cg">
     <div class="cb"><h3>Lifetime Penalty Breakdown</h3><p class="csub">$353,782 total   modal: woman, 55, full exit, 4-yr spell, retires 67   Gannott 2026</p><div class="cw"><canvas id="chart-penalty"></canvas></div></div>
@@ -413,60 +403,51 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
 <div id="part2" class="act-div"><span class="act-div-n">Part II</span><div class="act-div-line"></div><span class="act-div-t">Structure — how the burden compounds</span></div>
 <section id="coordination" class="sec">
   <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
-  <h2>The burden is not just caregiving. It is coordination.</h2>
-  <p class="sec-lead">Caregiving extends beyond direct support activity. Households also manage scheduling, transportation, provider communication, insurance navigation, medication management, reminders, follow-up, and continuity between healthcare encounters. As healthcare systems become more specialized and fragmented, households absorb a growing share of operational coordination.</p>
+  <h2>The burden is coordination.</h2>
+  <p class="sec-lead">Caregivers manage scheduling, transportation, provider communication, medication management, insurance navigation, and follow-up across fragmented systems. Most households still coordinate this manually across phone calls, portals, calendars, spreadsheets, and memory.</p>
   <div class="cg">
     <div class="cb"><h3>Annual Caregiving Hours by Gender</h3><p class="csub">Women average 296 hrs/yr vs. men 194 hrs/yr &mdash; BLS ATUS 2023 (USDL-24-1208) &middot; blended wage $30.09/hr</p><div class="cw"><canvas id="chart-hours"></canvas></div></div>
   </div>
-  <div class="ins-row" style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
-    <div class="insight">
-      <div class="ins-label">Time Fragmentation</div>
-      <p>Across 63.0M caregivers, unpaid support activity averages approximately 16.17 hours per week. A meaningful share of that time comes from administrative coordination rather than direct physical care. Small disruptions compound across scheduling, transportation, communication, follow-up, insurance navigation, and provider transitions. The result is fragmented time and reduced productivity across both household and work settings.</p>
-    </div>
-    <div class="insight">
-      <div class="ins-label">Cognitive Load</div>
-      <p>Caregivers routinely track appointments, medications, symptom changes, provider instructions, deadlines, and contingency plans simultaneously. Most households manage this manually across phone calls, portals, calendars, spreadsheets, text messages, and memory. As coordination complexity increases, households spend more time maintaining continuity between fragmented systems.</p>
-    </div>
+  <div class="insight" style="margin-top:2rem">
+    <div class="ins-label">Operational Impact</div>
+    <p>Scheduling conflicts, repeated follow-up, transportation friction, and fragmented communication consume usable time across both work and household settings. As healthcare systems become more specialized, households absorb a growing share of continuity management.</p>
   </div>
-  <p style="font-family:var(--sans);font-size:.95rem;color:#555;line-height:1.72;margin-top:2rem;border-top:1px solid var(--border);padding-top:1.5rem">Healthcare delivery increasingly depends on household coordination occurring outside formal clinical environments. The coordination layer already exists. Most of it remains unmanaged infrastructure.</p>
 </section>
 <section id="caregiver-health" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Caregiver Health</div><span class="pbadge pb2">Paper II</span></div>
   <h2>Caregiving creates measurable health impact.</h2>
-  <p class="sec-lead">The burden of caregiving extends beyond labor hours alone. Caregivers experience higher rates of stress, sleep disruption, burnout, and deferred preventive care as coordination demands accumulate across work, household, and healthcare responsibilities. These effects compound over time across both health and workforce participation.</p>
+  <p class="sec-lead">Caregivers experience higher rates of sleep disruption, stress, burnout, and deferred preventive care as coordination demands accumulate over time. These effects propagate across both workforce participation and long-term health outcomes.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
     <div class="sc sw"><div class="sc-n">$18,374</div><div class="sc-l">estimated annual value of cognitively occupied leisure time in households with children under 13</div><div class="sc-s">Gannott 2026, Paper II</div></div>
     <div class="sc so"><div class="sc-n">73%</div><div class="sc-l">of insured adults carry active administrative burden outside of work hours</div><div class="sc-s">Gannott 2026, Paper II</div></div>
     <div class="sc sp"><div class="sc-n">$411B</div><div class="sc-l">estimated annual U.S. economic cost of insufficient sleep (RAND Corporation)</div><div class="sc-s">RAND Corporation</div></div>
   </div>
-  <div class="method-grid">
-    <div class="mc-lo"><h3>Sleep &amp; Recovery</h3><p>Households managing caregiving responsibilities experience frequent interruptions across evenings, overnight care, scheduling, and follow-up. Reduced sleep quality affects productivity, decision-making, and long-term health simultaneously. RAND estimates the annual U.S. economic cost of insufficient sleep at approximately $411B.</p></div>
-    <div class="mc-md"><h3>Deferred Health Maintenance</h3><p>As coordination burden increases, caregivers frequently delay preventive care, follow-up appointments, and personal health maintenance. Over time, these delays contribute to worsening health outcomes and increased long-term healthcare utilization.</p></div>
-    <div class="mc-hi"><h3>Workforce &amp; Household Effects</h3><p>Stress, interruption burden, and fragmented recovery time affect productivity, attendance, retention, and labor participation. The effects extend simultaneously across employers, healthcare systems, and households.</p></div>
+  <div class="ins-row" style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+    <div class="insight">
+      <div class="ins-label">Recovery &amp; Sleep</div>
+      <p>Recovery time becomes fragmented across scheduling, overnight support, follow-up activity, and household coordination. RAND estimates the annual U.S. economic cost of insufficient sleep at approximately $411B.</p>
+    </div>
+    <div class="insight">
+      <div class="ins-label">Deferred Care</div>
+      <p>As caregiving burden increases, caregivers frequently delay their own preventive care, follow-up appointments, and recovery time.</p>
+    </div>
   </div>
-  <p style="font-family:var(--sans);font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.72;margin-top:2rem;border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem">Caregiving functions as both a labor system and a long-duration health burden carried across millions of households. As support demand rises, caregiver health increasingly becomes part of healthcare infrastructure itself.</p>
 </section>
 <section id="gap" class="sec">
   <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>Caregiving operates at national scale. Coordination infrastructure does not.</h2>
-  <p class="sec-lead">63.0M Americans provide unpaid care each year. Most coordination still occurs manually across phone calls, calendars, portals, spreadsheets, transportation systems, provider networks, and fragmented household workflows. The operational layer beneath caregiving remains largely unmanaged infrastructure.</p>
+  <p class="sec-lead">Most caregiving coordination still occurs manually across disconnected provider systems, calendars, phone calls, transportation networks, and household workflows. Households remain responsible for maintaining continuity between fragmented systems.</p>
   <div class="cg">
     <div class="cb"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.024% of $1.01T unpaid care value &mdash; Gannott 2026</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
   <div class="ins-row" style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
     <div class="insight">
-      <div class="ins-label">Public Infrastructure</div>
-      <p>The National Family Caregiver Support Program authorized approximately $244.8M in FY2024. Using opportunity-cost methodology, unpaid caregiving represents an estimated $1.01T&ndash;$1.6T economic system depending on valuation framework and scope. The gap between economic scale and coordination infrastructure remains substantial.</p>
-    </div>
-    <div class="insight">
       <div class="ins-label">Operational Fragmentation</div>
-      <p>Caregivers routinely manage provider communication, scheduling, transportation, medication tracking, insurance navigation, follow-up, and continuity between encounters. Most of this activity occurs outside centralized infrastructure or reimbursement pathways.</p>
+      <p>Caregivers routinely manage scheduling, provider communication, transportation, insurance navigation, medication tracking, and follow-up. Most of this activity occurs outside centralized infrastructure.</p>
     </div>
-  </div>
-  <div class="ins-row" style="margin-top:1.5rem;display:grid;grid-template-columns:1fr;gap:1.5rem">
     <div class="insight">
-      <div class="ins-label">Market Implication</div>
-      <p>As healthcare systems become more specialized, households absorb a larger share of continuity management across providers, services, and care settings. Systems that reduce fragmentation and coordination burden may improve workforce participation, continuity of care, and household stability. The caregiving economy already exists at scale. The coordination layer supporting it is now beginning to formalize.</p>
+      <div class="ins-label">Market Shift</div>
+      <p>As coordination complexity increases, infrastructure supporting continuity and navigation becomes increasingly valuable.</p>
     </div>
   </div>
 </section>
