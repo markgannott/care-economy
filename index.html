@@ -140,7 +140,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;
 .sec.blue .cb.cb-w{border-left-color:var(--blue-lt)}
 .sec.blue .cb h3{color:var(--text)}
 .sec.blue .cb.co h3{color:var(--gold)}
-.csub{font-family:var(--sans);font-size:.85rem;color:#888;margin-bottom:1rem}
+.csub{font-family:var(--sans);font-size:1rem;color:#888;margin-bottom:1rem}
 .sec.blue .csub{color:#fff}.sec.blue .cb .csub{color:#888}
 .cw{position:relative;height:220px}
 .cw.tall{height:300px}
@@ -322,7 +322,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;
   <div class="hero-stats">
     <div class="hs hs-o"><div class="hs-n">$1.6T</div><div class="hs-l">Annual U.S. care economy using opportunity-cost methodology.</div></div>
     <div class="hs hs-w"><div class="hs-n">53.0B</div><div class="hs-l">Unpaid caregiving hours performed annually.</div></div>
-    <div class="hs hs-p"><div class="hs-n">$17,857/yr</div><div class="hs-l">Annual cost per caregiver: income loss plus out-of-pocket spending.</div></div>
+    <div class="hs hs-p"><div class="hs-n">$21,642/yr</div><div class="hs-l">Annual cost per caregiver: income loss plus out-of-pocket spending.</div></div>
     <div class="hs hs-g"><div class="hs-n">63.0M</div><div class="hs-l">Americans providing unpaid care.</div></div>
   </div>
   <div class="hero-thesis" id="summary">
@@ -400,17 +400,13 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;
 <section id="burden" class="sec">
   <div class="pbrow"><div class="sec-ey">Who Bears the Burden</div><span class="pbadge pb1">Paper I</span></div>
   <h2>Caregiving reshapes household economics directly.</h2>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
-    <div class="sc sp"><div class="sc-n">$600.3B</div><div class="sc-l">annual income impact across employed caregivers</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
-    <div class="sc so"><div class="sc-n">$524.7B</div><div class="sc-l">annual out-of-pocket household expenditure</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
-    <div class="sc sw"><div class="sc-n">$1.1T</div><div class="sc-l">combined annual household burden: income loss + out-of-pocket expenditure</div><div class="sc-s">Repricing the Caregiver Economy</div></div>
-  </div>
+
 </section>
 <section id="lifetime" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Lifetime Impact</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>$17,857 per caregiver &times; 38.4M caregivers&nbsp;=&nbsp;$1.1T in annual burden.</h2>
+  <h2>$21,642 per caregiver &times; 38.4M caregivers&nbsp;=&nbsp;$1.36T in annual burden.</h2>
   <div class="cg">
-    <div class="cb"><h3>Annual Household Burden: $1.1T</h3><p class="csub">$600.3B income loss + $524.7B out-of-pocket &middot; per caregiver: $9,529 + $8,328 = $17,857 &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
+    <div class="cb"><h3>Household Burden: $1.36T</h3><p class="csub">$727B income loss + $636B out-of-pocket &middot; per caregiver: $11,549 + $10,093 = $21,642 (2024$, CPI-adj.) &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
 </section>
 <section id="global" class="sec">
@@ -446,7 +442,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;
     </div>
     <div class="sc sw">
       <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem">Step 2 &mdash; Economic Spillover</div>
-      <div class="sc-n" style="font-size:1.5rem">$5,600/yr loss</div>
+      <div class="sc-n" style="font-size:1.5rem">$6,800/yr loss</div>
       <div class="sc-l">Employer productivity loss per caregiver employee: absenteeism, presenteeism, and unplanned turnover. The health decline is employer-borne.</div>
       <div class="sc-s">AARP/NAC 2020; Repricing the Caregiver Economy</div>
     </div>
@@ -482,7 +478,7 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;
   </div>
 </section><section id="platform" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Payer Pathway</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>The GUIDE model opens a $735M&ndash;$1.47B addressable market.</h2>
+  <h2>The GUIDE model alone opens a massive market.</h2>
   <div class="cg">
     <div class="cb co"><h3>GUIDE Model TAM Scenarios</h3><p class="csub">CMS Medicare penetration on 3.5M eligible beneficiaries &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-guide"></canvas></div></div>
   </div>
@@ -688,17 +684,17 @@ new Chart(document.getElementById('chart-micro'),{type:'bar',
   data:{
     labels:['Annual Household Burden'],
     datasets:[
-      {label:'Income Loss',data:[600.3],backgroundColor:a(C.blue,.65),borderRadius:0,borderSkipped:false},
-      {label:'Out-of-Pocket',data:[524.7],backgroundColor:C.orange,borderRadius:0,borderSkipped:false}
+      {label:'Income Loss',data:[727.0],backgroundColor:a(C.blue,.65),borderRadius:0,borderSkipped:false},
+      {label:'Out-of-Pocket',data:[636.0],backgroundColor:C.orange,borderRadius:0,borderSkipped:false}
     ]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
       legend:{display:true,position:'bottom',labels:{color:C.blTick,font:{size:15},boxWidth:14,padding:16}},
       datalabels:{display:true,anchor:'center',align:'center',
-        formatter:function(v){return '$'+v+'B';},
+        formatter:function(v){return '$'+v.toFixed(0)+'B';},
         font:{weight:700,size:16},color:'#fff'}},
     scales:{
-      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return '$'+v+'B';},color:C.blTick,font:{size:13}},max:1200},
+      x:{stacked:true,grid:{color:C.blGrid},ticks:{callback:function(v){return '$'+v+'B';},color:C.blTick,font:{size:13}},max:1500},
       y:{stacked:true,display:false}}}})
 
 // METHODOLOGY COMPARISON (blue bg)
@@ -716,7 +712,7 @@ new Chart(document.getElementById('chart-methodology'),{type:'bar',
 
 // 5 HOURS GAP (blue bg)
 new Chart(document.getElementById('chart-hours'),{type:'bar',
-  data:{labels:['Women','Men'],
+  data:{labels:['Women (37 days/yr)','Men (24 days/yr)'],
     datasets:[{data:[296,194],backgroundColor:[C.orange,a(C.blue,.45)],borderRadius:8,borderSkipped:false}]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
@@ -732,12 +728,12 @@ new Chart(document.getElementById('chart-health'),{type:'bar',
   data:{
     labels:['3-yr Mortality\n(high-burden)','Fair/Poor Health','Sleep Disruption'],
     datasets:[
-      {label:'Caregivers',data:[20.5,23,40],backgroundColor:a(C.orange,.8),borderRadius:6,borderSkipped:false},
+      {label:'Caregivers (high-burden)',data:[20.5,23,40],backgroundColor:a(C.orange,.8),borderRadius:6,borderSkipped:false},
       {label:'Non-Caregivers',data:[12.6,17,20],backgroundColor:a(C.blue,.3),borderRadius:6,borderSkipped:false}
     ]},
   options:{...B,
     plugins:{...B.plugins,
-      legend:{display:true,position:'top',labels:{color:C.tick,font:{size:14},boxWidth:14,padding:16}},
+      legend:{display:true,position:'top',labels:{color:C.tick,font:{size:12},boxWidth:14,padding:16}},
       datalabels:{display:true,anchor:'end',align:'top',
         formatter:v=>`${v}%`,font:{weight:600,size:13},
         color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
