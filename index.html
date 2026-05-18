@@ -372,8 +372,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <section id="burden" class="sec">
   <div class="pbrow"><div class="sec-ey">The Caregiver Toll</div><span class="pbadge pb1">Papers I–II</span></div>
   <h2>What caregiving does to the people doing it.</h2>
-  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-top:1.25rem;margin-bottom:.6rem">Health</div>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem">
+  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-top:1.25rem;margin-bottom:.6rem">Toll</div>
+  <div class="sc-row" style="grid-template-columns:repeat(2,1fr);margin-bottom:1.5rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Mortality Risk</div>
       <div class="sc-n">63% higher</div>
@@ -386,15 +386,9 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
       <div class="sc-l">High-burden caregivers face 2.2&times; higher depression risk and 2&times; the chronic disease exposure of non-caregivers.</div>
       <div class="sc-s">Schulz &amp; Beach 1999 (JAMA); AARP/NAC 2020</div>
     </div>
-    <div class="sc sp">
-      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Economic Spillover</div>
-      <div class="sc-n">$6,800/yr</div>
-      <div class="sc-l">Employer productivity loss per caregiver employee: absenteeism, presenteeism, and unplanned turnover. The health decline is employer-borne.</div>
-      <div class="sc-s">AARP/NAC 2020; Repricing the Caregiver Economy</div>
-    </div>
   </div>
-  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem">Financial</div>
-  <div class="sc-row" style="grid-template-columns:repeat(3,1fr)">
+  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem">Micro</div>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Income Loss</div>
       <div class="sc-n">$11,549/yr</div>
@@ -408,17 +402,15 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
       <div class="sc-s">AARP/NAC 2020 &middot; CPI-adj. 2024$</div>
     </div>
     <div class="sc sp">
-      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Total Burden</div>
-      <div class="sc-n">$21,642/yr</div>
-      <div class="sc-l">Combined per-caregiver cost. Across all 63.0M caregivers, the aggregate household burden reaches $1.4T, distinct from the $1.6T labor-value figure.</div>
-      <div class="sc-s">Repricing the Caregiver Economy (2026)</div>
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Economic Spillover</div>
+      <div class="sc-n">$6,800/yr</div>
+      <div class="sc-l">Employer productivity loss per caregiver employee: absenteeism, presenteeism, and unplanned turnover. The health decline is employer-borne.</div>
+      <div class="sc-s">AARP/NAC 2020; Repricing the Caregiver Economy</div>
     </div>
   </div>
-</section>
-<section id="lifetime" class="sec blue">
-  <div class="pbrow"><div class="sec-ey">Aggregate Impact</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>$21,642 per caregiver &times; 63.0M caregivers&nbsp;=&nbsp;$1.4T annually.</h2>
-  <p class="sec-lead" style="color:#fff;margin-top:.5rem;margin-bottom:1.25rem">Direct household cash burden: income lost plus out-of-pocket spending. Not the same as the $1.6T labor-value figure. That measures what the economy foregoes. This measures what families pay.</p>
+  <div style="font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:.6rem">Macro</div>
+  <div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--blue-dk);margin-bottom:.3rem">$21,642 per caregiver &times; 63.0M&nbsp;=&nbsp;$1.4T annually.</div>
+  <p style="font-family:var(--sans);font-size:.9rem;color:#555;margin-bottom:1rem">Direct household cash burden: income lost plus out-of-pocket. Not the same as the $1.6T labor-value figure. That measures what the economy foregoes. This measures what families pay.</p>
   <div class="cg">
     <div class="cb"><h3>Household Burden: $1.4T</h3><p class="csub">$727B income loss + $636B out-of-pocket &middot; per caregiver: $11,549 + $10,093 = $21,642 (2024$, CPI-adj.) &middot; AARP/NAC 2020</p><div class="cw"><canvas id="chart-micro"></canvas></div></div>
   </div>
@@ -631,7 +623,6 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   <a href="#method" onclick="closeMob()" class="mob-sub">Market Scale</a>
   <a href="#caregiver-workforce" onclick="closeMob()" class="mob-sub">Caregiver Workforce</a>
   <a href="#burden" onclick="closeMob()" class="mob-sub">The Caregiver Toll</a>
-  <a href="#lifetime" onclick="closeMob()" class="mob-sub">Aggregate Impact</a>
   <span class="mob-part">Part II   Structure</span>
   <a href="#coordination" onclick="closeMob()" class="mob-sub">Coordination Economy</a>
   <a href="#gap" onclick="closeMob()" class="mob-sub">Infrastructure Gap</a>
