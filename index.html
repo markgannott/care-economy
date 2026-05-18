@@ -382,8 +382,8 @@ body{font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
     </div>
     <div class="sc" style="border-top:4px solid var(--blue-dk)">
       <div style="font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">Opportunity Cost (This Thesis)</div>
-      <div class="sc-n">$1.62T</div>
-      <div class="sc-l">Measures displaced income, labor participation, and retirement accumulation. The methodology used here.</div>
+      <div class="sc-n">$1.6T</div>
+      <div class="sc-l">Measures displaced income and retirement accumulation. The methodology used here.</div>
     </div>
   </div>
   <div class="cg" style="margin-top:1.5rem">
@@ -693,7 +693,7 @@ new Chart(document.getElementById('chart-micro'),{type:'bar',
 // METHODOLOGY COMPARISON (blue bg)
 new Chart(document.getElementById('chart-methodology'),{type:'bar',
   data:{labels:['Minimum Wage Floor','Replacement Cost','Opportunity Cost (This Thesis)'],
-    datasets:[{data:[384,642,1620],
+    datasets:[{data:[384,642,1600],
       backgroundColor:[a(C.blue,.25),a(C.blue,.5),C.orange],borderRadius:8,borderSkipped:false}]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'right',
