@@ -13,7 +13,7 @@
   --serif:Georgia,'Times New Roman',serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
 
 /* NAV */
 .top-nav{background:var(--blue-dk);padding:.75rem 8vw;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
@@ -48,8 +48,9 @@ h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;lin
 /* GRID */
 .grid-wrap{padding:2.5rem 8vw 4rem}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:580px){.grid{grid-template-columns:1fr}}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.hero{padding:2.5rem 5vw 2rem}.hero-inner{gap:1.25rem}.grid-wrap{padding:2rem 5vw 3rem}.top-nav{padding:.75rem 5vw}}
+@media(max-width:580px){.grid{grid-template-columns:1fr}.hero-stats{gap:1.5rem}.sc-logo{display:none}}
+@media(max-width:400px){.hero-stats{flex-wrap:wrap;gap:1rem}}
 
 /* COMPANY CARD */
 .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:box-shadow .15s,transform .15s;text-decoration:none;display:flex;flex-direction:column;gap:.75rem;border-top:3px solid var(--blue)}

@@ -19,10 +19,16 @@
   --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
   --serif:'Gelasio',Georgia,serif;
 }
-html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;touch-action:manipulation}
+body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 .page{display:grid;grid-template-columns:240px 1fr;min-height:100vh;width:100%}
-@media(max-width:960px){.page{grid-template-columns:1fr}.sec{padding:1.1rem 1.5rem!important;align-items:center;text-align:center!important}.hero{padding:3rem 1.5rem 2.5rem}.exec-body{padding:1.1rem 4rem;background:#fff}.exec-hd{background:var(--blue);padding:1.1rem 4rem 1rem}}
+@media(max-width:960px){
+  .page{grid-template-columns:1fr}
+  .sec{padding:2.5rem 5vw!important}
+  .hero{padding:2.5rem 5vw 2rem}
+  .exec-body{padding:1.5rem 5vw;background:#fff}
+  .exec-hd{background:var(--blue);padding:1.5rem 5vw 1.25rem}
+}
 
 /* ─ SIDEBAR (#224B90 dark blue — brand approved) ─── */
 .sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;
@@ -231,27 +237,34 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 @media(max-width:600px){
   .page{grid-template-columns:1fr}
   .sidebar{display:none}
-  .hero{padding:3rem 1.5rem 2.5rem}
-  .hero h1{font-size:2.1rem;line-height:1.18}
-  .hero-lead{font-size:.94rem}
-  .hero-stats{grid-template-columns:1fr 1fr;gap:.75rem}
-  .hs-n{font-size:1.6rem}
-  .exec{padding:2rem 1.5rem}
-  
-.exec-hd h2{font-size:1.5rem}
+  .hero{padding:2rem 5vw 1.75rem}
+  .hero h1{font-size:1.95rem;line-height:1.15}
+  .hero-lead{font-size:.93rem;line-height:1.6}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:.65rem}
+  .hs-n{font-size:1.55rem}
+  .exec{padding:1.75rem 5vw}
+  .exec-hd h2{font-size:1.4rem}
   .exec-hd p{font-size:.85rem}
-  .sec{padding:2.5rem 1.5rem}
-  .sec h2{font-size:1.55rem}
-  .sec-lead{font-size:.9rem}
+  .sec{padding:2rem 5vw!important}
+  .sec h2{font-size:1.5rem;line-height:1.2}
+  .sec-lead{font-size:.92rem;line-height:1.6}
   .cg.c2{grid-template-columns:1fr}
-  .cw{height:190px}
-  .cw.tall{height:210px}
-  .cw.short{height:140px}
+  .cw{height:200px}
+  .cw.tall{height:220px}
+  .cw.short{height:150px}
   .method-grid{grid-template-columns:1fr}
   .sc-row{grid-template-columns:1fr 1fr}
   .calc-grid{grid-template-columns:1fr}
   .tl-row{flex-direction:column}
   .tl-col{min-width:0}
+  .sc-n{font-size:1.9rem}
+  .print-btn{display:none}
+}
+@media(max-width:400px){
+  .sc-row{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .sec h2{font-size:1.35rem}
+  .cw{height:180px}
 }
 
 /* ─ PAPER BADGES ─────────────────────────────────────────── */
