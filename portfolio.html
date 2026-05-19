@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fund I Portfolio — Suncoast Ventures</title>
+<style>
+:root {
+  --blue:#3672D7; --blue-dk:#2A3F6F; --blue-lt:#6B9EE8;
+  --orange:#E27D39; --gold:#EBA43E;
+  --grey:#F7F6F6; --border:#DDE6F5; --text:#1A1A1A;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.top-nav{background:var(--blue-dk);padding:.75rem 8vw;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.top-nav a{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.6);text-decoration:none;letter-spacing:.05em}
+.top-nav a:hover{color:#fff}
+.top-nav .sep{color:rgba(255,255,255,.3)}
+.top-nav .cur{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.05em}
+
+/* HERO */
+.hero{background:var(--blue);padding:4rem 8vw 3.5rem}
+.hero-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.hero-left{max-width:600px}
+.ey{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.6rem}
+h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;color:#fff;margin-bottom:1rem}
+.hero-lead{font-size:1.05rem;color:rgba(255,255,255,.8);line-height:1.6;max-width:520px}
+.hero-stats{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap}
+.hstat-n{font-family:var(--serif);font-size:2rem;font-weight:700;color:#fff;line-height:1}
+.hstat-l{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:.2rem;letter-spacing:.04em}
+
+/* LOGO */
+.sc-logo{background:#fff;border-radius:12px;padding:1.25rem 1.75rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0}
+.sc-logo-mark{display:flex;align-items:center}
+.sc-logo-text{font-size:1.1rem;letter-spacing:.18em;font-weight:700;color:var(--blue-dk);text-align:center;line-height:1.3}
+.sc-logo-text span{display:block;font-size:.85rem;letter-spacing:.2em}
+
+/* FILTERS */
+.filters{padding:1.5rem 8vw;border-bottom:1px solid var(--border);display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-right:.5rem}
+.fbtn{font-size:.72rem;font-weight:700;padding:.3rem .75rem;border-radius:20px;border:1px solid var(--border);background:#fff;color:#666;cursor:pointer;transition:all .15s}
+.fbtn:hover,.fbtn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* GRID */
+.grid-wrap{padding:2.5rem 8vw 4rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.grid{grid-template-columns:1fr}}
+
+/* COMPANY CARD */
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:box-shadow .15s,transform .15s;text-decoration:none;display:flex;flex-direction:column;gap:.75rem;border-top:3px solid var(--blue)}
+.card:hover{box-shadow:0 4px 24px rgba(54,114,215,.12);transform:translateY(-2px)}
+.card.fund2{border-top-color:var(--orange)}
+.card.acquired{border-top-color:#aaa;opacity:.7}
+.card-top{display:flex;align-items:center;gap:.75rem}
+.initials{width:42px;height:42px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.95rem;font-weight:700;color:#fff;flex-shrink:0}
+.card.fund2 .initials{background:var(--orange)}
+.card.acquired .initials{background:#aaa}
+.card-name{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.2}
+.card-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.ctag{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:12px;background:var(--grey);color:#666;border:1px solid var(--border)}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.5rem;border-top:1px solid var(--border)}
+.card-founder{font-size:.78rem;color:#888}
+.fund-badge{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:10px}
+.fund-badge.f1{background:rgba(54,114,215,.08);color:var(--blue);border:1px solid rgba(54,114,215,.2)}
+.fund-badge.f2{background:rgba(226,125,57,.08);color:var(--orange);border:1px solid rgba(226,125,57,.2)}
+.fund-badge.acq{background:#f0f0f0;color:#999;border:1px solid #ddd}
+.card-arrow{font-size:.8rem;color:var(--blue-lt)}
+.card.no-link{cursor:default}
+.card.no-link:hover{box-shadow:none;transform:none}
+
+/* FOOTER */
+footer{background:var(--blue-dk);padding:1.5rem 8vw;text-align:center}
+footer p{font-size:.78rem;color:rgba(255,255,255,.45)}
+footer a{color:rgba(255,255,255,.65);text-decoration:none}
+footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="#">Suncoast Ventures</a>
+  <span class="sep">›</span>
+  <span class="cur">Fund I Portfolio</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="ey">Suncoast Ventures &middot; Fund I</div>
+      <h1>Portfolio Companies</h1>
+      <p class="hero-lead">Early-stage healthcare companies solving the $1B problems hiding in plain sight. Backed through payer, provider, and policy channels.</p>
+      <div class="hero-stats">
+        <div>
+          <div class="hstat-n">21</div>
+          <div class="hstat-l">Portfolio Companies</div>
+        </div>
+        <div>
+          <div class="hstat-n">~$3.5M</div>
+          <div class="hstat-l">Fund I Deployed</div>
+        </div>
+        <div>
+          <div class="hstat-n">1.53×</div>
+          <div class="hstat-l">TVPI (top decile)</div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-logo">
+      <div class="sc-logo-mark">
+        <svg width="72" height="60" viewBox="0 0 72 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="30" r="24" fill="#3672D7"/>
+          <circle cx="48" cy="30" r="20" fill="#EBA43E"/>
+          <circle cx="28" cy="30" r="24" fill="#3672D7" clip-path="url(#clip-left)"/>
+          <clipPath id="clip-left"><rect x="0" y="0" width="40" height="60"/></clipPath>
+        </svg>
+      </div>
+      <div class="sc-logo-text">SUNCOAST<span>VENTURES</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="grid">
+
+    <!-- ALPHAROSE -->
+    <a href="alpharose.html" class="card fund2">
+      <div class="card-top">
+        <div class="initials">CM</div>
+        <div class="card-name">AlphaRose Therapeutics</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Rare Disease</span>
+        <span class="ctag">Genetic Medicine</span>
+        <span class="ctag">AI Drug Discovery</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Casey McPherson</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </a>
+
+    <!-- ALMON -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials" style="background:var(--blue-dk)">HF</div>
+        <div class="card-name">Almon Therapeutics</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Ophthalmology</span>
+        <span class="ctag">Biopharma</span>
+        <span class="ctag">Neurodegeneration</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Howard J. Federoff MD/PhD</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- AWARE HEALTH -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">SM</div>
+        <div class="card-name">Aware Health</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">MSK Care</span>
+        <span class="ctag">Employer Health</span>
+        <span class="ctag">SaaS</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Dr. Shivan McDonald</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- BETTERMEAL AI -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">SN</div>
+        <div class="card-name">BetterMeal AI</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Precision Nutrition</span>
+        <span class="ctag">Digital Therapeutics</span>
+        <span class="ctag">Gut Health</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Swathi Nagendra</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- BLOOMLIFE -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">ED</div>
+        <div class="card-name">Bloomlife</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Maternal Health</span>
+        <span class="ctag">Remote Monitoring</span>
+        <span class="ctag">MedTech</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Eric Dy &amp; Julien Penders</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- CLINNEXUS -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">GC</div>
+        <div class="card-name">ClinNEXUS</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">ECM</span>
+        <span class="ctag">Value-Based Care</span>
+        <span class="ctag">Medicaid</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Dr. Gregory Carroll</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- CRISPR QC -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">RB</div>
+        <div class="card-name">CRISPR QC</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Gene Editing</span>
+        <span class="ctag">Analytics</span>
+        <span class="ctag">Data Platform</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Ross Bundy</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- EMPATHY HEALTH -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">CT</div>
+        <div class="card-name">Empathy Health Technologies</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Behavioral Health</span>
+        <span class="ctag">Addiction Tech</span>
+        <span class="ctag">Value-Based Care</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Chris Thompson</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- THE GLEAMERY -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">G</div>
+        <div class="card-name">The Gleamery</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Dental Retail</span>
+        <span class="ctag">Consumer Health</span>
+        <span class="ctag">Multi-Location</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- GRITWELL -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">CR</div>
+        <div class="card-name">GritWell</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Functional Medicine</span>
+        <span class="ctag">Digital Health</span>
+        <span class="ctag">Women's Health</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- MDISRUPT -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">RG</div>
+        <div class="card-name">MDisrupt</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Expert Marketplace</span>
+        <span class="ctag">Digital Health</span>
+        <span class="ctag">Growth Stage</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Ruby Gadelrab</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- MU MEDICAL -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">AS</div>
+        <div class="card-name">Mu Medical</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Ophthalmic Drug Delivery</span>
+        <span class="ctag">MedDevice</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Dr. Allisa Song</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- NEXT LIFE SCIENCES -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">NLS</div>
+        <div class="card-name">Next Life Sciences</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Reproductive Health</span>
+        <span class="ctag">MedTech</span>
+        <span class="ctag">Global Health</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">L.R. Fox</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- NICOLETTE -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">NI</div>
+        <div class="card-name">Nicolette Inc.</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">HealthIT</span>
+        <span class="ctag">NICU</span>
+        <span class="ctag">Patient Engagement</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Phil Martie</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- OHAI.AI -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">SM</div>
+        <div class="card-name">Ohai.ai</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Consumer AI</span>
+        <span class="ctag">Family Tech</span>
+        <span class="ctag">Maternal Care</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Sheila Lirio Marcelo</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- RAYDIANT -->
+    <div class="card no-link fund2">
+      <div class="card-top">
+        <div class="initials">NR</div>
+        <div class="card-name">Raydiant Oximetry</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Maternal Health</span>
+        <span class="ctag">Fetal Monitoring</span>
+        <span class="ctag">MedTech</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Neil Ray</span>
+        <span class="fund-badge f2">Fund II</span>
+      </div>
+    </div>
+
+    <!-- TALAMUS -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">MR</div>
+        <div class="card-name">TALAMUS Health Inc.</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Digital Health</span>
+        <span class="ctag">Emerging Markets</span>
+        <span class="ctag">Africa</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">Dr. Murisiku Raifu</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- TENZR HEALTH -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">LM</div>
+        <div class="card-name">Tenzr Health</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Musculoskeletal</span>
+        <span class="ctag">Digital Rehab</span>
+        <span class="ctag">Wearables</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- THERB MEDICAL -->
+    <div class="card no-link acquired">
+      <div class="card-top">
+        <div class="initials">TB</div>
+        <div class="card-name">TheraB Medical</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Neonatal Health</span>
+        <span class="ctag">Wearable Phototherapy</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge acq">Acquired</span>
+      </div>
+    </div>
+
+    <!-- THERXASSISTANT -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">JC</div>
+        <div class="card-name">TheRxAssistant</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Pharma AI</span>
+        <span class="ctag">MLR Compliance</span>
+        <span class="ctag">Patient Access</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- TRELLIS HEALTH -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">EG</div>
+        <div class="card-name">Trellis Health</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Women's Health</span>
+        <span class="ctag">FamilyOS</span>
+        <span class="ctag">AI</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+    <!-- ZIORA BIO -->
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="initials">SS</div>
+        <div class="card-name">Ziora Bio</div>
+      </div>
+      <div class="card-tags">
+        <span class="ctag">Reproductive Health</span>
+        <span class="ctag">MedTech</span>
+        <span class="ctag">Pre-Seed</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-founder">&nbsp;</span>
+        <span class="fund-badge f1">Fund I</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Suncoast Ventures &nbsp;&middot;&nbsp; Healthcare-Focused Early-Stage Venture Capital &nbsp;&middot;&nbsp; <a href="https://suncoastventures.com">suncoastventures.com</a></p>
+</footer>
+
+</body>
+</html>
