@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AlphaRose Therapeutics — Suncoast Ventures</title>
+<style>
+:root {
+  --blue:#3672D7; --blue-dk:#224B90; --blue-lt:#6B9EE8;
+  --orange:#E27D39; --gold:#EBA43E;
+  --grey:#F7F6F6; --border:#DDE6F5; --text:#1A1A1A;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.top-nav{background:var(--blue-dk);padding:.75rem 8vw;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.top-nav a{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.6);text-decoration:none;letter-spacing:.05em}
+.top-nav a:hover{color:#fff}
+.top-nav .sep{color:rgba(255,255,255,.3);font-size:.75rem}
+.top-nav .cur{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.05em}
+
+/* SECTIONS */
+.sec{padding:3.5rem 8vw}
+.sec.blue{background:var(--blue)}
+@media(max-width:700px){.sec{padding:2.5rem 5vw}}
+
+/* EYEBROW */
+.ey{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
+.sec.blue .ey{color:rgba(255,255,255,.55)}
+
+/* TYPE */
+h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;color:var(--text)}
+h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1.2;color:var(--text)}
+.sec.blue h1,.sec.blue h2{color:#fff}
+.body{font-size:1.05rem;line-height:1.65;color:#444}
+.sec.blue .body{color:rgba(255,255,255,.82)}
+
+/* TAGS */
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.tag{font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .8rem;border-radius:20px;border:1px solid}
+.tag.tw{background:rgba(54,114,215,.07);border-color:rgba(54,114,215,.22);color:var(--blue)}
+.tag.to{background:rgba(226,125,57,.07);border-color:rgba(226,125,57,.22);color:var(--orange)}
+.tag.td{background:rgba(34,75,144,.07);border-color:rgba(34,75,144,.22);color:var(--blue-dk)}
+.tag.wh{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+
+/* SC CARDS */
+.sc-row{display:grid;gap:1rem}
+.sc-row.c3{grid-template-columns:repeat(3,1fr)}
+.sc-row.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.sc-row.c3,.sc-row.c2{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.sc-row.c3,.sc-row.c2{grid-template-columns:1fr}}
+.sc{background:#fff;border-radius:10px;padding:1.1rem 1.25rem;border:1px solid var(--border);border-left:4px solid var(--blue)}
+.sc.sw{border-left-color:var(--blue);background:rgba(54,114,215,.05)}
+.sc.so{border-left-color:var(--orange);background:rgba(226,125,57,.05)}
+.sc.sp{border-left-color:var(--blue-dk);background:rgba(34,75,144,.05)}
+.sc-lbl{font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.25rem}
+.sc-n{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:.3rem}
+.sc-l{font-size:.88rem;color:#555;line-height:1.45}
+
+/* TWO COLUMN */
+.two-col{display:grid;gap:3rem}
+@media(min-width:860px){.two-col{grid-template-columns:3fr 2fr}}
+
+/* BADGES */
+.badge-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+.badge{font-size:.78rem;font-weight:600;padding:.3rem .8rem;border-radius:6px;background:var(--grey);border:1px solid var(--border);color:var(--text)}
+.badge.wh{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff}
+
+/* THESIS LINK CARDS */
+.tcard{display:block;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:1.1rem 1.25rem;transition:background .15s}
+.tcard:hover{background:rgba(255,255,255,.18)}
+.tcard-ey{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.35rem}
+.tcard-t{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:.3rem}
+.tcard-d{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.45}
+
+/* DIVIDER */
+.ht{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+.sec.blue .ht{border-top-color:rgba(255,255,255,.15)}
+
+/* FOOTER */
+footer{background:var(--blue-dk);padding:1.5rem 8vw;text-align:center}
+footer p{font-size:.78rem;color:rgba(255,255,255,.45)}
+footer a{color:rgba(255,255,255,.65);text-decoration:none}
+footer a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Care Economy</a>
+  <span class="sep">›</span>
+  <a href="#">Portfolio</a>
+  <span class="sep">›</span>
+  <span class="cur">AlphaRose Therapeutics</span>
+</nav>
+
+<!-- HERO -->
+<section class="sec blue">
+  <div class="ey">Suncoast Ventures &middot; Fund II Portfolio</div>
+  <h1>AlphaRose Therapeutics</h1>
+  <div class="tags">
+    <span class="tag wh">Rare Disease</span>
+    <span class="tag wh">Genetic Medicine</span>
+    <span class="tag wh">AI Drug Discovery</span>
+  </div>
+  <p class="body" style="margin-top:1.25rem;max-width:560px;font-size:.95rem">Casey McPherson, Founder &amp; CEO &nbsp;&middot;&nbsp; Seed Stage</p>
+</section>
+
+<!-- MILESTONES -->
+<section class="sec">
+  <div class="ey">Milestones</div>
+  <div class="sc-row c3">
+    <div class="sc sw">
+      <div class="sc-lbl" style="color:var(--blue)">Raised</div>
+      <div class="sc-n">$4.6M</div>
+      <div class="sc-l">Seed capital raised to date.</div>
+    </div>
+    <div class="sc so">
+      <div class="sc-lbl" style="color:var(--orange)">POCs</div>
+      <div class="sc-n">8+</div>
+      <div class="sc-l">Proof-of-concept completions in 2 years.</div>
+    </div>
+    <div class="sc sp">
+      <div class="sc-lbl" style="color:var(--blue-dk)">Targets</div>
+      <div class="sc-n">300+</div>
+      <div class="sc-l">Identified platform targets across modalities.</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-lbl" style="color:var(--blue)">Revenue</div>
+      <div class="sc-n">$2M+</div>
+      <div class="sc-l">Annual non-dilutive revenue via RareLabs fee-for-service.</div>
+    </div>
+    <div class="sc so">
+      <div class="sc-lbl" style="color:var(--orange)">Engagement</div>
+      <div class="sc-n">90%+</div>
+      <div class="sc-l">Target engagement rate across lead programs.</div>
+    </div>
+    <div class="sc sp">
+      <div class="sc-lbl" style="color:var(--blue-dk)">IND</div>
+      <div class="sc-n">2026</div>
+      <div class="sc-l">IND filing target for Rosiphersen (Bain Syndrome).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + FOUNDER -->
+<section class="sec blue">
+  <div class="two-col">
+    <div>
+      <div class="ey">About</div>
+      <h2 style="margin-bottom:1rem">Next-generation platform for ultra-rare genetic diseases.</h2>
+      <p class="body">AlphaRose integrates proprietary gene therapy (MOE + abcDNA&trade;), AI-driven target discovery via RINAE.AI, and an in-house patient-driven R&amp;D flywheel to develop and commercialize precision therapies faster, at a fraction of traditional pharma cost.</p>
+      <p class="body" style="margin-top:.85rem">Lead program Rosiphersen targets Bain Syndrome, a devastating neurodevelopmental disorder. The candidate demonstrates 100% survival rescue in murine models and NCATS-independently-validated efficacy in human iPSC-derived neurons. Currently IND-enabling with Phase 1 targeted by end of 2026.</p>
+      <p class="body" style="margin-top:.85rem">RareLabs generates $2M+ annually across 16+ fee-for-service customers, funding discovery while building proprietary patient data.</p>
+    </div>
+    <div>
+      <div class="ey">Founder</div>
+      <p style="font-family:var(--serif);font-size:1.25rem;color:#fff;font-weight:600;margin-bottom:.5rem">Casey McPherson</p>
+      <p class="body" style="font-size:.88rem;margin-bottom:.75rem">Founder &amp; CEO</p>
+      <div class="badge-row">
+        <span class="badge wh">Relentless Founder</span>
+        <span class="badge wh">Genzyme Lineage</span>
+        <span class="badge wh">25+ Rare Drugs Built</span>
+        <span class="badge wh">Patient-First Mission</span>
+      </div>
+      <hr class="ht" style="margin-top:1.5rem">
+      <div class="ey" style="margin-top:1.25rem">Strategic Backing</div>
+      <div class="badge-row">
+        <span class="badge wh">LabCorp</span>
+        <span class="badge wh">Jackson Lab</span>
+        <span class="badge wh">NCATS / NIH</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS CONNECTIONS -->
+<section class="sec blue" style="background:var(--blue-dk)">
+  <div class="ey">Thesis Connections</div>
+  <h2 style="margin-bottom:1.25rem">Where this fits the fund&rsquo;s view.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+    <a href="index.html" class="tcard">
+      <div class="tcard-ey">Suncoast Thesis</div>
+      <div class="tcard-t">Care Economy</div>
+      <div class="tcard-d">Rare disease coordination and patient continuity infrastructure connects to the broader caregiving economy thesis.</div>
+    </a>
+    <div class="tcard" style="cursor:default">
+      <div class="tcard-ey">Problem Space</div>
+      <div class="tcard-t">Rare Disease</div>
+      <div class="tcard-d">1 in 10 Americans lives with a rare disease. 95% have no approved treatment. AlphaRose's platform covers 300+ identified targets.</div>
+    </div>
+    <div class="tcard" style="cursor:default">
+      <div class="tcard-ey">Platform Edge</div>
+      <div class="tcard-t">Non-Dilutive Engine</div>
+      <div class="tcard-d">RareLabs fee-for-service revenue funds R&amp;D while building the proprietary data asset. Capital efficiency that compounds.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Suncoast Ventures &nbsp;&middot;&nbsp; Healthcare-Focused Early-Stage Venture Capital &nbsp;&middot;&nbsp; Fund II &nbsp;&middot;&nbsp; <a href="https://suncoastventures.com">suncoastventures.com</a></p>
+</footer>
+
+</body>
+</html>
