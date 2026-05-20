@@ -204,6 +204,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 
 @media(max-width:960px){.sidebar{display:none}}
 
+/* ─ PRINT-ONLY ELEMENTS (hidden on screen) ───────────────────────────── */
+.print-brand,.print-credit{display:none}
 /* ─ PRINT ─────────────────────────────────────────────────────────────── */
 .print-btn{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:.65rem 1.1rem;font-family:var(--sans);font-size:.78rem;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(54,114,215,.35);z-index:100;display:flex;align-items:center;gap:.45rem}
 .print-btn:hover{background:var(--blue-dk)}
@@ -241,6 +243,11 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .hero h1{font-size:3.4rem;line-height:1.05;margin-bottom:.75rem}
   .hero-sub{font-size:1.1rem;line-height:1.5;max-width:420px}
   .hero-lead-box,.hero-thesis,.hero-stats{display:none!important}
+  .print-brand{display:block;margin-bottom:2.25rem}
+  .print-brand img{height:50px;opacity:.92}
+  .print-credit{display:block;margin-top:2.25rem}
+  .print-credit-co{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.07em;color:#555}
+  .print-credit-date{font-family:var(--sans);font-size:.64rem;color:#aaa;margin-top:.3rem}
 
   /* exec */
   .exec-hd{padding:.6rem 1.4rem}
@@ -392,9 +399,16 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 </nav>
 <main>
 <section id="thesis" class="hero">
+  <div class="print-brand">
+    <img src="suncoast-logo.svg" alt="Suncoast Ventures">
+  </div>
   <div class="eyebrow">Suncoast Ventures &middot; Fund II Care Economy Thesis</div>
   <h1>The Caregiver Economy.</h1>
   <p class="hero-sub">Bigger than Medicaid. Funded like a side project.</p>
+  <div class="print-credit">
+    <div class="print-credit-co">Thalassea Partners &nbsp;&middot;&nbsp; Ohai.ai</div>
+    <div class="print-credit-date">May 2026</div>
+  </div>
 </section>
 <section id="papers" class="sec blue">
   <div class="sec-ey">Executive Summary</div>
