@@ -226,14 +226,12 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   @page{margin:.5in}
   *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 
-  /* hide chrome */
+  /* ── hide chrome ── */
   .sidebar,.print-btn,.mob-btn,.mob-overlay,.calc-wrap,.calc{display:none!important}
-
-  /* kill sidebar grid */
   .page{display:block;margin:0;padding:0}
   body{font-size:8.5pt;line-height:1.45}
 
-  /* hero — full-page title treatment */
+  /* ── TITLE PAGE ── */
   .hero{
     display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
     min-height:9in;padding:2rem;border-bottom:none;
@@ -249,70 +247,69 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .print-credit-co{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.07em;color:#555}
   .print-credit-date{font-family:var(--sans);font-size:.64rem;color:#aaa;margin-top:.3rem}
 
-  /* exec */
+  /* ── EXEC: keep the whole block together ── */
+  .exec{break-inside:avoid;page-break-inside:avoid}
   .exec-hd{padding:.6rem 1.4rem}
   .exec-hd h2{font-size:1.05rem;line-height:1.2}
   .exec-hd p{font-size:.72rem;margin-top:.3rem}
   .exec-body{padding:.6rem 1.4rem}
   .exec-grid{gap:.55rem}
-  .ec{padding:.75rem;box-shadow:none}
+  .ec{padding:.75rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
   .ec h3{font-size:.6rem;margin-bottom:.5rem}
   .ec li{font-size:.72rem;padding:.22rem 0 .22rem .75rem}
 
-  /* act dividers */
-  .act-div{padding:.4rem 1.4rem;break-before:auto;page-break-before:auto}
+  /* ── ACT DIVIDERS: glue to the content that follows ── */
+  .act-div{padding:.4rem 1.4rem;break-after:avoid;page-break-after:avoid}
   .act-div-t{font-size:.95rem}
   .act-div-n{font-size:.62rem}
 
-  /* sections */
-  .sec{padding:.75rem 1.4rem;break-inside:avoid;page-break-inside:avoid}
-  .sec h2{font-size:1.35rem;line-height:1.15;margin-bottom:.3rem}
+  /* ── SECTIONS: allow natural page breaks within,
+        but keep headers from orphaning at the bottom of a page ── */
+  .sec{padding:.75rem 1.4rem}
+  .sec h2{font-size:1.35rem;line-height:1.15;margin-bottom:.3rem;break-after:avoid;page-break-after:avoid}
+  .pbrow{margin-bottom:.25rem;gap:.35rem;break-after:avoid;page-break-after:avoid}
   .sec-ey{font-size:.58rem;margin-bottom:.25rem}
   .sec-lead{font-size:.78rem;line-height:1.55;margin-bottom:.55rem}
   .sec-bullets li{font-size:.78rem;line-height:1.5}
-  .pbrow{margin-bottom:.25rem;gap:.35rem}
   .pbadge{font-size:.55rem;padding:.15rem .45rem}
 
-  /* stat cards */
-  .sc-row{gap:.45rem;margin:.55rem 0}
+  /* ── STAT CARDS: keep each row on one piece ── */
+  .sc-row{gap:.45rem;margin:.55rem 0;break-inside:avoid;page-break-inside:avoid}
   .sc{padding:.65rem .75rem;box-shadow:none}
   .sc-n{font-size:1.35rem;margin-bottom:.2rem}
   .sc-l{font-size:.75rem}
   .sc-s{font-size:.6rem;margin-top:.15rem}
   .sc-cat{font-size:.55rem;margin-bottom:.2rem}
 
-  /* chart boxes */
-  .cg{margin:.35rem 0}
+  /* ── CHARTS: keep the whole .cg group intact so canvas doesn't split ── */
+  .cg{margin:.35rem 0;break-inside:avoid;page-break-inside:avoid}
   .cg.c2{grid-template-columns:repeat(2,1fr);gap:.55rem}
-  .cb{padding:.65rem .75rem;box-shadow:none}
+  .cb{padding:.65rem .75rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
   .cb h3{font-size:.72rem;margin-bottom:.1rem}
   .csub{font-size:.68rem;margin-bottom:.5rem}
-  .cw{height:130px}
-  .cw.tall{height:180px}
+  .cw{height:130px;display:block;overflow:hidden;position:relative}
+  .cw.tall{height:175px}
   .cw.short{height:100px}
-  canvas{max-width:100%!important}
+  canvas{display:block;max-width:100%!important}
 
-  /* method cards */
-  .method-grid{grid-template-columns:repeat(3,1fr);gap:.55rem;margin:.65rem 0}
+  /* ── METHOD CARDS ── */
+  .method-grid{grid-template-columns:repeat(3,1fr);gap:.55rem;margin:.65rem 0;break-inside:avoid;page-break-inside:avoid}
   .mc-lo,.mc-md,.mc-hi{padding:.75rem;box-shadow:none}
   .mc-lo h3,.mc-md h3,.mc-hi h3{font-size:.58rem;margin-bottom:.25rem}
   .mc-lo .mv,.mc-md .mv,.mc-hi .mv{font-size:1.35rem;margin-bottom:.4rem}
   .mc-lo p,.mc-md p,.mc-hi p{font-size:.72rem;line-height:1.5}
 
-  /* insight boxes */
-  .insight{padding:.6rem .85rem;margin:.5rem 0}
+  /* ── INSIGHT BOXES ── */
+  .insight{padding:.6rem .85rem;margin:.5rem 0;break-inside:avoid;page-break-inside:avoid}
   .ins-label{font-size:.6rem;margin-bottom:.2rem}
   .insight p{font-size:.75rem;line-height:1.5}
 
-  /* timeline */
-  .tl-item{margin-bottom:.75rem}
+  /* ── TIMELINE ── */
+  .tl-item{margin-bottom:.75rem;break-inside:avoid;page-break-inside:avoid}
   .tl-title{font-size:.75rem}
   .tl-desc{font-size:.68rem}
   .tl-date{font-size:.6rem}
   .badge{font-size:.52rem}
-
-  /* no break inside content units */
-  .cb,.sc-row,.method-grid,.insight,.cg,.ec,.tl-item,.pcard{break-inside:avoid;page-break-inside:avoid}
 
   img{max-width:100%}
 }
