@@ -311,6 +311,19 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .tl-date{font-size:.6rem}
   .badge{font-size:.52rem}
 
+  /* ── INLINE FONT SIZE OVERRIDES ──────────────────────────────────────
+     Inline style="" attrs bypass class-based print CSS entirely.
+     [style*=] matches exact substring in the attribute; !important wins. ── */
+  [style*="font-size:2.2rem"]{font-size:1.3rem!important}
+  [style*="font-size:1.75rem"]{font-size:1.05rem!important}
+  [style*="font-size:1.3rem"]{font-size:.88rem!important}
+  [style*="font-size:1.15rem"]{font-size:.78rem!important}
+  [style*="font-size:1.1rem"]{font-size:.78rem!important}
+  [style*="font-size:1rem"]{font-size:.75rem!important}
+
+  /* ── KEEP INLINE GRID LAYOUTS ON ONE PAGE ───────────────────────────── */
+  [style*="grid-template-columns"]{break-inside:avoid;page-break-inside:avoid}
+
   img{max-width:100%}
 }
 
