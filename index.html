@@ -258,18 +258,18 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .ec h3{font-size:.56rem;margin-bottom:.4rem}
   .ec li{font-size:.68rem;padding:.18rem 0 .18rem .65rem}
 
-  /* ── EXEC SUMMARY: own page ── */
-  .exec{break-before:always;page-break-before:always;break-inside:avoid;page-break-inside:avoid}
+  /* ── EXEC SUMMARY ── */
+  .exec{break-inside:avoid;page-break-inside:avoid}
 
-  /* ── ACT DIVIDERS: own page ── */
-  .act-div{padding:.35rem 1.2rem;break-before:always;page-break-before:always}
+  /* ── ACT DIVIDERS ── */
+  .act-div{padding:.35rem 1.2rem}
   .act-div-t{font-size:.88rem}
   .act-div-n{font-size:.58rem}
 
-  /* ── SECTIONS: each section on its own page ── */
-  .sec{padding:.5rem 1rem;break-before:always;page-break-before:always}
-  .sec h2{font-size:.98rem;line-height:1.1;margin-bottom:.18rem}
-  .pbrow{margin-bottom:.15rem;gap:.25rem}
+  /* ── SECTIONS: flow naturally, protect headers from orphaning ── */
+  .sec{padding:.5rem 1rem}
+  .sec h2{font-size:.98rem;line-height:1.1;margin-bottom:.18rem;break-after:avoid;page-break-after:avoid}
+  .pbrow{margin-bottom:.15rem;gap:.25rem;break-after:avoid;page-break-after:avoid}
   .sec-ey{font-size:.52rem;margin-bottom:.15rem}
   .sec-lead{font-size:.68rem;line-height:1.42;margin-bottom:.35rem}
   .sec-bullets li{font-size:.68rem;line-height:1.4}
