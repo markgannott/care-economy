@@ -261,8 +261,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   /* ── EXEC SUMMARY ── */
   .exec{break-inside:avoid;page-break-inside:avoid}
 
-  /* ── ACT DIVIDERS ── */
-  .act-div{padding:.35rem 1.2rem}
+  /* ── ACT DIVIDERS: glue to following section, never alone on a page ── */
+  .act-div{padding:.35rem 1.2rem;break-after:avoid;page-break-after:avoid}
   .act-div-t{font-size:.88rem}
   .act-div-n{font-size:.58rem}
 
@@ -275,28 +275,22 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .sec-bullets li{font-size:.68rem;line-height:1.4}
   .pbadge{font-size:.5rem;padding:.1rem .35rem}
 
-  /* ── STAT CARDS ── */
-  .sc-row{gap:.28rem;margin:.3rem 0;break-inside:avoid;page-break-inside:avoid}
+  /* ── STAT CARDS: glue to following chart via break-after:avoid ── */
+  .sc-row{gap:.28rem;margin:.3rem 0;break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
   .sc{padding:.38rem .48rem;box-shadow:none}
   .sc-n{font-size:.88rem;margin-bottom:.1rem}
   .sc-l{font-size:.62rem;line-height:1.38}
   .sc-s{font-size:.52rem;margin-top:.08rem}
   .sc-cat{font-size:.5rem;margin-bottom:.12rem}
 
-  /* ── CHARTS: .cg groups and bare .cb both protected ── */
-  .cg{margin:.2rem 0;break-inside:avoid;page-break-inside:avoid}
+  /* ── CHARTS: glued to preceding stat rows, protected from internal breaks ── */
+  .cg{margin:.2rem 0;break-before:avoid;page-break-before:avoid;break-inside:avoid;page-break-inside:avoid}
   .cg.c2{grid-template-columns:repeat(2,1fr);gap:.4rem}
-  .cb{padding:.45rem .55rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
+  .cb{padding:.45rem .55rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
   .cb h3{font-size:.65rem;margin-bottom:.06rem}
   .csub{font-size:.58rem;margin-bottom:.32rem}
-  .cw{height:95px;display:block;overflow:hidden;position:relative}
-  .cw.tall{height:125px}
-  .cw.short{height:75px}
+  .cw{display:block;position:relative}
   canvas{display:block;max-width:100%!important}
-
-  /* ── INLINE CHART HEIGHT OVERRIDES (inline style= beats class rules) ── */
-  [style*="height:220px"]{height:95px!important}
-  [style*="height:200px"]{height:90px!important}
 
   /* ── COMPANY SECTION LOGOS ── */
   #suncoast img,#ohai-co img,#thalassea img{height:44px!important;margin:.5rem 0 .65rem!important}
@@ -690,8 +684,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     </div>
     <div class="sc so">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">Deal Selection</div>
-      <div class="sc-n">2,000+</div>
-      <div class="sc-l">Companies reviewed &middot; 21 invested. A proprietary priority risk matrix filters for structural healthcare gaps across access, affordability, and systemic bottlenecks.</div>
+      <div class="sc-n" style="color:var(--orange)">2,000+ Companies</div>
+      <div class="sc-l">Reviewed &middot; 21 invested. A proprietary priority risk matrix filters for structural healthcare gaps across access, affordability, and systemic bottlenecks.</div>
     </div>
     <div class="sc sp">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Ecosystem</div>
