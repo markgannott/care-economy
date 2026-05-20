@@ -229,7 +229,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   /* ── hide chrome ── */
   .sidebar,.print-btn,.mob-btn,.mob-overlay,.calc-wrap,.calc{display:none!important}
   .page{display:block;margin:0;padding:0}
-  body{font-size:8.5pt;line-height:1.45}
+  body{font-size:7.8pt;line-height:1.4}
 
   /* ── TITLE PAGE ── */
   .hero{
@@ -237,91 +237,88 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     min-height:9in;padding:2rem;border-bottom:none;
     page-break-after:always;break-after:page;
   }
-  .eyebrow{font-size:.72rem;letter-spacing:.25em;margin-bottom:1.75rem}
-  .hero h1{font-size:3.4rem;line-height:1.05;margin-bottom:.75rem}
-  .hero-sub{font-size:1.1rem;line-height:1.5;max-width:420px}
+  .eyebrow{font-size:.68rem;letter-spacing:.22em;margin-bottom:1.5rem}
+  .hero h1{font-size:3.2rem;line-height:1.05;margin-bottom:.7rem}
+  .hero-sub{font-size:1rem;line-height:1.5;max-width:400px}
   .hero-lead-box,.hero-thesis,.hero-stats{display:none!important}
-  .print-brand{display:block;margin-bottom:2.25rem}
-  .print-brand img{height:50px;opacity:.92}
-  .print-credit{display:block;margin-top:2.25rem}
-  .print-credit-co{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.07em;color:#555}
-  .print-credit-date{font-family:var(--sans);font-size:.64rem;color:#aaa;margin-top:.3rem}
+  .print-brand{display:block;margin-bottom:2rem}
+  .print-brand img{height:46px;opacity:.92}
+  .print-credit{display:block;margin-top:2rem}
+  .print-credit-co{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.07em;color:#555}
+  .print-credit-date{font-family:var(--sans);font-size:.62rem;color:#aaa;margin-top:.25rem}
 
-  /* ── EXEC: keep the whole block together ── */
+  /* ── EXEC SUMMARY ── */
   .exec{break-inside:avoid;page-break-inside:avoid}
-  .exec-hd{padding:.6rem 1.4rem}
-  .exec-hd h2{font-size:1.05rem;line-height:1.2}
-  .exec-hd p{font-size:.72rem;margin-top:.3rem}
-  .exec-body{padding:.6rem 1.4rem}
-  .exec-grid{gap:.55rem}
-  .ec{padding:.75rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
-  .ec h3{font-size:.6rem;margin-bottom:.5rem}
-  .ec li{font-size:.72rem;padding:.22rem 0 .22rem .75rem}
+  .exec-hd{padding:.5rem 1.2rem}
+  .exec-hd h2{font-size:.95rem;line-height:1.2}
+  .exec-hd p{font-size:.68rem;margin-top:.25rem}
+  .exec-body{padding:.5rem 1.2rem}
+  .exec-grid{gap:.45rem}
+  .ec{padding:.65rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .ec h3{font-size:.56rem;margin-bottom:.4rem}
+  .ec li{font-size:.68rem;padding:.18rem 0 .18rem .65rem}
 
-  /* ── ACT DIVIDERS: glue to the content that follows ── */
-  .act-div{padding:.4rem 1.4rem;break-after:avoid;page-break-after:avoid}
-  .act-div-t{font-size:.95rem}
-  .act-div-n{font-size:.62rem}
+  /* ── ACT DIVIDERS: each Part starts on a fresh page ── */
+  .act-div{padding:.35rem 1.2rem;break-before:always;page-break-before:always}
+  .act-div-t{font-size:.88rem}
+  .act-div-n{font-size:.58rem}
 
-  /* ── SECTIONS: allow natural page breaks within,
-        but keep headers from orphaning at the bottom of a page ── */
-  .sec{padding:.75rem 1.4rem}
-  .sec h2{font-size:1.35rem;line-height:1.15;margin-bottom:.3rem;break-after:avoid;page-break-after:avoid}
-  .pbrow{margin-bottom:.25rem;gap:.35rem;break-after:avoid;page-break-after:avoid}
-  .sec-ey{font-size:.58rem;margin-bottom:.25rem}
-  .sec-lead{font-size:.78rem;line-height:1.55;margin-bottom:.55rem}
-  .sec-bullets li{font-size:.78rem;line-height:1.5}
-  .pbadge{font-size:.55rem;padding:.15rem .45rem}
+  /* ── SECTIONS: natural breaks, but protect headers from orphaning ── */
+  .sec{padding:.6rem 1.2rem}
+  .sec h2{font-size:1.2rem;line-height:1.15;margin-bottom:.25rem;break-after:avoid;page-break-after:avoid}
+  .pbrow{margin-bottom:.2rem;gap:.3rem;break-after:avoid;page-break-after:avoid}
+  .sec-ey{font-size:.55rem;margin-bottom:.2rem}
+  .sec-lead{font-size:.74rem;line-height:1.5;margin-bottom:.45rem}
+  .sec-bullets li{font-size:.74rem;line-height:1.45}
+  .pbadge{font-size:.52rem;padding:.12rem .4rem}
 
-  /* ── STAT CARDS: keep each row on one piece ── */
-  .sc-row{gap:.45rem;margin:.55rem 0;break-inside:avoid;page-break-inside:avoid}
-  .sc{padding:.65rem .75rem;box-shadow:none}
-  .sc-n{font-size:1.35rem;margin-bottom:.2rem}
-  .sc-l{font-size:.75rem}
-  .sc-s{font-size:.6rem;margin-top:.15rem}
-  .sc-cat{font-size:.55rem;margin-bottom:.2rem}
+  /* ── STAT CARDS ── */
+  .sc-row{gap:.4rem;margin:.45rem 0;break-inside:avoid;page-break-inside:avoid}
+  .sc{padding:.55rem .65rem;box-shadow:none}
+  .sc-n{font-size:1.2rem;margin-bottom:.15rem}
+  .sc-l{font-size:.7rem}
+  .sc-s{font-size:.58rem;margin-top:.12rem}
+  .sc-cat{font-size:.52rem;margin-bottom:.15rem}
 
-  /* ── CHARTS: keep the whole .cg group intact so canvas doesn't split ── */
-  .cg{margin:.35rem 0;break-inside:avoid;page-break-inside:avoid}
-  .cg.c2{grid-template-columns:repeat(2,1fr);gap:.55rem}
-  .cb{padding:.65rem .75rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
-  .cb h3{font-size:.72rem;margin-bottom:.1rem}
-  .csub{font-size:.68rem;margin-bottom:.5rem}
-  .cw{height:130px;display:block;overflow:hidden;position:relative}
-  .cw.tall{height:175px}
-  .cw.short{height:100px}
+  /* ── CHARTS: .cg groups and bare .cb both protected ── */
+  .cg{margin:.3rem 0;break-inside:avoid;page-break-inside:avoid}
+  .cg.c2{grid-template-columns:repeat(2,1fr);gap:.45rem}
+  .cb{padding:.55rem .65rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
+  .cb h3{font-size:.68rem;margin-bottom:.08rem}
+  .csub{font-size:.62rem;margin-bottom:.4rem}
+  .cw{height:110px;display:block;overflow:hidden;position:relative}
+  .cw.tall{height:150px}
+  .cw.short{height:88px}
   canvas{display:block;max-width:100%!important}
 
   /* ── METHOD CARDS ── */
-  .method-grid{grid-template-columns:repeat(3,1fr);gap:.55rem;margin:.65rem 0;break-inside:avoid;page-break-inside:avoid}
-  .mc-lo,.mc-md,.mc-hi{padding:.75rem;box-shadow:none}
-  .mc-lo h3,.mc-md h3,.mc-hi h3{font-size:.58rem;margin-bottom:.25rem}
-  .mc-lo .mv,.mc-md .mv,.mc-hi .mv{font-size:1.35rem;margin-bottom:.4rem}
-  .mc-lo p,.mc-md p,.mc-hi p{font-size:.72rem;line-height:1.5}
+  .method-grid{grid-template-columns:repeat(3,1fr);gap:.45rem;margin:.5rem 0;break-inside:avoid;page-break-inside:avoid}
+  .mc-lo,.mc-md,.mc-hi{padding:.65rem;box-shadow:none}
+  .mc-lo h3,.mc-md h3,.mc-hi h3{font-size:.55rem;margin-bottom:.2rem}
+  .mc-lo .mv,.mc-md .mv,.mc-hi .mv{font-size:1.2rem;margin-bottom:.35rem}
+  .mc-lo p,.mc-md p,.mc-hi p{font-size:.68rem;line-height:1.45}
 
   /* ── INSIGHT BOXES ── */
-  .insight{padding:.6rem .85rem;margin:.5rem 0;break-inside:avoid;page-break-inside:avoid}
-  .ins-label{font-size:.6rem;margin-bottom:.2rem}
-  .insight p{font-size:.75rem;line-height:1.5}
+  .insight{padding:.5rem .75rem;margin:.4rem 0;break-inside:avoid;page-break-inside:avoid}
+  .ins-label{font-size:.57rem;margin-bottom:.15rem}
+  .insight p{font-size:.7rem;line-height:1.45}
 
   /* ── TIMELINE ── */
-  .tl-item{margin-bottom:.75rem;break-inside:avoid;page-break-inside:avoid}
-  .tl-title{font-size:.75rem}
-  .tl-desc{font-size:.68rem}
-  .tl-date{font-size:.6rem}
-  .badge{font-size:.52rem}
+  .tl-item{margin-bottom:.6rem;break-inside:avoid;page-break-inside:avoid}
+  .tl-title{font-size:.7rem}
+  .tl-desc{font-size:.64rem}
+  .tl-date{font-size:.58rem}
+  .badge{font-size:.5rem}
 
-  /* ── INLINE FONT SIZE OVERRIDES ──────────────────────────────────────
-     Inline style="" attrs bypass class-based print CSS entirely.
-     [style*=] matches exact substring in the attribute; !important wins. ── */
-  [style*="font-size:2.2rem"]{font-size:1.3rem!important}
-  [style*="font-size:1.75rem"]{font-size:1.05rem!important}
-  [style*="font-size:1.3rem"]{font-size:.88rem!important}
-  [style*="font-size:1.15rem"]{font-size:.78rem!important}
-  [style*="font-size:1.1rem"]{font-size:.78rem!important}
-  [style*="font-size:1rem"]{font-size:.75rem!important}
+  /* ── INLINE FONT SIZE OVERRIDES (inline style= bypasses class rules) ── */
+  [style*="font-size:2.2rem"]{font-size:1.2rem!important}
+  [style*="font-size:1.75rem"]{font-size:1rem!important}
+  [style*="font-size:1.3rem"]{font-size:.84rem!important}
+  [style*="font-size:1.15rem"]{font-size:.74rem!important}
+  [style*="font-size:1.1rem"]{font-size:.74rem!important}
+  [style*="font-size:1rem"]{font-size:.7rem!important}
 
-  /* ── KEEP INLINE GRID LAYOUTS ON ONE PAGE ───────────────────────────── */
+  /* ── INLINE GRID LAYOUTS: keep on one page ── */
   [style*="grid-template-columns"]{break-inside:avoid;page-break-inside:avoid}
 
   img{max-width:100%}
