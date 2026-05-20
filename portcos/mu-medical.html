@@ -24,33 +24,33 @@ body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoo
 .run-hdr-r{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#bbb}
 
 /* HERO */
-.hero{background:var(--blue);padding:2.25rem 0 0;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;border:2px solid rgba(255,255,255,.1);pointer-events:none}
-.hero::before{content:'';position:absolute;right:20px;top:20px;width:160px;height:160px;border-radius:50%;border:2px solid rgba(255,255,255,.07);pointer-events:none}
-.hero-inner{display:grid;grid-template-columns:1fr 180px;gap:2.5rem;align-items:start;position:relative;z-index:1}
+.hero{background:#fff;padding:1.6rem 0 0;border-bottom:none}
+.hero::after{display:none}
+.hero::before{display:none}
+.hero-inner{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:start;position:relative;z-index:1}
 @media(max-width:620px){.hero-inner{grid-template-columns:1fr}}
 
 /* LOGO */
-.logo-slot{width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;overflow:hidden;flex-shrink:0}
-.logo-init{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:rgba(255,255,255,.55)}
+.logo-slot{width:60px;height:60px;border-radius:12px;background:var(--blue);border:none;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;overflow:hidden;flex-shrink:0}
+.logo-init{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:rgba(255,255,255,.9)}
 
 /* PILLS */
 .pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.7rem}
 .pill{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .6rem;border-radius:20px}
-.pill.stage{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff}
-.pill.cat{background:rgba(226,125,57,.2);border:1px solid rgba(226,125,57,.35);color:#f5a875}
-.pill.fund{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.65)}
+.pill.stage{background:rgba(54,114,215,.08);border:1px solid rgba(54,114,215,.2);color:var(--blue-dk)}
+.pill.cat{background:rgba(226,125,57,.1);border:1px solid rgba(226,125,57,.3);color:#b85a15}
+.pill.fund{background:rgba(54,114,215,.06);border:1px solid rgba(54,114,215,.15);color:var(--blue)}
 
-h1{font-family:var(--serif);font-size:clamp(1.65rem,3.2vw,2.2rem);font-weight:500;color:#fff;line-height:1.1;margin-bottom:.65rem}
-.team-sent{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6;padding-top:.7rem;border-top:1px solid rgba(255,255,255,.12)}
+h1{font-family:var(--serif);font-size:clamp(1.65rem,3.2vw,2.2rem);font-weight:500;color:var(--text);line-height:1.1;margin-bottom:.65rem}
+.team-sent{font-size:.82rem;color:#666;line-height:1.6;padding-top:.7rem;border-top:1px solid var(--border)}
 
 /* PHOTO */
-.photo-slot{width:100%;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
+.photo-slot{display:none}
 .photo-ph{font-size:.68rem;color:rgba(255,255,255,.3);text-align:center;padding:1rem;line-height:1.5}
-@media(max-width:620px){.photo-slot{aspect-ratio:16/9}}
+@media(max-width:620px){.photo-slot{display:none}}
 
 /* TAM STRIP */
-.tam{background:rgba(0,0,0,.18);border-top:1px solid rgba(255,255,255,.1);padding:1rem 0;position:relative;z-index:1}
+.tam{background:var(--blue-dk);border-top:none;padding:1rem 0;position:relative;z-index:1}
 .tam .wrap{display:flex;gap:2.5rem;flex-wrap:wrap;padding-top:0;padding-bottom:0}
 .tam-n{font-family:var(--serif);font-size:1.75rem;font-weight:500;color:#EBA43E;line-height:1}
 .tam-l{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.2rem}
@@ -80,8 +80,8 @@ footer .ft-l{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform
 footer .ft-r{font-size:.6rem;color:#ccc}
 
 /* BACK LINK */
-.back{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;display:inline-block;margin-bottom:.9rem}
-.back:hover{color:rgba(255,255,255,.8)}
+.back{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);opacity:.7;text-decoration:none;display:inline-block;margin-bottom:.9rem}
+.back:hover{color:var(--blue-dk);opacity:1}
 </style>
 </head>
 <body>
