@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Fund I Performance Deck · Suncoast Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3672D7;--blue-dk:#224B90;--blue-lt:#82A3DB;--blue-pale:#EEF4FF;
+  --orange:#E27D39;--gold:#EBA43E;--grey:#F7F6F6;--border:#DDE6F5;--text:#1A1A1A;
+  --navy:#0F1830;
+  --serif:'Gelasio',Georgia,serif;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--navy)}
+
+/* ── DECK ── */
+.deck{position:fixed;inset:0}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  padding:2.5rem 5.5rem 3.75rem;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+  overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:auto}
+
+/* ── PROGRESS ── */
+.prog{position:fixed;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.07);z-index:300}
+.prog-fill{height:100%;background:var(--orange);transition:width .3s ease}
+
+/* ── CONTROLS ── */
+.ctrl{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.55rem;z-index:300}
+.arr{
+  width:32px;height:32px;border-radius:6px;
+  border:1px solid rgba(100,130,180,.35);background:rgba(10,16,40,.65);
+  color:rgba(255,255,255,.7);font-size:.9rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .15s;
+  font-family:var(--sans);line-height:1;
+}
+.arr:hover{background:rgba(54,114,215,.5);border-color:rgba(54,114,215,.6);color:#fff}
+.arr:disabled{opacity:.2;cursor:not-allowed}
+.dots{display:flex;gap:.32rem;align-items:center}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.18);cursor:pointer;transition:all .2s}
+.dot.active{background:var(--orange);transform:scale(1.55)}
+.slide-n{
+  position:fixed;bottom:1.2rem;right:1.6rem;z-index:300;
+  font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.22);
+}
+
+/* ── BACK LINK (top right) ── */
+.sl-back{
+  position:absolute;top:1rem;right:1.5rem;
+  font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);text-decoration:none;z-index:10;transition:color .15s;
+}
+.sl-back:hover{color:rgba(255,255,255,.85)}
+.sl-back.dk{color:rgba(34,75,144,.45)}
+.sl-back.dk:hover{color:var(--blue-dk)}
+
+/* ── SHARED TYPOGRAPHY ── */
+.eyebrow{
+  font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:.9rem;flex-shrink:0;
+}
+.eyebrow.w{color:rgba(255,255,255,.5)}
+.slide-h1{
+  font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.7rem);
+  font-weight:600;color:var(--blue-dk);line-height:1.1;margin-bottom:.4rem;flex-shrink:0;
+}
+.slide-h1.w{color:#fff}
+.slide-sub{
+  font-family:var(--sans);font-size:.88rem;color:#555;line-height:1.55;
+  margin-bottom:1.25rem;flex-shrink:0;max-width:680px;
+}
+.slide-sub.w{color:rgba(255,255,255,.55)}
+
+/* ══ S1: COVER ══ */
+.s-cover{background:var(--blue-dk);justify-content:flex-end;padding-bottom:3.5rem}
+.cover-top{position:absolute;top:2.25rem;left:5.5rem;display:flex;align-items:center;gap:1.5rem}
+.cover-logo img{height:42px;opacity:.92}
+.cover-tag{
+  font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);border-left:1px solid rgba(255,255,255,.13);padding-left:1rem;
+}
+.cover-label{
+  font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+}
+.cover-h1{
+  font-family:var(--serif);font-size:clamp(2.6rem,5.2vw,4.2rem);
+  font-weight:600;color:#fff;line-height:1.0;margin-bottom:.9rem;max-width:580px;
+}
+.cover-sub{
+  font-family:var(--sans);font-size:.97rem;color:rgba(255,255,255,.52);line-height:1.6;margin-bottom:1.75rem;max-width:500px;
+}
+.cover-strap{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
+.cst-n{font-family:var(--serif);font-size:1.65rem;font-weight:600;color:var(--gold);line-height:1}
+.cst-l{font-family:var(--sans);font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.15rem}
+.cst-sep{width:1px;height:2.2rem;background:rgba(255,255,255,.12);flex-shrink:0;align-self:center}
+.cover-conf{
+  position:absolute;bottom:1.6rem;right:5.5rem;
+  font-family:var(--sans);font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.18);
+}
+.cover-rings{position:absolute;right:0;top:0;width:48%;height:100%;pointer-events:none;overflow:hidden}
+.cr1{position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:520px;height:520px;border-radius:50%;border:1px solid rgba(255,255,255,.045)}
+.cr2{position:absolute;right:80px;top:50%;transform:translateY(-50%);width:280px;height:280px;border-radius:50%;border:1px solid rgba(255,255,255,.05)}
+.cr3{position:absolute;right:200px;top:50%;transform:translateY(-50%);width:110px;height:110px;border-radius:50%;border:1px solid rgba(255,255,255,.07)}
+
+/* ══ S2: NUMBERS ══ */
+.s-numbers{background:#fff}
+.stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:auto}
+.s4{border-radius:12px;padding:1.4rem 1.5rem;border-top:4px solid var(--blue-lt);background:var(--grey)}
+.s4.bl{border-top-color:var(--blue);background:var(--blue-pale)}
+.s4.or{border-top-color:var(--orange);background:#FFF7F2}
+.s4-n{font-family:var(--serif);font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.3rem}
+.s4.or .s4-n{color:var(--orange)}
+.s4-l{font-family:var(--sans);font-size:.9rem;color:#555;line-height:1.35}
+.s4-s{font-family:var(--sans);font-size:.68rem;color:#aaa;margin-top:.2rem}
+.num-foot{flex-shrink:0;margin-top:.85rem;font-family:var(--sans);font-size:.67rem;color:#c0c0c0}
+
+/* ══ S3 / S4: CHART SLIDES ══ */
+.s-chart{background:#fff}
+.s-chart.grey-bg{background:var(--grey)}
+.chart-box{
+  flex:1;min-height:0;border-radius:12px;padding:1.1rem 1.25rem;
+  border:1px solid var(--border);border-left:4px solid var(--blue);
+  background:#fff;display:flex;flex-direction:column;
+}
+.chart-box.or{border-left-color:var(--orange)}
+.cb-h{font-family:var(--sans);font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:.1rem}
+.chart-box.or .cb-h{color:var(--orange)}
+.cb-sub{font-family:var(--sans);font-size:.72rem;color:#aaa;margin-bottom:.75rem;flex-shrink:0}
+.canvas-wrap{flex:1;min-height:0;position:relative}
+.bench-row{display:flex;gap:.65rem;margin-top:.85rem;flex-shrink:0}
+.bp{flex:1;border-radius:8px;padding:.55rem .75rem;background:var(--grey);border:1px solid var(--border);text-align:center}
+.bp.hi{background:#F0FFF4;border-color:#A3E6B8}
+.bp-n{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.15rem}
+.bp.hi .bp-n{color:#22a053}
+.bp-l{font-family:var(--sans);font-size:.6rem;color:#888}
+
+/* ══ S5: PORTFOLIO ══ */
+.s-portfolio{background:#fff}
+.donut-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;flex:1;min-height:0}
+.donut-box{border-radius:12px;padding:1rem 1.25rem;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column}
+.db-h{font-family:var(--sans);font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:.1rem}
+.db-sub{font-family:var(--sans);font-size:.72rem;color:#aaa;margin-bottom:.5rem;flex-shrink:0}
+.donut-wrap{flex:1;min-height:0;position:relative}
+
+/* ══ S6: SOURCING ══ */
+.s-sourcing{background:var(--blue-pale)}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;flex:1;min-height:0;align-items:center}
+.src-big{font-family:var(--serif);font-size:clamp(4rem,8vw,6.5rem);font-weight:700;color:var(--blue-dk);line-height:1;margin-bottom:.35rem}
+.src-big-l{font-family:var(--sans);font-size:.92rem;color:#444;line-height:1.55;max-width:300px}
+.src-items{display:flex;flex-direction:column;gap:.85rem}
+.src-item{background:#fff;border-radius:10px;padding:.9rem 1.1rem;border-left:3px solid var(--blue)}
+.src-item.or{border-left-color:var(--orange)}
+.src-item.gd{border-left-color:var(--gold)}
+.si-n{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.2rem}
+.src-item.or .si-n{color:var(--orange)}
+.src-item.gd .si-n{color:#b8860b}
+.si-l{font-family:var(--sans);font-size:.8rem;color:#444;line-height:1.45}
+
+/* ══ S7: PERFORMERS ══ */
+.s-perf{background:var(--grey)}
+.perf6{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;flex:1;min-height:0}
+.pc{background:#fff;border-radius:10px;padding:.85rem 1rem;border-top:4px solid var(--blue-lt);display:flex;flex-direction:column;overflow:hidden}
+.pc.top{border-top-color:var(--gold)}
+.pc.acq{border-top-color:#22a053}
+.pc-tag{font-family:var(--sans);font-size:.54rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:.28rem}
+.pc.top .pc-tag{color:var(--gold)}
+.pc.acq .pc-tag{color:#22a053}
+.pc-name{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--text);line-height:1.15;margin-bottom:.45rem}
+.pc-nums{display:flex;gap:.85rem;margin-bottom:.4rem}
+.pc-num{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--blue-dk);line-height:1}
+.pc.top .pc-num{color:#b8860b}
+.pc.acq .pc-num{color:#22a053}
+.pc-num-l{font-family:var(--sans);font-size:.58rem;color:#aaa;margin-top:.08rem}
+.pc-hl{font-family:var(--sans);font-size:.72rem;color:#555;line-height:1.4;border-top:1px solid #eee;padding-top:.35rem;margin-top:auto}
+
+/* ══ S8: FUND II ══ */
+.s-fund2{background:var(--navy);justify-content:center}
+.f2-eye{font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.f2-h{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.1rem);font-weight:600;color:#fff;line-height:1.05;margin-bottom:.7rem;max-width:560px}
+.f2-p{font-family:var(--sans);font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:1.4rem;max-width:520px}
+.f2-terms{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.6rem}
+.f2-t{font-family:var(--sans);font-size:.75rem;font-weight:600;padding:.28rem .72rem;border-radius:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);color:#fff}
+.f2-btn{display:inline-flex;align-items:center;font-family:var(--sans);font-size:.85rem;font-weight:700;padding:.52rem 1.25rem;border-radius:8px;background:var(--orange);color:#fff;text-decoration:none;letter-spacing:.03em}
+.f2-btn:hover{background:#c96820}
+.f2-deco{position:absolute;right:5.5rem;top:50%;transform:translateY(-50%);opacity:.06}
+.f2-deco img{height:220px}
+
+/* ══ S9: CLOSE ══ */
+.s-close{background:var(--blue-dk);justify-content:center;align-items:center;text-align:center}
+.close-logo img{height:50px;opacity:.9;margin-bottom:2rem;display:block;margin-left:auto;margin-right:auto}
+.close-h{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:500;color:#fff;margin-bottom:.6rem}
+.close-contact{font-family:var(--sans);font-size:.92rem;color:rgba(255,255,255,.5);margin-bottom:.3rem}
+.close-contact a{color:rgba(255,255,255,.75);text-decoration:none}
+.close-contact a:hover{color:#fff}
+.close-disc{font-family:var(--sans);font-size:.58rem;color:rgba(255,255,255,.18);max-width:460px;margin:1.75rem auto 0;line-height:1.65}
+.close-rings{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.05);transform:translate(-50%,-50%)}
+
+@media(max-width:1100px){
+  .slide{padding:2rem 3rem 3.5rem}
+  .cover-top{left:3rem}
+  .cover-conf{right:3rem}
+  .f2-deco{display:none}
+  .cover-rings{display:none}
+}
+@media(max-width:800px){
+  .slide{padding:1.5rem 1.5rem 3.25rem}
+  .stat4{grid-template-columns:1fr 1fr}
+  .donut-grid{grid-template-columns:1fr}
+  .source-grid{grid-template-columns:1fr;gap:1.25rem}
+  .src-big{font-size:3.5rem}
+  .perf6{grid-template-columns:1fr 1fr}
+  .bench-row{flex-wrap:wrap}
+}
+@media(max-width:560px){
+  .perf6{grid-template-columns:1fr}
+  .cover-top{left:1.5rem}
+  .cover-conf{right:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="prog"><div class="prog-fill" id="progFill"></div></div>
+<div class="slide-n" id="slideN">1 / 9</div>
+
+<div class="deck" id="deck">
+
+<!-- ── S1: COVER ── -->
+<div class="slide s-cover active" id="s1">
+  <div class="cover-rings">
+    <div class="cring" style="width:520px;height:520px;right:-130px;top:50%"></div>
+    <div class="cring" style="width:290px;height:290px;right:75px;top:50%"></div>
+    <div class="cring" style="width:120px;height:120px;right:200px;top:50%"></div>
+  </div>
+  <div class="cover-top">
+    <div class="cover-logo"><img src="suncoast-logo.svg" alt="Suncoast Ventures"></div>
+    <div class="cover-tag">Fund I Performance Update</div>
+  </div>
+  <a class="sl-back" href="fund-performance.html">Full Report &#8599;</a>
+  <div>
+    <div class="cover-label">Healthcare Venture &middot; 2022 Vintage &middot; Month 47</div>
+    <h1 class="cover-h1">Top-Decile<br>Healthcare Returns.</h1>
+    <p class="cover-sub">21 portfolio companies across digital health, medtech, biopharma, and care economy &mdash; outperforming the Carta 90th percentile on both TVPI and IRR.</p>
+    <div class="cover-strap">
+      <div><div class="cst-n">2.02&times;</div><div class="cst-l">Gross MOIC</div></div>
+      <div class="cst-sep"></div>
+      <div><div class="cst-n">1.70&times;</div><div class="cst-l">Net TVPI</div></div>
+      <div class="cst-sep"></div>
+      <div><div class="cst-n">30.5%</div><div class="cst-l">Net IRR</div></div>
+      <div class="cst-sep"></div>
+      <div><div class="cst-n">$907M</div><div class="cst-l">Portfolio Value</div></div>
+    </div>
+  </div>
+  <div class="cover-conf">Confidential &nbsp;&middot;&nbsp; For Limited Partners</div>
+</div>
+
+<!-- ── S2: NUMBERS ── -->
+<div class="slide s-numbers" id="s2">
+  <a class="sl-back dk" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="eyebrow">Fund I &middot; Month 47 &middot; May 2026</div>
+  <h2 class="slide-h1">The numbers.</h2>
+  <p class="slide-sub">21 companies &middot; $3.5M deployed &middot; $907M in aggregate portfolio company value. Data per Carta, May 2026.</p>
+  <div class="stat4">
+    <div class="s4 bl">
+      <div class="s4-n">2.02&times;</div>
+      <div class="s4-l">Gross MOIC</div>
+      <div class="s4-s">Deal-level &middot; May 2026</div>
+    </div>
+    <div class="s4 bl">
+      <div class="s4-n">1.70&times;</div>
+      <div class="s4-l">Net TVPI</div>
+      <div class="s4-s">Fund-level &middot; Carta May 2026</div>
+    </div>
+    <div class="s4 or">
+      <div class="s4-n">40%</div>
+      <div class="s4-l">Gross IRR</div>
+      <div class="s4-s">May 2026</div>
+    </div>
+    <div class="s4 or">
+      <div class="s4-n">30.5%</div>
+      <div class="s4-l">Net IRR</div>
+      <div class="s4-s">vs. 25.3% top decile</div>
+    </div>
+  </div>
+  <div class="num-foot">MOIC = gross deal-level multiple &nbsp;&middot;&nbsp; TVPI = net fund-level total value to paid-in capital &nbsp;&middot;&nbsp; Source: Carta Q4 2025</div>
+</div>
+
+<!-- ── S3: TVPI CHART ── -->
+<div class="slide s-chart" id="s3">
+  <a class="sl-back dk" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="eyebrow">Benchmarking &middot; Net TVPI</div>
+  <h2 class="slide-h1">Above top decile &mdash; 11 months early.</h2>
+  <p class="slide-sub">Suncoast 1.70&times; at Month 47 exceeds Carta&rsquo;s 2022-vintage 90th percentile of 1.57&times; at Month 36. The comparison <em>understates</em> relative performance &mdash; a same-period comparison would be more favorable.</p>
+  <div class="chart-box">
+    <div class="cb-h">Net TVPI &middot; Carta 2022 Vintage Benchmark</div>
+    <div class="cb-sub">Suncoast (Month 47) vs. Carta benchmarks (Month 36) &middot; Carta Q4 2025 Venture Fund Comparison Report</div>
+    <div class="canvas-wrap"><canvas id="tvpiChart"></canvas></div>
+  </div>
+  <div class="bench-row">
+    <div class="bp hi"><div class="bp-n">1.70&times;</div><div class="bp-l">Suncoast &middot; Month 47</div></div>
+    <div class="bp"><div class="bp-n">1.57&times;</div><div class="bp-l">Top Decile &middot; Carta 90th</div></div>
+    <div class="bp"><div class="bp-n">1.20&times;</div><div class="bp-l">Top Quartile &middot; Carta 75th</div></div>
+    <div class="bp"><div class="bp-n">1.01&times;</div><div class="bp-l">Median &middot; Carta 50th</div></div>
+  </div>
+</div>
+
+<!-- ── S4: IRR CHART ── -->
+<div class="slide s-chart grey-bg" id="s4">
+  <a class="sl-back dk" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="eyebrow">Benchmarking &middot; Net IRR</div>
+  <h2 class="slide-h1">30.5% net IRR. Top decile is 25.3%.</h2>
+  <p class="slide-sub">Nearly 3&times; the top-quartile rate of 10.9%. The median 2022-vintage fund sits at 0.7%. The spread reflects structural sourcing and underwriting advantage &mdash; not sector beta.</p>
+  <div class="chart-box or">
+    <div class="cb-h">Net IRR &middot; Carta 2022 Vintage Benchmark</div>
+    <div class="cb-sub">Suncoast (Month 47) vs. Carta benchmarks (Month 36) &middot; Carta Q4 2025 Venture Fund Comparison Report</div>
+    <div class="canvas-wrap"><canvas id="irrChart"></canvas></div>
+  </div>
+  <div class="bench-row">
+    <div class="bp hi"><div class="bp-n">30.5%</div><div class="bp-l">Suncoast Net IRR</div></div>
+    <div class="bp"><div class="bp-n">25.3%</div><div class="bp-l">Top Decile</div></div>
+    <div class="bp"><div class="bp-n">10.9%</div><div class="bp-l">Top Quartile</div></div>
+    <div class="bp"><div class="bp-n">0.7%</div><div class="bp-l">Median</div></div>
+  </div>
+</div>
+
+<!-- ── S5: PORTFOLIO COMPOSITION ── -->
+<div class="slide s-portfolio" id="s5">
+  <a class="sl-back dk" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="eyebrow">Portfolio &middot; Composition</div>
+  <h2 class="slide-h1">14 of 21 marked up. One early exit.</h2>
+  <p class="slide-sub">Mark-ups reflect revenue inflection, institutional co-investors, and strategic partnerships. Seed-focused with Series A/B follow-on exposure. $907M aggregate portfolio company value.</p>
+  <div class="donut-grid">
+    <div class="donut-box">
+      <div class="db-h">Portfolio Status</div>
+      <div class="db-sub">By portfolio value &middot; 21 companies &middot; May 2026</div>
+      <div class="donut-wrap"><canvas id="statusChart"></canvas></div>
+    </div>
+    <div class="donut-box">
+      <div class="db-h">Stage at Entry</div>
+      <div class="db-sub">By number of investments &middot; Fund I</div>
+      <div class="donut-wrap"><canvas id="stageChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── S6: SOURCING EDGE ── -->
+<div class="slide s-sourcing" id="s6">
+  <a class="sl-back dk" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="eyebrow">Deal Sourcing &middot; The Edge</div>
+  <h2 class="slide-h1">Top performers don&rsquo;t compete for capital.</h2>
+  <div class="source-grid">
+    <div>
+      <div class="src-big">57%</div>
+      <p class="src-big-l">of Fund I investments sourced inbound or invite-only. 4 of 6 top performers were never broadly marketed when Suncoast invested.</p>
+    </div>
+    <div class="src-items">
+      <div class="src-item">
+        <div class="si-n">Payer</div>
+        <div class="si-l">Can the product be reimbursed or contracted at scale? We underwrite reimbursement risk at entry &mdash; before most funds ask the question.</div>
+      </div>
+      <div class="src-item or">
+        <div class="si-n">Provider</div>
+        <div class="si-l">Does a health system actually want this? Suncoast&rsquo;s provider network validates clinical utility and surfaces adoption risk before capital is deployed.</div>
+      </div>
+      <div class="src-item gd">
+        <div class="si-n">Policy</div>
+        <div class="si-l">Does regulatory momentum protect or create the market? We avoid companies whose revenue depends on policy staying static.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── S7: TOP PERFORMERS ── -->
+<div class="slide s-perf" id="s7">
+  <a class="sl-back dk" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="eyebrow">Fund I &middot; Top Performers</div>
+  <h2 class="slide-h1">One company returned 12&times; already.</h2>
+  <div class="perf6">
+    <div class="pc top">
+      <div class="pc-tag">Top Return</div>
+      <div class="pc-name">ClinNEXUS</div>
+      <div class="pc-nums">
+        <div><div class="pc-num">12&times;</div><div class="pc-num-l">MOIC</div></div>
+        <div><div class="pc-num">2,684%</div><div class="pc-num-l">IRR</div></div>
+      </div>
+      <div class="pc-hl">$0 &rarr; $30M ARR in 18 months &middot; $120M valuation</div>
+    </div>
+    <div class="pc">
+      <div class="pc-tag">Behavioral Health</div>
+      <div class="pc-name">Empathy Health</div>
+      <div class="pc-nums">
+        <div><div class="pc-num">2.58&times;</div><div class="pc-num-l">MOIC</div></div>
+        <div><div class="pc-num">239%</div><div class="pc-num-l">IRR</div></div>
+      </div>
+      <div class="pc-hl">1M users &middot; $10M revenue run rate &middot; 68% reduced relapse risk</div>
+    </div>
+    <div class="pc">
+      <div class="pc-tag">Women&rsquo;s Health</div>
+      <div class="pc-name">Bloomlife</div>
+      <div class="pc-nums">
+        <div><div class="pc-num">Series B</div><div class="pc-num-l">Stage</div></div>
+      </div>
+      <div class="pc-hl">GE Healthcare + Gates Foundation co-lead &middot; $115M+ valuation</div>
+    </div>
+    <div class="pc">
+      <div class="pc-tag">Expert Marketplace</div>
+      <div class="pc-name">MDisrupt</div>
+      <div class="pc-nums">
+        <div><div class="pc-num">1.4&times;</div><div class="pc-num-l">MOIC</div></div>
+        <div><div class="pc-num">567%</div><div class="pc-num-l">IRR</div></div>
+      </div>
+      <div class="pc-hl">191% MoM revenue growth &middot; Digital health expert marketplace</div>
+    </div>
+    <div class="pc">
+      <div class="pc-tag">Digital Health</div>
+      <div class="pc-name">Trellis Health</div>
+      <div class="pc-nums">
+        <div><div class="pc-num">1.32&times;</div><div class="pc-num-l">MOIC</div></div>
+        <div><div class="pc-num">611%</div><div class="pc-num-l">IRR</div></div>
+      </div>
+      <div class="pc-hl">5&times; YoY growth &middot; 30%+ gross margin &middot; Women&rsquo;s health focus</div>
+    </div>
+    <div class="pc">
+      <div class="pc-tag">MSK &middot; Employer Health</div>
+      <div class="pc-name">Aware Health</div>
+      <div class="pc-nums">
+        <div><div class="pc-num">1.85&times;</div><div class="pc-num-l">MOIC</div></div>
+        <div><div class="pc-num">121%</div><div class="pc-num-l">IRR</div></div>
+      </div>
+      <div class="pc-hl">2&times; YoY growth &middot; 98% unnecessary surgeries prevented</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── S8: FUND II ── -->
+<div class="slide s-fund2" id="s8">
+  <div class="f2-deco"><img src="suncoast-logo.svg" alt=""></div>
+  <a class="sl-back" href="fund-performance.html">Full Report &#8599;</a>
+  <div class="f2-eye">Suncoast Ventures &middot; Fund II</div>
+  <h2 class="f2-h">Institutionalizing what<br>Fund I proved.</h2>
+  <p class="f2-p">$15M target fund ($30M hard cap). Larger checks, higher ownership targets, formal investment committee, and Thalassea Partners as the deal-flow engine. First close May 2026.</p>
+  <div class="f2-terms">
+    <span class="f2-t">$15M Target &middot; $30M Hard Cap</span>
+    <span class="f2-t">$150K Minimum</span>
+    <span class="f2-t">2% Mgmt Fee &middot; 20% Carry</span>
+    <span class="f2-t">10-Year Fund Life</span>
+    <span class="f2-t">1% GP Contribution</span>
+    <span class="f2-t">Quarterly Capital Calls</span>
+  </div>
+  <a class="f2-btn" href="mailto:g.lemarchal@suncoastvc.com">Contact &rarr; g.lemarchal@suncoastvc.com</a>
+</div>
+
+<!-- ── S9: CLOSE ── -->
+<div class="slide s-close" id="s9">
+  <div class="close-rings">
+    <div class="cring" style="width:420px;height:420px"></div>
+    <div class="cring" style="width:230px;height:230px"></div>
+  </div>
+  <div>
+    <div class="close-logo"><img src="suncoast-logo.svg" alt="Suncoast Ventures"></div>
+    <h2 class="close-h">Thank you.</h2>
+    <p class="close-contact"><a href="mailto:g.lemarchal@suncoastvc.com">g.lemarchal@suncoastvc.com</a></p>
+    <p class="close-contact">suncoastvc.com</p>
+    <p class="close-disc">Performance data per Carta Q4 2025 Venture Fund Comparison Report. Fund I 2022 vintage. Suncoast data as of May 2026, Month 47. Carta benchmarks reflect 2022-vintage funds at Month 36. MOIC = gross deal-level multiple. TVPI = net fund-level total value to paid-in capital. Past performance does not guarantee future results. Confidential &mdash; not an offer to sell or solicitation to buy any security.</p>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- NAV -->
+<div class="ctrl">
+  <button class="arr" id="prevArr" disabled>&#8592;</button>
+  <div class="dots" id="dots"></div>
+  <button class="arr" id="nextArr">&#8594;</button>
+</div>
+
+<script>
+Chart.register(ChartDataLabels);
+
+const B='#3672D7',BDK='#224B90',BLT='#82A3DB',BPA='#C5D9F5';
+const OR='#E27D39',GD='#EBA43E',GR='#22a053';
+
+// TVPI CHART
+new Chart(document.getElementById('tvpiChart'),{
+  type:'bar',
+  data:{
+    labels:['Suncoast\n(Month 47)','Top Decile\n(Month 36)','Top Quartile\n(Month 36)','Median\n(Month 36)'],
+    datasets:[{data:[1.70,1.57,1.20,1.01],backgroundColor:[GR,B,BLT,BPA],borderRadius:5,borderSkipped:false}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:false},
+      datalabels:{anchor:'end',align:'end',font:{family:"'Helvetica Neue',sans-serif",size:12,weight:'700'},color:'#1A1A1A',formatter:v=>v.toFixed(2)+'×'}
+    },
+    scales:{
+      x:{min:0,max:2.1,grid:{color:'#EEF4FF'},ticks:{font:{size:11},callback:v=>v.toFixed(1)+'×',color:'#888'}},
+      y:{grid:{display:false},ticks:{font:{size:11,family:"'Helvetica Neue',sans-serif"},color:'#333'}}
+    },
+    layout:{padding:{right:58}}
+  }
+});
+
+// IRR CHART
+new Chart(document.getElementById('irrChart'),{
+  type:'bar',
+  data:{
+    labels:['Suncoast\n(Month 47)','Top Decile\n(Month 36)','Top Quartile\n(Month 36)','Median\n(Month 36)'],
+    datasets:[{data:[30.49,25.3,10.9,0.7],backgroundColor:[GR,OR,'#F5D5C0','#FFF0E8'],borderRadius:5,borderSkipped:false}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:false},
+      datalabels:{anchor:'end',align:'end',font:{family:"'Helvetica Neue',sans-serif",size:12,weight:'700'},color:'#1A1A1A',formatter:v=>v.toFixed(1)+'%'}
+    },
+    scales:{
+      x:{min:0,max:38,grid:{color:'#FFF6F0'},ticks:{font:{size:11},callback:v=>v+'%',color:'#888'}},
+      y:{grid:{display:false},ticks:{font:{size:11,family:"'Helvetica Neue',sans-serif"},color:'#333'}}
+    },
+    layout:{padding:{right:58}}
+  }
+});
+
+// STATUS DONUT
+new Chart(document.getElementById('statusChart'),{
+  type:'doughnut',
+  data:{
+    labels:['Marked Up (65.1%)','Written Down (29.6%)','Exited (4.1%)'],
+    datasets:[{data:[65.1,29.6,4.1],backgroundColor:[GR,'#EF4444',GD],borderWidth:2,borderColor:'#fff',hoverOffset:5}]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,cutout:'62%',
+    plugins:{
+      legend:{position:'bottom',labels:{font:{size:10,family:"'Helvetica Neue',sans-serif"},padding:9,boxWidth:10}},
+      datalabels:{color:'#fff',font:{size:11,weight:'700'},formatter:v=>v+'%'}
+    }
+  }
+});
+
+// STAGE DONUT
+new Chart(document.getElementById('stageChart'),{
+  type:'doughnut',
+  data:{
+    labels:['Seed (61.9%)','Pre-Seed (19%)','Series A (9.5%)','Series B (9.5%)'],
+    datasets:[{data:[61.9,19,9.5,9.5],backgroundColor:[BDK,B,OR,GD],borderWidth:2,borderColor:'#fff',hoverOffset:5}]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,cutout:'62%',
+    plugins:{
+      legend:{position:'bottom',labels:{font:{size:10,family:"'Helvetica Neue',sans-serif"},padding:9,boxWidth:10}},
+      datalabels:{color:'#fff',font:{size:11,weight:'700'},formatter:v=>v+'%'}
+    }
+  }
+});
+
+// SLIDE LOGIC
+const slides=document.querySelectorAll('.slide');
+const dotsEl=document.getElementById('dots');
+const progFill=document.getElementById('progFill');
+const slideN=document.getElementById('slideN');
+const prev=document.getElementById('prevArr');
+const next=document.getElementById('nextArr');
+const N=slides.length;
+let cur=0;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goTo(i));
+  dotsEl.appendChild(d);
+});
+
+function goTo(n){
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('active');
+  cur=n;
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('active');
+  progFill.style.width=((cur+1)/N*100)+'%';
+  slideN.textContent=(cur+1)+' / '+N;
+  prev.disabled=cur===0;
+  next.disabled=cur===N-1;
+}
+
+prev.addEventListener('click',()=>{if(cur>0)goTo(cur-1)});
+next.addEventListener('click',()=>{if(cur<N-1)goTo(cur+1)});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown'){e.preventDefault();if(cur<N-1)goTo(cur+1)}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();if(cur>0)goTo(cur-1)}
+});
+
+// Click anywhere to advance
+document.getElementById('deck').addEventListener('click',e=>{
+  if(!e.target.closest('button')&&!e.target.closest('a')){if(cur<N-1)goTo(cur+1)}
+});
+
+// Touch swipe
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50){if(dx<0&&cur<N-1)goTo(cur+1);else if(dx>0&&cur>0)goTo(cur-1)}
+},{passive:true});
+
+goTo(0);
+</script>
+</body>
+</html>
