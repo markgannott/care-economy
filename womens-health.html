@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Women's Health Economy · Suncoast Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3672D7; --blue-dk:#224B90; --blue-lt:#82A3DB; --blue-pale:#EEF4FF;
+  --orange:#E27D39; --gold:#EBA43E; --purple:#BD77C6; --mint:#C3F3F5;
+  --rose:#D96B7A; --rose-pale:#FFF0F2;
+  --grey:#F7F6F6; --border:#DDE6F5; --text:#1A1A1A;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:'Gelasio',Georgia,serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden}
+.page{display:grid;grid-template-columns:240px 1fr;min-height:100vh;width:100%}
+@media(max-width:960px){
+  .page{grid-template-columns:1fr}
+  .sec{padding:2.5rem 5vw!important}
+  .hero{padding:2.5rem 5vw 2rem}
+  .exec-body{padding:1.5rem 5vw;background:#fff}
+  .exec-hd{background:var(--blue);padding:1.5rem 5vw 1.25rem}
+}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--blue-dk);display:flex;flex-direction:column;
+  border-right:1px solid rgba(255,255,255,0.08)}
+.sb-logo{padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.sb-tag{padding:.55rem 1.5rem;font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{list-style:none;padding:.75rem 0;flex:1}
+.nav li a{display:block;padding:.5rem 1.5rem;font-family:var(--sans);font-size:.76rem;
+  font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;
+  border-left:2px solid transparent;transition:all .15s}
+.nav li a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav li a.active{color:#fff;border-left-color:var(--rose);background:rgba(255,255,255,.1)}
+.nav li.nav-part{border-top:1px solid rgba(255,255,255,.1);margin-top:.6rem;padding-top:.3rem}
+.nav li.nav-part a{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:.45rem 1.5rem .2rem;border-left:2px solid transparent}
+.nav li.nav-part a:hover{color:rgba(255,255,255,.65);background:rgba(255,255,255,.04);border-left-color:transparent}
+.sb-foot{padding:1rem 1.5rem;font-family:var(--sans);font-size:.61rem;
+  color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
+
+/* HERO */
+.hero{background:#fff;padding:2.5rem 4rem 2rem;border-bottom:1px solid var(--border)}
+.eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--rose);margin-bottom:1.25rem}
+.hero h1{font-family:var(--serif);font-size:4.5rem;font-weight:600;color:var(--blue-dk);line-height:1.05;margin-bottom:.6rem}
+.hero-sub{font-family:var(--sans);font-size:1.5rem;color:#555;line-height:1.45;margin-bottom:1.5rem}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+@media(max-width:740px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.hs{background:#fff;border:none;border-radius:12px;padding:.85rem .9rem;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.hs-n{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--text);line-height:1;margin-bottom:.3rem}
+.hs-l{font-family:var(--sans);font-size:1.15rem;color:#555;line-height:1.4}
+
+/* EXEC */
+.exec{border-bottom:2px solid var(--border)}
+.exec-hd{background:var(--blue);padding:1.1rem 4rem 1rem}
+.exec-hd .eyebrow{color:rgba(255,255,255,.65);margin-bottom:.5rem}
+.exec-hd h2{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:#fff;line-height:1.2;max-width:520px}
+.exec-hd p{font-family:var(--sans);font-size:.88rem;color:rgba(255,255,255,.65);max-width:560px;margin-top:.6rem;line-height:1.65}
+.exec-body{padding:1.1rem 4rem;background:#fff}
+.exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:740px){.exec-grid{grid-template-columns:1fr}}
+.ec{background:#fff;border-radius:12px;padding:1.5rem;border-top:3px solid var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.ec.oc{border-top-color:var(--orange)}
+.ec.rc{border-top-color:var(--rose)}
+.ec h3{font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text);margin-bottom:.85rem}
+.ec ul{list-style:none;padding:0}
+.ec li{font-family:var(--sans);font-size:.88rem;color:#333;line-height:1.52;
+  padding:.32rem 0 .32rem .9rem;border-bottom:1px solid rgba(0,0,0,.05);position:relative}
+.ec li::before{content:'';position:absolute;left:0;top:.7rem;width:3px;height:3px;border-radius:50%;background:currentColor}
+.ec li:last-child{border-bottom:none}
+
+/* SECTIONS */
+.sec{padding:1.5rem 3.5rem;border-bottom:1px solid var(--border)}
+.sec.grey{background:var(--grey)}
+.sec.blue{background:var(--blue)}
+.sec.rose{background:#5A1F2A}
+.sec-ey{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem}
+.sec.blue .sec-ey{color:rgba(255,255,255,.65)}
+.sec.rose .sec-ey{color:rgba(255,180,190,.8)}
+.sec h2{font-family:var(--serif);font-size:2.5rem;font-weight:600;line-height:1.2;margin-bottom:.5rem}
+.sec:not(.blue):not(.rose) h2{color:var(--blue-dk)}
+.sec.blue h2{color:#fff}
+.sec.rose h2{color:#fff}
+.sec-lead{font-family:var(--sans);font-size:1.28rem;color:#444;line-height:1.72;margin-bottom:1.25rem}
+.sec.blue .sec-lead{color:rgba(255,255,255,.85)}
+.sec.rose .sec-lead{color:rgba(255,255,255,.8)}
+
+/* STAT CARDS */
+.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0;align-items:stretch}
+@media(max-width:740px){.sc-row{grid-template-columns:repeat(2,1fr)}}
+.sc{background:var(--grey);border:1px solid var(--border);border-top:4px solid var(--blue-lt);border-radius:12px;padding:1.25rem}
+.sc.so{background:#FFF8F4;border-color:#F5D5C0;border-top-color:var(--orange)}
+.sc.sw{background:#F0F4FA;border-color:#C8D5ED;border-top-color:var(--blue)}
+.sc.sg{background:#FFFAED;border-color:#EBD98F;border-top-color:var(--gold)}
+.sc.sr{background:var(--rose-pale);border-color:#F5C0C8;border-top-color:var(--rose)}
+.sc-n{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.3rem}
+.sc.so .sc-n{color:var(--orange)}
+.sc.sr .sc-n{color:var(--rose)}
+.sc-l{font-family:var(--sans);font-size:1.15rem;color:#555;line-height:1.45}
+.sc-s{font-family:var(--sans);font-size:.8rem;color:#777;margin-top:.3rem}
+
+/* CHART BOXES */
+.cg{display:grid;gap:1.25rem;margin:1rem 0}
+.cg.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:740px){.cg.c2{grid-template-columns:1fr}}
+.cb{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;border-left:4px solid var(--blue)}
+.cb.co{border-left-color:var(--orange)}
+.cb.cr{border-left-color:var(--rose)}
+.cb.cg2{border-left-color:var(--gold)}
+.cb h3{font-family:var(--sans);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:.2rem}
+.cb.co h3{color:var(--orange)}
+.cb.cr h3{color:var(--rose)}
+.cb.cg2 h3{color:var(--gold)}
+.csub{font-family:var(--sans);font-size:1rem;color:#888;margin-bottom:1rem}
+.cw{position:relative;height:220px}
+.cw.tall{height:300px}
+.cw.short{height:160px}
+.sec.blue .cb{background:#fff;border-color:var(--border)}
+.sec.blue .cb h3{color:var(--text)}
+
+/* INSIGHT */
+.insight{background:var(--blue-pale);border:1px solid #C5D9F5;border-left:4px solid var(--blue);border-radius:8px;padding:1.1rem 1.5rem;margin:1rem 0}
+.insight.orange{background:#FFF6F0;border-color:#F5D5C0;border-left-color:var(--orange)}
+.insight.rose{background:var(--rose-pale);border-color:#F5C0C8;border-left-color:var(--rose)}
+.ins-label{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem}
+.insight.orange .ins-label{color:var(--orange)}
+.insight.rose .ins-label{color:var(--rose)}
+.insight p{font-family:var(--sans);font-size:1rem;color:#333;line-height:1.67}
+.insight strong{color:var(--blue-dk)}
+.insight.orange strong{color:#9B4A1A}
+.insight.rose strong{color:#8B1A28}
+.sec.blue .insight{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);border-left-color:rgba(255,255,255,.7)}
+.sec.blue .insight p{color:#fff}
+.sec.blue .ins-label{color:#fff}
+
+/* ACT DIVIDERS */
+.act-div{padding:.85rem 2rem .85rem 2.5rem;background:#0F1830;border:none;display:flex;align-items:center;gap:1.25rem}
+.act-div-n{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.act-div-t{font-family:var(--serif);font-size:1.7rem;color:#fff;font-weight:500}
+.act-div-inner{width:100%;display:flex;align-items:center;gap:1.25rem}
+.act-div-line{flex:1;height:1px;background:rgba(255,255,255,.15)}
+@media(max-width:600px){.act-div{padding:1.5rem 1.5rem}.act-div-t{font-size:1.1rem}}
+
+/* PORTFOLIO GRID */
+.portco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0}
+@media(max-width:900px){.portco-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.portco-grid{grid-template-columns:1fr}}
+.pc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;border-top:3px solid var(--blue-lt)}
+.pc-card.rose-t{border-top-color:var(--rose)}
+.pc-card.orange-t{border-top-color:var(--orange)}
+.pc-init{width:36px;height:36px;border-radius:8px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.72rem;font-weight:700;color:var(--blue-dk);margin-bottom:.7rem}
+.pc-name{font-family:var(--sans);font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.25rem}
+.pc-cat{font-family:var(--sans);font-size:.72rem;color:#888;line-height:1.4}
+.pc-fund{display:inline-block;font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .45rem;border-radius:20px;margin-top:.5rem}
+.f1{background:#EEF4FF;color:var(--blue-dk)}
+.f2{background:#FFF5EE;color:var(--orange)}
+
+/* METHOD GRID */
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:1.25rem 0}
+@media(max-width:740px){.method-grid{grid-template-columns:1fr}}
+.mc{border-radius:12px;padding:1.5rem}
+.mc-blue{background:#F0F4FA;border:1px solid #C8D5ED;border-top:4px solid var(--blue)}
+.mc-orange{background:#FFF8F4;border:1px solid #F5D5C0;border-top:4px solid var(--orange)}
+.mc-rose{background:var(--rose-pale);border:1px solid #F5C0C8;border-top:4px solid var(--rose)}
+.mc h3{font-family:var(--sans);font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.65rem}
+.mc-blue h3{color:var(--blue)}
+.mc-orange h3{color:var(--orange)}
+.mc-rose h3{color:var(--rose)}
+.mc .mv{font-family:var(--serif);font-size:2.2rem;font-weight:600;line-height:1;margin-bottom:.65rem}
+.mc-blue .mv{color:var(--blue-dk)}
+.mc-orange .mv{color:var(--orange)}
+.mc-rose .mv{color:var(--rose)}
+.mc p{font-family:var(--sans);font-size:1.1rem;color:#555;line-height:1.65}
+
+/* MOBILE NAV */
+.mob-btn{display:none;position:fixed;bottom:1.5rem;left:1.5rem;width:44px;height:44px;background:var(--blue-dk);border:none;border-radius:50%;cursor:pointer;z-index:200;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(34,75,144,.4)}
+.mob-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(15,20,40,.92);z-index:199;flex-direction:column;justify-content:center;align-items:center;gap:.25rem;padding:2rem}
+.mob-overlay.open{display:flex}
+.mob-overlay a{font-family:var(--sans);font-size:1rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:.7rem 1.5rem;border-radius:8px;width:100%;max-width:320px;text-align:center;transition:background .15s,color .15s}
+.mob-overlay a:hover,.mob-overlay a:active{background:rgba(255,255,255,.1);color:#fff}
+.mob-part{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.65rem;padding:.2rem 0 .1rem;width:100%;max-width:320px;text-align:center;border-top:1px solid rgba(255,255,255,.12)}
+.mob-overlay .mob-close{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:1rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none;border:none;padding:.5rem}
+@media(max-width:960px){.mob-btn{display:flex}}
+@media(max-width:960px){.sidebar{display:none}}
+
+@media(max-width:600px){
+  .hero{padding:2rem 5vw 1.75rem}
+  .hero h1{font-size:2.2rem;line-height:1.1}
+  .hero-sub{font-size:1.1rem}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:.65rem}
+  .hs-n{font-size:1.7rem}
+  .exec-hd{padding:1.5rem 5vw}
+  .exec-body{padding:1.25rem 5vw}
+  .exec-hd h2{font-size:1.4rem}
+  .sec{padding:2rem 5vw!important}
+  .sec h2{font-size:1.5rem}
+  .sec-lead{font-size:.95rem}
+  .cg.c2{grid-template-columns:1fr}
+  .cw{height:200px}
+  .method-grid{grid-template-columns:1fr}
+  .sc-row{grid-template-columns:1fr 1fr}
+  .portco-grid{grid-template-columns:1fr 1fr}
+}
+
+@media print{
+  .sidebar,.mob-btn{display:none!important}
+  .page{display:block}
+  .hero,.sec,.sec.blue,.sec.rose,.exec,.act-div{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sec{page-break-inside:avoid;padding:2rem 2.5rem}
+  .cg.c2{grid-template-columns:repeat(2,1fr)}
+  .method-grid{grid-template-columns:repeat(3,1fr)}
+  body{font-size:10pt}
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sb-logo"><span style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;letter-spacing:.02em">Suncoast Ventures</span></div>
+  <div class="sb-tag">Women's Health Economy &middot; 2026</div>
+  <ul class="nav">
+    <li><a href="#exec">Executive Summary</a></li>
+    <li class="nav-part"><a href="#part1">Part I &nbsp; The Scale</a></li>
+    <li><a href="#market">Market &amp; Burden</a></li>
+    <li><a href="#employer">Employer Cost</a></li>
+    <li><a href="#utilization">Healthcare Utilization</a></li>
+    <li class="nav-part"><a href="#part2">Part II &nbsp; The Biology</a></li>
+    <li><a href="#cognitive">The Cognitive Corridor</a></li>
+    <li><a href="#dementia">Dementia Cost</a></li>
+    <li class="nav-part"><a href="#part3">Part III &nbsp; The Capital Signal</a></li>
+    <li><a href="#correction">Digital Health Correction</a></li>
+    <li><a href="#employer-signal">Employer Adoption</a></li>
+    <li class="nav-part"><a href="#part4">Part IV &nbsp; What Gets Built</a></li>
+    <li><a href="#categories">Venture Categories</a></li>
+    <li><a href="#portfolio">Suncoast Portfolio</a></li>
+  </ul>
+  <div class="sb-foot">Suncoast Ventures &middot; Fund II<br/>Thalassea Partners<br/>All data cited</div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="thesis" class="hero">
+  <div class="eyebrow">Suncoast Ventures &middot; Fund II Women's Health Thesis</div>
+  <h1>The Women's Health Economy.</h1>
+  <p class="hero-sub">The largest underserved market in US healthcare. Still priced like a niche.</p>
+  <div class="hero-stats">
+    <div class="hs" style="border-top:3px solid var(--rose)">
+      <div class="hs-n">54M</div>
+      <div class="hs-l">US women in perimenopause or menopause</div>
+    </div>
+    <div class="hs" style="border-top:3px solid var(--orange)">
+      <div class="hs-n">$26.6B</div>
+      <div class="hs-l">Annual employer cost from menopause symptoms</div>
+    </div>
+    <div class="hs" style="border-top:3px solid var(--blue)">
+      <div class="hs-n">2 in 3</div>
+      <div class="hs-l">Alzheimer's patients are women</div>
+    </div>
+    <div class="hs" style="border-top:3px solid var(--blue-dk)">
+      <div class="hs-n">$781B</div>
+      <div class="hs-l">US dementia cost in 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEC SUMMARY -->
+<section id="exec" class="exec">
+  <div class="exec-hd">
+    <div class="eyebrow">Executive Summary</div>
+    <h2>Three gaps. One thesis.</h2>
+    <p>The women's health market is underserved not because demand is small — it's 54 million patients with $26.6B in documented employer burden — but because capital, research, and infrastructure have systematically underinvested in it. That is changing. The science on menopause and cognitive health is arriving all at once. The digital health correction has left real clinical infrastructure at scrap prices. Employers are adopting meno benefits at 4× the rate of two years ago.</p>
+  </div>
+  <div class="exec-body">
+    <div class="exec-grid">
+      <div class="ec" style="border-top-color:var(--rose)">
+        <h3>Market Mispriced</h3>
+        <ul>
+          <li>54M women in peri/menopause — not a niche</li>
+          <li>$26.6B employer burden documented, not estimated</li>
+          <li>47% higher healthcare costs vs. non-menopausal peers</li>
+          <li>71% of femtech startups never reached Series A</li>
+          <li>Digital health correction = real assets at trough prices</li>
+        </ul>
+      </div>
+      <div class="ec oc">
+        <h3>Biology Misunderstood</h3>
+        <ul>
+          <li>Menopause → dementia corridor is new science (2024–2025)</li>
+          <li>47% increased dementia risk from early menopause (HR 1.47)</li>
+          <li>Early intervention in menopause = 11–13% TCOC reduction</li>
+          <li>$781B dementia cost base — payers have to move</li>
+          <li>Nobody owns the meno → cognitive health corridor yet</li>
+        </ul>
+      </div>
+      <div class="ec rc">
+        <h3>Capital Misaligned</h3>
+        <ul>
+          <li>Employer meno benefits: 4% → 18% in two years</li>
+          <li>Payer interest in dementia prevention is growing fast</li>
+          <li>PE healthcare M&amp;A: 49.8% of healthcare IT deals in 2024</li>
+          <li>Distressed meno assets: Evernow ($28.5M raised, no follow-on)</li>
+          <li>First-mover advantage in cognitive corridor available now</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PART I DIVIDER -->
+<div class="act-div" id="part1">
+  <div class="act-div-inner">
+    <span class="act-div-n">Part I</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-t">The Scale</span>
+    <div class="act-div-line"></div>
+  </div>
+</div>
+
+<!-- MARKET & BURDEN -->
+<section id="market" class="sec">
+  <div class="sec-ey">The Market</div>
+  <h2>54 million patients. Still called a niche.</h2>
+  <p class="sec-lead">The US women's health economy is anchored by a single demographic cohort that the healthcare system has chronically underserved: 54 million women in perimenopause or menopause. That is not a niche — it is larger than the entire US diabetic population. The burden is documented, the patients are employed, and the infrastructure to serve them is fragmented and early.</p>
+
+  <div class="sc-row">
+    <div class="sc sr">
+      <div class="sc-n">54M</div>
+      <div class="sc-l">US women in perimenopause or menopause</div>
+      <div class="sc-s">Faubion et al., Mayo Clinic Proceedings 2023 &mdash; A</div>
+    </div>
+    <div class="sc so">
+      <div class="sc-n">$26.6B</div>
+      <div class="sc-l">Annual employer cost from menopause symptoms</div>
+      <div class="sc-s">Faubion et al. 2023 &mdash; A</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-n">47%</div>
+      <div class="sc-l">Higher healthcare costs vs. non-menopausal peers</div>
+      <div class="sc-s">Milliman / Gennev 2023 &mdash; B+</div>
+    </div>
+    <div class="sc">
+      <div class="sc-n">10,000</div>
+      <div class="sc-l">US women enter menopause every day</div>
+      <div class="sc-s">US Census projection, Faubion 2023 &mdash; A</div>
+    </div>
+  </div>
+
+  <div class="insight rose" style="margin-top:1.25rem">
+    <div class="ins-label">Structural Point</div>
+    <p>The 54M figure is a floor, not a ceiling. It counts only women currently in the peri/menopausal window. The downstream population — post-menopausal women with elevated dementia, cardiovascular, and bone health risk — is substantially larger, and the cost burden compounds for decades after the acute clinical window.</p>
+  </div>
+</section>
+
+<!-- EMPLOYER COST -->
+<section id="employer" class="sec grey">
+  <div class="sec-ey">Employer Burden</div>
+  <h2>$26.6 billion that doesn't show up on a benefits line.</h2>
+  <p class="sec-lead">The Faubion et al. (2023) analysis of menopause-related employer costs is the only peer-reviewed, employer-level burden estimate available in the literature. It captures absenteeism, presenteeism, and healthcare utilization — and it reaches $26.6B annually in the US alone. This is the number that gets a chief people officer's attention.</p>
+
+  <div class="cg c2">
+    <div class="cb co">
+      <h3>Employer Cost Components</h3>
+      <div class="csub">Annual US total by burden category (Faubion 2023)</div>
+      <div class="cw">
+        <canvas id="chartEmployerCost"></canvas>
+      </div>
+    </div>
+    <div class="cb cr">
+      <h3>Benefit Adoption Trend</h3>
+      <div class="csub">Employers offering menopause benefits, 2022–2024</div>
+      <div class="cw">
+        <canvas id="chartBenefitAdopt"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight orange">
+    <div class="ins-label">Payer Implication</div>
+    <p>At a 47% healthcare cost differential for menopausal vs. non-menopausal employees (Milliman/Gennev), early intervention that closes even half that gap represents <strong>a documented, modelable PMPY reduction</strong> — the kind of number that converts a chief medical officer from interested to contracted.</p>
+  </div>
+</section>
+
+<!-- HEALTHCARE UTILIZATION -->
+<section id="utilization" class="sec">
+  <div class="sec-ey">Healthcare Utilization</div>
+  <h2>47% higher costs. The payer math is obvious.</h2>
+  <p class="sec-lead">The Milliman/Gennev analysis established a 47% healthcare cost differential between menopausal and non-menopausal women of comparable age. Published intervention data suggests early HRT and comprehensive menopause care reduces total cost of care by 11–13%. That math — applied to a 54M-person population — is the payer business case.</p>
+
+  <div class="method-grid">
+    <div class="mc mc-rose">
+      <h3>Baseline Cost Differential</h3>
+      <div class="mv">+47%</div>
+      <p>Menopausal women's total healthcare costs vs. age-matched non-menopausal peers. Across outpatient, inpatient, and pharmacy claims.</p>
+    </div>
+    <div class="mc mc-blue">
+      <h3>Intervention Savings</h3>
+      <div class="mv">11–13%</div>
+      <p>Total cost of care reduction with early, comprehensive menopause care — HRT timing, symptom management, and preventive monitoring.</p>
+    </div>
+    <div class="mc mc-orange">
+      <h3>Midi Health Proof Point</h3>
+      <div class="mv">$1B</div>
+      <p>Midi Health's valuation on general menopause telehealth alone — proving patient willingness to pay and the commercial scale of the category.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PART II DIVIDER -->
+<div class="act-div" id="part2">
+  <div class="act-div-inner">
+    <span class="act-div-n">Part II</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-t">The Biology</span>
+    <div class="act-div-line"></div>
+  </div>
+</div>
+
+<!-- COGNITIVE CORRIDOR -->
+<section id="cognitive" class="sec blue">
+  <div class="sec-ey">The Cognitive Corridor</div>
+  <h2>Menopause is a neurological inflection point.</h2>
+  <p class="sec-lead">The emerging science on menopause and cognitive health has reframed the clinical conversation entirely. Menopause is not only an endocrine event — it is a neurological transition. Early menopause carries a documented 47% increased dementia risk. The research is new enough that no platform has been built around it. The window for a first mover is open now.</p>
+
+  <div class="sc-row" style="margin-top:1.25rem">
+    <div class="sc" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);border-top-color:rgba(255,255,255,.5)">
+      <div class="sc-n" style="color:#fff">2 in 3</div>
+      <div class="sc-l" style="color:rgba(255,255,255,.75)">Alzheimer's patients are women</div>
+      <div class="sc-s" style="color:rgba(255,255,255,.4)">Alzheimer's Association 2025 &mdash; A</div>
+    </div>
+    <div class="sc" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);border-top-color:var(--gold)">
+      <div class="sc-n" style="color:var(--gold)">+47%</div>
+      <div class="sc-l" style="color:rgba(255,255,255,.75)">Increased dementia risk from early menopause (HR 1.47)</div>
+      <div class="sc-s" style="color:rgba(255,255,255,.4)">Dobson et al., Age &amp; Ageing 2024 &mdash; A</div>
+    </div>
+    <div class="sc" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);border-top-color:var(--orange)">
+      <div class="sc-n" style="color:var(--orange)">$781B</div>
+      <div class="sc-l" style="color:rgba(255,255,255,.75)">US dementia cost in 2025</div>
+      <div class="sc-s" style="color:rgba(255,255,255,.4)">USC Schaeffer 2025 &mdash; A</div>
+    </div>
+    <div class="sc" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);border-top-color:rgba(255,255,255,.3)">
+      <div class="sc-n" style="color:#fff">&gt;$1T</div>
+      <div class="sc-l" style="color:rgba(255,255,255,.75)">Projected US dementia cost by 2050</div>
+      <div class="sc-s" style="color:rgba(255,255,255,.4)">USC Schaeffer 2025 &mdash; A</div>
+    </div>
+  </div>
+
+  <div class="insight" style="margin-top:1.5rem">
+    <div class="ins-label">The White Space</div>
+    <p style="color:#fff">Nobody owns the <strong style="color:var(--gold)">menopause → cognitive health corridor</strong>. Midi Health owns general menopause telehealth. Maven owns fertility and maternity. The specific nexus — early intervention in menopause to prevent downstream dementia — has no category incumbent. The science is less than two years old. The payer cost base is $781B and growing. That is a first-mover opportunity.</p>
+  </div>
+</section>
+
+<!-- DEMENTIA COST -->
+<section id="dementia" class="sec">
+  <div class="sec-ey">Dementia Economics</div>
+  <h2>$781 billion. Payers have to move.</h2>
+  <p class="sec-lead">The US dementia cost base has crossed $781B annually — larger than the entire Medicare prescription drug spend. Two-thirds of that burden falls on women, both as patients and as caregivers. At this scale, dementia prevention is no longer a research priority; it is a payer imperative. The menopause → dementia corridor is the most plausible upstream intervention point.</p>
+
+  <div class="cg c2">
+    <div class="cb">
+      <h3>Dementia Cost Trajectory</h3>
+      <div class="csub">US total annual cost of dementia, 2020–2050 projection (USC Schaeffer)</div>
+      <div class="cw tall">
+        <canvas id="chartDementiaCost"></canvas>
+      </div>
+    </div>
+    <div class="cb cr">
+      <h3>Alzheimer's Gender Split</h3>
+      <div class="csub">Share of Alzheimer's disease patients by sex (Alzheimer's Association 2025)</div>
+      <div class="cw tall">
+        <canvas id="chartAlzGender"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight rose">
+    <div class="ins-label">Research Inflection</div>
+    <p>Rachel Buckley's 2025 work and the Dobson et al. (Age &amp; Ageing 2024) hazard ratio of <strong>1.47 for early menopause → dementia</strong> are driving both scientific attention and payer/policy interest. The Alzheimer's Association has made the sex-difference research a funding priority. This is the research inflection that precedes a payer coverage movement — and it is happening now.</p>
+  </div>
+</section>
+
+<!-- PART III DIVIDER -->
+<div class="act-div" id="part3">
+  <div class="act-div-inner">
+    <span class="act-div-n">Part III</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-t">The Capital Signal</span>
+    <div class="act-div-line"></div>
+  </div>
+</div>
+
+<!-- DIGITAL HEALTH CORRECTION -->
+<section id="correction" class="sec grey">
+  <div class="sec-ey">The Correction</div>
+  <h2>$29.1B → $10.1B. Real infrastructure at trough prices.</h2>
+  <p class="sec-lead">The 2020–2022 digital health boom deployed $58.5B across ~1,741 deals. Much of that capital went into women's health and menopause platforms at valuations that assumed a DTC consumer market that didn't materialize. The correction has been severe and indiscriminate — creating a multi-year buying window for acquirers who can add payer contracting, employer channel, and clinical credibility to distressed-but-viable platforms.</p>
+
+  <div class="cg c2">
+    <div class="cb">
+      <h3>Digital Health VC Funding</h3>
+      <div class="csub">US annual digital health venture investment (Rock Health)</div>
+      <div class="cw tall">
+        <canvas id="chartDHFunding"></canvas>
+      </div>
+    </div>
+    <div class="cb co">
+      <h3>Women's Health Roll-Up Pipeline</h3>
+      <div class="csub">Distressed assets &amp; acquisition targets (capital raised, est.)</div>
+      <div class="cw tall">
+        <canvas id="chartRollUp"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-row" style="margin-top:1rem">
+    <div class="sc so">
+      <div class="sc-n">65%</div>
+      <div class="sc-l">Decline in digital health VC from 2021 peak</div>
+      <div class="sc-s">Rock Health Year-End 2024 &mdash; A</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-n">40%</div>
+      <div class="sc-l">Of H1 2024 digital health raises were unlabeled rounds</div>
+      <div class="sc-s">Rock Health H1 2024 &mdash; A</div>
+    </div>
+    <div class="sc">
+      <div class="sc-n">71%</div>
+      <div class="sc-l">Of femtech startups under 6 yrs haven't reached Series A</div>
+      <div class="sc-s">Galen Growth &mdash; B</div>
+    </div>
+    <div class="sc sr">
+      <div class="sc-n">$28.5M</div>
+      <div class="sc-l">Evernow raised — no follow-on in 3+ years. High distress signal.</div>
+      <div class="sc-s">Crunchbase / public filings &mdash; B+</div>
+    </div>
+  </div>
+</section>
+
+<!-- EMPLOYER SIGNAL -->
+<section id="employer-signal" class="sec">
+  <div class="sec-ey">Market Signal</div>
+  <h2>4% to 18%. Employers are ahead of the market.</h2>
+  <p class="sec-lead">The fastest-moving buyer in women's health is not the health plan — it is the employer. Menopause benefit adoption has accelerated from 4% to 18% of large employers in two years. That is not organic drift; it is a deliberate response to documented productivity loss and talent retention pressure in a labor market where women over 40 are a critical workforce cohort.</p>
+
+  <div class="insight orange">
+    <div class="ins-label">The Commercial Unlock</div>
+    <p>At 18% employer adoption, menopause benefits have cleared the proof-of-concept bar — they are no longer a benefits novelty. The remaining 82% of large employers represent an addressable sales motion. A platform that can walk into a benefits conversation with <strong>Faubion's $26.6B burden number, a 47% cost differential, and a documented 11–13% TCOC reduction</strong> does not need to educate the buyer. The buyer already knows the problem. They need a credible solution.</p>
+  </div>
+
+  <div class="method-grid" style="margin-top:1.25rem">
+    <div class="mc mc-blue">
+      <h3>Employer Channel</h3>
+      <div class="mv">4%→18%</div>
+      <p>Menopause benefit adoption at large US employers in two years. The fastest category movement in the women's health benefits market.</p>
+    </div>
+    <div class="mc mc-orange">
+      <h3>Payer Movement</h3>
+      <div class="mv">$781B</div>
+      <p>The dementia cost base makes preventive menopause care a payer imperative — not a nice-to-have. CMS and commercial payers are both moving toward coverage.</p>
+    </div>
+    <div class="mc mc-rose">
+      <h3>Exit Landscape</h3>
+      <div class="mv">6–8×</div>
+      <p>Healthcare IT M&amp;A revenue multiples for platforms with contracted payer or employer revenue — vs ~4.8× for generic B2B SaaS (Capstone Partners 2024).</p>
+    </div>
+  </div>
+</section>
+
+<!-- PART IV DIVIDER -->
+<div class="act-div" id="part4">
+  <div class="act-div-inner">
+    <span class="act-div-n">Part IV</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-t">What Gets Built</span>
+    <div class="act-div-line"></div>
+  </div>
+</div>
+
+<!-- VENTURE CATEGORIES -->
+<section id="categories" class="sec">
+  <div class="sec-ey">Venture Categories</div>
+  <h2>Four categories. One portfolio thesis.</h2>
+  <p class="sec-lead">The Suncoast women's health portfolio is organized around the full arc of women's health: from reproductive care and maternal monitoring through the menopause transition and into the cognitive health corridor that follows. Each category has a specific commercial mechanism — employer channel, payer contracting, clinical evidence, or platform infrastructure.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.25rem">
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;border-left:4px solid var(--rose)">
+      <div style="font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:.65rem">Menopause &amp; Functional Medicine</div>
+      <div style="font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--blue-dk);margin-bottom:.5rem">The Clinical Core</div>
+      <p style="font-family:var(--sans);font-size:.9rem;color:#444;line-height:1.65">DTC-to-enterprise conversion: functional medicine and menopause telehealth platforms with real patients and real retention — restructured to contract with employers and payers. The commercial gap is not product; it is channel.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;border-left:4px solid var(--blue)">
+      <div style="font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.65rem">Maternal Health &amp; Monitoring</div>
+      <div style="font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--blue-dk);margin-bottom:.5rem">The Device Layer</div>
+      <p style="font-family:var(--sans);font-size:.9rem;color:#444;line-height:1.65">Remote monitoring and diagnostic devices for maternal and fetal health — categories with CMS reimbursement pathways and strong health system partnerships. Clinical evidence is built in; the commercial runway is payer and hospital contracting.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;border-left:4px solid var(--orange)">
+      <div style="font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.65rem">Reproductive Health &amp; Fertility</div>
+      <div style="font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--blue-dk);margin-bottom:.5rem">The Innovation Layer</div>
+      <p style="font-family:var(--sans);font-size:.9rem;color:#444;line-height:1.65">MedTech and biotech tackling reproductive health — from IVF culture media to contraceptive innovation. This is the deepest technology layer in the portfolio: IP-protected, regulatory-pathwayed, and exit-ready to medtech strategics.</p>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;border-left:4px solid var(--gold)">
+      <div style="font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem">Care Coordination &amp; Family Tech</div>
+      <div style="font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--blue-dk);margin-bottom:.5rem">The Platform Layer</div>
+      <p style="font-family:var(--sans);font-size:.9rem;color:#444;line-height:1.65">Infrastructure that connects women to the care they manage — for themselves and for their families. NICU-to-home transitions, family operating systems, and the care coordination layer that turns fragmented healthcare into a manageable experience.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="sec grey">
+  <div class="sec-ey">Suncoast Portfolio</div>
+  <h2>Eight companies. Full arc of women's health.</h2>
+  <p class="sec-lead">The Suncoast women's health portfolio spans maternal monitoring, menopause care, reproductive biotech, NICU care coordination, and family-centered AI — covering both the clinical and infrastructure layers of the market.</p>
+
+  <div class="portco-grid" style="margin-top:1.25rem">
+
+    <div class="pc-card rose-t">
+      <div class="pc-init" style="background:var(--rose-pale);color:var(--rose)">GW</div>
+      <div class="pc-name">GritWell</div>
+      <div class="pc-cat">Functional Medicine &middot; Digital Health &middot; Women's Health<br>Menopause telehealth pivot; payer contracting roadmap</div>
+      <span class="pc-fund f1">Fund I</span>
+    </div>
+
+    <div class="pc-card" style="border-top-color:var(--blue)">
+      <div class="pc-init">BL</div>
+      <div class="pc-name">Bloomlife</div>
+      <div class="pc-cat">Maternal Health &middot; Remote Monitoring<br>Wearable contraction and fetal monitoring platform</div>
+      <span class="pc-fund f1">Fund I</span>
+    </div>
+
+    <div class="pc-card rose-t">
+      <div class="pc-init" style="background:var(--rose-pale);color:var(--rose)">TR</div>
+      <div class="pc-name">Trellis Health</div>
+      <div class="pc-cat">Women's Health &middot; FamilyOS &middot; AI<br>Family-centered care coordination platform</div>
+      <span class="pc-fund f1">Fund I</span>
+    </div>
+
+    <div class="pc-card" style="border-top-color:var(--orange)">
+      <div class="pc-init" style="background:#FFF5EE;color:var(--orange)">ZB</div>
+      <div class="pc-name">Ziora Bio</div>
+      <div class="pc-cat">Reproductive Health &middot; MedTech<br>IVF culture media technology (Fertilux)</div>
+      <span class="pc-fund f1">Fund I</span>
+    </div>
+
+    <div class="pc-card" style="border-top-color:var(--blue)">
+      <div class="pc-init">RO</div>
+      <div class="pc-name">Raydiant Oximetry</div>
+      <div class="pc-cat">Maternal Health &middot; Fetal Monitoring<br>Non-invasive fetal pulse oximetry for labor and delivery</div>
+      <span class="pc-fund f2">Fund II</span>
+    </div>
+
+    <div class="pc-card" style="border-top-color:var(--blue-dk)">
+      <div class="pc-init">NI</div>
+      <div class="pc-name">Nicolette Inc.</div>
+      <div class="pc-cat">NICU &middot; Patient Engagement &middot; HealthIT<br>NICU family communication and care coordination</div>
+      <span class="pc-fund f2">Fund II</span>
+    </div>
+
+    <div class="pc-card" style="border-top-color:var(--rose)">
+      <div class="pc-init" style="background:var(--rose-pale);color:var(--rose)">NL</div>
+      <div class="pc-name">Next Life Sciences</div>
+      <div class="pc-cat">Reproductive Health &middot; MedTech<br>Reproductive health device innovation</div>
+      <span class="pc-fund f2">Fund II</span>
+    </div>
+
+    <div class="pc-card orange-t">
+      <div class="pc-init" style="background:#FFF5EE;color:var(--orange)">OH</div>
+      <div class="pc-name">Ohai.ai</div>
+      <div class="pc-cat">Consumer AI &middot; Family Tech &middot; Maternal Care<br>AI for family and care coordination (Sheila Marcelo)</div>
+      <span class="pc-fund f2">Fund II</span>
+    </div>
+
+  </div>
+
+  <div class="insight" style="margin-top:1.5rem">
+    <div class="ins-label">Portfolio Thesis</div>
+    <p>The Suncoast women's health portfolio is designed to cover the full clinical arc — from preconception through maternal care, through the working years of menopause, into the cognitive health corridor that follows. <strong>No single category. No single stage.</strong> The thesis is that women's health infrastructure is being built across this entire arc simultaneously, and the portfolio is positioned at each layer.</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- MOBILE NAV BUTTON -->
+<button class="mob-btn" onclick="document.getElementById('mobOverlay').classList.add('open')" aria-label="Open navigation">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<div class="mob-overlay" id="mobOverlay">
+  <a href="#exec">Executive Summary</a>
+  <div class="mob-part">Part I — The Scale</div>
+  <a href="#market">Market &amp; Burden</a>
+  <a href="#employer">Employer Cost</a>
+  <a href="#utilization">Healthcare Utilization</a>
+  <div class="mob-part">Part II — The Biology</div>
+  <a href="#cognitive">The Cognitive Corridor</a>
+  <a href="#dementia">Dementia Cost</a>
+  <div class="mob-part">Part III — Capital Signal</div>
+  <a href="#correction">Digital Health Correction</a>
+  <a href="#employer-signal">Employer Adoption</a>
+  <div class="mob-part">Part IV — What Gets Built</div>
+  <a href="#categories">Venture Categories</a>
+  <a href="#portfolio">Suncoast Portfolio</a>
+  <button class="mob-close" onclick="document.getElementById('mobOverlay').classList.remove('open')">CLOSE</button>
+</div>
+
+<script>
+Chart.register(ChartDataLabels);
+const sans="'Helvetica Neue',Helvetica,Arial,sans-serif";
+const blue='#3672D7',blueDk='#224B90',orange='#E27D39',rose='#D96B7A',gold='#EBA43E',grey='#F7F6F6';
+
+/* Employer Cost Components */
+new Chart(document.getElementById('chartEmployerCost'),{
+  type:'bar',
+  data:{
+    labels:['Absenteeism','Presenteeism','Healthcare\nUtilization','Prescription\nCosts'],
+    datasets:[{
+      data:[7.6,11.2,5.4,2.4],
+      backgroundColor:[rose+'CC',orange+'CC',blue+'CC',gold+'CC'],
+      borderColor:[rose,orange,blue,gold],
+      borderWidth:2,borderRadius:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},datalabels:{anchor:'end',align:'top',formatter:v=>'$'+v+'B',font:{family:sans,size:11,weight:'700'},color:'#333'}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:sans,size:11},color:'#555'}},
+      y:{grid:{color:'rgba(0,0,0,.06)'},ticks:{font:{family:sans,size:10},callback:v=>'$'+v+'B'},max:15}
+    }
+  }
+});
+
+/* Benefit Adoption Trend */
+new Chart(document.getElementById('chartBenefitAdopt'),{
+  type:'bar',
+  data:{
+    labels:['2022','2023','2024'],
+    datasets:[{
+      label:'Employers offering meno benefits (%)',
+      data:[4,10,18],
+      backgroundColor:[rose+'44',rose+'88',rose],
+      borderColor:[rose,rose,rose],
+      borderWidth:2,borderRadius:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},datalabels:{anchor:'end',align:'top',formatter:v=>v+'%',font:{family:sans,size:12,weight:'700'},color:'#333'}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:sans,size:12},color:'#555'}},
+      y:{grid:{color:'rgba(0,0,0,.06)'},ticks:{font:{family:sans,size:10},callback:v=>v+'%'},max:25}
+    }
+  }
+});
+
+/* Dementia Cost Trajectory */
+new Chart(document.getElementById('chartDementiaCost'),{
+  type:'line',
+  data:{
+    labels:['2020','2025','2030','2035','2040','2045','2050'],
+    datasets:[{
+      label:'US dementia cost ($B)',
+      data:[500,781,870,930,970,990,1050],
+      borderColor:rose,backgroundColor:rose+'18',
+      borderWidth:2.5,pointRadius:4,pointBackgroundColor:rose,
+      fill:true,tension:.35
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:false},
+      datalabels:{display:false}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:sans,size:11},color:'#555'}},
+      y:{grid:{color:'rgba(0,0,0,.06)'},ticks:{font:{family:sans,size:10},callback:v=>'$'+v+'B'},min:400,max:1100}
+    }
+  }
+});
+
+/* Alzheimer's Gender Split */
+new Chart(document.getElementById('chartAlzGender'),{
+  type:'doughnut',
+  data:{
+    labels:['Women','Men'],
+    datasets:[{
+      data:[65,35],
+      backgroundColor:[rose,blue+'88'],
+      borderColor:['#fff','#fff'],borderWidth:3
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    cutout:'62%',
+    plugins:{
+      legend:{position:'bottom',labels:{font:{family:sans,size:12},color:'#333',padding:16}},
+      datalabels:{formatter:v=>v+'%',font:{family:sans,size:16,weight:'700'},color:['#fff','#fff']}
+    }
+  }
+});
+
+/* Digital Health Funding */
+new Chart(document.getElementById('chartDHFunding'),{
+  type:'bar',
+  data:{
+    labels:['2019','2020','2021','2022','2023','2024'],
+    datasets:[{
+      label:'Digital health VC ($B)',
+      data:[8.2,14.9,29.1,15.3,10.7,10.1],
+      backgroundColor:[blue+'55',blue+'77',blue,orange+'99',orange+'66',orange+'44'],
+      borderColor:[blue,blue,blue,orange,orange,orange],
+      borderWidth:2,borderRadius:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},datalabels:{anchor:'end',align:'top',formatter:v=>'$'+v+'B',font:{family:sans,size:10,weight:'700'},color:'#333'}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:sans,size:11},color:'#555'}},
+      y:{grid:{color:'rgba(0,0,0,.06)'},ticks:{font:{family:sans,size:10},callback:v=>'$'+v+'B'},max:35}
+    }
+  }
+});
+
+/* Roll-Up Pipeline */
+new Chart(document.getElementById('chartRollUp'),{
+  type:'bar',
+  data:{
+    labels:['Embr Labs','Evernow','Gritwell','Elektra\nHealth','Lisa\nHealth'],
+    datasets:[{
+      label:'Capital raised ($M)',
+      data:[59,28.5,4.4,20.1,2.8],
+      backgroundColor:[rose,orange,gold,blue,blue+'88'],
+      borderColor:[rose,orange,gold,blue,blue],
+      borderWidth:2,borderRadius:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    indexAxis:'y',
+    plugins:{
+      legend:{display:false},
+      datalabels:{anchor:'end',align:'end',formatter:v=>'$'+v+'M',font:{family:sans,size:10,weight:'700'},color:'#333'}
+    },
+    scales:{
+      x:{grid:{color:'rgba(0,0,0,.06)'},ticks:{font:{family:sans,size:10},callback:v=>'$'+v+'M'},max:75},
+      y:{grid:{display:false},ticks:{font:{family:sans,size:11},color:'#333'}}
+    }
+  }
+});
+
+/* Sidebar active state on scroll */
+const sections=document.querySelectorAll('section[id],.act-div[id]');
+const navLinks=document.querySelectorAll('.nav li a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>{
+        a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);
+      });
+    }
+  });
+},{threshold:.25});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
