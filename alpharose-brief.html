@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AlphaRose Therapeutics — Suncoast Ventures</title>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#3672D7;
+  --blue-dk:#224B90;
+  --orange:#E27D39;
+  --grey:#F7F6F6;
+  --border:#DDE6F5;
+  --text:#1A1A1A;
+  --serif:'Gelasio',Georgia,serif;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+
+/* RUNNING HEADER */
+.run-hdr{background:#fff;border-bottom:1px solid var(--border);padding:.55rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.run-hdr-l{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.run-hdr-r{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#bbb}
+
+/* HERO BAND */
+.hero{background:var(--blue);padding:2.25rem 2.5rem 0;position:relative;overflow:hidden}
+
+/* circle accent */
+.hero::after{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;border:2px solid rgba(255,255,255,.1);pointer-events:none}
+.hero::before{content:'';position:absolute;right:20px;top:20px;width:160px;height:160px;border-radius:50%;border:2px solid rgba(255,255,255,.07);pointer-events:none}
+
+.hero-inner{display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap;position:relative;z-index:1}
+.hero-left{flex:1;min-width:240px}
+
+/* LOGO */
+.logo-slot{width:64px;height:64px;border-radius:14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;overflow:hidden;flex-shrink:0}
+.logo-slot img{width:100%;height:100%;object-fit:contain}
+.logo-init{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:rgba(255,255,255,.55)}
+
+/* PILLS */
+.pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem}
+.pill{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border-radius:20px}
+.pill.stage{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff}
+.pill.cat{background:rgba(226,125,57,.2);border:1px solid rgba(226,125,57,.35);color:#f5a875}
+
+/* COMPANY NAME */
+h1{font-family:var(--serif);font-size:clamp(1.75rem,3.5vw,2.4rem);font-weight:500;color:#fff;line-height:1.1;margin-bottom:.75rem}
+
+/* TEAM SENTENCE */
+.team-sent{font-family:var(--sans);font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.12)}
+
+/* PHOTO SLOT */
+.photo-slot{width:200px;flex-shrink:0;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.photo-slot img{width:100%;height:100%;object-fit:cover}
+.photo-ph{font-size:.72rem;color:rgba(255,255,255,.3);text-align:center;padding:1rem;line-height:1.5}
+@media(max-width:560px){.photo-slot{width:100%;aspect-ratio:16/9}}
+
+/* TAM STRIP */
+.tam{background:rgba(0,0,0,.18);border-top:1px solid rgba(255,255,255,.1);padding:1rem 2.5rem;display:flex;gap:2.5rem;flex-wrap:wrap;position:relative;z-index:1}
+.tam-item{}
+.tam-n{font-family:var(--serif);font-size:1.85rem;font-weight:500;color:#EBA43E;line-height:1}
+.tam-l{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.2rem}
+.tam-sep{width:1px;background:rgba(255,255,255,.12);align-self:stretch;flex-shrink:0}
+@media(max-width:500px){.tam-sep{display:none}}
+
+/* CONTENT */
+.content{padding:2rem 2.5rem}
+
+/* SECTION LABEL */
+.sec-lbl{font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem}
+
+/* BODY COPY */
+p.body{font-family:var(--serif);font-size:.95rem;font-weight:400;line-height:1.8;color:#2a2a2a;max-width:680px}
+p.body+p.body{margin-top:1rem}
+
+/* CO-INVESTORS */
+.coinv{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.25rem;align-items:center}
+.coinv-lbl{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#aaa;margin-right:.2rem}
+.coinv-pill{font-size:.72rem;font-weight:600;padding:.25rem .65rem;border-radius:8px;background:var(--grey);border:1px solid var(--border);color:#555}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:.85rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+footer .ft-l{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#bbb}
+footer .ft-r{font-size:.6rem;color:#ccc}
+</style>
+</head>
+<body>
+
+<div class="run-hdr">
+  <span class="run-hdr-l">Suncoast Ventures &nbsp;·&nbsp; Portfolio</span>
+  <span class="run-hdr-r">AlphaRose Therapeutics</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="logo-slot">
+        <!-- <img src="logos/alpharose.png" alt="AlphaRose"> -->
+        <span class="logo-init">AR</span>
+      </div>
+      <div class="pills">
+        <span class="pill stage">Seed Stage</span>
+        <span class="pill cat">Rare Disease &middot; Genetic Medicine</span>
+      </div>
+      <h1>AlphaRose Therapeutics</h1>
+      <p class="team-sent">Casey McPherson (Founder &amp; CEO) has 25 years in rare disease drug development with contributions to more than 25 approved therapies, built on a Genzyme foundation.</p>
+    </div>
+    <div class="photo-slot">
+      <!-- <img src="images/alpharose-founder.jpg" alt="Casey McPherson"> -->
+      <span class="photo-ph">Founder photo<br>Casey McPherson</span>
+    </div>
+  </div>
+
+  <div class="tam">
+    <div class="tam-item">
+      <div class="tam-n">$300B+</div>
+      <div class="tam-l">Rare disease market (2030)</div>
+    </div>
+    <div class="tam-sep"></div>
+    <div class="tam-item">
+      <div class="tam-n">7,000+</div>
+      <div class="tam-l">Rare diseases identified</div>
+    </div>
+    <div class="tam-sep"></div>
+    <div class="tam-item">
+      <div class="tam-n">95%</div>
+      <div class="tam-l">With no approved treatment</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="sec-lbl">The Problem</div>
+  <p class="body">The children living with HNRNPH2-RD and thousands of similar rare neurodevelopmental conditions face a healthcare system that has no approved treatment for them — not because the science is impossible, but because traditional pharma economics make ultra-rare programs commercially unattractive. AlphaRose Therapeutics was built to close that gap: the company integrates proprietary gene therapy (MOE + abcDNA&trade;), AI-driven target discovery via RINAE.AI, and a non-dilutive R&amp;D flywheel through RareLabs to develop precision therapies at a fraction of the traditional cost and timeline.</p>
+
+  <p class="body" style="margin-top:1.5rem">AlphaRose has raised $4.6M to date, completed 8+ proof-of-concept studies in two years, and identified 300+ targets across its RINAE.AI platform. RareLabs — acquired Q4 2025 — generates $2M+ annually across 16+ fee-for-service customers, funding discovery while building a proprietary patient data asset. IND-enabling work is underway for lead program Rosiphersen, independently validated by NCATS, with Phase 1 targeted by end of 2026.</p>
+
+  <div class="coinv">
+    <span class="coinv-lbl">Notable Co-Investors</span>
+    <span class="coinv-pill">Termeer Family Office</span>
+    <span class="coinv-pill">Jackson Lab</span>
+    <span class="coinv-pill">NCATS / NIH (non-dilutive)</span>
+  </div>
+</div>
+
+<footer>
+  <span class="ft-l">Suncoast Ventures &nbsp;·&nbsp; Fund II</span>
+  <span class="ft-r">suncoastventures.com</span>
+</footer>
+
+</body>
+</html>
