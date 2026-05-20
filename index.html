@@ -267,32 +267,39 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .act-div-n{font-size:.58rem}
 
   /* ── SECTIONS: each section on its own page ── */
-  .sec{padding:.6rem 1.2rem;break-before:always;page-break-before:always}
-  .sec h2{font-size:1.2rem;line-height:1.15;margin-bottom:.25rem}
-  .pbrow{margin-bottom:.2rem;gap:.3rem}
-  .sec-ey{font-size:.55rem;margin-bottom:.2rem}
-  .sec-lead{font-size:.74rem;line-height:1.5;margin-bottom:.45rem}
-  .sec-bullets li{font-size:.74rem;line-height:1.45}
-  .pbadge{font-size:.52rem;padding:.12rem .4rem}
+  .sec{padding:.5rem 1rem;break-before:always;page-break-before:always}
+  .sec h2{font-size:.98rem;line-height:1.1;margin-bottom:.18rem}
+  .pbrow{margin-bottom:.15rem;gap:.25rem}
+  .sec-ey{font-size:.52rem;margin-bottom:.15rem}
+  .sec-lead{font-size:.68rem;line-height:1.42;margin-bottom:.35rem}
+  .sec-bullets li{font-size:.68rem;line-height:1.4}
+  .pbadge{font-size:.5rem;padding:.1rem .35rem}
 
   /* ── STAT CARDS ── */
-  .sc-row{gap:.4rem;margin:.45rem 0;break-inside:avoid;page-break-inside:avoid}
-  .sc{padding:.55rem .65rem;box-shadow:none}
-  .sc-n{font-size:1.2rem;margin-bottom:.15rem}
-  .sc-l{font-size:.7rem}
-  .sc-s{font-size:.58rem;margin-top:.12rem}
-  .sc-cat{font-size:.52rem;margin-bottom:.15rem}
+  .sc-row{gap:.28rem;margin:.3rem 0;break-inside:avoid;page-break-inside:avoid}
+  .sc{padding:.38rem .48rem;box-shadow:none}
+  .sc-n{font-size:.88rem;margin-bottom:.1rem}
+  .sc-l{font-size:.62rem;line-height:1.38}
+  .sc-s{font-size:.52rem;margin-top:.08rem}
+  .sc-cat{font-size:.5rem;margin-bottom:.12rem}
 
   /* ── CHARTS: .cg groups and bare .cb both protected ── */
-  .cg{margin:.3rem 0;break-inside:avoid;page-break-inside:avoid}
-  .cg.c2{grid-template-columns:repeat(2,1fr);gap:.45rem}
-  .cb{padding:.55rem .65rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
-  .cb h3{font-size:.68rem;margin-bottom:.08rem}
-  .csub{font-size:.62rem;margin-bottom:.4rem}
-  .cw{height:110px;display:block;overflow:hidden;position:relative}
-  .cw.tall{height:150px}
-  .cw.short{height:88px}
+  .cg{margin:.2rem 0;break-inside:avoid;page-break-inside:avoid}
+  .cg.c2{grid-template-columns:repeat(2,1fr);gap:.4rem}
+  .cb{padding:.45rem .55rem;box-shadow:none;break-inside:avoid;page-break-inside:avoid;overflow:hidden}
+  .cb h3{font-size:.65rem;margin-bottom:.06rem}
+  .csub{font-size:.58rem;margin-bottom:.32rem}
+  .cw{height:95px;display:block;overflow:hidden;position:relative}
+  .cw.tall{height:125px}
+  .cw.short{height:75px}
   canvas{display:block;max-width:100%!important}
+
+  /* ── INLINE CHART HEIGHT OVERRIDES (inline style= beats class rules) ── */
+  [style*="height:220px"]{height:95px!important}
+  [style*="height:200px"]{height:90px!important}
+
+  /* ── COMPANY SECTION LOGOS ── */
+  #suncoast img,#ohai-co img,#thalassea img{height:44px!important;margin:.5rem 0 .65rem!important}
 
   /* ── METHOD CARDS ── */
   .method-grid{grid-template-columns:repeat(3,1fr);gap:.45rem;margin:.5rem 0;break-inside:avoid;page-break-inside:avoid}
@@ -314,12 +321,13 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .badge{font-size:.5rem}
 
   /* ── INLINE FONT SIZE OVERRIDES (inline style= bypasses class rules) ── */
-  [style*="font-size:2.2rem"]{font-size:1.2rem!important}
-  [style*="font-size:1.75rem"]{font-size:1rem!important}
-  [style*="font-size:1.3rem"]{font-size:.84rem!important}
-  [style*="font-size:1.15rem"]{font-size:.74rem!important}
-  [style*="font-size:1.1rem"]{font-size:.74rem!important}
-  [style*="font-size:1rem"]{font-size:.7rem!important}
+  [style*="font-size:2.2rem"]{font-size:.98rem!important}
+  [style*="font-size:1.75rem"]{font-size:.88rem!important}
+  [style*="font-size:1.3rem"]{font-size:.78rem!important}
+  [style*="font-size:1.15rem"]{font-size:.7rem!important}
+  [style*="font-size:1.1rem"]{font-size:.7rem!important}
+  [style*="font-size:1rem"]{font-size:.66rem!important}
+  [style*="font-size:.75rem"]{font-size:.58rem!important}
 
   /* ── INLINE GRID LAYOUTS: keep on one page ── */
   [style*="grid-template-columns"]{break-inside:avoid;page-break-inside:avoid}
