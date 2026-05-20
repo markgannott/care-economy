@@ -13,7 +13,7 @@
   --serif:Georgia,'Times New Roman',serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-text-size-adjust:100%}
 
 /* NAV */
 .top-nav{background:var(--blue-dk);padding:.75rem 8vw;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
@@ -23,67 +23,156 @@ body{font-family:var(--sans);color:var(--text);background:#fff;-webkit-font-smoo
 .top-nav .cur{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.05em}
 
 /* SECTIONS */
-.sec{padding:3.5rem 8vw}
-.sec.blue{background:var(--blue)}
-@media(max-width:700px){.sec{padding:2.5rem 5vw}}
+.sec{padding:2.75rem 8vw;border-bottom:1px solid var(--border)}
+.sec.blue{background:var(--blue);border-bottom:none}
+.sec.dk{background:var(--blue-dk);border-bottom:none}
+.sec.grey{background:var(--grey)}
+@media(max-width:700px){.sec{padding:2rem 5vw}}
 
 /* EYEBROW */
-.ey{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
-.sec.blue .ey{color:rgba(255,255,255,.55)}
+.ey{font-size:.67rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+.sec.blue .ey,.sec.dk .ey{color:rgba(255,255,255,.45)}
+.sec.grey .ey{color:var(--blue)}
 
-/* TYPE */
-h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.1;color:var(--text)}
-h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1.2;color:var(--text)}
-.sec.blue h1,.sec.blue h2{color:#fff}
-.body{font-size:1.05rem;line-height:1.65;color:#444}
-.sec.blue .body{color:rgba(255,255,255,.82)}
+/* HEADINGS */
+h1{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;line-height:1.1;color:#fff}
+h2{font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:700;line-height:1.2;color:var(--text)}
+.sec.blue h2,.sec.dk h2{color:#fff}
 
-/* TAGS */
-.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-.tag{font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .8rem;border-radius:20px;border:1px solid}
-.tag.tw{background:rgba(54,114,215,.07);border-color:rgba(54,114,215,.22);color:var(--blue)}
-.tag.to{background:rgba(226,125,57,.07);border-color:rgba(226,125,57,.22);color:var(--orange)}
-.tag.td{background:rgba(34,75,144,.07);border-color:rgba(34,75,144,.22);color:var(--blue-dk)}
-.tag.wh{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+/* BODY */
+.body{font-size:.93rem;line-height:1.72;color:#444}
+.sec.blue .body,.sec.dk .body{color:rgba(255,255,255,.8)}
 
-/* SC CARDS */
-.sc-row{display:grid;gap:1rem}
-.sc-row.c3{grid-template-columns:repeat(3,1fr)}
-.sc-row.c2{grid-template-columns:repeat(2,1fr)}
-@media(max-width:700px){.sc-row.c3,.sc-row.c2,.sc-row{grid-template-columns:1fr 1fr}}
-@media(max-width:420px){.sc-row.c3,.sc-row.c2,.sc-row{grid-template-columns:1fr}}
-.sc{background:#fff;border-radius:10px;padding:1.1rem 1.25rem;border:1px solid var(--border);border-left:4px solid var(--blue)}
-.sc.sw{border-left-color:var(--blue);background:rgba(54,114,215,.05)}
-.sc.so{border-left-color:var(--orange);background:rgba(226,125,57,.05)}
-.sc.sp{border-left-color:var(--blue-dk);background:rgba(34,75,144,.05)}
-.sc-lbl{font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.25rem}
-.sc-n{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--text);line-height:1.1;margin-bottom:.3rem}
-.sc-l{font-size:.88rem;color:#555;line-height:1.45}
+/* ── HERO ─────────────────────────────────── */
+.hero{background:var(--blue);padding:2.5rem 8vw 0}
+.hero-top{display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:2.5rem}
+.hero-left{flex:1;min-width:280px}
 
-/* TWO COLUMN */
+/* LOGO SLOT */
+.logo-slot{width:72px;height:72px;border-radius:14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;overflow:hidden}
+.logo-slot img{width:100%;height:100%;object-fit:contain}
+.logo-slot .logo-init{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.5)}
+
+/* PILLS ROW */
+.pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.9rem}
+.pill{font-size:.63rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:.28rem .72rem;border-radius:20px}
+.pill.stage{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff}
+.pill.cat{background:rgba(235,164,62,.15);border:1px solid rgba(235,164,62,.3);color:var(--gold)}
+.pill.fund{background:rgba(226,125,57,.15);border:1px solid rgba(226,125,57,.3);color:#f0a060}
+
+/* TEAM SENTENCE */
+.team-sent{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.55;margin-top:.85rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.12)}
+
+/* FOUNDER/PRODUCT IMAGE SLOT */
+.visual-slot{width:240px;flex-shrink:0;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.visual-slot img{width:100%;height:100%;object-fit:cover}
+.visual-slot .vs-placeholder{font-size:.75rem;color:rgba(255,255,255,.3);text-align:center;padding:1rem}
+@media(max-width:600px){.visual-slot{width:100%;aspect-ratio:16/9}}
+
+/* TAM STRIP */
+.tam-strip{background:rgba(0,0,0,.18);border-top:1px solid rgba(255,255,255,.1);padding:1.1rem 8vw;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.tam-n{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
+.tam-l{font-size:.8rem;color:rgba(255,255,255,.55);margin-top:.2rem}
+.tam-div{width:1px;height:40px;background:rgba(255,255,255,.12);flex-shrink:0}
+@media(max-width:600px){.tam-div{display:none}}
+
+/* DESCRIPTION SECTION */
+.desc-sec{padding:2.5rem 8vw;border-bottom:1px solid var(--border)}
+.desc-body{font-size:1rem;line-height:1.78;color:#333;max-width:720px}
+.desc-body + .desc-body{margin-top:1.1rem}
+
+/* CO-INVESTORS */
+.coinv-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;align-items:center}
+.coinv-lbl{font-size:.67rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-right:.2rem}
+.coinv-pill{font-size:.75rem;font-weight:600;padding:.28rem .72rem;border-radius:6px;background:var(--grey);border:1px solid var(--border);color:#555}
+
+/* STAT STRIP */
+.stat-strip{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+@media(max-width:900px){.stat-strip{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.stat-strip{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:1.2rem 1.4rem;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+@media(max-width:900px){.stat:nth-child(3){border-right:none}}
+.stat-lbl{font-size:.63rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#bbb;margin-bottom:.3rem}
+.stat-n{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--text);line-height:1}
+.stat-sub{font-size:.72rem;color:#aaa;margin-top:.2rem;line-height:1.3}
+.stat.hi .stat-n{color:var(--blue)}
+.stat.stub .stat-n{color:#d0d0d0;font-size:1rem;font-weight:400;font-style:italic}
+.stat.stub .stat-sub{color:#d0d0d0}
+
+/* 3P FIT */
+.p3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+@media(max-width:680px){.p3-grid{grid-template-columns:1fr}}
+.p3-card{border-radius:10px;padding:1.2rem 1.35rem;border:1px solid var(--border);border-top:3px solid var(--blue)}
+.p3-card.or{border-top-color:var(--orange)}
+.p3-card.off{border-top-color:#e0e0e0;opacity:.4}
+.p3-lbl{font-size:.63rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem}
+.p3-card.or .p3-lbl{color:var(--orange)}
+.p3-card.off .p3-lbl{color:#bbb}
+.p3-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+.p3-desc{font-size:.82rem;color:#555;line-height:1.55}
+
+/* TWO COL */
 .two-col{display:grid;gap:3rem}
 @media(min-width:860px){.two-col{grid-template-columns:3fr 2fr}}
 
-/* BADGES */
-.badge-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
-.badge{font-size:.78rem;font-weight:600;padding:.3rem .8rem;border-radius:6px;background:var(--grey);border:1px solid var(--border);color:var(--text)}
-.badge.wh{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff}
+/* HEOR BOXES */
+.heor-box{background:rgba(0,0,0,.18);border-radius:10px;padding:1.1rem 1.35rem;margin-bottom:.85rem}
+.heor-box.stub{background:transparent;border:1px dashed rgba(255,255,255,.15)}
+.heor-n{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.2rem}
+.heor-box.stub .heor-n{color:rgba(235,164,62,.3)}
+.heor-l{font-size:.82rem;color:rgba(255,255,255,.68);line-height:1.45}
+.heor-box.stub .heor-l{color:rgba(255,255,255,.28)}
+.heor-src{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:.35rem;font-style:italic}
 
-/* THESIS LINK CARDS */
-.tcard{display:block;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:1.1rem 1.25rem;transition:background .15s}
-.tcard:hover{background:rgba(255,255,255,.18)}
-.tcard-ey{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.35rem}
-.tcard-t{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#fff;margin-bottom:.3rem}
-.tcard-d{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.45}
+/* MILESTONES MINI GRID */
+.m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-top:1rem}
+.m-n{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.15rem}
+.m-l{font-size:.76rem;color:rgba(255,255,255,.55);line-height:1.35}
 
-/* DIVIDER */
-.ht{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
-.sec.blue .ht{border-top-color:rgba(255,255,255,.15)}
+/* NETWORK */
+.net-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+.net-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;border-left:4px solid var(--blue)}
+.net-card.or{border-left-color:var(--orange)}
+.net-card.stub{border-left-color:#ddd;background:var(--grey)}
+.net-rel{font-size:.63rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem}
+.net-card.or .net-rel{color:var(--orange)}
+.net-card.stub .net-rel{color:#bbb}
+.net-name{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.3rem}
+.net-desc{font-size:.81rem;color:#666;line-height:1.48}
+
+/* STRATEGIES */
+.strat-list{list-style:none;padding:0;margin-top:1.25rem;display:flex;flex-direction:column;gap:.85rem}
+.strat-item{display:flex;gap:1rem;align-items:flex-start}
+.strat-chip{flex-shrink:0;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .65rem;border-radius:6px;background:rgba(255,255,255,.1);color:var(--gold);white-space:nowrap;margin-top:.1rem}
+.strat-chip.stub{background:rgba(255,255,255,.04);color:rgba(255,255,255,.2)}
+.strat-title{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.15rem;line-height:1.3}
+.strat-title.stub{color:rgba(255,255,255,.2)}
+.strat-desc{font-size:.8rem;color:rgba(255,255,255,.58);line-height:1.52}
+.strat-desc.stub{color:rgba(255,255,255,.18)}
+
+/* EXIT */
+.exit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1.25rem}
+.exit-card{background:#fff;border-radius:10px;padding:1.1rem 1.25rem;border:1px solid var(--border)}
+.exit-lbl{font-size:.63rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-bottom:.4rem}
+.exit-val{font-size:.9rem;color:var(--text);line-height:1.52}
+.gov-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.gov-pill{font-size:.7rem;font-weight:700;padding:.25rem .65rem;border-radius:6px;background:rgba(54,114,215,.08);border:1px solid rgba(54,114,215,.18);color:var(--blue)}
+.gov-pill.stub{background:#f2f2f2;border-color:#e0e0e0;color:#bbb}
+
+/* DIVIDERS */
+.ht{border:none;border-top:1px solid var(--border);margin:1.35rem 0}
+.sec.blue .ht,.sec.dk .ht{border-color:rgba(255,255,255,.12)}
+
+/* LP DIVIDER */
+.lp-divider{padding:.6rem 8vw;background:#f0f4ff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.75rem}
+.lp-divider span{font-size:.65rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-lt)}
+.lp-divider::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* FOOTER */
 footer{background:var(--blue-dk);padding:1.5rem 8vw;text-align:center}
-footer p{font-size:.78rem;color:rgba(255,255,255,.45)}
-footer a{color:rgba(255,255,255,.65);text-decoration:none}
+footer p{font-size:.74rem;color:rgba(255,255,255,.38)}
+footer a{color:rgba(255,255,255,.55);text-decoration:none}
 footer a:hover{color:#fff}
 </style>
 </head>
@@ -92,106 +181,252 @@ footer a:hover{color:#fff}
 <nav class="top-nav">
   <a href="#">Suncoast Ventures</a>
   <span class="sep">›</span>
-  <a href="portfolio.html">Fund I Portfolio</a>
+  <a href="portfolio.html">Portfolio</a>
   <span class="sep">›</span>
   <span class="cur">AlphaRose Therapeutics</span>
 </nav>
 
-<!-- HERO -->
-<section class="sec blue">
-  <div class="ey">Suncoast Ventures &middot; Fund II Portfolio</div>
-  <h1>AlphaRose Therapeutics</h1>
-  <div class="tags">
-    <span class="tag wh">Rare Disease</span>
-    <span class="tag wh">Genetic Medicine</span>
-    <span class="tag wh">AI Drug Discovery</span>
-  </div>
-  <p class="body" style="margin-top:1.25rem;max-width:560px;font-size:.95rem">Casey McPherson, Founder &amp; CEO &nbsp;&middot;&nbsp; Seed Stage</p>
-</section>
-
-<!-- MILESTONES -->
-<section class="sec">
-  <div class="ey">Milestones</div>
-  <div class="sc-row" style="grid-template-columns:repeat(4,1fr)">
-    <div class="sc sw">
-      <div class="sc-lbl" style="color:var(--blue)">Raised</div>
-      <div class="sc-n">$4.6M</div>
-      <div class="sc-l">Seed capital raised to date.</div>
+<!-- ── HERO ───────────────────────────────── -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-left">
+      <div class="logo-slot">
+        <!-- Replace with: <img src="logos/alpharose.png" alt="AlphaRose"> -->
+        <span class="logo-init">AR</span>
+      </div>
+      <div class="pills">
+        <span class="pill stage">Seed Stage</span>
+        <span class="pill cat">Rare Disease &middot; Genetic Medicine</span>
+        <span class="pill fund">Fund II</span>
+      </div>
+      <h1>AlphaRose Therapeutics</h1>
+      <p class="team-sent">Casey McPherson (Founder &amp; CEO) brings 25+ years building rare disease programs from Genzyme-lineage roots &mdash; she has helped develop more than 25 approved rare drugs and built RareLabs into the non-dilutive R&amp;D engine now fueling AlphaRose.</p>
     </div>
-    <div class="sc so">
-      <div class="sc-lbl" style="color:var(--orange)">POCs</div>
-      <div class="sc-n">8+</div>
-      <div class="sc-l">Completed in 2 years.</div>
-    </div>
-    <div class="sc sp">
-      <div class="sc-lbl" style="color:var(--blue-dk)">Targets</div>
-      <div class="sc-n">300+</div>
-      <div class="sc-l">Identified via RINAE.AI platform.</div>
-    </div>
-    <div class="sc sw">
-      <div class="sc-lbl" style="color:var(--blue)">IND Target</div>
-      <div class="sc-n">2026</div>
-      <div class="sc-l">Phase 1 filing target for Rosiphersen.</div>
+    <div class="visual-slot">
+      <!-- Replace with: <img src="images/alpharose-founder.jpg" alt="Casey McPherson"> -->
+      <span class="vs-placeholder">Founder or product photo<br>Casey McPherson</span>
     </div>
   </div>
+
+  <!-- TAM STRIP -->
+  <div class="tam-strip">
+    <div>
+      <div class="tam-n">$300B+</div>
+      <div class="tam-l">Rare disease therapeutic market (2030 est.)</div>
+    </div>
+    <div class="tam-div"></div>
+    <div>
+      <div class="tam-n">7,000+</div>
+      <div class="tam-l">Rare diseases identified globally</div>
+    </div>
+    <div class="tam-div"></div>
+    <div>
+      <div class="tam-n">95%</div>
+      <div class="tam-l">With no approved treatment</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DESCRIPTION ────────────────────────── -->
+<div class="desc-sec">
+  <p class="desc-body">The children living with HNRNPH2-RD and thousands of similar rare neurodevelopmental conditions face a healthcare system that has no approved treatment for them — not because the science is impossible, but because traditional pharma economics make ultra-rare programs commercially unattractive. AlphaRose Therapeutics was built to close that gap: the company integrates proprietary gene therapy (MOE + abcDNA&trade;), AI-driven target discovery via RINAE.AI, and a non-dilutive R&amp;D flywheel through RareLabs to develop precision therapies at a fraction of the traditional cost and timeline. Lead program Rosiphersen has demonstrated 100% survival rescue in murine models of HNRNPH2-RD and been independently validated by NCATS in human iPSC-derived neurons.</p>
+  <p class="desc-body" style="margin-top:1.1rem">AlphaRose has raised $4.6M to date, completed 8+ proof-of-concept studies in two years, and identified 300+ targets across its RINAE.AI platform. RareLabs &mdash; acquired Q4 2025 &mdash; generates $2M+ annually across 16+ fee-for-service customers, funding discovery while building a proprietary patient data asset. IND-enabling work is underway for Rosiphersen with Phase 1 targeted by end of 2026. The company is backed by Termeer Family Office, Jackson Lab, and independently validated by NCATS/NIH, giving it a non-dilutive credibility stack rare at the Seed stage.</p>
+  <div class="coinv-row">
+    <span class="coinv-lbl">Notable Co-Investors</span>
+    <span class="coinv-pill">Termeer Family Office</span>
+    <span class="coinv-pill">Jackson Lab</span>
+    <span class="coinv-pill">NCATS / NIH (non-dilutive)</span>
+  </div>
+</div>
+
+<!-- ── LP DIVIDER ──────────────────────────── -->
+<div class="lp-divider"><span>LP Detail</span></div>
+
+<!-- ── INVESTMENT DATA STRIP ──────────────── -->
+<div style="border-bottom:1px solid var(--border)">
+  <div class="stat-strip">
+    <div class="stat stub">
+      <div class="stat-lbl">Invested to Date</div>
+      <div class="stat-n">Fund II</div>
+      <div class="stat-sub">Carta sync pending</div>
+    </div>
+    <div class="stat stub">
+      <div class="stat-lbl">Current MOIC</div>
+      <div class="stat-n">—</div>
+      <div class="stat-sub">Pending</div>
+    </div>
+    <div class="stat stub">
+      <div class="stat-lbl">Ownership %</div>
+      <div class="stat-n">—</div>
+      <div class="stat-sub">Pending</div>
+    </div>
+    <div class="stat">
+      <div class="stat-lbl">Stage Progression</div>
+      <div class="stat-n" style="font-size:.95rem;color:var(--blue)">Seed → Seed</div>
+      <div class="stat-sub">No step-up yet</div>
+    </div>
+    <div class="stat stub">
+      <div class="stat-lbl">Sourcing</div>
+      <div class="stat-n">—</div>
+      <div class="stat-sub">Inbound / Outbound / Intro</div>
+    </div>
+    <div class="stat stub">
+      <div class="stat-lbl">Governance</div>
+      <div class="stat-n">—</div>
+      <div class="stat-sub">Board / Observer / Info</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3P FIT ──────────────────────────────── -->
+<section class="sec grey">
+  <div class="ey">3P Fit &mdash; People &middot; Plans &middot; Policy</div>
+  <h2>Where this investment sits in the framework.</h2>
+  <div class="p3-grid">
+    <div class="p3-card">
+      <div class="p3-lbl">People</div>
+      <div class="p3-title">Patient Population</div>
+      <div class="p3-desc">30M Americans live with rare disease. 95% have no approved treatment. HNRNPH2-RD causes intellectual disability, seizures, and absent speech with no clinical options. AlphaRose's RINAE.AI platform covers 300+ identified targets across this chronically underserved population.</div>
+    </div>
+    <div class="p3-card off">
+      <div class="p3-lbl">Plans</div>
+      <div class="p3-title">Health Plans</div>
+      <div class="p3-desc">Not the primary channel at this stage. Rare disease reimbursement routes through specialty pharmacy, orphan drug designation, and patient assistance &mdash; not commercial payer networks. Plans become relevant post-IND.</div>
+    </div>
+    <div class="p3-card or">
+      <div class="p3-lbl">Policy</div>
+      <div class="p3-title">Regulatory &amp; Federal</div>
+      <div class="p3-desc">FDA Orphan Drug Act provides 7-year market exclusivity and accelerated review. NCATS TechAtlas independently validated Rosiphersen in human iPSC-derived neurons. NIH/NCI non-dilutive pathway de-risks the capital structure at Seed in a way most competitors cannot replicate.</div>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT + FOUNDER -->
+<!-- ── HEOR + DETAIL ───────────────────────── -->
 <section class="sec blue">
   <div class="two-col">
     <div>
-      <div class="ey">About</div>
-      <h2 style="margin-bottom:1rem">Next-generation platform for ultra-rare genetic diseases.</h2>
-      <p class="body">AlphaRose integrates proprietary gene therapy (MOE + abcDNA&trade;), AI-driven target discovery via RINAE.AI, and an in-house patient-driven R&amp;D flywheel to develop and commercialize precision therapies faster, at a fraction of traditional pharma cost.</p>
-      <p class="body" style="margin-top:.85rem">Lead program Rosiphersen targets HNRNPH2-RD, a devastating neurodevelopmental disorder causing intellectual disability, seizures, and absent speech. The candidate demonstrates 100% survival rescue in murine models and NCATS-independently-validated efficacy in human iPSC-derived neurons. Currently IND-enabling with Phase 1 targeted by end of 2026.</p>
-      <p class="body" style="margin-top:.85rem">RareLabs generates $2M+ annually across 16+ fee-for-service customers, funding discovery while building proprietary patient data.</p>
+      <div class="ey">Platform Detail</div>
+      <h2 style="margin-bottom:1rem">Three integrated layers &mdash; therapy, discovery, revenue.</h2>
+      <p class="body">MOE + abcDNA&trade; gene therapy platform. RINAE.AI for target identification across 300+ rare disease candidates. RareLabs fee-for-service generating $2M+ non-dilutive revenue annually while building proprietary patient data.</p>
+      <p class="body" style="margin-top:.85rem">Rosiphersen: 100% survival rescue in murine HNRNPH2-RD models. NCATS-validated human iPSC neuron efficacy. IND-enabling underway. Phase 1 target: end of 2026. Series A to follow trial initiation.</p>
+      <hr class="ht" style="margin:1.5rem 0">
+      <div class="ey">Milestones</div>
+      <div class="m-grid">
+        <div><div class="m-n">$4.6M</div><div class="m-l">Seed capital raised to date</div></div>
+        <div><div class="m-n">8+</div><div class="m-l">POCs in 2 years</div></div>
+        <div><div class="m-n">300+</div><div class="m-l">Targets via RINAE.AI</div></div>
+        <div><div class="m-n">2026</div><div class="m-l">Phase 1 IND target</div></div>
+      </div>
     </div>
     <div>
-      <div class="ey">Founder</div>
-      <p style="font-family:var(--serif);font-size:1.25rem;color:#fff;font-weight:600;margin-bottom:.5rem">Casey McPherson</p>
-      <p class="body" style="font-size:.88rem;margin-bottom:.75rem">Founder &amp; CEO</p>
-      <div class="badge-row">
-        <span class="badge wh">Relentless Founder</span>
-        <span class="badge wh">Genzyme Lineage</span>
-        <span class="badge wh">25+ Rare Drugs Built</span>
-        <span class="badge wh">Patient-First Mission</span>
+      <div class="ey">HEOR</div>
+      <p class="body" style="font-size:.8rem;margin-bottom:1rem">Economic burden analysis in progress &mdash; Thalassea Partners / Gannott 2026.</p>
+      <div class="heor-box">
+        <div class="heor-n">30M</div>
+        <div class="heor-l">Americans living with a rare disease &mdash; the platform population</div>
+        <div class="heor-src">NORD / NIH Office of Rare Diseases Research</div>
       </div>
-      <hr class="ht" style="margin-top:1.5rem">
-      <div class="ey" style="margin-top:1.25rem">Strategic Backing</div>
-      <div class="badge-row">
-        <span class="badge wh">Termeer Family Office</span>
-        <span class="badge wh">Jackson Lab</span>
-        <span class="badge wh">NCATS / NIH</span>
+      <div class="heor-box">
+        <div class="heor-n">95%</div>
+        <div class="heor-l">of rare diseases have no approved treatment</div>
+        <div class="heor-src">FDA Office of Orphan Products Development</div>
       </div>
+      <div class="heor-box stub">
+        <div class="heor-n">—</div>
+        <div class="heor-l">HNRNPH2-RD COI: direct medical costs, caregiver burden, lifetime productivity loss. Forthcoming &mdash; Gannott 2026.</div>
+        <div class="heor-src">Thalassea Partners &middot; In progress</div>
+      </div>
+      <hr class="ht">
+      <div class="ey" style="margin-top:1rem">Reimbursement Pathway</div>
+      <p class="body" style="font-size:.81rem;margin-top:.5rem">FDA Orphan Drug designation + 7-year exclusivity. CMS rare disease coverage + specialty pharmacy network. Strategic acquirer likely absorbs prior to commercialization &mdash; consistent with Roche/Spark and AbbVie/Cerevel playbook.</p>
     </div>
   </div>
 </section>
 
-<!-- THESIS CONNECTIONS -->
-<section class="sec blue" style="background:var(--blue-dk)">
-  <div class="ey">Thesis Connections</div>
-  <h2 style="margin-bottom:1.25rem">Where this fits the fund&rsquo;s view.</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
-    <a href="index.html" class="tcard">
-      <div class="tcard-ey">Suncoast Thesis</div>
-      <div class="tcard-t">Care Economy</div>
-      <div class="tcard-d">Rare disease coordination and patient continuity infrastructure connects to the broader caregiving economy thesis.</div>
-    </a>
-    <div class="tcard" style="cursor:default">
-      <div class="tcard-ey">Problem Space</div>
-      <div class="tcard-t">Rare Disease</div>
-      <div class="tcard-d">1 in 10 Americans lives with a rare disease. 95% have no approved treatment. AlphaRose's platform covers 300+ identified targets.</div>
+<!-- ── PORTFOLIO NETWORK ───────────────────── -->
+<section class="sec">
+  <div class="ey">Portfolio Network</div>
+  <h2>Cross-portfolio connections.</h2>
+  <div class="net-grid">
+    <div class="net-card or">
+      <div class="net-rel">Platform Collaboration</div>
+      <div class="net-name">Ziora Bio</div>
+      <div class="net-desc">Sourav Sinha connected to AlphaRose via Lila Sciences infrastructure. Cross-pollination of AI-driven biology across two Suncoast companies in adjacent rare-disease and reproductive health biology.</div>
     </div>
-    <div class="tcard" style="cursor:default">
-      <div class="tcard-ey">Platform Edge</div>
-      <div class="tcard-t">Non-Dilutive Engine</div>
-      <div class="tcard-d">RareLabs fee-for-service revenue funds R&amp;D while building the proprietary data asset. Capital efficiency that compounds.</div>
+    <div class="net-card stub">
+      <div class="net-rel">Add Connection</div>
+      <div class="net-name">—</div>
+      <div class="net-desc" style="color:#bbb;font-style:italic;font-size:.8rem">Shared advisors, co-investors, payer channel overlap, market adjacencies.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STRATEGIES ─────────────────────────── -->
+<section class="sec dk">
+  <div class="ey">Strategies</div>
+  <h2 style="margin-bottom:1.5rem">What Suncoast brought beyond the check.</h2>
+  <ul class="strat-list">
+    <li class="strat-item">
+      <div class="strat-chip">HEOR</div>
+      <div>
+        <div class="strat-title">HNRNPH2-RD Cost-of-Illness Model</div>
+        <div class="strat-desc">Thalassea Partners building the first published COI model for HNRNPH2-RD &mdash; direct medical costs, caregiver burden, lifetime productivity loss. Sharpens Series A narrative and payer conversation. In progress, Gannott 2026.</div>
+      </div>
+    </li>
+    <li class="strat-item">
+      <div class="strat-chip">DD</div>
+      <div>
+        <div class="strat-title">Scientific Platform Diligence</div>
+        <div class="strat-desc">Independent review of MOE + abcDNA platform mechanics and NCATS validation dataset. Thesis grounded in published efficacy, not pitch deck claims.</div>
+      </div>
+    </li>
+    <li class="strat-item">
+      <div class="strat-chip">NET</div>
+      <div>
+        <div class="strat-title">Network Activation</div>
+        <div class="strat-desc">Connected AlphaRose to Lila Sciences infrastructure and Ziora Bio. Rare disease patient advocacy introductions in progress. Termeer Family Office and Jackson Lab relationships leveraged in diligence.</div>
+      </div>
+    </li>
+    <li class="strat-item">
+      <div class="strat-chip stub">+</div>
+      <div>
+        <div class="strat-title stub">Add Strategy</div>
+        <div class="strat-desc stub">Document additional value-add as it occurs.</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- ── EXIT THESIS ────────────────────────── -->
+<section class="sec grey">
+  <div class="ey">Exit Thesis</div>
+  <h2 style="margin-bottom:1.25rem">Strategic path to liquidity.</h2>
+  <div class="exit-grid">
+    <div class="exit-card">
+      <div class="exit-lbl">Named Strategic Buyers</div>
+      <div class="exit-val">Biogen &middot; Novartis Gene Therapies &middot; AbbVie &middot; Sarepta Therapeutics &middot; PTC Therapeutics &middot; Ultragenyx</div>
+    </div>
+    <div class="exit-card">
+      <div class="exit-lbl">Comparable Exits</div>
+      <div class="exit-val">Roche / Spark $4.3B &middot; AbbVie / Cerevel $8.7B &middot; Pfizer / Global Blood $5.4B</div>
+    </div>
+    <div class="exit-card">
+      <div class="exit-lbl">Next Catalyst</div>
+      <div class="exit-val">IND filing for Rosiphersen &mdash; Phase 1 target end 2026. Series A follows trial initiation.</div>
+    </div>
+    <div class="exit-card">
+      <div class="exit-lbl">Governance Rights</div>
+      <div class="gov-row">
+        <span class="gov-pill stub">Board &mdash; confirm</span>
+        <span class="gov-pill stub">Observer &mdash; confirm</span>
+        <span class="gov-pill stub">Info Rights &mdash; confirm</span>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>Suncoast Ventures &nbsp;&middot;&nbsp; Healthcare-Focused Early-Stage Venture Capital &nbsp;&middot;&nbsp; Fund II &nbsp;&middot;&nbsp; <a href="https://suncoastventures.com">suncoastventures.com</a></p>
+  <p>Suncoast Ventures &nbsp;&middot;&nbsp; Healthcare-Focused Early-Stage Venture Capital &nbsp;&middot;&nbsp; <a href="portfolio.html">Portfolio</a> &nbsp;&middot;&nbsp; <a href="https://suncoastventures.com">suncoastventures.com</a> &nbsp;&middot;&nbsp; Confidential &mdash; For LP Use Only</p>
 </footer>
 
 </body>
