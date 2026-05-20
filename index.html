@@ -258,15 +258,18 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .ec h3{font-size:.56rem;margin-bottom:.4rem}
   .ec li{font-size:.68rem;padding:.18rem 0 .18rem .65rem}
 
-  /* ── ACT DIVIDERS: each Part starts on a fresh page ── */
+  /* ── EXEC SUMMARY: own page ── */
+  .exec{break-before:always;page-break-before:always;break-inside:avoid;page-break-inside:avoid}
+
+  /* ── ACT DIVIDERS: own page ── */
   .act-div{padding:.35rem 1.2rem;break-before:always;page-break-before:always}
   .act-div-t{font-size:.88rem}
   .act-div-n{font-size:.58rem}
 
-  /* ── SECTIONS: natural breaks, but protect headers from orphaning ── */
-  .sec{padding:.6rem 1.2rem}
-  .sec h2{font-size:1.2rem;line-height:1.15;margin-bottom:.25rem;break-after:avoid;page-break-after:avoid}
-  .pbrow{margin-bottom:.2rem;gap:.3rem;break-after:avoid;page-break-after:avoid}
+  /* ── SECTIONS: each section on its own page ── */
+  .sec{padding:.6rem 1.2rem;break-before:always;page-break-before:always}
+  .sec h2{font-size:1.2rem;line-height:1.15;margin-bottom:.25rem}
+  .pbrow{margin-bottom:.2rem;gap:.3rem}
   .sec-ey{font-size:.55rem;margin-bottom:.2rem}
   .sec-lead{font-size:.74rem;line-height:1.5;margin-bottom:.45rem}
   .sec-bullets li{font-size:.74rem;line-height:1.45}
