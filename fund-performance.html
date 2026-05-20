@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Fund I Performance · Suncoast Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3672D7;--blue-dk:#224B90;--blue-lt:#82A3DB;--blue-pale:#EEF4FF;
+  --orange:#E27D39;--gold:#EBA43E;--grey:#F7F6F6;--border:#DDE6F5;--text:#1A1A1A;
+  --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:'Gelasio',Georgia,serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden}
+.page{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+@media(max-width:960px){.page{grid-template-columns:1fr}.sec{padding:2.5rem 5vw!important}.hero{padding:2.5rem 5vw 2rem}}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--blue-dk);display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.08)}
+.sb-logo{padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+.sb-logo img{display:block;max-width:100%;height:auto;max-height:54px;opacity:.95}
+.sb-tag{padding:.55rem 1.5rem;font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{list-style:none;padding:.75rem 0;flex:1}
+.nav li a{display:block;padding:.5rem 1.5rem;font-family:var(--sans);font-size:.76rem;font-weight:500;color:rgba(255,255,255,.9);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
+.nav li a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav li a.active{color:#fff;border-left-color:var(--orange);background:rgba(255,255,255,.1)}
+.nav li.nav-part{border-top:1px solid rgba(255,255,255,.1);margin-top:.6rem;padding-top:.3rem}
+.nav li.nav-part a{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:.45rem 1.5rem .2rem;border-left:2px solid transparent}
+.nav li.nav-part a:hover{color:rgba(255,255,255,.65);background:rgba(255,255,255,.04);border-left-color:transparent}
+.nav li.sub a{padding:.42rem 1.5rem .42rem 2.2rem;font-size:.72rem}
+.sb-foot{padding:1rem 1.5rem;font-family:var(--sans);font-size:.61rem;color:rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.08);line-height:1.6}
+
+/* HERO */
+.hero{background:#fff;padding:2.5rem 4rem 2rem;border-bottom:1px solid var(--border)}
+.eyebrow{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
+.hero h1{font-family:var(--serif);font-size:4.5rem;font-weight:600;color:var(--blue-dk);line-height:1.05;margin-bottom:.6rem}
+.hero-sub{font-family:var(--sans);font-size:1.5rem;color:#555;line-height:1.45;margin-bottom:1.5rem}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+@media(max-width:740px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.hs{background:#fff;border:none;border-radius:12px;padding:.85rem .9rem;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.hs-o{border-top:3px solid var(--blue)}
+.hs-p{border-top:3px solid var(--orange)}
+.hs-g{border-top:3px solid var(--blue-dk)}
+.hs-n{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--text);line-height:1;margin-bottom:.3rem}
+.hs-l{font-family:var(--sans);font-size:1.15rem;color:#555;line-height:1.4}
+.hs-s{font-family:var(--sans);font-size:.75rem;color:#aaa;margin-top:.2rem}
+
+/* EXEC */
+.exec{border-bottom:2px solid var(--border)}
+.exec-hd{background:var(--blue);padding:1.1rem 4rem 1rem}
+.exec-hd .eyebrow{color:rgba(255,255,255,.65)}
+.exec-hd h2{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:#fff;line-height:1.2;max-width:520px}
+.exec-hd p{font-family:var(--sans);font-size:.88rem;color:rgba(255,255,255,.7);max-width:560px;margin-top:.6rem;line-height:1.65}
+.exec-body{padding:1.1rem 4rem;background:#fff}
+.exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:740px){.exec-grid{grid-template-columns:1fr}}
+.ec{background:#fff;border-radius:12px;padding:1.5rem;border-top:3px solid var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.ec.oc{border-top-color:var(--orange)}
+.ec.gc{border-top-color:var(--gold)}
+.ec h3{font-family:var(--sans);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text);margin-bottom:.85rem}
+.ec ul{list-style:none;padding:0}
+.ec li{font-family:var(--sans);font-size:.88rem;color:#333;line-height:1.52;padding:.32rem 0 .32rem .9rem;border-bottom:1px solid rgba(0,0,0,.05);position:relative}
+.ec li::before{content:'';position:absolute;left:0;top:.7rem;width:3px;height:3px;border-radius:50%;background:currentColor}
+.ec li:last-child{border-bottom:none}
+
+/* SECTIONS */
+.sec{padding:1.5rem 3.5rem;border-bottom:1px solid var(--border)}
+.sec.grey{background:var(--grey)}
+.sec.blue{background:var(--blue)}
+.sec-ey{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem}
+.sec.blue .sec-ey{color:#fff}
+.sec h2{font-family:var(--serif);font-size:2.5rem;font-weight:600;line-height:1.2;margin-bottom:.5rem}
+.sec:not(.blue) h2{color:var(--blue-dk)}
+.sec.blue h2{color:#fff}
+.sec-lead{font-family:var(--sans);font-size:1.28rem;color:#444;line-height:1.72;margin-bottom:1.25rem}
+.sec.blue .sec-lead{color:rgba(255,255,255,.85)}
+
+/* PAPER BADGES */
+.pbrow{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.pbadge{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:20px}
+.pb1{background:#fff;color:#224B90;border:1px solid rgba(34,75,144,.25)}
+.pb2{background:#fff;color:#E27D39;border:1px solid rgba(226,125,57,.25)}
+.pb3{background:#fff;color:#3672D7;border:1px solid rgba(54,114,215,.25)}
+.pb4{background:#fff;color:#22a053;border:1px solid rgba(34,160,83,.25)}
+
+/* ACT DIVIDERS */
+.act-div{padding:.85rem 2rem .85rem 2.5rem;background:#0F1830;border:none;display:flex;align-items:center;gap:1.25rem}
+.act-div-inner{width:100%;display:flex;align-items:center;gap:1.25rem}
+.act-div-t{font-family:var(--serif);font-size:1.7rem;color:#fff;font-weight:500}
+.act-div-line{flex:1;height:1px;background:rgba(255,255,255,.15)}
+.act-div-n{font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#fff;white-space:nowrap}
+@media(max-width:600px){.act-div{padding:1.5rem 1.5rem}.act-div-t{font-size:1.1rem}}
+
+/* CHART BOXES */
+.cg{display:grid;gap:1.25rem;margin:1rem 0}
+.cg.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:740px){.cg.c2{grid-template-columns:1fr}}
+.cb{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;border-left:4px solid var(--blue)}
+.cb.co{border-left-color:var(--orange)}
+.cb.cg2{border-left-color:var(--gold)}
+.cb h3{font-family:var(--sans);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:.2rem}
+.cb.co h3{color:var(--orange)}
+.cb.cg2 h3{color:#b8860b}
+.csub{font-family:var(--sans);font-size:1rem;color:#888;margin-bottom:1rem}
+.cw{position:relative;height:220px}
+.cw.tall{height:300px}
+.cw.short{height:160px}
+
+/* STAT CARDS */
+.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0;align-items:stretch}
+@media(max-width:740px){.sc-row{grid-template-columns:repeat(2,1fr)}}
+.sc{background:var(--grey);border:1px solid var(--border);border-top:4px solid var(--blue-lt);border-radius:12px;padding:1.25rem}
+.sc.so{background:#FFF8F4;border-color:#F5D5C0;border-top-color:var(--orange)}
+.sc.sw{background:#F0F4FA;border-color:#C8D5ED;border-top-color:var(--blue)}
+.sc.sg{background:#FFFAED;border-color:#EBD98F;border-top-color:var(--gold)}
+.sc.sv{background:#F0FFF4;border-color:#A3E6B8;border-top-color:#22a053}
+.sc-cat{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem}
+.sc.so .sc-cat{color:var(--orange)}
+.sc.sg .sc-cat{color:#b8860b}
+.sc.sv .sc-cat{color:#22a053}
+.sc-n{font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--blue-dk);line-height:1;margin-bottom:.3rem}
+.sc.so .sc-n{color:var(--orange)}
+.sc.sg .sc-n{color:#b8860b}
+.sc.sv .sc-n{color:#22a053}
+.sc-l{font-family:var(--sans);font-size:1.15rem;color:#555;line-height:1.45}
+.sc-s{font-family:var(--sans);font-size:.8rem;color:#777;margin-top:.3rem}
+
+/* INSIGHT */
+.insight{background:var(--blue-pale);border:1px solid #C5D9F5;border-left:4px solid var(--blue);border-radius:8px;padding:1.1rem 1.5rem;margin:1rem 0}
+.insight.orange{background:#FFF6F0;border-color:#F5D5C0;border-left-color:var(--orange)}
+.insight.green{background:#F0FFF4;border-color:#A3E6B8;border-left-color:#22a053}
+.ins-label{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem}
+.insight.orange .ins-label{color:var(--orange)}
+.insight.green .ins-label{color:#22a053}
+.insight p{font-family:var(--sans);font-size:1rem;color:#333;line-height:1.67}
+.insight strong{color:var(--blue-dk)}
+
+/* TOP PERFORMERS */
+.perf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:1rem 0}
+@media(max-width:900px){.perf-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.perf-grid{grid-template-columns:1fr}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.4rem;border-top:4px solid var(--blue)}
+.pcard.top{border-top-color:var(--gold)}
+.pcard.acq{border-top-color:#22a053}
+.pc-label{font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:.4rem}
+.pcard.top .pc-label{color:var(--gold)}
+.pcard.acq .pc-label{color:#22a053}
+.pc-co{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:.65rem;line-height:1.2}
+.pc-metrics{display:flex;gap:1.25rem;margin-bottom:.75rem;flex-wrap:wrap}
+.pc-m{}
+.pc-mn{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--blue-dk);line-height:1}
+.pcard.top .pc-mn{color:#b8860b}
+.pcard.acq .pc-mn{color:#22a053}
+.pc-ml{font-family:var(--sans);font-size:.72rem;color:#888;margin-top:.15rem}
+.pc-highlight{font-family:var(--sans);font-size:.85rem;color:#555;line-height:1.5;padding-top:.65rem;border-top:1px solid var(--border)}
+
+/* FUND II CTA */
+.f2-cta{background:var(--blue-dk);border-radius:14px;padding:2rem 2.5rem;margin:1.25rem 0}
+.f2-cta h3{font-family:var(--serif);font-size:1.6rem;font-weight:500;color:#fff;margin-bottom:.5rem}
+.f2-cta p{font-family:var(--sans);font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:520px;margin-bottom:1.25rem}
+.f2-terms{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+.f2-term{font-family:var(--sans);font-size:.78rem;font-weight:600;padding:.3rem .75rem;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff}
+.f2-link{display:inline-block;font-family:var(--sans);font-size:.85rem;font-weight:700;padding:.55rem 1.25rem;border-radius:8px;background:var(--orange);color:#fff;text-decoration:none;letter-spacing:.04em}
+.f2-link:hover{background:#c96820}
+
+/* DISCLAIMER */
+.disc{font-family:var(--sans);font-size:.72rem;color:#aaa;line-height:1.6;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)}
+
+/* MOBILE NAV */
+.mob-btn{display:none;position:fixed;bottom:1.5rem;left:1.5rem;width:44px;height:44px;background:var(--blue-dk);border:none;border-radius:50%;cursor:pointer;z-index:200;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(34,75,144,.4)}
+.mob-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(15,20,40,.92);z-index:199;flex-direction:column;justify-content:center;align-items:center;gap:.25rem;padding:2rem}
+.mob-overlay.open{display:flex}
+.mob-overlay a{font-family:var(--sans);font-size:1rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;padding:.7rem 1.5rem;border-radius:8px;width:100%;max-width:320px;text-align:center;transition:background .15s,color .15s}
+.mob-overlay a:hover,.mob-overlay a:active{background:rgba(255,255,255,.1);color:#fff}
+.mob-overlay .mob-close{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:1rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none;border:none;padding:.5rem}
+@media(max-width:960px){.mob-btn{display:flex}.sidebar{display:none}}
+
+@media print{
+  .sidebar,.mob-btn{display:none!important}
+  .page{display:block}
+  .hero,.sec,.act-div{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  canvas{max-width:100%!important}
+}
+@media(max-width:600px){
+  .hero{padding:2rem 5vw 1.75rem}
+  .hero h1{font-size:2rem;line-height:1.15}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:.65rem}
+  .hs-n{font-size:1.55rem}
+  .sec{padding:2rem 5vw!important}
+  .perf-grid{grid-template-columns:1fr}
+  .exec-hd{padding:1.5rem 5vw 1.25rem}
+  .exec-body{padding:1.25rem 5vw}
+  .cg.c2{grid-template-columns:1fr}
+  .cw{height:200px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sb-logo"><img src="suncoast-logo.svg" alt="Suncoast Ventures"></div>
+  <div class="sb-tag">Fund I Performance &middot; 2026</div>
+  <ul class="nav">
+    <li><a href="#snapshot">Executive Snapshot</a></li>
+    <li class="nav-part"><a href="#part1">Part I &nbsp; Benchmarks</a></li>
+    <li class="sub"><a href="#tvpi">TVPI vs. Carta</a></li>
+    <li class="sub"><a href="#irr">Net IRR vs. Carta</a></li>
+    <li class="nav-part"><a href="#part2">Part II &nbsp; Portfolio</a></li>
+    <li class="sub"><a href="#status">Portfolio Status</a></li>
+    <li class="sub"><a href="#stage">Stage Mix</a></li>
+    <li class="sub"><a href="#sourcing">Deal Sourcing</a></li>
+    <li class="nav-part"><a href="#part3">Part III &nbsp; Top Performers</a></li>
+    <li class="sub"><a href="#performers">Company Returns</a></li>
+    <li class="nav-part"><a href="#part4">Part IV &nbsp; Fund II</a></li>
+    <li class="sub"><a href="#fund2">Fund II is Open</a></li>
+  </ul>
+  <div class="sb-foot">Data per Carta &middot; May 2026<br>Past performance does not guarantee future results.</div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="eyebrow">Suncoast Ventures &nbsp;&middot;&nbsp; Fund I &nbsp;&middot;&nbsp; Month 47</div>
+  <h1>Fund I Performance</h1>
+  <p class="hero-sub">Top-decile returns from a $3.5M healthcare-focused seed fund — 11 months ahead of the 2022 vintage 90th percentile on TVPI.</p>
+  <div class="hero-stats">
+    <div class="hs hs-o">
+      <div class="hs-n">2.02×</div>
+      <div class="hs-l">Gross MOIC</div>
+      <div class="hs-s">Deal-level · May 2026</div>
+    </div>
+    <div class="hs hs-o">
+      <div class="hs-n">1.70×</div>
+      <div class="hs-l">Net TVPI</div>
+      <div class="hs-s">Fund-level · Carta May 2026</div>
+    </div>
+    <div class="hs hs-p">
+      <div class="hs-n">40%</div>
+      <div class="hs-l">Gross IRR</div>
+      <div class="hs-s">May 2026</div>
+    </div>
+    <div class="hs hs-g">
+      <div class="hs-n">30.5%</div>
+      <div class="hs-l">Net IRR</div>
+      <div class="hs-s">vs. 25.3% top decile</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXEC SUMMARY -->
+<div class="exec" id="snapshot">
+  <div class="exec-hd">
+    <div class="eyebrow">Executive Snapshot</div>
+    <h2>21 companies. $3.5M deployed. $907M in aggregate portfolio value.</h2>
+    <p>Fund I is a 2022-vintage healthcare seed fund investing $75K–$500K checks across digital health, medtech, biopharma, and care economy. Performance data per Carta, May 2026.</p>
+  </div>
+  <div class="exec-body">
+    <div class="exec-grid">
+      <div class="ec">
+        <h3>Fund Mechanics</h3>
+        <ul>
+          <li>$3.5M fund size &middot; Month 47</li>
+          <li>21 portfolio companies</li>
+          <li>Check sizes $75K–$500K</li>
+          <li>Seed 61.9% &middot; Pre-Seed 19%</li>
+          <li>Series A 9.5% &middot; Series B 9.5%</li>
+          <li>DPI: 0.02× (1 early exit recycled)</li>
+        </ul>
+      </div>
+      <div class="ec oc">
+        <h3>Portfolio Status</h3>
+        <ul>
+          <li>14 of 21 companies marked up</li>
+          <li>65.1% of portfolio value marked up</li>
+          <li>29.6% written down</li>
+          <li>4.1% value creation &middot; exited</li>
+          <li>85% of portfolio strong performance</li>
+          <li>$907M aggregate portfolio value</li>
+        </ul>
+      </div>
+      <div class="ec gc">
+        <h3>Sourcing Edge</h3>
+        <ul>
+          <li>57% sourced inbound or invite-only</li>
+          <li>4 of 6 top performers never broadly marketed</li>
+          <li>5 via prior accelerator relationship</li>
+          <li>HEOR underwriting at every entry</li>
+          <li>3P network: payer · provider · policy</li>
+          <li>Top decile even without outliers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PART I: BENCHMARKS -->
+<div class="act-div" id="part1">
+  <div class="act-div-inner">
+    <span class="act-div-t">Benchmarking</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-n">Part I</span>
+  </div>
+</div>
+
+<div class="sec" id="tvpi">
+  <div class="pbrow">
+    <div class="sec-ey">Net TVPI vs. Carta 2022 Vintage</div>
+    <span class="pbadge pb1">Fund-Level</span>
+    <span class="pbadge pb3">Net Multiple</span>
+  </div>
+  <h2>Above top decile — 11 months early.</h2>
+  <p class="sec-lead">Suncoast's net TVPI of 1.70× at Month 47 exceeds the Carta 90th percentile of 1.57× measured at Month 36. We crossed the top-decile threshold before comparable funds reached the same measurement date.</p>
+
+  <div class="cb" style="max-width:680px">
+    <h3>Net TVPI &middot; Carta 2022 Vintage Benchmark</h3>
+    <p class="csub">Suncoast (Month 47) vs. Carta benchmarks (Month 36) &middot; Source: Carta Q4 2025 Venture Fund Comparison Report</p>
+    <div class="cw tall"><canvas id="tvpiChart"></canvas></div>
+  </div>
+
+  <div class="insight green" style="max-width:680px">
+    <div class="ins-label">Key Context</div>
+    <p>The Carta benchmark data reflects Month 36 performance for 2022-vintage funds. Suncoast is measured at Month 47 — <strong>11 months later</strong>, and still outperforming the top-decile figure. This comparison understates relative performance; a same-period comparison would be more favorable.</p>
+  </div>
+
+  <div class="sc-row" style="max-width:680px;margin-top:1.25rem">
+    <div class="sc sv">
+      <div class="sc-cat">Suncoast</div>
+      <div class="sc-n">1.70×</div>
+      <div class="sc-l">Net TVPI</div>
+      <div class="sc-s">Month 47 · May 2026</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-cat">Top Decile</div>
+      <div class="sc-n">1.57×</div>
+      <div class="sc-l">Carta 90th pct.</div>
+      <div class="sc-s">Month 36 · 2022 vintage</div>
+    </div>
+    <div class="sc">
+      <div class="sc-cat">Top Quartile</div>
+      <div class="sc-n">1.20×</div>
+      <div class="sc-l">Carta 75th pct.</div>
+      <div class="sc-s">Month 36 · 2022 vintage</div>
+    </div>
+    <div class="sc">
+      <div class="sc-cat">Median</div>
+      <div class="sc-n">1.01×</div>
+      <div class="sc-l">Carta 50th pct.</div>
+      <div class="sc-s">Month 36 · 2022 vintage</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec grey" id="irr">
+  <div class="pbrow">
+    <div class="sec-ey">Net IRR vs. Carta 2022 Vintage</div>
+    <span class="pbadge pb2">Net Return Rate</span>
+  </div>
+  <h2>30.49% net IRR vs. 25.3% top decile.</h2>
+  <p class="sec-lead">Suncoast's net IRR of 30.49% outpaces the Carta top-decile IRR of 25.3% and is nearly 3× the top-quartile rate of 10.9%. The median 2022-vintage fund is at 0.7%.</p>
+
+  <div class="cb co" style="max-width:680px">
+    <h3>Net IRR &middot; Carta 2022 Vintage Benchmark</h3>
+    <p class="csub">Suncoast (Month 47) vs. Carta benchmarks (Month 36) &middot; Source: Carta Q4 2025 Venture Fund Comparison Report</p>
+    <div class="cw tall"><canvas id="irrChart"></canvas></div>
+  </div>
+
+  <div class="sc-row" style="max-width:680px;margin-top:1.25rem">
+    <div class="sc sv">
+      <div class="sc-cat">Suncoast</div>
+      <div class="sc-n">30.5%</div>
+      <div class="sc-l">Net IRR</div>
+      <div class="sc-s">Month 47 · May 2026</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-cat">Top Decile</div>
+      <div class="sc-n">25.3%</div>
+      <div class="sc-l">Carta 90th pct.</div>
+      <div class="sc-s">Month 36 · 2022 vintage</div>
+    </div>
+    <div class="sc">
+      <div class="sc-cat">Top Quartile</div>
+      <div class="sc-n">10.9%</div>
+      <div class="sc-l">Carta 75th pct.</div>
+      <div class="sc-s">Month 36 · 2022 vintage</div>
+    </div>
+    <div class="sc">
+      <div class="sc-cat">Median</div>
+      <div class="sc-n">0.7%</div>
+      <div class="sc-l">Carta 50th pct.</div>
+      <div class="sc-s">Month 36 · 2022 vintage</div>
+    </div>
+  </div>
+</div>
+
+<!-- PART II: PORTFOLIO -->
+<div class="act-div" id="part2">
+  <div class="act-div-inner">
+    <span class="act-div-t">Portfolio Composition</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-n">Part II</span>
+  </div>
+</div>
+
+<div class="sec" id="status">
+  <div class="pbrow">
+    <div class="sec-ey">Portfolio Status &amp; Stage Mix</div>
+    <span class="pbadge pb1">21 Companies</span>
+  </div>
+  <h2>14 of 21 marked up. One early exit.</h2>
+  <p class="sec-lead">The portfolio skews seed-stage with significant follow-on deployment at Series A and B. Mark-ups reflect validated milestones: revenue inflection, strategic partnerships, and institutional co-investors.</p>
+
+  <div class="cg c2">
+    <div class="cb">
+      <h3>Portfolio Status</h3>
+      <p class="csub">By portfolio value &middot; 21 companies &middot; May 2026</p>
+      <div class="cw"><canvas id="statusChart"></canvas></div>
+    </div>
+    <div class="cb co">
+      <h3>Stage at Entry</h3>
+      <p class="csub">By number of investments &middot; Fund I</p>
+      <div class="cw"><canvas id="stageChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec grey" id="sourcing">
+  <div class="pbrow">
+    <div class="sec-ey">Deal Sourcing</div>
+    <span class="pbadge pb3">Access Over Volume</span>
+  </div>
+  <h2>Top performers don't compete for capital.</h2>
+  <p class="sec-lead">57% of Fund I investments came through inbound inquiries or invite-only access — not competitive sourcing. This is not coincidence. The HEOR wedge, payer-network relationships, and prior accelerator partnerships create proprietary deal flow that generalist funds cannot replicate.</p>
+
+  <div class="sc-row">
+    <div class="sc sw">
+      <div class="sc-cat">Inbound / Invite-Only</div>
+      <div class="sc-n">57%</div>
+      <div class="sc-l">of investments sourced non-competitively</div>
+      <div class="sc-s">12 of 21 companies</div>
+    </div>
+    <div class="sc so">
+      <div class="sc-cat">Top Performers</div>
+      <div class="sc-n">4 of 6</div>
+      <div class="sc-l">never broadly marketed when invested</div>
+      <div class="sc-s">ClinNEXUS, Sober Sidekick, Bloomlife, Trellis</div>
+    </div>
+    <div class="sc">
+      <div class="sc-cat">Accelerator Channel</div>
+      <div class="sc-n">5</div>
+      <div class="sc-l">companies via prior accelerator relationship</div>
+      <div class="sc-s">Expert Dojo &amp; network</div>
+    </div>
+    <div class="sc sg">
+      <div class="sc-cat">Without Outliers</div>
+      <div class="sc-n">Top Decile</div>
+      <div class="sc-l">fund performance holds even excluding ClinNEXUS</div>
+      <div class="sc-s">Portfolio breadth, not just concentration</div>
+    </div>
+  </div>
+
+  <div class="insight" style="margin-top:1rem">
+    <div class="ins-label">The 3P Framework</div>
+    <p>Every investment is underwritten against three structural filters: <strong>Payer</strong> (can the product be reimbursed or contracted?), <strong>Provider</strong> (does a health system want this?), <strong>Policy</strong> (does regulatory momentum create or protect the market?). Companies that satisfy all three compress time-to-revenue and compress acquisition risk — which is why Suncoast's top performers show outsized IRR despite small check sizes.</p>
+  </div>
+</div>
+
+<!-- PART III: TOP PERFORMERS -->
+<div class="act-div" id="part3">
+  <div class="act-div-inner">
+    <span class="act-div-t">Top Performers</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-n">Part III</span>
+  </div>
+</div>
+
+<div class="sec" id="performers">
+  <div class="pbrow">
+    <div class="sec-ey">Company Returns &middot; Fund I Highlights</div>
+    <span class="pbadge pb1">Selected</span>
+    <span class="pbadge pb4">Live &amp; Exited</span>
+  </div>
+  <h2>One company returned 12× already.</h2>
+  <p class="sec-lead">ClinNEXUS went from $0 to $30M ARR in 18 months. The broader portfolio shows multiple companies tracking toward institutional follow-on rounds and strategic acquisitions.</p>
+
+  <div class="perf-grid">
+
+    <div class="pcard top">
+      <div class="pc-label">Fund I &middot; Top Return</div>
+      <div class="pc-co">ClinNEXUS</div>
+      <div class="pc-metrics">
+        <div class="pc-m"><div class="pc-mn">12×</div><div class="pc-ml">MOIC</div></div>
+        <div class="pc-m"><div class="pc-mn">2,684%</div><div class="pc-ml">IRR</div></div>
+      </div>
+      <div class="pc-highlight">$0 &rarr; $30M ARR in 18 months. 23%+ operating margin. Enhanced care management platform. $120M valuation.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-label">Fund I &middot; Behavioral Health</div>
+      <div class="pc-co">Empathy Health (Sober Sidekick)</div>
+      <div class="pc-metrics">
+        <div class="pc-m"><div class="pc-mn">2.58×</div><div class="pc-ml">MOIC</div></div>
+        <div class="pc-m"><div class="pc-mn">239%</div><div class="pc-ml">IRR</div></div>
+      </div>
+      <div class="pc-highlight">1M users. $10M revenue run rate. Online sobriety community platform validated by Validation Institute — 68% reduced relapse risk.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-label">Fund I &middot; Women's Health</div>
+      <div class="pc-co">Bloomlife</div>
+      <div class="pc-metrics">
+        <div class="pc-m"><div class="pc-mn">Series B</div><div class="pc-ml">Stage</div></div>
+      </div>
+      <div class="pc-highlight">Strategic partnership with GE Healthcare. Series B co-led by GE Healthcare and the Gates Foundation. Fetal pulse oximetry and maternal monitoring platform. $115M+ valuation trajectory.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-label">Fund I &middot; Expert Marketplace</div>
+      <div class="pc-co">MDisrupt</div>
+      <div class="pc-metrics">
+        <div class="pc-m"><div class="pc-mn">1.4×</div><div class="pc-ml">MOIC</div></div>
+        <div class="pc-m"><div class="pc-mn">567%</div><div class="pc-ml">IRR</div></div>
+      </div>
+      <div class="pc-highlight">191% month-over-month revenue growth. Digital health expert marketplace connecting companies with healthcare operators and KOLs.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-label">Fund I &middot; Digital Health</div>
+      <div class="pc-co">Trellis Health</div>
+      <div class="pc-metrics">
+        <div class="pc-m"><div class="pc-mn">1.32×</div><div class="pc-ml">MOIC</div></div>
+        <div class="pc-m"><div class="pc-mn">611%</div><div class="pc-ml">IRR</div></div>
+      </div>
+      <div class="pc-highlight">5× year-over-year growth. 30%+ gross margin. Virtual care extension platform for clinics — women's health and family planning focus.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-label">Fund I &middot; MSK &middot; Employer Health</div>
+      <div class="pc-co">Aware Health</div>
+      <div class="pc-metrics">
+        <div class="pc-m"><div class="pc-mn">1.85×</div><div class="pc-ml">MOIC</div></div>
+        <div class="pc-m"><div class="pc-mn">121%</div><div class="pc-ml">IRR</div></div>
+      </div>
+      <div class="pc-highlight">2× year-over-year growth. 21% patient engagement (vs. industry &gt;5%). Preventing 98% of unnecessary surgeries. $1.5M+ pipeline in evaluation.</div>
+    </div>
+
+  </div>
+
+  <div class="insight orange" style="margin-top:.5rem">
+    <div class="ins-label">Portfolio Concentration Note</div>
+    <p>ClinNEXUS is the fund's primary mark-up driver at 12× MOIC. Excluding ClinNEXUS entirely, <strong>the remaining portfolio still performs at top-decile</strong> on a 2022-vintage Carta comparison. The return profile reflects both a single outstanding outcome and broad portfolio quality.</p>
+  </div>
+
+  <div class="sc-row" style="margin-top:1.25rem">
+    <div class="sc sw">
+      <div class="sc-cat">Next Life Sciences</div>
+      <div class="sc-n">$205M</div>
+      <div class="sc-l">Portfolio company valuation</div>
+      <div class="sc-s">Reproductive health &middot; Biopharma</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-cat">ClinNEXUS</div>
+      <div class="sc-n">$120M</div>
+      <div class="sc-l">Portfolio company valuation</div>
+      <div class="sc-s">Enhanced care management</div>
+    </div>
+    <div class="sc sw">
+      <div class="sc-cat">Raydiant Oximetry</div>
+      <div class="sc-n">$115M</div>
+      <div class="sc-l">Portfolio company valuation</div>
+      <div class="sc-s">Fetal pulse oximetry &middot; Medtech</div>
+    </div>
+    <div class="sc sg">
+      <div class="sc-cat">Aggregate Value</div>
+      <div class="sc-n">$907M</div>
+      <div class="sc-l">Total portfolio company value</div>
+      <div class="sc-s">From a $3.5M deployed fund</div>
+    </div>
+  </div>
+</div>
+
+<!-- PART IV: FUND II -->
+<div class="act-div" id="part4">
+  <div class="act-div-inner">
+    <span class="act-div-t">Fund II Is Open</span>
+    <div class="act-div-line"></div>
+    <span class="act-div-n">Part IV</span>
+  </div>
+</div>
+
+<div class="sec" id="fund2">
+  <div class="pbrow">
+    <div class="sec-ey">Suncoast Ventures Fund II</div>
+    <span class="pbadge pb2">First Close May 2026</span>
+  </div>
+  <h2>Institutionalizing what Fund I proved.</h2>
+  <p class="sec-lead">Fund II scales the same strategy: larger checks, higher ownership targets, and the same HEOR underwriting edge — now with a formal investment committee, embedded venture partners, and Thalassea Partners as the research and deal-flow engine.</p>
+
+  <div class="f2-cta" id="fund2-cta">
+    <h3>Suncoast Ventures Fund II</h3>
+    <p>$15M target fund ($30M hard cap). Healthcare deep tech — payer, provider, and policy-aligned. First close May 2026. Minimum $150K. LPs include HNWIs, family offices, and strategic healthcare operators.</p>
+    <div class="f2-terms">
+      <span class="f2-term">$15M Target &middot; $30M Hard Cap</span>
+      <span class="f2-term">$150K Minimum</span>
+      <span class="f2-term">2% Mgmt Fee &middot; 20% Carry</span>
+      <span class="f2-term">10-Year Fund Life</span>
+      <span class="f2-term">1% GP Contribution</span>
+      <span class="f2-term">Quarterly Capital Calls</span>
+    </div>
+    <a class="f2-link" href="mailto:g.lemarchal@suncoastvc.com">Contact: g.lemarchal@suncoastvc.com</a>
+  </div>
+
+  <div class="disc">
+    Performance data per Carta Venture Fund Comparison Report (Q4 2025). Fund I 2022 vintage. Suncoast data as of May 2026, Month 47.
+    Carta benchmark figures reflect 2022-vintage funds at Month 36 (all fund sizes). MOIC reflects gross deal-level multiple; TVPI reflects net fund-level multiple to paid-in capital.
+    Past performance does not guarantee future results. This page is for informational purposes and does not constitute an offer to sell or a solicitation to buy any security.
+    Net IRR and TVPI are net of management fees and expenses; gross IRR and MOIC are before fund-level expenses.
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- MOBILE NAV BUTTON -->
+<button class="mob-btn" id="mobBtn" aria-label="Menu">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<div class="mob-overlay" id="mobOverlay">
+  <a href="#snapshot">Executive Snapshot</a>
+  <a href="#tvpi">TVPI Benchmark</a>
+  <a href="#irr">IRR Benchmark</a>
+  <a href="#status">Portfolio Status</a>
+  <a href="#performers">Top Performers</a>
+  <a href="#fund2">Fund II</a>
+  <button class="mob-close" id="mobClose">CLOSE</button>
+</div>
+
+<script>
+Chart.register(ChartDataLabels);
+
+const BLUE    = '#3672D7';
+const BLUE_DK = '#224B90';
+const BLUE_LT = '#82A3DB';
+const BLUE_PA = '#C5D9F5';
+const ORANGE  = '#E27D39';
+const GOLD    = '#EBA43E';
+const GREEN   = '#22a053';
+const GREEN_L = '#A3E6B8';
+
+// ── TVPI BENCHMARK ──────────────────────────────────────────
+const tvpiCtx = document.getElementById('tvpiChart').getContext('2d');
+new Chart(tvpiCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Suncoast\n(Month 47)', 'Top Decile\n(Month 36)', 'Top Quartile\n(Month 36)', 'Median\n(Month 36)'],
+    datasets: [{
+      data: [1.70, 1.57, 1.20, 1.01],
+      backgroundColor: [GREEN, BLUE, BLUE_LT, BLUE_PA],
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {display: false},
+      datalabels: {
+        anchor: 'end', align: 'end',
+        font: {family: "'Helvetica Neue',sans-serif", size: 13, weight: '700'},
+        color: '#1A1A1A',
+        formatter: v => v.toFixed(2) + '×'
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 2.1,
+        grid: {color: '#EEF4FF'},
+        ticks: {font:{size:11}, callback: v => v.toFixed(1) + '×', color:'#888'}
+      },
+      y: {
+        grid: {display: false},
+        ticks: {font:{size:12, family:"'Helvetica Neue',sans-serif"}, color:'#333'}
+      }
+    },
+    layout: {padding: {right: 60}}
+  }
+});
+
+// ── NET IRR BENCHMARK ───────────────────────────────────────
+const irrCtx = document.getElementById('irrChart').getContext('2d');
+new Chart(irrCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Suncoast\n(Month 47)', 'Top Decile\n(Month 36)', 'Top Quartile\n(Month 36)', 'Median\n(Month 36)'],
+    datasets: [{
+      data: [30.49, 25.3, 10.9, 0.7],
+      backgroundColor: [GREEN, ORANGE, '#F5D5C0', '#FFF0E8'],
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {display: false},
+      datalabels: {
+        anchor: 'end', align: 'end',
+        font: {family: "'Helvetica Neue',sans-serif", size: 13, weight: '700'},
+        color: '#1A1A1A',
+        formatter: v => v.toFixed(1) + '%'
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 38,
+        grid: {color: '#FFF6F0'},
+        ticks: {font:{size:11}, callback: v => v + '%', color:'#888'}
+      },
+      y: {
+        grid: {display: false},
+        ticks: {font:{size:12, family:"'Helvetica Neue',sans-serif"}, color:'#333'}
+      }
+    },
+    layout: {padding: {right: 60}}
+  }
+});
+
+// ── PORTFOLIO STATUS DONUT ──────────────────────────────────
+const statusCtx = document.getElementById('statusChart').getContext('2d');
+new Chart(statusCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Marked Up (65.1%)', 'Written Down (29.6%)', 'Exited / Value Creation (4.1%)'],
+    datasets: [{
+      data: [65.1, 29.6, 4.1],
+      backgroundColor: [GREEN, '#EF4444', GOLD],
+      borderWidth: 2,
+      borderColor: '#fff',
+      hoverOffset: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {font:{size:11,family:"'Helvetica Neue',sans-serif"}, padding:12, boxWidth:12}
+      },
+      datalabels: {
+        color: '#fff',
+        font: {size: 12, weight: '700'},
+        formatter: v => v + '%'
+      }
+    }
+  }
+});
+
+// ── STAGE MIX DONUT ─────────────────────────────────────────
+const stageCtx = document.getElementById('stageChart').getContext('2d');
+new Chart(stageCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Seed (61.9%)', 'Pre-Seed (19%)', 'Series A (9.5%)', 'Series B (9.5%)'],
+    datasets: [{
+      data: [61.9, 19, 9.5, 9.5],
+      backgroundColor: [BLUE_DK, BLUE, ORANGE, GOLD],
+      borderWidth: 2,
+      borderColor: '#fff',
+      hoverOffset: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {font:{size:11,family:"'Helvetica Neue',sans-serif"}, padding:12, boxWidth:12}
+      },
+      datalabels: {
+        color: '#fff',
+        font: {size: 12, weight: '700'},
+        formatter: v => v + '%'
+      }
+    }
+  }
+});
+
+// ── MOBILE NAV ───────────────────────────────────────────────
+document.getElementById('mobBtn').addEventListener('click', () =>
+  document.getElementById('mobOverlay').classList.add('open'));
+document.getElementById('mobClose').addEventListener('click', () =>
+  document.getElementById('mobOverlay').classList.remove('open'));
+document.querySelectorAll('.mob-overlay a').forEach(a =>
+  a.addEventListener('click', () =>
+    document.getElementById('mobOverlay').classList.remove('open')));
+
+// ── ACTIVE NAV HIGHLIGHT ─────────────────────────────────────
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.nav li a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav li a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, {threshold: 0.35});
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
