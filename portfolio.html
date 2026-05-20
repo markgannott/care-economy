@@ -56,11 +56,11 @@ h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;lin
 .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:box-shadow .15s,transform .15s;text-decoration:none;display:flex;flex-direction:column;gap:.75rem;border-top:3px solid var(--blue)}
 .card:hover{box-shadow:0 4px 24px rgba(54,114,215,.12);transform:translateY(-2px)}
 .card.fund2{border-top-color:var(--orange)}
-.card.acquired{border-top-color:#aaa;opacity:.7}
+.card.acquired{border-top-color:var(--gold)}
 .card-top{display:flex;align-items:center;gap:.75rem}
 .initials{width:42px;height:42px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.95rem;font-weight:700;color:#fff;flex-shrink:0}
 .card.fund2 .initials{background:var(--orange)}
-.card.acquired .initials{background:#aaa}
+.card.acquired .initials{background:var(--gold)}
 .card-name{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.2}
 .card-tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .ctag{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:12px;background:var(--grey);color:#666;border:1px solid var(--border)}
@@ -69,7 +69,7 @@ h1{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;lin
 .fund-badge{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:10px}
 .fund-badge.f1{background:rgba(54,114,215,.08);color:var(--blue);border:1px solid rgba(54,114,215,.2)}
 .fund-badge.f2{background:rgba(226,125,57,.08);color:var(--orange);border:1px solid rgba(226,125,57,.2)}
-.fund-badge.acq{background:#f0f0f0;color:#999;border:1px solid #ddd}
+.fund-badge.acq{background:var(--gold);color:#fff;border:1px solid var(--gold);font-weight:800}
 .card-arrow{font-size:.8rem;color:var(--blue-lt)}
 .card.no-link{cursor:default}
 .card.no-link:hover{box-shadow:none;transform:none}
@@ -128,9 +128,7 @@ footer a:hover{color:#fff}
         <div class="card-name">AlphaRose Therapeutics</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Rare Disease</span>
-        <span class="ctag">Genetic Medicine</span>
-        <span class="ctag">AI Drug Discovery</span>
+        <span class="ctag">Biopharma</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Casey McPherson</span>
@@ -145,9 +143,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Almon Therapeutics</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Ophthalmology</span>
         <span class="ctag">Biopharma</span>
-        <span class="ctag">Neurodegeneration</span>
+        <span class="ctag">Medtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Howard J. Federoff MD/PhD</span>
@@ -162,9 +159,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Aware Health</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">MSK Care</span>
-        <span class="ctag">Employer Health</span>
-        <span class="ctag">SaaS</span>
+        <span class="ctag">Digital Health</span>
+        <span class="ctag">Healthtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Dr. Shivan McDonald</span>
@@ -179,9 +175,8 @@ footer a:hover{color:#fff}
         <div class="card-name">BetterMeal AI</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Precision Nutrition</span>
-        <span class="ctag">Digital Therapeutics</span>
-        <span class="ctag">Gut Health</span>
+        <span class="ctag">AI</span>
+        <span class="ctag">Digital Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Swathi Nagendra</span>
@@ -196,9 +191,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Bloomlife</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Maternal Health</span>
-        <span class="ctag">Remote Monitoring</span>
-        <span class="ctag">MedTech</span>
+        <span class="ctag">Women's Health</span>
+        <span class="ctag">Medtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Eric Dy &amp; Julien Penders</span>
@@ -213,9 +207,8 @@ footer a:hover{color:#fff}
         <div class="card-name">ClinNEXUS</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">ECM</span>
-        <span class="ctag">Value-Based Care</span>
-        <span class="ctag">Medicaid</span>
+        <span class="ctag">Healthtech</span>
+        <span class="ctag">Digital Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Dr. Gregory Carroll</span>
@@ -230,9 +223,8 @@ footer a:hover{color:#fff}
         <div class="card-name">CRISPR QC</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Gene Editing</span>
-        <span class="ctag">Analytics</span>
-        <span class="ctag">Data Platform</span>
+        <span class="ctag">Biopharma</span>
+        <span class="ctag">Healthtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Ross Bundy</span>
@@ -247,9 +239,7 @@ footer a:hover{color:#fff}
         <div class="card-name">Empathy Health Technologies</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Behavioral Health</span>
-        <span class="ctag">Addiction Tech</span>
-        <span class="ctag">Value-Based Care</span>
+        <span class="ctag">Digital Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Chris Thompson</span>
@@ -264,9 +254,7 @@ footer a:hover{color:#fff}
         <div class="card-name">The Gleamery</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Dental Retail</span>
-        <span class="ctag">Consumer Health</span>
-        <span class="ctag">Multi-Location</span>
+        <span class="ctag">Healthtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">&nbsp;</span>
@@ -281,9 +269,8 @@ footer a:hover{color:#fff}
         <div class="card-name">GritWell</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Functional Medicine</span>
-        <span class="ctag">Digital Health</span>
         <span class="ctag">Women's Health</span>
+        <span class="ctag">Digital Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">&nbsp;</span>
@@ -298,9 +285,8 @@ footer a:hover{color:#fff}
         <div class="card-name">MDisrupt</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Expert Marketplace</span>
+        <span class="ctag">Healthtech</span>
         <span class="ctag">Digital Health</span>
-        <span class="ctag">Growth Stage</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Ruby Gadelrab</span>
@@ -315,8 +301,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Mu Medical</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Ophthalmic Drug Delivery</span>
-        <span class="ctag">MedDevice</span>
+        <span class="ctag">Medtech</span>
+        <span class="ctag">Biopharma</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Dr. Allisa Song</span>
@@ -331,9 +317,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Next Life Sciences</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Reproductive Health</span>
-        <span class="ctag">MedTech</span>
-        <span class="ctag">Global Health</span>
+        <span class="ctag">Women's Health</span>
+        <span class="ctag">Biopharma</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">L.R. Fox</span>
@@ -348,9 +333,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Nicolette Inc.</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">HealthIT</span>
-        <span class="ctag">NICU</span>
-        <span class="ctag">Patient Engagement</span>
+        <span class="ctag">Women's Health</span>
+        <span class="ctag">Medtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Phil Martie</span>
@@ -365,9 +349,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Ohai.ai</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Consumer AI</span>
-        <span class="ctag">Family Tech</span>
-        <span class="ctag">Maternal Care</span>
+        <span class="ctag">AI</span>
+        <span class="ctag">Care Economy</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Sheila Lirio Marcelo</span>
@@ -382,9 +365,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Raydiant Oximetry</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Maternal Health</span>
-        <span class="ctag">Fetal Monitoring</span>
-        <span class="ctag">MedTech</span>
+        <span class="ctag">Medtech</span>
+        <span class="ctag">Women's Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Neil Ray</span>
@@ -400,8 +382,7 @@ footer a:hover{color:#fff}
       </div>
       <div class="card-tags">
         <span class="ctag">Digital Health</span>
-        <span class="ctag">Emerging Markets</span>
-        <span class="ctag">Africa</span>
+        <span class="ctag">Healthtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">Dr. Murisiku Raifu</span>
@@ -416,9 +397,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Tenzr Health</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Musculoskeletal</span>
-        <span class="ctag">Digital Rehab</span>
-        <span class="ctag">Wearables</span>
+        <span class="ctag">Medtech</span>
+        <span class="ctag">Digital Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">&nbsp;</span>
@@ -433,8 +413,7 @@ footer a:hover{color:#fff}
         <div class="card-name">TheraB Medical</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Neonatal Health</span>
-        <span class="ctag">Wearable Phototherapy</span>
+        <span class="ctag">Medtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">&nbsp;</span>
@@ -449,9 +428,8 @@ footer a:hover{color:#fff}
         <div class="card-name">TheRxAssistant</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Pharma AI</span>
-        <span class="ctag">MLR Compliance</span>
-        <span class="ctag">Patient Access</span>
+        <span class="ctag">AI</span>
+        <span class="ctag">Healthtech</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">&nbsp;</span>
@@ -467,7 +445,6 @@ footer a:hover{color:#fff}
       </div>
       <div class="card-tags">
         <span class="ctag">Women's Health</span>
-        <span class="ctag">FamilyOS</span>
         <span class="ctag">AI</span>
       </div>
       <div class="card-footer">
@@ -483,9 +460,8 @@ footer a:hover{color:#fff}
         <div class="card-name">Ziora Bio</div>
       </div>
       <div class="card-tags">
-        <span class="ctag">Reproductive Health</span>
-        <span class="ctag">MedTech</span>
-        <span class="ctag">Pre-Seed</span>
+        <span class="ctag">Biopharma</span>
+        <span class="ctag">Women's Health</span>
       </div>
       <div class="card-footer">
         <span class="card-founder">&nbsp;</span>
