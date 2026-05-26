@@ -292,6 +292,9 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   .cw{display:block;position:relative}
   canvas{display:block;max-width:100%!important}
 
+  /* ── SECTIONS THAT MUST START ON A NEW PAGE ── */
+  #micro,#ohai-co{break-before:page;page-break-before:always}
+
   /* ── COMPANY SECTION LOGOS ── */
   #suncoast img,#ohai-co img,#thalassea img{height:44px!important;margin:.5rem 0 .65rem!important}
 
@@ -453,24 +456,24 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <div id="part1" class="act-div"><span class="act-div-t">Scale: the $1.6 trillion hiding in plain sight</span><div class="act-div-line"></div><span class="act-div-n">Part I</span></div>
 <section id="method" class="sec">
   <div class="pbrow"><div class="sec-ey">Market Scale</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>53.0B unpaid hours. $1.6T the market hasn't priced.</h2>
+  <h2>53.0B caregiving hours. A labor system the size of the global pharmaceutical industry.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Minimum Wage</div>
       <div class="sc-n">~$384B</div>
-      <div class="sc-l">A lower-bound labor estimate using federal minimum wage applied to all 53.0B unpaid hours.</div>
+      <div class="sc-l">Applying the federal minimum wage across 53.0B annual caregiving hours produces a conservative baseline valuation of unpaid care labor.</div>
       <div class="sc-s">BLS 2023 &middot; Repricing the Caregiver Economy</div>
     </div>
     <div class="sc so">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">Replacement Cost</div>
       <div class="sc-n">$1.01T</div>
-      <div class="sc-l">AARP&rsquo;s published figure: 53.0B hours priced at professional caregiver wage rates. Values the replacement worker, not the caregiver&rsquo;s economic loss.</div>
+      <div class="sc-l">AARP&rsquo;s replacement-cost model values caregiving at professional caregiver wage rates: pricing the labor required to replace the work itself.</div>
       <div class="sc-s">AARP/NAC 2020</div>
     </div>
     <div class="sc sp">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Opportunity Cost</div>
       <div class="sc-n">$1.6T</div>
-      <div class="sc-l">What caregivers actually forgo: income, labor force participation, and retirement accumulation. The methodology used in this thesis.</div>
+      <div class="sc-l">Opportunity-cost methodology measures the economic impact of caregiving, including lost wages and reduced workforce participation. The methodology used in this thesis.</div>
       <div class="sc-s">BLS/ATUS 2023 &middot; Repricing the Caregiver Economy</div>
     </div>
   </div>
@@ -480,15 +483,16 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 </section>
 <section id="caregiver-workforce" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Caregiver Workforce</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>63 million caregivers. Half face work disruptions.</h2>
-  <p class="sec-lead">The caregiving workforce spans employed workers, household earners, and mid-career adults.</p>
+  <h2>63M caregivers. 19.2M balancing care with workplace disruption.</h2>
+  <p class="sec-lead">Work disruptions include reduced hours, missed shifts, career slowdowns, workforce exits, and the ongoing strain of balancing employment with caregiving responsibilities.</p>
   <div class="cg" style="margin-top:1.25rem">
     <div class="cb"><h3>The Caregiver Funnel</h3><p class="csub">63.0M total &rarr; 38.4M employed &rarr; 19.2M facing work disruptions &middot; AARP/NAC 2020 &middot; Repricing the Caregiver Economy</p><div class="cw" style="height:220px"><canvas id="chart-funnel"></canvas></div></div>
   </div>
 </section>
 <section id="burden" class="sec">
   <div class="pbrow"><div class="sec-ey">The Caregiver Toll</div><span class="pbadge pb1">Papers I–II</span></div>
-  <h2>Caregiving reduces recovery capacity over time.</h2>
+  <h2>The pressure of caregiving compounds over time.</h2>
+  <p class="sec-lead">Over time, caregiving pressure produces measurable effects on sleep, stress, recovery capacity, and mental health.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Sleep Disruption</div>
@@ -544,15 +548,16 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 </section>
 <section id="global" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Demographic Expansion</div><span class="pbadge pb1">Paper I</span></div>
-  <h2>The U.S. is early. The aging surge is just starting.</h2>
+  <h2>46 million Americans without a caregiver by 2035 — more than the entire population of California.</h2>
+  <p class="sec-lead">Economic burden compounds at roughly 7.5% annually. The caregiver base grows at roughly 3%. The gap is structural.</p>
   <div class="cg" style="margin-top:1.25rem">
-    <div class="cb co"><h3>Population 65+ by Country (2023)</h3><p class="csub">US aging trajectory vs. markets past the inflection point &middot; OECD Health Statistics 2023</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
+    <div class="cb co"><h3>Burden vs. Supply: Indexed Growth 2025–2035</h3><p class="csub">Economic burden ~2.1x &middot; Caregiver base ~1.3x &middot; 54% divergence by 2035 &middot; AARP/NAC 2025; Gannott 2026</p><div class="cw"><canvas id="chart-aging"></canvas></div></div>
   </div>
 </section>
 <div id="part2" class="act-div"><span class="act-div-t">Structure: how the burden compounds</span><div class="act-div-line"></div><span class="act-div-n">Part II</span></div>
 <section id="coordination" class="sec">
   <div class="pbrow"><div class="sec-ey">The Coordination Economy</div><span class="pbadge pb2">Paper II</span></div>
-  <h2>Coordination burden is unevenly distributed.</h2>
+  <h2>Women spend 102 more hours on coordination than men each year.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Women&rsquo;s Burden</div>
@@ -569,7 +574,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     <div class="sc sp">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Annual Gap</div>
       <div class="sc-n">102 hrs</div>
-      <div class="sc-l">Women absorb 102 more unpaid coordination hours than men each year — a $3,070 annual difference at blended wage rates.</div>
+      <div class="sc-l">102 extra hours annually — linked to higher rates of depression, sleep disruption, and deferred preventative care. Women caregivers face 2.2&times; the depression risk of non-caregivers.</div>
       <div class="sc-s">BLS ATUS 2023; Repricing the Caregiver Economy</div>
     </div>
   </div>
@@ -579,7 +584,8 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 </section>
 <section id="gap" class="sec blue">
   <div class="pbrow"><div class="sec-ey">The Infrastructure Gap</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Federal funding covers 0.015% of unpaid care.</h2>
+  <h2>Federal funding covers only 0.015% of unpaid care value.</h2>
+  <p class="sec-lead">$244.8M against a $1.6T economy — less than one-tenth of one percent. The infrastructure gap is not a rounding error.</p>
   <div class="cg">
     <div class="cb co"><h3>Federal Funding vs. Unpaid Care Value</h3><p class="csub">NFCSP $244.8M = 0.015% of $1.6T opportunity-cost value &middot; Repricing the Caregiver Economy</p><div class="cw tall"><canvas id="chart-funding"></canvas></div></div>
   </div>
@@ -588,6 +594,7 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <section id="policy" class="sec">
   <div class="pbrow"><div class="sec-ey">Federal Momentum</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The government is starting to pay for this.</h2>
+  <p class="sec-lead">Federal models, state expansions, and municipal leadership are converging. NYC Mayor Zohran Mamdani has made caregiver infrastructure a central policy commitment. New Mexico Governor Michelle Lujan Grisham has expanded HCBS access statewide. Federal momentum is no longer hypothetical.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem;margin-bottom:1.5rem">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">GUIDE Model</div>
@@ -616,13 +623,14 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
 <section id="platform" class="sec blue">
   <div class="pbrow"><div class="sec-ey">Payer Pathway</div><span class="pbadge pb13">Papers I–III</span></div>
   <h2>The GUIDE model opens a 3.5M patient market.</h2>
+  <p class="sec-lead">3.5M eligible beneficiaries represents more than half of all Americans currently living with Alzheimer&rsquo;s disease — roughly 1 in 20 Medicare beneficiaries. At full penetration, GUIDE generates a $1.47B annual market from a single CMS model.</p>
   <div class="cg">
     <div class="cb co"><h3>GUIDE Model TAM Scenarios</h3><p class="csub">CMS Medicare penetration on 3.5M eligible beneficiaries &middot; Repricing the Caregiver Economy</p><div class="cw"><canvas id="chart-guide"></canvas></div></div>
   </div>
 </section>
 <section id="roi" class="sec">
   <div class="pbrow"><div class="sec-ey">ROI Case</div><span class="pbadge pb13">Papers I–III</span></div>
-  <h2>Caregiver support&rsquo;s ROI is 5.3x.</h2>
+  <h2>Caregiver support delivers a 5.3x workforce return.</h2>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.25rem;align-items:stretch">
     <div class="sc sw">
       <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Employer Loss</div>
@@ -644,28 +652,46 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
     </div>
   </div>
   <div class="cg">
-    <div class="cb"><h3>ROI Framework Comparison</h3><p class="csub">Return per $1 invested in employer caregiver support &middot; Harvard Business School (2019); Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
+    <div class="cb"><h3>Where the 5.3x Return Comes From</h3><p class="csub">Return components per $1 invested in caregiver support &middot; Repricing the Caregiver Economy (2026)</p><div class="cw"><canvas id="chart-roi"></canvas></div></div>
   </div>
 </section>
 <div id="part4" class="act-div"><span class="act-div-t">What gets built</span><div class="act-div-line"></div><span class="act-div-n">Part IV</span></div>
 <section id="what-gets-built" class="sec blue">
   <div class="sec-ey">Venture Categories</div>
   <h2>Here is what the market needs.</h2>
+  <p class="sec-lead" style="color:rgba(255,255,255,.65)">Six infrastructure layers. Each is underbuilt relative to the operational complexity already in market.</p>
   <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1.25rem">
     <div class="sc sw">
-      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Care Coordination</div>
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Care Coordination Platforms</div>
       <div class="sc-n">$15B</div>
-      <div class="sc-l">Scheduling, transportation, provider communication, and continuity management across fragmented care systems.</div>
+      <div class="sc-l">Scheduling, transportation logistics, provider communication, medication management, and continuity management across fragmented systems. The operating layer households lack. <em style="color:rgba(255,255,255,.45)">Example: Ohai.ai</em></div>
     </div>
     <div class="sc so">
-      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">AI Continuity</div>
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">AI Navigation &amp; Continuity</div>
       <div class="sc-n">$8B</div>
-      <div class="sc-l">Workflow automation, reminders, escalation management, and longitudinal household coordination.</div>
+      <div class="sc-l">Adaptive AI systems that manage longitudinal care plans, surface follow-through gaps, escalate proactively, and reduce administrative switching costs across household, clinical, and insurance contexts.</div>
     </div>
     <div class="sc sp">
-      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Employer Care</div>
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Employer Caregiver Benefits</div>
       <div class="sc-n">$10B</div>
-      <div class="sc-l">Workforce retention, caregiver support, scheduling flexibility, and productivity stabilization.</div>
+      <div class="sc-l">EAP upgrades, caregiver leave infrastructure, backup care networks, and productivity stabilization tools. The 87% of employers not yet offering dedicated caregiver benefits represent the whitespace.</div>
+    </div>
+  </div>
+  <div class="sc-row" style="grid-template-columns:repeat(3,1fr);margin-top:1rem">
+    <div class="sc sw">
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue);margin-bottom:.4rem">Payer &amp; Value-Based Care</div>
+      <div class="sc-n">$5B</div>
+      <div class="sc-l">GUIDE-adjacent models, HCBS navigation, dementia care management, and care coordination tools that generate reimbursable value under CMS value-based frameworks.</div>
+    </div>
+    <div class="sc so">
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--orange);margin-bottom:.4rem">Care Worker Supply &amp; Training</div>
+      <div class="sc-n">$4B</div>
+      <div class="sc-l">Recruitment, credentialing, retention, and upskilling platforms for the direct care workforce. The sector will need 8.9M job openings filled in the next decade.</div>
+    </div>
+    <div class="sc sp">
+      <div style="font-family:var(--sans);font-size:1rem;font-weight:800;color:var(--blue-dk);margin-bottom:.4rem">Caregiver Financial Tools</div>
+      <div class="sc-n">$3B</div>
+      <div class="sc-l">Benefits navigation, insurance gap products, savings vehicles, and financial planning tools built around the caregiver economic profile &mdash; including the $353,782 lifetime earnings penalty this thesis quantifies.</div>
     </div>
   </div>
 </section>
@@ -885,27 +911,25 @@ new Chart(document.getElementById('chart-hours'),{type:'bar',
       x:{grid:{color:C.grid},ticks:{callback:function(v){return v+' hrs';},color:C.tick,font:{size:13}},min:0,max:340},
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:17},padding:8}}}}});
 
-// 7 ROI (white bg) — floating range bars, story builds to Gannott 5.3x
+// 7 ROI — stacked bar: where the 5.3x return comes from
 new Chart(document.getElementById('chart-roi'),{type:'bar',
   data:{
-    labels:['Harvard Business School (2019)','Mid-Term Research Consensus','Caregiver Support'],
-    datasets:[{
-      data:[[2.0,3.6],[2.8,4.1],[0,5.3]],
-      backgroundColor:[a(C.blue,.3),a(C.blue,.55),C.orange],
-      borderRadius:6,borderSkipped:false}]},
+    labels:['Return per $1 invested'],
+    datasets:[
+      {label:'Turnover Prevention',data:[2.50],backgroundColor:C.orange,borderRadius:0,borderSkipped:false},
+      {label:'Productivity Restoration',data:[1.50],backgroundColor:a(C.orange,.65),borderRadius:0,borderSkipped:false},
+      {label:'Absenteeism Reduction',data:[0.90],backgroundColor:C.blue,borderRadius:0,borderSkipped:false},
+      {label:'FMLA & Admin Savings',data:[0.43],backgroundColor:a(C.blue,.5),borderRadius:6,borderSkipped:false}
+    ]},
   options:{...B,indexAxis:'y',
     plugins:{...B.plugins,
+      legend:{display:true,position:'bottom',labels:{color:C.tick,font:{size:12},boxWidth:14,padding:16}},
       datalabels:{display:true,anchor:'center',align:'center',
-        formatter:(v,ctx)=>{
-          const d=ctx.dataset.data[ctx.dataIndex];
-          if(Array.isArray(d)){return d[0]===0?d[1]+'x':d[0]+'\u2013'+d[1]+'x';}
-          return v+'x';
-        },
-        font:{weight:700,size:15},
-        color:(ctx)=>ctx.dataIndex===2?'#fff':C.blue}},
+        formatter:(v)=>v>=0.3?'$'+v.toFixed(2):'',
+        font:{weight:700,size:13},color:'#fff'}},
     scales:{
-      x:{grid:{color:C.grid},ticks:{callback:v=>v+'x',color:C.tick,font:{size:13}},min:0,max:7},
-      y:{grid:{display:false},ticks:{color:C.tick,font:{size:14},padding:8}}}}});
+      x:{stacked:true,grid:{color:C.grid},ticks:{callback:v=>'$'+v.toFixed(1),color:C.tick,font:{size:13}},min:0,max:6.5},
+      y:{stacked:true,grid:{display:false},ticks:{display:false}}}}});
 
 // 8 GUIDE TAM (grey bg)
 new Chart(document.getElementById('chart-guide'),{type:'bar',
@@ -928,16 +952,29 @@ new Chart(document.getElementById('chart-funding'),{type:'bar',
       y:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}}}}});
 
 
-// 11 AGING (blue bg)
-new Chart(document.getElementById('chart-aging'),{type:'bar',
-  data:{labels:['Japan','OECD Avg','US','China'],
-    datasets:[{data:[29.1,18.1,17.4,15.4],
-      backgroundColor:[C.blueDk,a(C.blue,.3),C.orange,a(C.orange,.45)],
-      borderRadius:6,borderSkipped:false}]},
-  options:{...B,plugins:{...B.plugins,datalabels:{display:true,anchor:'end',align:'top',
-    formatter:function(v){return v+'%';},font:{weight:700,size:16},
-    color:(ctx)=>[C.blueDk,C.blue,C.orange,C.orange][ctx.dataIndex]}},
-    scales:{x:{grid:{display:false},ticks:{color:C.tick,font:{size:14}}},y:{grid:{color:C.grid},ticks:{callback:v=>`${v}%`,color:C.tick},max:35}}}});
+// 11 AGING — divergence chart (burden vs supply, indexed 2025=1.0)
+new Chart(document.getElementById('chart-aging'),{type:'line',
+  data:{
+    labels:['2025','2027','2029','2031','2033','2035'],
+    datasets:[
+      {label:'Economic Burden',
+       data:[1.00,1.16,1.34,1.54,1.78,2.06],
+       borderColor:C.orange,backgroundColor:a(C.orange,.12),
+       borderWidth:3,pointRadius:4,pointBackgroundColor:C.orange,fill:false,tension:.4},
+      {label:'Caregiver Supply',
+       data:[1.00,1.06,1.13,1.19,1.26,1.34],
+       borderColor:C.blue,backgroundColor:a(C.blue,.08),
+       borderWidth:3,pointRadius:4,pointBackgroundColor:C.blue,fill:false,tension:.4}
+    ]},
+  options:{...B,
+    plugins:{...B.plugins,
+      legend:{display:true,position:'top',labels:{color:C.tick,font:{size:12},boxWidth:14}},
+      datalabels:{display:(ctx)=>ctx.dataIndex===5,anchor:'end',align:'right',
+        formatter:(v,ctx)=>ctx.datasetIndex===0?'2.1x':'1.3x',
+        font:{weight:700,size:13},color:(ctx)=>ctx.datasetIndex===0?C.orange:C.blue}},
+    scales:{
+      x:{grid:{color:C.grid},ticks:{color:C.tick,font:{size:12}}},
+      y:{grid:{color:C.grid},ticks:{color:C.tick,callback:v=>v+'x'},min:.8,max:2.4}}}});
 
 
 // COORDINATION: hidden cost comparison (Paper II)
