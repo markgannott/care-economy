@@ -295,6 +295,12 @@ body{margin:0;font-family:var(--serif);background:#fff;color:var(--text);line-he
   /* ── SECTIONS THAT MUST START ON A NEW PAGE ── */
   #micro,#ohai-co{break-before:page;page-break-before:always}
 
+  /* ── WHAT GETS BUILT: divider+section start fresh page; never split (blue bg bled across page breaks) ── */
+  #part4{break-before:page;page-break-before:always}
+  #what-gets-built{break-inside:avoid;page-break-inside:avoid}
+  #what-gets-built .sc-row{break-inside:avoid;page-break-inside:avoid}
+  #what-gets-built .sc{break-inside:avoid;page-break-inside:avoid}
+
   /* ── COMPANY SECTION LOGOS ── */
   #suncoast img,#ohai-co img,#thalassea img{height:44px!important;margin:.5rem 0 .65rem!important}
 
