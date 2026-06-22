@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Invisible Economy — LinkedIn Carousel</title>
+<style>
+:root {
+  --teal:#117A8B; --teal-dk:#0E6473; --gold:#F09E4A;
+  --cream:#F5F0E8; --red:#E85D4A;
+  --font:Calibri,'Calibri',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:#0a0a0a;-webkit-font-smoothing:antialiased;padding:40px 20px}
+
+/* Screen: each slide displayed at 50% */
+.slide-wrap{display:flex;justify-content:center;margin-bottom:20px}
+.slide-scale{width:540px;height:540px;overflow:hidden;position:relative;flex-shrink:0}
+.slide-inner{width:1080px;height:1080px;transform:scale(.5);transform-origin:top left;position:absolute;top:0;left:0}
+
+/* Print: full 1080×1080 per page */
+@media print{
+  body{background:#fff;padding:0}
+  .export-note{display:none}
+  .slide-wrap{margin-bottom:0;page-break-after:always}
+  .slide-scale{width:1080px;height:1080px}
+  .slide-inner{transform:none;position:relative}
+}
+
+/* Base slide */
+.slide{width:1080px;height:1080px;position:relative;display:flex;flex-direction:column;padding:88px 88px 80px;overflow:hidden}
+.s-teal{background:var(--teal)}
+.s-dk{background:var(--teal-dk)}
+.s-cream{background:var(--cream)}
+
+/* Accent bar */
+.bar{position:absolute;left:0;top:0;width:10px;height:100%;background:var(--gold);opacity:.55}
+
+/* Eyebrow */
+.ey{font-size:18px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:24px}
+.s-teal .ey,.s-dk .ey{color:var(--gold)}
+.s-cream .ey{color:var(--teal)}
+
+/* Big number */
+.bn{font-size:152px;font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:12px}
+.s-teal .bn,.s-dk .bn{color:var(--gold)}
+.s-cream .bn{color:var(--teal)}
+
+/* Title */
+.ttl{font-size:68px;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.s-teal .ttl,.s-dk .ttl{color:#fff}
+.s-cream .ttl{color:var(--teal-dk)}
+
+/* Sub */
+.sub{font-size:30px;font-weight:400;line-height:1.45;margin-top:16px}
+.s-teal .sub,.s-dk .sub{color:var(--cream)}
+.s-cream .sub{color:var(--teal)}
+
+/* Body */
+.bod{font-size:26px;font-weight:400;line-height:1.6;margin-top:24px}
+.s-teal .bod,.s-dk .bod{color:var(--cream)}
+.s-cream .bod{color:var(--teal-dk)}
+
+/* Divider */
+.div{height:3px;width:72px;background:var(--gold);margin:32px 0}
+.s-cream .div{background:var(--teal)}
+
+/* Stat grid */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.sc{background:rgba(0,0,0,.18);border-radius:12px;padding:26px 22px}
+.s-cream .sc{background:rgba(17,122,139,.1)}
+.sn{font-size:54px;font-weight:700;line-height:1;color:var(--gold);margin-bottom:10px}
+.s-cream .sn{color:var(--teal)}
+.sl{font-size:18px;font-weight:400;color:var(--cream);line-height:1.35}
+.s-cream .sl{color:var(--teal-dk)}
+
+/* Math row */
+.mr{display:flex;align-items:center;gap:20px;margin-top:44px}
+.mi{text-align:center}
+.mn{font-size:60px;font-weight:700;color:var(--gold);line-height:1}
+.ml{font-size:17px;color:var(--cream);margin-top:8px;line-height:1.3}
+.mo{font-size:56px;font-weight:300;color:rgba(255,255,255,.25);line-height:1;flex-shrink:0}
+
+/* Ratio display */
+.ratio-row{display:flex;align-items:flex-end;gap:40px;margin-bottom:8px}
+.ratio-blk{}
+.ratio-yr{font-size:22px;font-weight:700;margin-bottom:6px}
+.ratio-n{font-size:116px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.ratio-arr{font-size:72px;font-weight:300;color:rgba(255,255,255,.2);margin-bottom:12px;align-self:center}
+
+/* Source */
+.src{margin-top:auto;padding-top:24px;font-size:14px;font-style:italic}
+.s-teal .src,.s-dk .src{color:rgba(245,240,232,.4)}
+.s-cream .src{color:rgba(14,100,115,.4)}
+
+/* Footer */
+.ft{position:absolute;bottom:52px;left:88px;right:88px;display:flex;align-items:center;justify-content:space-between}
+.ft-brand{font-size:15px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.s-teal .ft-brand,.s-dk .ft-brand{color:rgba(255,255,255,.3)}
+.s-cream .ft-brand{color:rgba(14,100,115,.35)}
+.ft-n{font-size:14px;font-weight:600}
+.s-teal .ft-n,.s-dk .ft-n{color:rgba(255,255,255,.22)}
+.s-cream .ft-n{color:rgba(14,100,115,.3)}
+
+.export-note{color:rgba(255,255,255,.35);font-size:13px;text-align:center;margin-bottom:28px;font-family:var(--font)}
+</style>
+</head>
+<body>
+
+<p class="export-note">Export: File → Print → Save as PDF · Set paper to Square (7.5"×7.5") or use browser print dialog</p>
+
+<!-- SLIDE 1: COVER -->
+<div class="slide-wrap"><div class="slide-scale"><div class="slide-inner">
+<div class="slide s-dk">
+  <div class="bar"></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="ey">Suncoast Ventures &nbsp;·&nbsp; Thalassea Partners</div>
+    <div class="ttl" style="font-size:82px;color:#fff;line-height:1.05">The Invisible<br>Economy</div>
+    <div class="sub" style="margin-top:28px;max-width:680px">What caregiving really costs —<br>and why capital hasn't caught up.</div>
+  </div>
+  <div class="ft">
+    <div class="ft-brand">Gannott · 2026</div>
+    <div class="ft-n">01 / 06</div>
+  </div>
+</div>
+</div></div></div>
+
+<!-- SLIDE 2: SCALE -->
+<div class="slide-wrap"><div class="slide-scale"><div class="slide-inner">
+<div class="slide s-teal">
+  <div class="bar"></div>
+  <div class="ey">The Scale</div>
+  <div class="bn">1 in 5</div>
+  <div class="sub">Americans are providing unpaid care right now.</div>
+  <div class="sg">
+    <div class="sc">
+      <div class="sn">63M</div>
+      <div class="sl">People providing unpaid care in the US</div>
+    </div>
+    <div class="sc">
+      <div class="sn">65%</div>
+      <div class="sl">Are women</div>
+    </div>
+    <div class="sc">
+      <div class="sn">60%</div>
+      <div class="sl">Hold jobs at the same time</div>
+    </div>
+  </div>
+  <div class="src">NAC / AARP Caregiving in the US, 2020</div>
+  <div class="ft">
+    <div class="ft-brand">The Invisible Economy</div>
+    <div class="ft-n">02 / 06</div>
+  </div>
+</div>
+</div></div></div>
+
+<!-- SLIDE 3: WEEKLY COST -->
+<div class="slide-wrap"><div class="slide-scale"><div class="slide-inner">
+<div class="slide s-dk">
+  <div class="bar"></div>
+  <div class="ey">What It Costs Per Week</div>
+  <div class="bn">$720</div>
+  <div class="sub">in economic output per caregiver, per week —<br>invisible to every paycheck.</div>
+  <div class="div"></div>
+  <div class="mr">
+    <div class="mi">
+      <div class="mn">24 hrs</div>
+      <div class="ml">average per week<br>(NAC/AARP 2020)</div>
+    </div>
+    <div class="mo">×</div>
+    <div class="mi">
+      <div class="mn">$30/hr</div>
+      <div class="ml">blended opportunity-<br>cost wage (BLS ATUS)</div>
+    </div>
+    <div class="mo">=</div>
+    <div class="mi">
+      <div class="mn" style="color:#fff">$720</div>
+      <div class="ml">per week,<br>uncompensated</div>
+    </div>
+  </div>
+  <div class="src">Hours: NAC/AARP 2020 &nbsp;·&nbsp; Wage: BLS ATUS 2022, sex-adjusted opportunity cost</div>
+  <div class="ft">
+    <div class="ft-brand">The Invisible Economy</div>
+    <div class="ft-n">03 / 06</div>
+  </div>
+</div>
+</div></div></div>
+
+<!-- SLIDE 4: LIFETIME -->
+<div class="slide-wrap"><div class="slide-scale"><div class="slide-inner">
+<div class="slide s-teal">
+  <div class="bar"></div>
+  <div class="ey">Over a Lifetime</div>
+  <div class="bn">5,616 hrs</div>
+  <div class="sub">The average caregiving episode.</div>
+  <div class="div"></div>
+  <div class="bod">
+    The average caregiving spell lasts <strong style="color:#fff">4.5 years</strong>.<br>
+    At 24 hours per week, that is 5,616 hours of economic output —<br>
+    <strong style="color:var(--gold)">$169,000</strong> at a blended opportunity-cost wage.<br><br>
+    Per episode. Many caregivers have more than one.
+  </div>
+  <div class="src">Duration: NAC/AARP 2020 &nbsp;·&nbsp; Valuation: Gannott (2026), Thalassea Partners</div>
+  <div class="ft">
+    <div class="ft-brand">The Invisible Economy</div>
+    <div class="ft-n">04 / 06</div>
+  </div>
+</div>
+</div></div></div>
+
+<!-- SLIDE 5: DEMOGRAPHIC -->
+<div class="slide-wrap"><div class="slide-scale"><div class="slide-inner">
+<div class="slide s-dk">
+  <div class="bar"></div>
+  <div class="ey">The Demographic Math</div>
+  <div class="ratio-row">
+    <div class="ratio-blk">
+      <div class="ratio-yr" style="color:rgba(255,255,255,.35)">1960</div>
+      <div class="ratio-n" style="color:rgba(240,158,74,.3)">6:1</div>
+    </div>
+    <div class="ratio-arr">→</div>
+    <div class="ratio-blk">
+      <div class="ratio-yr" style="color:var(--gold)">2030</div>
+      <div class="ratio-n" style="color:var(--gold)">3:1</div>
+    </div>
+  </div>
+  <div class="sub" style="margin-top:8px">Family caregivers per person over 80.</div>
+  <div class="bod" style="margin-top:20px">
+    Already baked into the age structure of the population.<br>
+    10,000 Americans turn 65 every day.<br>
+    The infrastructure serving this population is <strong style="color:var(--gold)">early.</strong>
+  </div>
+  <div class="src">AARP Public Policy Institute &nbsp;·&nbsp; US Census Bureau</div>
+  <div class="ft">
+    <div class="ft-brand">The Invisible Economy</div>
+    <div class="ft-n">05 / 06</div>
+  </div>
+</div>
+</div></div></div>
+
+<!-- SLIDE 6: CLOSE -->
+<div class="slide-wrap"><div class="slide-scale"><div class="slide-inner">
+<div class="slide s-cream">
+  <div class="bar" style="background:var(--teal)"></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="ey">The Economic Case</div>
+    <div class="div"></div>
+    <div class="ttl" style="font-size:62px;line-height:1.15">We've been building<br>the economic case.</div>
+    <div class="sub" style="margin-top:24px;font-size:28px;color:var(--teal)">As part of the invisible economy.</div>
+  </div>
+  <div class="ft">
+    <div class="ft-brand" style="color:var(--teal);opacity:.55">Suncoast Ventures &nbsp;·&nbsp; Thalassea Partners</div>
+    <div class="ft-n" style="color:var(--teal);opacity:.4">06 / 06</div>
+  </div>
+</div>
+</div></div></div>
+
+</body>
+</html>
